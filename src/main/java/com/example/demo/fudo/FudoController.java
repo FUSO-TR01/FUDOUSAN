@@ -1,5 +1,6 @@
 package com.example.demo.fudo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,18 +13,23 @@ import com.example.demo.entity.UserEntity;
 
 @Controller
 public class FudoController {
-
-	//	①
+	
+	private final Dao dao;
+	@Autowired
+	public FudoController(Dao dao) {
+		this.dao = dao;
+	}
+	//	①------------------------
 	@RequestMapping("/home")
 	public String sample(Model model) {
 		return "home";
 	}
 
-	//	②
+	//	②-------------------------
 	//	ログイン画面
 	@GetMapping("/login")
 	public String showLoginForm(Model model) {
-		model.addAttribute("title", "ログイン");
+//		model.addAttribute("title", "ログイン");
 		return "login";
 	}
 
@@ -31,7 +37,7 @@ public class FudoController {
 	public String login(Model model, @RequestParam("logId") String LogId,
 			@RequestParam("pass") String pass) {
 		UserEntity user = Dao.findByUsername(LogId);
-		model.addAttribute("title", "ログイン");
+//		model.addAttribute("title", "ログイン");
 
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
@@ -60,4 +66,25 @@ public class FudoController {
 		dao.insertDb2(userentform);
 		return "register";
 	}
+	
+//	③----------------------------------------------------------
+	
+	@RequestMapping("/merchant")
+	public String merchant(Model model) {
+		return "merchant";
+	}
+
+//	④--------------------------------------------------
+	@RequestMapping("/addhome")
+	public String addhome(Model model, Input onput) {
+		return "addhome";
+	}
+	
+//	⑤----------------
+	@RequestMapping("/viewhome")
+	public String viewhome(Model model) {
+		return "viewhome";
+	}
+	
+	
 }
