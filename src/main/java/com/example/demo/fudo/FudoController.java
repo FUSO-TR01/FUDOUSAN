@@ -29,7 +29,7 @@ public class FudoController {
 	//	ログイン画面
 	@GetMapping("/login")
 	public String showLoginForm(Model model) {
-		model.addAttribute("title", "ログイン");
+//		model.addAttribute("title", "ログイン");
 		return "login";
 	}
 
@@ -37,7 +37,7 @@ public class FudoController {
 	public String login(Model model, @RequestParam("logId") String LogId,
 			@RequestParam("pass") String pass) {
 		UserEntity user = Dao.findByUsername(LogId);
-		model.addAttribute("title", "ログイン");
+//		model.addAttribute("title", "ログイン");
 
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
