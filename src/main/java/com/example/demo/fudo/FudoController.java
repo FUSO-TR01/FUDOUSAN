@@ -19,13 +19,13 @@ public class FudoController {
 	public FudoController(Dao dao) {
 		this.dao = dao;
 	}
-	//	①
+	//	①------------------------
 	@RequestMapping("/home")
 	public String sample(Model model) {
 		return "home";
 	}
 
-	//	②
+	//	②-------------------------
 	//	ログイン画面
 	@GetMapping("/login")
 	public String showLoginForm(Model model) {
@@ -66,4 +66,25 @@ public class FudoController {
 		dao.insertDb2(userentform);
 		return "register";
 	}
+	
+//	③----------------------------------------------------------
+	
+	@RequestMapping("/merchant")
+	public String merchant(Model model) {
+		return "merchant";
+	}
+
+//	④--------------------------------------------------
+	@RequestMapping("/addhome")
+	public String addhome(Model model, Input onput) {
+		return "addhome";
+	}
+	
+//	⑤----------------
+	@RequestMapping("/viewhome")
+	public String viewhome(Model model) {
+		return "viewhome";
+	}
+	
+	
 }
