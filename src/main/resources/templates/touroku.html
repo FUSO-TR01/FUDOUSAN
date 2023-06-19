@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+	<title>物件情報登録ページ</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>物件情報登録ページ</h1>
+	<div th:object="${home}">
+		<form action="#" method="get" th:action="@{/edit/__*{id}__/exe}">
+			<p>
+				ID:<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">
+			</p>
+			<p>
+				物件名: <input type="text" name="name1" th:value="*{name}">
+			</p>
+			<p>
+				間取り: <input type="text" name="space" th:value="*{space}">
+			</p>
+			<p>
+				家賃: <input type="text" name="money" th:value="*{money}">
+			</p>
+			<p>
+				住所: <input type="text" name="address" th:value="*{address}">
+			</p>
+			<p>詳細</p>
+			<input type="checkbox" name=“詳細” value="1">無料Wi-Fiあり
+			<input type="checkbox" name=“詳細” value="2">駐車場空きあり
+			<input type="checkbox" name=“詳細” value="3">ペット可
+			<input type="checkbox" name=“詳細” value="4">室内洗濯機置き場あり
+			<input type="checkbox" name=“詳細” value="5">オートロックあり
+			<input type="checkbox" name=“詳細” value="6">バス・トイレ別
+			
+			<input type="submit" value="登録">
+		</form>
+	</div>
+</body>
+
+</html>
