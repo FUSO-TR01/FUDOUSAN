@@ -8,24 +8,20 @@
 
 <body>
 	<h1>ログインページ</h1>
-	<form method="get" action="#" th:action="@{/merchant}" th:object="${input}">
-
-		<p>ログインID：<input type="text" name="login2" th:value="*{login2}"></p>
-		<div th:if="${#fields.hasErrors('login2')}" th:errors="*{login2}">エラーメッセージ</div>
-		<p>パスワード：<input type="text" name="pass2" th:value="*{pass2}"></p>
-		<div th:if="${#fields.hasErrors('pass2')}" th:errors="*{pass2}">エラーメッセージ</div>
-
-		<form th:action="@{/}">
-			<input type="submit" value="ログイン">
-		</form>
-		
-		<form th:action="@{/login1}">
-			<input type="submit" value="不動産用ログインページへ">
-		</form>
-
+	
+	<form method="post" action="/login2">
+		<p>ログインID：<input type="text" name="login2" required></p>
+		<!--		<div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">エラーメッセージ</div>-->
+		<p>パスワード：<input type="text" name="pass2" required></p>
+		<!--		<div th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}">エラーメッセージ</div>-->
+		<input type="submit" value="ログイン">
+		<p th:text="${result}"></p>
 	</form>
 
-
+	<form th:action="@{/login1}">
+		<input type="submit" value="不動産用ログインページへ">
+	</form>
+	
 </body>
 
 </html>
