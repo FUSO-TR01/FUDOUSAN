@@ -50,15 +50,32 @@ public class FudoController {
 		}
 	}
 
-	//	新規登録
-	@RequestMapping("/signup")
+	//	新規登録（不動産）
+	@RequestMapping("/signup1")
 	public String signup(Model model, UserInput userinput) {
 		model.addAttribute("title", "todoリスト");
 		return "signup";
 	}
 
-	//	登録完了画面
-	@RequestMapping("/register")
+	//	登録完了画面（不動産）
+	@RequestMapping("/register1")
+	public String complete(Model model, UserInput userinput) {
+		UserEntity userentform = new UserEntity();
+		userentform.setLogId(userinput.getLogId());
+		userentform.setPass(userinput.getPass());
+		dao.insertDb2(userentform);
+		return "register";
+	}
+	
+	//	新規登録（顧客）
+	@RequestMapping("/signup2")
+	public String signup(Model model, UserInput userinput) {
+		model.addAttribute("title", "todoリスト");
+		return "signup";
+	}
+
+	//	登録完了画面（顧客）
+	@RequestMapping("/register2")
 	public String complete(Model model, UserInput userinput) {
 		UserEntity userentform = new UserEntity();
 		userentform.setLogId(userinput.getLogId());
