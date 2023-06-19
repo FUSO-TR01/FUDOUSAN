@@ -19,6 +19,10 @@
 		<input type="submit" value="ログイン">
 		<p th:text="${result}"></p>
 	</form>
+	
+	<form th:action="@{/signup1}">
+		<input type="submit" value="不動産用新規登録画面へ">
+	</form>
 
 	<form th:action="@{/customer}">
 		<input type="submit" value="お客様用ログインページへ">

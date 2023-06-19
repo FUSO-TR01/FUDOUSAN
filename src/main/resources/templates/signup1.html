@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Hello</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1 th:text="${title}"></h1>
+	<h1>ユーザー登録画面</h1>
+	<p>IDとパスワードを設定してください</p>
+	<form method="get" action="#" th:action="@{/register}" th:object="${UserInput}">
+		<p>
+			ID：<input type="text" name="logId" placeholder="IDを入力してください" th:value="*{logId}" >
+		</p>
+		<p>
+			パスワード：<input type="text" name="pass" placeholder="パスワードを入力してください" th:value="*{pass}" >
+		</p>
+		<input type="submit" value="登録" >
+	</form>
+</body>
+
+</html>
