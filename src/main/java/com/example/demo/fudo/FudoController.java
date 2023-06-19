@@ -25,19 +25,18 @@ public class FudoController {
 		return "home";
 	}
 
-	//	②-------------------------
-	//	ログイン画面
-	@GetMapping("/login")
-	public String showLoginForm(Model model) {
-//		model.addAttribute("title", "ログイン");
-		return "login";
+
+	//	②
+	//	ログイン画面１(不動産ログイン)
+	@GetMapping("/login1")
+	public String showLoginForm1(Model model) {
+		return "login1";
 	}
 
-	@PostMapping("/login")
-	public String login(Model model, @RequestParam("logId") String LogId,
-			@RequestParam("pass") String pass) {
+	@PostMapping("/login1")
+	public String login1(Model model, @RequestParam("logId1") String LogId,
+			@RequestParam("pass1") String pass) {
 		UserEntity user = Dao.findByUsername(LogId);
-//		model.addAttribute("title", "ログイン");
 
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
@@ -46,14 +45,34 @@ public class FudoController {
 		} else {
 			// ログイン失敗の処理
 			model.addAttribute("result", "ユーザー名またはパスワードが間違っています");
-			return "login";
+			return "login1";
+		}
+	}
+	
+//	ログイン画面２(顧客ログイン)
+	@GetMapping("/customer")
+	public String showLoginForm2(Model model) {
+		return "customer";
+	}
+
+	@PostMapping("/login2")
+	public String login2(Model model, @RequestParam("logId2") String LogId,
+			@RequestParam("pass2") String pass) {
+		UserEntity user = Dao.findByUsername(LogId);
+		if (user != null && user.getPass().equals(pass)) {
+			// ログイン成功の処理
+			model.addAttribute("result", "ログイン成功");
+			return "redirect:/view"; // タスク管理画面にリダイレクト
+		} else {
+			// ログイン失敗の処理
+			model.addAttribute("result", "ユーザー名またはパスワードが間違っています");
+			return "login2";
 		}
 	}
 
 	//	新規登録
 	@RequestMapping("/signup")
 	public String signup(Model model, UserInput userinput) {
-		model.addAttribute("title", "todoリスト");
 		return "signup";
 	}
 
