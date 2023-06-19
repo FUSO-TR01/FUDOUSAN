@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>ログインページ</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>ログインページ</h1>
+	<form method="get" action="#" th:action="@{/merchant}" th:object="${input}">
+
+		<p>ログインID：<input type="text" name="login1" th:value="*{login1}"></p>
+		<div th:if="${#fields.hasErrors('login1')}" th:errors="*{login1}">エラーメッセージ</div>
+		<p>パスワード：<input type="text" name="pass" th:value="*{pass}"></p>
+		<div th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}">エラーメッセージ</div>
+
+		<form th:action="@{/}">
+			<input type="submit" value="ログイン">
+		</form>
+		
+		<form th:action="@{/customer}">
+			<input type="submit" value="お客様用ログインページへ">
+		</form>
+
+	</form>
+
+
+</body>
+
+</html>
