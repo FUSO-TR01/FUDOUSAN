@@ -1,5 +1,6 @@
 package com.example.demo.fudo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,12 @@ import com.example.demo.entity.UserEntity;
 
 @Controller
 public class FudoController {
-
+	
+	private final Dao dao;
+	@Autowired
+	public FudoController(Dao dao) {
+		this.dao = dao;
+	}
 	//	①
 	@RequestMapping("/home")
 	public String sample(Model model) {
