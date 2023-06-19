@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>物件情報一覧 - 一人暮らしの家探し</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>物件情報一覧</h1>
+
+<!--	<div align="center">-->
+<!--		<form method="get" action="#" th:action="@{/search/{price}}" th:object="${loginput}">-->
+<!--			<p class="defaultFont"> <input type="search" name="price" id="price" placeholder="金額を入力" class="defaultFont"-->
+<!--					required>から-->
+<!--				<input type="search" name="price2" id="price2" placeholder="金額を入力" class="defaultFont" required>の間-->
+<!--			</p>-->
+<!--			<input type="submit" class="MiniListButton" value="検索" required>-->
+<!--		</form>-->
+<!--		<form method="get" action="#" th:action="@{/search2/{score}}" th:object="${loginput}">-->
+<!--			<p class="defaultFont"> <input type="search" name="score" id="score" placeholder="スコアを入力"-->
+<!--					class="defaultFont" required></p>-->
+<!--			<input type="submit" class="MiniListButton" value="検索" required>-->
+<!--		</form>-->
+
+<!--		<p>-->
+<!--		<form method="get" action="#" th:action="@{/sort}" th:object="${loginput}" style="display: inline;">-->
+<!--			<input type="submit" class="MiniListButton" value="金額">-->
+<!--		</form>-->
+<!--		<form method="get" action="#" th:action="@{/sort2}" th:object="${loginput}" style="display: inline;">-->
+<!--			<input type="submit" class="MiniListButton" value="スコア">-->
+<!--		</form>-->
+<!--	</div>-->
+
+		<tr>
+			<th>番号</th>
+			<th>物件名</th>
+			<th>間取り</th>
+			<th>家賃</th>
+			<th>住所</th>
+			<th>コメント</th>
+
+		</tr>
+		<tr th:each=" res : ${dbList}">
+			<td th:text="${res.id}">1</td>
+			<td th:text="${res.name}">物件名</td>
+			<td th:text="${res.space}">間取り</td>
+			<td th:text="${res.money}">家賃</td>
+			<td th:text="${res.address}">住所</td>
+			<td th:text="${res.comment}">コメント</td>
+			<td>
+				<form th:action="@{/del/{id}(id=${res.id})}">
+					<input type="button" value="削除" />
+				</form>
+			</td>
+			<td>
+				<form th:action="@{/edit/{id}(id=${res.id})}">
+					<input type="button" value="編集" />
+				</form>
+			</td>
+		</tr>
+	</table>
+
+
+		<p>メニューへ戻る</p>
+		<a class="Link" href="merchant.html" th:href="@{/}"></a>
+
+
+
+
+</body>
+
+</html>

@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">>
+
 <head>
-<meta charset="UTF-8">
-<title>HOME</title>
+	<meta charset="UTF-8">
+	<title>HOME</title>
 </head>
+
 <body>
 
-<h1>一人暮らしの家探し</h1>
+	<h1>一人暮らしの家探し</h1>
 
 
+<!--<form th:action="@{/customer}">-->
+<!--<input type="button" value="一般のお客様はこちら">-->
+<!--</form>-->
 
+	<p>一般のお客様はこちら</p>
+	<a href="customer.html" th:href="@{/customer}"></a>
 
-			<p>顧客用ページへ</p>
-			<a href="customer.html" th:href="@{/customer}"></a>
+	<br>
 
-		<br>
+<!--<form th:action="@{/login1}">-->
+<!--<input type="button" value="不動産業者の方はこちら">-->
+<!--</form>-->
 
-			<p>業者用ページへ</p>
-			<a href="login1.html" th:href="@{/login1}"></a>
-	
-		<br>
+	<p>不動産業者の方はこちら</p>
+	<a href="login1.html" th:href="@{/login1}"></a>
+
+	<br>
 
 
 </body>
+
 </html>
