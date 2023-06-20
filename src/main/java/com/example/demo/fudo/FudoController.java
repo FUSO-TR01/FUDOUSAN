@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -87,7 +88,7 @@ public class FudoController {
 
 	//	登録完了画面
 	@RequestMapping("/register1")
-	public String complete1(@Validated UserInput userinput, Model model,BindingResult result ) {
+	public String complete1(@Validated UserInput userinput, Model model, BindingResult result) {
 		if (result.hasErrors()) {
 			return "signup1";
 		}
@@ -99,8 +100,7 @@ public class FudoController {
 			userentform.setName(userinput.getName());
 			dao.insertDb_login(userentform);
 			return "register1";
-		}
-		else {
+		} else {
 			model.addAttribute("mes1", "パスワードが一致していません");
 			return "signup1";
 		}
@@ -109,17 +109,17 @@ public class FudoController {
 
 	//	顧客新規登録
 	@RequestMapping("/signup2")
-	public String signup(Model model,UserInput userinput) {
+	public String signup(Model model, UserInput userinput) {
 		return "signup2";
 	}
 
 	//	登録完了画面
 	@RequestMapping("/register2")
-	public String complete(@Validated UserInput userinput, Model model,BindingResult result ) {
+	public String complete(@Validated UserInput userinput, Model model, BindingResult result) {
 		if (result.hasErrors()) {
 			return "signup2";
 		}
-		
+
 		if (userinput.getPass1().equals(userinput.getPass2())) {
 			UserEntity userentform = new UserEntity();
 			userentform.setLogId(userinput.getLogId());
@@ -127,8 +127,7 @@ public class FudoController {
 			userentform.setName(userinput.getName());
 			dao.insertDb_loginC(userentform);
 			return "register2";
-		}
-		else {
+		} else {
 			model.addAttribute("mes1", "パスワードが一致していません");
 			return "signup2";
 		}
@@ -144,18 +143,18 @@ public class FudoController {
 	//	④--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/addhome")
 	public String addhome(Model model, Input input) {
-//		Entity ent = new Entity();
-//		ent.setName(input.getName());
-//		ent.setSpace(input.getSpace());
-//		ent.setMoney(input.getMoney());
-//		ent.setAddress(input.getAddress());
-//		ent.setComment(input.getComment());
-//		dao.insertDb_addhome(ent);
+		//		Entity ent = new Entity();
+		//		ent.setName(input.getName());
+		//		ent.setSpace(input.getSpace());
+		//		ent.setMoney(input.getMoney());
+		//		ent.setAddress(input.getAddress());
+		//		ent.setComment(input.getComment());
+		//		dao.insertDb_addhome(ent);
 		return "addhome";
 	}
-	
+
 	@RequestMapping("/addhome2")
-	public String addhome2(@Validated Input input,Model model) {
+	public String addhome2(@Validated Input input, Model model) {
 		Entity ent = new Entity();
 		ent.setName(input.getName());
 		ent.setSpace(input.getSpace());
@@ -166,12 +165,29 @@ public class FudoController {
 		return "redirect:/addhome";
 	}
 
-
 	//	⑤--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/viewhome")
-	public String viewhome(Input input,Model model) {
+	public String viewhome(Input input, Model model) {
 		List<Entity> list = dao.getBKN();
 		model.addAttribute("dbList", list);
 		return "viewhome";
 	}
+
+	//削除
+	@RequestMapping("/del/{id}")
+	public String destory(@PathVariable Long id) {
+		dao.deleteBKN(id);
+		return "redirect:/viewhome";
+	}
+
+	//編集画面の表示
+	@RequestMapping("/edit/{id}")
+	public String editView(@PathVariable Long id, Model model) {
+		List<Entity> list = dao.getOne(id);
+		Entity entity = list.get(0);
+		model.addAttribute("entform", entity);
+		model.addAttribute("title", "編集ページ");
+		return "edithome";
+	}
+
 }

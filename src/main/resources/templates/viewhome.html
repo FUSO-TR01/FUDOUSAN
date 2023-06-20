@@ -28,17 +28,16 @@
 			<td th:text="${res.money}">家賃</td>
 			<td th:text="${res.address}">住所</td>
 			<td th:text="${res.comment}">詳細</td>
+			
+			<td>
+				<form th:action="@{/edithome/{id}(id=${res.id})}">
+					<input type="submit" value="編集">
 
+				</form>
+			</td>
 			<td>
 				<form th:action="@{/del/{id}(id=${res.id})}">
 					<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
-				</form>
-			</td>
-
-			<td>
-				<form th:action="@{/addhome/{id}(id=${res.id})}">
-					<input type="submit" value="編集">
-
 				</form>
 			</td>
 
