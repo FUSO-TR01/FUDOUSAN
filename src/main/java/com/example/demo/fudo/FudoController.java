@@ -13,20 +13,21 @@ import com.example.demo.entity.UserEntity;
 
 @Controller
 public class FudoController {
-	
+
 	private final Dao dao;
+
 	@Autowired
 	public FudoController(Dao dao) {
 		this.dao = dao;
 	}
-	//	①------------------------
+
+	//	①--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/home")
 	public String sample(Model model) {
 		return "home";
 	}
 
-
-	//	②
+	//	②--------------------------------------------------------------------------------------------------------------
 	//	ログイン画面１(不動産ログイン)
 	@GetMapping("/login1")
 	public String showLoginForm1(Model model) {
@@ -48,8 +49,9 @@ public class FudoController {
 			return "login1";
 		}
 	}
-	
-//	ログイン画面２(顧客ログイン)
+
+	//	　--------------------------------------------------------------------------------------------------------------
+	//	ログイン画面２(顧客ログイン)
 	@GetMapping("/customer")
 	public String showLoginForm2(Model model) {
 		return "customer";
@@ -70,41 +72,61 @@ public class FudoController {
 		}
 	}
 
-	//	新規登録
-	@RequestMapping("/signup")
-	public String signup(Model model, UserInput userinput) {
-		return "signup";
+	//	⑥--------------------------------------------------------------------------------------------------------------
+	
+	//	業者新規登録
+	@RequestMapping("/signup1")
+	public String signup1(Model model, UserInput userinput) {
+		return "signup1";
 	}
 
 	//	登録完了画面
-	@RequestMapping("/register")
+	@RequestMapping("/register1")
+	public String complete1(Model model, UserInput userinput) {
+		UserEntity userentform = new UserEntity();
+		userentform.setLogId(userinput.getLogId());
+		userentform.setPass(userinput.getPass());
+		userentform.setType(userinput.getType());
+		userentform.setName(userinput.getName());
+		dao.insertDb_login(userentform);
+		return "register1";
+	}
+	//	　--------------------------------------------------------------------------------------------------------------
+	
+	
+//	顧客新規登録
+	@RequestMapping("/signup2")
+	public String signup(Model model, UserInput userinput) {
+		return "signup2";
+	}
+
+	//	登録完了画面
+	@RequestMapping("/register2")
 	public String complete(Model model, UserInput userinput) {
 		UserEntity userentform = new UserEntity();
 		userentform.setLogId(userinput.getLogId());
 		userentform.setPass(userinput.getPass());
-		dao.insertDb2(userentform);
-		return "register";
+		userentform.setName(userinput.getName());
+		dao.insertDb_loginC(userentform);
+		return "register2";
 	}
-	
-//	③----------------------------------------------------------
-	
+
+	//	③--------------------------------------------------------------------------------------------------------------
+
 	@RequestMapping("/merchant")
 	public String merchant(Model model) {
 		return "merchant";
 	}
 
-//	④--------------------------------------------------
+	//	④--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/addhome")
 	public String addhome(Model model, Input onput) {
 		return "addhome";
 	}
-	
-//	⑤----------------
+
+	//	⑤--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/viewhome")
 	public String viewhome(Model model) {
 		return "viewhome";
 	}
-	
-	
-	
 }
