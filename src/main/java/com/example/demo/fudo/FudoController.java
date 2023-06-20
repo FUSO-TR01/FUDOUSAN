@@ -133,7 +133,7 @@ public class FudoController {
 		ent.setMoney(input.getMoney());
 		ent.setAddress(input.getAddress());
 		ent.setComment(input.getComment());
-		dao.insertDb_login(ent);
+		dao.insertDb_addhome(ent);
 		return "addhome";
 	}
 

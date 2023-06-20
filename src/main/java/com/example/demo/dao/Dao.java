@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.entity.Entity;
 import com.example.demo.entity.UserEntity;
 
 @Repository
@@ -61,5 +62,10 @@ public class Dao {
 	public void insertDb_loginC(UserEntity userentform) {
 		db.update("INSERT INTO login(logId,pass,name) VALUES(?,?,?)",
 				userentform.getLogId(), userentform.getPass(), userentform.getName());
+	}
+	
+	public void insertDb_addhome(Entity ent) {
+		db.update("INSERT INTO home(name,space,money,address,comment) VALUES(?,?,?,?,?)",
+				ent.getName(), ent.getSpace(), ent.getMoney(), ent.getAddress(), ent.getComment());
 	}
 }
