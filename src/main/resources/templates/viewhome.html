@@ -21,25 +21,26 @@
 	<h1>物件情報一覧</h1>
 
 <!--	<div align="center">-->
-<!--		<form method="get" action="#" th:action="@{/search/{price}}" th:object="${loginput}">-->
-<!--			<p class="defaultFont"> <input type="search" name="price" id="price" placeholder="金額を入力" class="defaultFont"-->
+<!--		<form method="get" action="#" th:action="@{/search/{money}}" th:object="${input}">-->
+<!--			<p class="defaultFont"> <input type="search" name="money" id="money" placeholder="金額を入力" class="defaultFont"-->
 <!--					required>から-->
-<!--				<input type="search" name="price2" id="price2" placeholder="金額を入力" class="defaultFont" required>の間-->
+<!--				<input type="search" name="money2" id="money2" placeholder="金額を入力" class="defaultFont" required>の間-->
 <!--			</p>-->
 <!--			<input type="submit" class="MiniListButton" value="検索" required>-->
 <!--		</form>-->
-<!--		<form method="get" action="#" th:action="@{/search2/{score}}" th:object="${loginput}">-->
-<!--			<p class="defaultFont"> <input type="search" name="score" id="score" placeholder="スコアを入力"-->
+
+<!--		<form method="get" action="#" th:action="@{/search2/{space}}" th:object="${input}">-->
+<!--			<p class="defaultFont"> <input type="search" name="space" id="space" placeholder="スコアを入力"-->
 <!--					class="defaultFont" required></p>-->
 <!--			<input type="submit" class="MiniListButton" value="検索" required>-->
 <!--		</form>-->
 
 <!--		<p>-->
-<!--		<form method="get" action="#" th:action="@{/sort}" th:object="${loginput}" style="display: inline;">-->
-<!--			<input type="submit" class="MiniListButton" value="金額">-->
+<!--		<form method="get" action="#" th:action="@{/sort}" th:object="${input}" style="display: inline;">-->
+<!--			<input type="submit" class="MiniListButton" value="家賃">-->
 <!--		</form>-->
-<!--		<form method="get" action="#" th:action="@{/sort2}" th:object="${loginput}" style="display: inline;">-->
-<!--			<input type="submit" class="MiniListButton" value="スコア">-->
+<!--		<form method="get" action="#" th:action="@{/sort2}" th:object="${input}" style="display: inline;">-->
+<!--			<input type="submit" class="MiniListButton" value="間取り">-->
 <!--		</form>-->
 <!--	</div>-->
 
@@ -60,16 +61,16 @@
 			<td th:text="${res.address}">住所</td>
 			<td th:text="${res.comment}">コメント</td>
 			
-<!--			<td>-->
-<!--				<form th:action="@{/del/{id}(id=${res.id})}">-->
-<!--					<input type="button" value="削除" />-->
-<!--				</form>-->
-<!--			</td>-->
-			<button onclick="confirmDelete()">削除</button>
+			<td>
+				<form th:action="@{/del/{id}(id=${res.id})}">
+					<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
+				</form>
+			</td>
 			
 			<td>
-				<form th:action="@{/edit/{id}(id=${res.id})}">
-					<input type="button" value="編集" />
+				<form th:action="@{/addhome/{id}(id=${res.id})}">
+					<input type="submit" value="編集" >
+
 				</form>
 			</td>
 			
@@ -77,9 +78,9 @@
 	</table>
 
 
-		<p>メニューへ戻る</p>
-		<a class="Link" href="merchant.html" th:href="@{/}"></a>
-
+				<form th:action="@{/merchant}">
+					<input type="submit" value="メニューへ戻る" >
+				</form>
 
 
 
