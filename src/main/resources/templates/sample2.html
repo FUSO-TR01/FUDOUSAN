@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<meta charset="UTF-8">
+	<title>HOME</title>
+	<link rel="stylesheet" th:href="@{/style.css}">
+	<script type="text/javascript" src="ota.js"></script>
+</head>
+
+<body>
+
+	<input type="submit" value="送信する" class="button">
+
+	<div id="tabArea">
+
+		<input type="radio" name="tab" id="tab1" onclick="tabClick(1)" checked>
+		<label for="tab1">おはよう</label>
+
+		<input type="radio" name="tab" id="tab2" onclick="tabClick(2)">
+		<label for="tab2">こんにちは</label>
+
+		<input type="radio" name="tab" id="tab3" onclick="tabClick(3)">
+		<label for="tab3">おはすみ</label>
+
+		<div class="tabBody">
+			<p>サンプル</p>
+			<p id="tabNo">おはよう</p>
+		</div>
+
+	</div>
+	
+</body>
+
+</html>

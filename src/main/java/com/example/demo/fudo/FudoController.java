@@ -174,4 +174,15 @@ public class FudoController {
 		model.addAttribute("dbList", list);
 		return "viewhome";
 	}
+	
+	@RequestMapping("/sample")
+	public String sample(Model model) {
+		return "sample";
+	}
+	
+	@RequestMapping("/sample2")
+	public String sample2(Model model) {
+		return "sample2";
+	}
+	
 }
