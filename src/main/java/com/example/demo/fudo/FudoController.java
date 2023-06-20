@@ -100,7 +100,10 @@ public class FudoController {
 			dao.insertDb_login(userentform);
 			return "register1";
 		}
-		return "signup1";
+		else {
+			model.addAttribute("mes1", "パスワードが一致していません");
+			return "signup1";
+		}
 	}
 	//	　--------------------------------------------------------------------------------------------------------------
 
@@ -125,7 +128,10 @@ public class FudoController {
 			dao.insertDb_loginC(userentform);
 			return "register2";
 		}
-		return "signup2";
+		else {
+			model.addAttribute("mes1", "パスワードが一致していません");
+			return "signup2";
+		}
 	}
 
 	//	③--------------------------------------------------------------------------------------------------------------
