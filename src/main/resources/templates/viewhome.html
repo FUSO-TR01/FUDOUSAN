@@ -19,45 +19,47 @@
 
 <body>
 
-	<h1>物件情報一覧</h1>
 
-	<table border="1">
-		<tr>
-			<th>ID</th>
-			<th>物件名</th>
-			<th>間取り</th>
-			<th>家賃</th>
-			<th>住所</th>
-			<th>詳細</th>
-		</tr>
-		<tr th:each=" res : ${dbList}">
-			<td th:text="${res.id}">1</td>
-			<td th:text="${res.name}">物件名</td>
-			<td th:text="${res.space}">間取り</td>
-			<td th:text="${res.money}">家賃</td>
-			<td th:text="${res.address}">住所</td>
 
-			<td th:text="${res.comment}">詳細</td>
-			<td>
-				<form th:action="@{/del/{id}(id=${res.id})}">
-					<input type="submit" value="削除">
-				</form>
-			</td>
 
-			<td>
-				<form th:action="@{/addhome/{id}(id=${res.id})}">
-					<input type="submit" value="編集" >
+	<tr>
+		<th>番号</th>
+		<th>物件名</th>
+		<th>間取り</th>
+		<th>家賃</th>
+		<th>住所</th>
+		<th>コメント</th>
 
-				</form>
-			</td>
-		</tr>
+	</tr>
+	<tr th:each=" res : ${dbList}">
+		<td th:text="${res.id}">1</td>
+		<td th:text="${res.name}">物件名</td>
+		<td th:text="${res.space}">間取り</td>
+		<td th:text="${res.money}">家賃</td>
+		<td th:text="${res.address}">住所</td>
+		<td th:text="${res.comment}">コメント</td>
+
+		<td>
+			<form th:action="@{/del/{id}(id=${res.id})}">
+				<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
+			</form>
+		</td>
+
+		<td>
+			<form th:action="@{/addhome/{id}(id=${res.id})}">
+				<input type="submit" value="編集">
+
+			</form>
+		</td>
+
+	</tr>
 	</table>
 
 
-	<br><br>
 	<form th:action="@{/merchant}">
 		<input type="submit" value="メニューへ戻る">
 	</form>
+
 
 </body>
 
