@@ -3,7 +3,8 @@ package com.example.demo.fudo;
 public class UserInput {
 	
 	private String logId;
-	private String pass;
+	private String pass1;
+	private String pass2;
 	private String type;
 	private String name;
 	
@@ -19,12 +20,20 @@ public class UserInput {
 		this.logId = logId;
 	}
 	
-	public String getPass() {
-		return pass;
+	public String getPass1() {
+		return pass1;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPass1(String pass1) {
+		this.pass1 = pass1;
+	}
+
+	public String getPass2() {
+		return pass2;
+	}
+
+	public void setPass2(String pass2) {
+		this.pass2 = pass2;
 	}
 
 	public String getType() {

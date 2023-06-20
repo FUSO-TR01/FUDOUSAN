@@ -73,7 +73,7 @@ public class FudoController {
 	}
 
 	//	⑥--------------------------------------------------------------------------------------------------------------
-	
+
 	//	業者新規登録
 	@RequestMapping("/signup1")
 	public String signup1(Model model, UserInput userinput) {
@@ -83,18 +83,20 @@ public class FudoController {
 	//	登録完了画面
 	@RequestMapping("/register1")
 	public String complete1(Model model, UserInput userinput) {
-		UserEntity userentform = new UserEntity();
-		userentform.setLogId(userinput.getLogId());
-		userentform.setPass(userinput.getPass());
-		userentform.setType(userinput.getType());
-		userentform.setName(userinput.getName());
-		dao.insertDb_login(userentform);
-		return "register1";
+		if (userinput.getPass1().equals(userinput.getPass2())) {
+			UserEntity userentform = new UserEntity();
+			userentform.setLogId(userinput.getLogId());
+			userentform.setPass(userinput.getPass1());
+			userentform.setType(userinput.getType());
+			userentform.setName(userinput.getName());
+			dao.insertDb_login(userentform);
+			return "register1";
+		}
+		return "signup1";
 	}
 	//	　--------------------------------------------------------------------------------------------------------------
-	
-	
-//	顧客新規登録
+
+	//	顧客新規登録
 	@RequestMapping("/signup2")
 	public String signup(Model model, UserInput userinput) {
 		return "signup2";
@@ -103,12 +105,15 @@ public class FudoController {
 	//	登録完了画面
 	@RequestMapping("/register2")
 	public String complete(Model model, UserInput userinput) {
-		UserEntity userentform = new UserEntity();
-		userentform.setLogId(userinput.getLogId());
-		userentform.setPass(userinput.getPass());
-		userentform.setName(userinput.getName());
-		dao.insertDb_loginC(userentform);
-		return "register2";
+		if (userinput.getPass1().equals(userinput.getPass2())) {
+			UserEntity userentform = new UserEntity();
+			userentform.setLogId(userinput.getLogId());
+			userentform.setPass(userinput.getPass1());
+			userentform.setName(userinput.getName());
+			dao.insertDb_loginC(userentform);
+			return "register2";
+		}
+		return "signup2";
 	}
 
 	//	③--------------------------------------------------------------------------------------------------------------
