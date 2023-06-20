@@ -68,25 +68,25 @@ public class Dao {
 	
 //	________________________
 	
-	public List<Entity> searchBKN() {
+	public List<Entity> getBKN() {
 
-		List<Map<String, Object>> bknDB1 = db.queryForList("SELECT * FROM home");
-		List<Entity> bknDB2 = new ArrayList<Entity>();
+		List<Map<String, Object>> queryResult = db.queryForList("SELECT * FROM home");
+		List<Entity> dataList = new ArrayList<Entity>();
 
-		for (Map<String, Object> bkn : bknDB1) {
+		for (Map<String, Object> bkn : queryResult) {
 			Entity entdb = new Entity();
 			
 			entdb.setId((int) bkn.get("id"));
 			
 			entdb.setName((String) bkn.get("name"));
 			entdb.setSpace((String) bkn.get("space"));
-			entdb.setMoney((int) bkn.get("money"));
+			entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
 			entdb.setAddress((String) bkn.get("address"));
 			entdb.setComment((String) bkn.get("comment"));
 			
-			bknDB2.add(entdb);
+			dataList.add(entdb);
 		}
-		return bknDB2;
+		return dataList;
 	}
 	public void insertDb_addhome(Entity ent) {
 		db.update("INSERT INTO home(name,space,money,address,comment) VALUES(?,?,?,?,?)",
