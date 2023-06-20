@@ -17,19 +17,17 @@
 
 </head>
 
-<body>
-	<h1>物件情報一覧</h1>
+<h1>物件情報一覧</h1>
 
-
+<table border="1">
 
 	<tr>
-		<th>番号</th>
+		<th>ID</th>
 		<th>物件名</th>
 		<th>間取り</th>
 		<th>家賃</th>
 		<th>住所</th>
-		<th>コメント</th>
-
+		<th>詳細</th>
 	</tr>
 	<tr th:each=" res : ${dbList}">
 		<td th:text="${res.id}">1</td>
@@ -37,7 +35,7 @@
 		<td th:text="${res.space}">間取り</td>
 		<td th:text="${res.money}">家賃</td>
 		<td th:text="${res.address}">住所</td>
-		<td th:text="${res.comment}">コメント</td>
+		<td th:text="${res.comment}">詳細</td>
 
 		<td>
 			<form th:action="@{/del/{id}(id=${res.id})}">
@@ -53,15 +51,11 @@
 		</td>
 
 	</tr>
-	</table>
-
-
-	<form th:action="@{/merchant}">
-		<input type="submit" value="メニューへ戻る">
-	</form>
-
-
-
+</table>
+<br><br>
+<form th:action="@{/merchant}">
+	<input type="submit" value="メニューへ戻る">
+</form>
 </body>
 
 </html>
