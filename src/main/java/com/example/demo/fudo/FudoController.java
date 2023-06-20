@@ -1,5 +1,7 @@
 package com.example.demo.fudo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -162,6 +164,7 @@ public class FudoController {
 	//	⑤--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/viewhome")
 	public String viewhome(Model model) {
+		List<Entity> list = dao.searchBKN();
 		return "viewhome";
 	}
 }
