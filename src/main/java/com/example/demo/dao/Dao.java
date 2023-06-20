@@ -36,7 +36,7 @@ public class Dao {
 
 		return null;
 	}
-	
+
 	public List<UserEntity> getAll2() {
 
 		List<Map<String, Object>> userqueryResult = db.queryForList("SELECT * FROM login");
@@ -57,39 +57,74 @@ public class Dao {
 
 	public void insertDb_login(UserEntity userentform) {
 		db.update("INSERT INTO login(logId,pass,type,name) VALUES(?,?,?,?)",
-				userentform.getLogId(), userentform.getPass(),userentform.getType(), userentform.getName());
+				userentform.getLogId(), userentform.getPass(), userentform.getType(), userentform.getName());
 	}
+
 	public void insertDb_loginC(UserEntity userentform) {
 		db.update("INSERT INTO loginC(logId,pass,name) VALUES(?,?,?)",
 				userentform.getLogId(), userentform.getPass(), userentform.getName());
 	}
-	
-	
-	
-//	________________________
-	
-	public List<Entity> searchBKN() {
 
-		List<Map<String, Object>> bknDB1 = db.queryForList("SELECT * FROM home");
-		List<Entity> bknDB2 = new ArrayList<Entity>();
+	//	________________________
 
-		for (Map<String, Object> record : bknDB1) {
+	public List<Entity> getBKN() {
+
+		List<Map<String, Object>> queryResult = db.queryForList("SELECT * FROM home");
+		List<Entity> dataList = new ArrayList<Entity>();
+
+		for (Map<String, Object> bkn : queryResult) {
 			Entity entdb = new Entity();
-			
-			entdb.setId((int) record.get("id"));
-			
-			entdb.setName((String) record.get("name"));
-			entdb.setSpace((String) record.get("space"));
-			entdb.setMoney((int) record.get("money"));
-			entdb.setAddress((String) record.get("address"));
-			entdb.setComment((String) record.get("comment"));
-			
-			bknDB2.add(entdb);
+
+			entdb.setId((int) bkn.get("id"));
+
+			entdb.setName((String) bkn.get("name"));
+			entdb.setSpace((String) bkn.get("space"));
+			entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
+			entdb.setAddress((String) bkn.get("address"));
+			entdb.setComment((String) bkn.get("comment"));
+
+			dataList.add(entdb);
 		}
-		return bknDB2;
+		return dataList;
 	}
+
 	public void insertDb_addhome(Entity ent) {
 		db.update("INSERT INTO home(name,space,money,address,comment) VALUES(?,?,?,?,?)",
 				ent.getName(), ent.getSpace(), ent.getMoney(), ent.getAddress(), ent.getComment());
+	}
+	
+	//削除
+		public void deleteBKN(Long id) {
+			System.out.println("削除しました");
+			db.update("delete from home where id=?", id);
+		}
+
+	//編集
+	public List<Entity> getOne(Long id) {
+		System.out.println("編集画面を出します");
+
+		List<Map<String, Object>> queryResult = db.queryForList("SELECT * FROM home where id=?", id);
+		List<Entity> dataList = new ArrayList<Entity>();
+
+		for (Map<String, Object> bkn : queryResult) {
+			Entity entdb = new Entity();
+
+			entdb.setId((int) bkn.get("id"));
+
+			entdb.setName((String) bkn.get("name"));
+			entdb.setSpace((String) bkn.get("space"));
+			entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
+			entdb.setAddress((String) bkn.get("address"));
+			entdb.setComment((String) bkn.get("comment"));
+
+			dataList.add(entdb);
+		}
+		return dataList;
+	}
+
+	public void updateSample(Long id, Entity entity) {
+		System.out.println("編集の実行");
+		db.update("UPDATE home SET name=?,space=?,money = ?,address = ?,comment = ? WHERE id = ?",
+				entity.getName(),entity.getSpace(), entity.getMoney(), entity.getAddress(),entity.getComment(), id);
 	}
 }
