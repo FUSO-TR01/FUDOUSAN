@@ -54,7 +54,12 @@ public class Dao {
 		return userdataList;
 	}
 
-	public void insertDb2(UserEntity userentform) {
-		db.update("INSERT INTO login(logId,pass) VALUES(?,?)", userentform.getLogId(), userentform.getPass());
+	public void insertDb_login(UserEntity userentform) {
+		db.update("INSERT INTO login(logId,pass,type,name) VALUES(?,?,?,?)",
+				userentform.getLogId(), userentform.getPass(),userentform.getType(), userentform.getName());
+	}
+	public void insertDb_loginC(UserEntity userentform) {
+		db.update("INSERT INTO login(logId,pass,name) VALUES(?,?,?)",
+				userentform.getLogId(), userentform.getPass(), userentform.getName());
 	}
 }
