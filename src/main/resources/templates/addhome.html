@@ -5,32 +5,58 @@
 	<title>物件情報登録ページ</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" th:href="@{/style.css}">
-	<script type="text/javascript" src="ota.js"></script>
-	<script>
-		function openPopup() {
-			alert("ポップアップが表示されましたyo！");
+
+	<script type="text/javascript">
+
+		function modalOpen() {
+			//------------------------------------------------------------
+			//  モーダルウインドウ オープン
+			//------------------------------------------------------------
+			document.getElementById("modalArea").className = "modalBg modalBgOpen";
+			
+			var name = document.getElementById("name").value;
+			var item = document.getElementById("space").value;
+			var money = document.getElementById("money").value;
+			var address = document.getElementById("address").value;
+			var checkbox = document.getElementById("comment").value;
+			
+			document.getElementById("popupName").textContent = "名前: " + name;
+			document.getElementById("popupSpace").textContent = "間取り: " + space;
+			document.getElementById("popupMoney").textContent = "家賃: " + money;
+			document.getElementById("popupAddress").textContent = "住所: " + address;
+			document.getElementById("popupComment").textContent = "詳細: " + comment;
+
+			document.getElementById("modalArea").style.display = "block";
+			document.getElementById("modalWindow").style.display = "block";
+			
+		}
+
+		function modalClose() {
+			//------------------------------------------------------------
+			//  モーダルウインドウ クローズ
+			//------------------------------------------------------------
+			document.getElementById("modalArea").style.display = "none";
+			document.getElementById("modalWindow").style.display = "none";
 		}
 	</script>
-
-	
 </head>
 
 <body>
 	<h1>物件情報登録ページ</h1>
-	<form action="#" method="get" th:action="${addhome2}">
+	<form action="#" method="get" th:action="${viwehome}">
 		<p>
 			<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">
 		</p>
 		<p>
-			物件名: <input type="text" name="name1" th:value="*{name}" required>
+			物件名: <input type="text" name="name" th:value="*{name}" required>
 		</p>
 		<label for="dropdown">間取り:</label>
-		<select name=”item”>
+		<select name="space">
 			<option hidden>選択してください</option>
-			<option value=”item1”>1R</option>
-			<option value=”item2”>1K</option>
-			<option value=”item3”>1DK</option>
-			<option value=”item4”>1LDK</option>
+			<option th value="space1">1R</option>
+			<option th value="space2">1K</option>
+			<option th value="space3">1DK</option>
+			<option th value="space4">1LDK</option>
 		</select>
 		<p>
 			家賃: <input type="text" name="money" th:value="*{money}" required>
@@ -39,28 +65,30 @@
 			住所: <input type="text" name="address" th:value="*{address}" required>
 		</p>
 		<p>詳細</p>
-		<input type="checkbox" name=“詳細” value="1">無料Wi-Fiあり<br>
-		<input type="checkbox" name=“詳細” value="2">駐車場空きあり<br>
-		<input type="checkbox" name=“詳細” value="3">ペット可<br>
-		<input type="checkbox" name=“詳細” value="4">室内洗濯機置き場あり<br>
-		<input type="checkbox" name=“詳細” value="5">オートロックあり<br>
-		<input type="checkbox" name=“詳細” value="6">バス・トイレ別
+		<input type="checkbox" name="comment" value="1">無料Wi-Fiあり<br>
+		<input type="checkbox" name="comment" value="2">駐車場空きあり<br>
+		<input type="checkbox" name="comment" value="3">ペット可<br>
+		<input type="checkbox" name="comment" value="4">室内洗濯機置き場あり<br>
+		<input type="checkbox" name="comment" value="5">オートロックあり<br>
+		<input type="checkbox" name="comment" value="6">バス・トイレ別
 		<br><br>
 		
-		<!--		<input type="submit" value="登録" onclick="openPopup()" th:object="${addhome2}">-->
 		<!-- 開くボタン -->
 		<input type="button" value="確認" onclick="modalOpen()">
 
 		<!-- ウインドウのエリア -->
 		<div id="modalArea" class="modalNoDisp">
 			<div class="modalWindow"> <!-- ここがウインドウとなります -->
+				<h2>入力データ</h2>
+				<p id="popupName"></p>
+				<p id="popupSpace"></p>
+				<p id="popupMoney"></p>
+				<p id="popupAddress"></p>
+				<p id="popupComment"></p>
 				<p>登録しますか？</p>
-				<!--			<p><br><input type="text" value="" style="width:200px"></p>-->
-				<p><input type="submit" value="閉じる" onclick="modalClose()" th:action="${addhome2}"></p>
+				<p><input type="submit" value="閉じる" onclick="modalClose()" th:action="${viewhome}"></p>
 			</div>
 		</div>
-
-
 	</form>
 </body>
 
