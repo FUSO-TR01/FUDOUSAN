@@ -1,11 +1,22 @@
 package com.example.demo.fudo;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class UserInput {
-	
+
+	@NotBlank(message ="バリデーション")
 	private String logId;
+
+	@NotBlank(message ="バリデーション")
 	private String pass1;
+
+	@NotBlank(message ="バリデーション")
 	private String pass2;
+
+//	@NotBlank(message ="バリデーション")
 	private String type;
+
+	@NotBlank(message ="バリデーション")
 	private String name;
 	
 	public UserInput() {
