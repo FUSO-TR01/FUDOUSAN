@@ -73,16 +73,16 @@ public class Dao {
 		List<Map<String, Object>> bknDB1 = db.queryForList("SELECT * FROM home");
 		List<Entity> bknDB2 = new ArrayList<Entity>();
 
-		for (Map<String, Object> record : bknDB1) {
+		for (Map<String, Object> bkn : bknDB1) {
 			Entity entdb = new Entity();
 			
-			entdb.setId((int) record.get("id"));
+			entdb.setId((int) bkn.get("id"));
 			
-			entdb.setName((String) record.get("name"));
-			entdb.setSpace((String) record.get("space"));
-			entdb.setMoney((int) record.get("money"));
-			entdb.setAddress((String) record.get("address"));
-			entdb.setComment((String) record.get("comment"));
+			entdb.setName((String) bkn.get("name"));
+			entdb.setSpace((String) bkn.get("space"));
+			entdb.setMoney((int) bkn.get("money"));
+			entdb.setAddress((String) bkn.get("address"));
+			entdb.setComment((String) bkn.get("comment"));
 			
 			bknDB2.add(entdb);
 		}
