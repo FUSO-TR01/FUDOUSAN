@@ -45,7 +45,7 @@ public class FudoController {
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
 			model.addAttribute("result", "ログイン成功");
-			return "redirect:/view"; // タスク管理画面にリダイレクト
+			return "merchant"; // タスク管理画面にリダイレクト
 		} else {
 			// ログイン失敗の処理
 			model.addAttribute("result", "ユーザー名またはパスワードが間違っています");
