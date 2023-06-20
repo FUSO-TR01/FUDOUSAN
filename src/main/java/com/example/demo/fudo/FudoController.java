@@ -126,7 +126,7 @@ public class FudoController {
 		return "merchant";
 	}
 
-	//	④--------------------------------------------------------------------------------------------------------------
+	//	④--Entityに何も入ってないのでnullになると思われます。修正任せた。------------------------------------------------------------------------------------
 	@RequestMapping("/addhome")
 	public String addhome(Model model, Input input) {
 		Entity ent = new Entity();
