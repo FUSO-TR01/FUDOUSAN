@@ -86,6 +86,9 @@ public class FudoController {
 	//	登録完了画面
 	@RequestMapping("/register1")
 	public String complete1(@Validated UserInput userinput, Model model,BindingResult result ) {
+		if (result.hasErrors()) {
+			return "signup1";
+		}
 		if (userinput.getPass1().equals(userinput.getPass2())) {
 			UserEntity userentform = new UserEntity();
 			userentform.setLogId(userinput.getLogId());
@@ -108,6 +111,10 @@ public class FudoController {
 	//	登録完了画面
 	@RequestMapping("/register2")
 	public String complete(@Validated UserInput userinput, Model model,BindingResult result ) {
+		if (result.hasErrors()) {
+			return "signup2";
+		}
+		
 		if (userinput.getPass1().equals(userinput.getPass2())) {
 			UserEntity userentform = new UserEntity();
 			userentform.setLogId(userinput.getLogId());

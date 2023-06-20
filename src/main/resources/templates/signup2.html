@@ -2,33 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>Hello</title>
-<meta charset="utf-8" />
+	<title>Hello</title>
+	<meta charset="utf-8" />
 </head>
 
 <body>
-	
+
 	<h1>一般のお客様ユーザー登録画面</h1>
 	<p>IDとパスワードを設定してください</p>
-	
-	<form method="get" action="#" th:action="@{/register2}" th:object="${UserInput}">
+
+	<form method="get" action="#" th:action="@{/register2}" th:object="${userinput}">
+		<!--	<span th:if="${#fields.hasErrors('logId1')}" th:errors="*{logId1}" class="error"></span>-->
+		<!--	<span th:if="${#fields.hasErrors('pass1')}" th:errors="*{pass1}" class="error"></span>-->
+		<!--	<span th:if="${#fields.hasErrors('pass2')}" th:errors="*{pass2}" class="error"></span>-->
+		<!--	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>-->
 		<p>
-			ID：<input type="text" name="logId" placeholder="IDを入力してください" th:value="*{logId}" required>
-<!--						<span th:if="${#fields.hasErrors('logId1')}" th:errors="*{logId1}" class="error"></span>-->
+			ID：<input type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}"required>
 		</p>
 		<p>
-			パスワード：<input type="text" name="pass1" placeholder="パスワードを入力してください" th:value="*{pass1}" required>
-<!--						<span th:if="${#fields.hasErrors('pass1')}" th:errors="*{pass1}" class="error"></span>-->
+			パスワード：<input type="text" name="pass1" placeholder="パスワードを入力してください" th:value="${pass1}" required>
 		</p>
 		<p>
-			パスワード（確認用）：<input type="text" name="pass2" placeholder="パスワードを入力してください" th:value="*{pass2}" required>
-<!--						<span th:if="${#fields.hasErrors('pass2')}" th:errors="*{pass2}" class="error"></span>-->
+			パスワード（確認用）：<input type="text" name="pass2" placeholder="パスワードを入力してください" th:value="${pass2}" required>
 		</p>
 		<p>
-			氏名：<input type="text" name="name" placeholder="パスワードを入力してください" th:value="*{name}" required>
-<!--						<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>-->
+			氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}" required>
 		</p>
-		<input type="submit" value="登録" >
+		<input type="submit" value="登録">
 	</form>
 </body>
 
