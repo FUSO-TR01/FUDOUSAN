@@ -1,74 +1,235 @@
 @charset "UTF-8";
+
 /* === モーダル非表示（初期） ============================== */
 .modalNoDisp {
-  display : none;
+	display: none;
 }
 
 /* === モーダルバックグランド ============================== */
 .modalBg {
-  position   : fixed;
-  overflow   : hidden;
-  top        : 0;
-  right      : 0;
-  bottom     : 0;
-  left       : 0;
-  background : radial-gradient(circle at 50% 50%,
-                               rgba(0, 0, 0, 0.90),
-                               rgba(0, 0, 0, 0.70));
-  z-index    : 10;
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: radial-gradient(circle at 50% 50%,
+			rgba(0, 0, 0, 0.90),
+			rgba(0, 0, 0, 0.70));
+	z-index: 10;
 }
 
 /* === モーダルバックグランド：OPEN時のアニメーション ====== */
 .modalBgOpen {
-  animation  : bgOpenAnime 0.3s ease;
+	animation: bgOpenAnime 0.3s ease;
 }
-@keyframes bgOpenAnime {                     /* フェードイン */
-   0% { opacity: 0 }
- 100% { opacity: 1 }
+
+@keyframes bgOpenAnime {
+
+	/* フェードイン */
+	0% {
+		opacity: 0
+	}
+
+	100% {
+		opacity: 1
+	}
 }
 
 /* === モーダルバックグランド：CLOSE時のアニメーション ===== */
 .modalBgClose {
-  bottom     : 100%;
-  animation  : bgCloseAnime 0.3s ease;
+	bottom: 100%;
+	animation: bgCloseAnime 0.3s ease;
 }
-@keyframes bgCloseAnime {                     /* フェードイン */
-   0% { opacity: 1; bottom: 0 }
- 100% { opacity: 0; bottom: 0 }
+
+@keyframes bgCloseAnime {
+
+	/* フェードイン */
+	0% {
+		opacity: 1;
+		bottom: 0
+	}
+
+	100% {
+		opacity: 0;
+		bottom: 0
+	}
 }
 
 /* === モーダルウインド ==================================== */
 .modalBg .modalWindow {
-                             /* モーダルウインドを中心に表示 */
-  position      : absolute;
-  top           : 50%;
-  left          : 50%;
-  transform     : translate(-50%, -50%);
-  z-index       : 11;
-           /* ↓モーダルウインドウの見た目：変更してください */
-  width         : 300px;
-  min-height    : 220px;
-  background    : #fff;
-  border        : 3px solid #35557f;
-  border-radius : 10px;
-  font-size     : 16pt;
-  text-align    : center;
+	/* モーダルウインドを中心に表示 */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 11;
+	/* ↓モーダルウインドウの見た目：変更してください */
+	width: 300px;
+	min-height: 220px;
+	background: #fff;
+	border: 3px solid #35557f;
+	border-radius: 10px;
+	font-size: 16pt;
+	text-align: center;
 }
 
 /* === モーダルウインド：OPEN時のアニメーション============= */
 .modalBgOpen .modalWindow {
-  animation     : modalOpenAnime 0.3s ease;
+	animation: modalOpenAnime 0.3s ease;
 }
-@keyframes modalOpenAnime {                      /* 上→中心 */
-   0% { top : -50% }
- 100% { top : 50%  }
+
+@keyframes modalOpenAnime {
+
+	/* 上→中心 */
+	0% {
+		top: -50%
+	}
+
+	100% {
+		top: 50%
+	}
 }
 
 /* === モーダルウインド：CLOSE時のアニメーション============ */
 .modalBgClose .modalWindow {
-  animation     : modalCloseAnime 0.3s ease;
+	animation: modalCloseAnime 0.3s ease;
 }
-@keyframes modalCloseAnime {                      /* 中心→下 */
-   0% { top : 50%  }
- 100% { top : 150% }
+
+@keyframes modalCloseAnime {
+
+	/* 中心→下 */
+	0% {
+		top: 50%
+	}
+
+	100% {
+		top: 150%
+	}
+}
+
+
+
+
+
+/* --- タブ（ラジオボタン）のエリア ------------------------ */
+#tabArea {
+	line-height: 1;
+	/* 1行の高さ          */
+	letter-spacing: 0;
+	/* 文字間             */
+	text-align: center;
+	/* 文字位置は中央     */
+}
+
+/* --- ラジオボタン ---------------------------------------- */
+#tabArea input[type="radio"] {
+	display: none;
+	/* ラジオボタン非表示 */
+}
+
+/* --- ラジオボタン直後のlabel ----------------------------- */
+#tabArea input[type="radio"]+label {
+	display: inline-block;
+	position: relative;
+	padding: 6px 10px;
+	/* labelの余白 */
+	font-size: 12pt;
+	/* タブの文字サイズ   */
+	font-weight: bold;
+	/* タブは太文字       */
+	border: 3px solid #999;
+	/* 未選択タブのの枠線 */
+	border-bottom: none;
+	/* 下罫線は消す       */
+	border-radius: 5px 5px 0 0;
+	/* タブの上左右角丸   */
+	margin: 0 1px;
+	/* タブ間隔           */
+	background: #fff;
+	/* 未選択タブの背景色 */
+	color: #666;
+	/* 未選択タブの文字色 */
+}
+
+/* --- 選択されたラジオボタン直後のlabel ------------------- */
+#tabArea input[type="radio"]:checked+label {
+	border-color: #4682B4;
+	/* 選択タブの枠線     */
+	color: #4682B4;
+	/* 選択タブの文字色   */
+	cursor: default;
+	/* デフォルトカーソル */
+	z-index: 2;
+	/* 重なりを最前面へ   */
+}
+
+/* --- 未選択ラジオボタン直後のlabelにマウスが乗った ------- */
+#tabArea input[type="radio"]:not(:checked)+label:hover {
+	background: #b4cee2;
+	/* カーソルタブの背景 */
+	cursor: pointer;
+	/* リンクカーソル     */
+}
+
+/* --- タブ下の本体エリア ---------------------------------- */
+.tabBody {
+	position: relative;
+	border: 3px solid #4682B4;
+	/* 本体の枠線         */
+	background: #fff;
+	/* 本体の背景色       */
+	margin-top: -3px;
+	/* タブと罫線分重ねる */
+	z-index: 1;
+	/* 未選択タブより全面 */
+}
+
+
+
+
+
+.button {
+	display: inline-block;
+	border-radius: 5%;
+	/* 角丸       */
+	font-size: 18pt;
+	/* 文字サイズ */
+	text-align: center;
+	/* 文字位置   */
+	cursor: pointer;
+	/* カーソル   */
+	padding: 12px 12px;
+	/* 余白       */
+	background: #000066;
+	/* 背景色     */
+	color: #ffffff;
+	/* 文字色     */
+	line-height: 1em;
+	/* 1行の高さ  */
+	transition: .3s;
+	/* なめらか変化 */
+	box-shadow: 6px 6px 3px #666666;
+	/* 影の設定 */
+	border: 2px solid #000066;
+	/* 枠の指定 */
+}
+
+.button:hover {
+	box-shadow: none;
+	/* カーソル時の影消去 */
+	color: #000066;
+	/* 背景色     */
+	background: #ffffff;
+	/* 文字色     */
+}
+
+
+
+
+
+
+body {
+	background: rgb(10, 32, 131);
+	background: linear-gradient(90deg, rgba(10, 32, 131, 1) 0%, rgba(4, 141, 182, 1) 60%, rgba(0, 255, 228, 1) 100%);
 }

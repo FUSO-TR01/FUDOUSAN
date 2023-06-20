@@ -173,6 +173,19 @@ public class FudoController {
 		return "viewhome";
 	}
 
+	
+	@RequestMapping("/sample")
+	public String sample(Model model) {
+		return "sample";
+	}
+	
+	@RequestMapping("/sample2")
+	public String sample2(Model model) {
+		return "sample2";
+	}
+	
+
+
 	//削除
 	@RequestMapping("/del/{id}")
 	public String destory(@PathVariable Long id) {
@@ -189,5 +202,6 @@ public class FudoController {
 		model.addAttribute("title", "編集ページ");
 		return "edithome";
 	}
+
 
 }

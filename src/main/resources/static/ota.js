@@ -12,7 +12,12 @@ function modalOpen() {
 			document.getElementById("modalArea").className = "modalBg modalBgClose";
 		}
 		
-//		_________
-		
-	
-		
+
+ // ------------------------------------------------------------
+ //     タブがクリックされた
+ // ------------------------------------------------------------
+function tabClick(argTabNo){
+ 
+  document.getElementById("tabNo").innerHTML = 'タブ'+argTabNo;
+ 
+}
