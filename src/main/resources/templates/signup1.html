@@ -2,22 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>Hello</title>
-<meta charset="utf-8" />
+	<title>Hello</title>
+	<meta charset="utf-8" />
 </head>
 
 <body>
-	<h1 th:text="${title}"></h1>
-	<h1>ユーザー登録画面</h1>
+	
+	<h1>不動産業者様ユーザー登録画面</h1>
 	<p>IDとパスワードを設定してください</p>
-	<form method="get" action="#" th:action="@{/register}" th:object="${UserInput}">
+	
+	<form method="get" action="#" th:action="@{/register1}" th:object="${UserInput}">
 		<p>
-			ID：<input type="text" name="logId" placeholder="IDを入力してください" th:value="*{logId}" >
+			ID：<input type="text" name="logId" placeholder="IDを入力してください" th:value="*{logId}">
 		</p>
 		<p>
-			パスワード：<input type="text" name="pass" placeholder="パスワードを入力してください" th:value="*{pass}" >
+			パスワード：<input type="text" name="pass" placeholder="パスワードを入力してください" th:value="*{pass}">
 		</p>
-		<input type="submit" value="登録" >
+		<p>
+			パスワード（確認用）：<input type="text" name="pass" placeholder="パスワードを入力してください" th:value="*{pass}">
+		</p>
+		<p>
+			不動産名：<input type="text" name="type" placeholder="不動産名を入力してください" th:value="*{type}">
+		</p>
+		<p>
+			氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="*{name}">
+		</p>
+		<input type="submit" value="登録">
 	</form>
 </body>
 
