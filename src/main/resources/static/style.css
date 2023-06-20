@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/* === モーダル非表示（初期） ============================== */
+.modalNoDisp {
+  display : none;
+}
+
+/* === モーダルバックグランド ============================== */
+.modalBg {
+  position   : fixed;
+  overflow   : hidden;
+  top        : 0;
+  right      : 0;
+  bottom     : 0;
+  left       : 0;
+  background : radial-gradient(circle at 50% 50%,
+                               rgba(0, 0, 0, 0.90),
+                               rgba(0, 0, 0, 0.70));
+  z-index    : 10;
+}
+
+/* === モーダルバックグランド：OPEN時のアニメーション ====== */
+.modalBgOpen {
+  animation  : bgOpenAnime 0.3s ease;
+}
+@keyframes bgOpenAnime {                     /* フェードイン */
+   0% { opacity: 0 }
+ 100% { opacity: 1 }
+}
+
+/* === モーダルバックグランド：CLOSE時のアニメーション ===== */
+.modalBgClose {
+  bottom     : 100%;
+  animation  : bgCloseAnime 0.3s ease;
+}
+@keyframes bgCloseAnime {                     /* フェードイン */
+   0% { opacity: 1; bottom: 0 }
+ 100% { opacity: 0; bottom: 0 }
+}
+
+/* === モーダルウインド ==================================== */
+.modalBg .modalWindow {
+                             /* モーダルウインドを中心に表示 */
+  position      : absolute;
+  top           : 50%;
+  left          : 50%;
+  transform     : translate(-50%, -50%);
+  z-index       : 11;
+           /* ↓モーダルウインドウの見た目：変更してください */
+  width         : 300px;
+  min-height    : 220px;
+  background    : #fff;
+  border        : 3px solid #35557f;
+  border-radius : 10px;
+  font-size     : 16pt;
+  text-align    : center;
+}
+
+/* === モーダルウインド：OPEN時のアニメーション============= */
+.modalBgOpen .modalWindow {
+  animation     : modalOpenAnime 0.3s ease;
+}
+@keyframes modalOpenAnime {                      /* 上→中心 */
+   0% { top : -50% }
+ 100% { top : 50%  }
+}
+
+/* === モーダルウインド：CLOSE時のアニメーション============ */
+.modalBgClose .modalWindow {
+  animation     : modalCloseAnime 0.3s ease;
+}
+@keyframes modalCloseAnime {                      /* 中心→下 */
+   0% { top : 50%  }
+ 100% { top : 150% }
+}
