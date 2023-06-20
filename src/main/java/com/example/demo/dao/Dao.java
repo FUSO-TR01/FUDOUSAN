@@ -60,7 +60,7 @@ public class Dao {
 				userentform.getLogId(), userentform.getPass(),userentform.getType(), userentform.getName());
 	}
 	public void insertDb_loginC(UserEntity userentform) {
-		db.update("INSERT INTO login(logId,pass,name) VALUES(?,?,?)",
+		db.update("INSERT INTO loginC(logId,pass,name) VALUES(?,?,?)",
 				userentform.getLogId(), userentform.getPass(), userentform.getName());
 	}
 	

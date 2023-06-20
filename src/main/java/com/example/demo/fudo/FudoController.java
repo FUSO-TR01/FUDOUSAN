@@ -3,6 +3,8 @@ package com.example.demo.fudo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -83,7 +85,7 @@ public class FudoController {
 
 	//	登録完了画面
 	@RequestMapping("/register1")
-	public String complete1(Model model, UserInput userinput) {
+	public String complete1(@Validated UserInput userinput, Model model,BindingResult result ) {
 		if (userinput.getPass1().equals(userinput.getPass2())) {
 			UserEntity userentform = new UserEntity();
 			userentform.setLogId(userinput.getLogId());
@@ -99,13 +101,13 @@ public class FudoController {
 
 	//	顧客新規登録
 	@RequestMapping("/signup2")
-	public String signup(Model model, UserInput userinput) {
+	public String signup(Model model,UserInput userinput) {
 		return "signup2";
 	}
 
 	//	登録完了画面
 	@RequestMapping("/register2")
-	public String complete(Model model, UserInput userinput) {
+	public String complete(@Validated UserInput userinput, Model model,BindingResult result ) {
 		if (userinput.getPass1().equals(userinput.getPass2())) {
 			UserEntity userentform = new UserEntity();
 			userentform.setLogId(userinput.getLogId());
