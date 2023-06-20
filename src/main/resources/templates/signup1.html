@@ -13,23 +13,23 @@
 	
 	<form method="get" action="#" th:action="@{/register1}" th:object="${userinput}">
 		<p>
-			ID：<input type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}">
+			ID：<input type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}" required>
 <!--						<span th:if="${#fields.hasErrors('logId1')}" th:errors="*{logId1}" class="error"></span>-->
 		</p>
 		<p>
-			パスワード：<input type="text" name="pass1" placeholder="パスワードを入力してください" th:value="${pass1}">
+			パスワード：<input type="text" name="pass1" placeholder="パスワードを入力してください" th:value="${pass1}" required>
 <!--						<span th:if="${#fields.hasErrors('pass1')}" th:errors="*{pass1}" class="error"></span>-->
 		</p>
 		<p>
-			パスワード（確認用）：<input type="text" name="pass2" placeholder="パスワードを入力してください" th:value="${pass2}">
+			パスワード（確認用）：<input type="text" name="pass2" placeholder="パスワードを入力してください" th:value="${pass2}" required>
 <!--						<span th:if="${#fields.hasErrors('pass2')}" th:errors="*{pass2}" class="error"></span>-->
 		</p>
 		<p>
-			不動産名：<input type="text" name="type" placeholder="不動産名を入力してください" th:value="${type}">
+			不動産名：<input type="text" name="type" placeholder="不動産名を入力してください" th:value="${type}" required>
 <!--						<span th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="error"></span>-->
 		</p>
 		<p>
-			氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}">
+			氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}" required>
 <!--						<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>-->
 		</p>
 		<input type="submit" value="登録">
