@@ -163,8 +163,9 @@ public class FudoController {
 
 	//	⑤--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/viewhome")
-	public String viewhome(Model model) {
+	public String viewhome(Input input,Model model) {
 		List<Entity> list = dao.searchBKN();
+		model.addAttribute("dbList", list);
 		return "viewhome";
 	}
 }
