@@ -36,24 +36,29 @@
 			<td th:text="${res.space}">間取り</td>
 			<td th:text="${res.money}">家賃</td>
 			<td th:text="${res.address}">住所</td>
+
 			<td th:text="${res.comment}">詳細</td>
 			<td>
 				<form th:action="@{/del/{id}(id=${res.id})}">
 					<input type="submit" value="削除">
 				</form>
 			</td>
+
 			<td>
-				<form th:action="@{/edit/{id}(id=${res.id})}">
-					<input type="button" value="編集" />
+				<form th:action="@{/addhome/{id}(id=${res.id})}">
+					<input type="submit" value="編集" >
+
 				</form>
 			</td>
 		</tr>
 	</table>
 
+
 	<br><br>
 	<form th:action="@{/merchant}">
 		<input type="submit" value="メニューへ戻る">
 	</form>
+
 </body>
 
 </html>

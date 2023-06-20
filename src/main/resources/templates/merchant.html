@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
@@ -8,33 +8,25 @@
 
 <body>
 
+
 	<h1>メニュー（業者用）</h1>
 
 
-<!--<form th:action="@{/touroku}">-->
-<!--<input type="button" value="物件情報　新規登録">-->
-<!--</form>-->
-
-	<p>物件情報　新規登録</p>
-	<a href="touroku.html" th:href="@{/touroku}"></a>
+	<form th:action="@{/addhome}">
+	<input type="submit" value="物件情報　新規登録">
+	</form>
 
 	<br>
 
-<!--<form th:action="@{/list}">-->
-<!--<input type="button" value="物件情報　一覧">-->
-<!--</form>-->
-
-	<p>物件情報　一覧</p>
-	<a href="list.html" th:href="@{/list}"></a>
+	<form th:action="@{/viewhome}">
+	<input type="submit" value="物件情報　一覧">
+	</form>
 
 	<br>
 
-<form th:action="@{/chat}">
-<input type="button" value="顧客とチャット">
-</form>	
-	
-<!--	<p>顧客とのチャット</p>-->
-<!--	<a href="chat.html" th:href="@{/chat}"></a>-->
+	<form th:action="@{/chat}">
+		<input type="submit" value="顧客とチャット">
+	</form>
 
 
 </body>
