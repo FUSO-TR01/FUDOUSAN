@@ -5,6 +5,16 @@
 	<title>物件情報一覧 - 一人暮らしの家探し</title>
 	<meta charset="utf-8" />
 	
+	<script>
+		function confirmDelete(){
+			var result = confirm("こちらの物件情報を削除してもいいですか？");
+			if (result){
+				//削除処理を実行するためのコードを追加
+				alert("削除しました");
+			}
+		}
+	</script>
+	
 </head>
 
 <body>
@@ -60,15 +70,18 @@
 			<td>
 				<form th:action="@{/addhome/{id}(id=${res.id})}">
 					<input type="submit" value="編集" >
+
 				</form>
 			</td>
 			
 		</tr>
 	</table>
 
+
 				<form th:action="@{/merchant}">
 					<input type="submit" value="メニューへ戻る" >
 				</form>
+
 
 
 </body>
