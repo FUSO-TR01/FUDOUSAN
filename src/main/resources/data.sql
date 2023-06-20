@@ -3,6 +3,6 @@ INSERT INTO home (name,space,money,address,comment) VALUES
 ('でかでかマンション','1R',50000,'大阪府','Wi-Fiなし'),
 ('ちびマンション','1DK',40000,'北海道','ペット可');
 
-INSERT INTO login(logId,pass) VALUES ('ID','Password');
+INSERT INTO login(logId,pass,type,name) VALUES ('ID','Password','業者名','名前');
 
-INSERT INTO loginC(logId,pass) VALUES ('ID','Password');
+INSERT INTO loginC(logId,pass,name) VALUES ('ID','Password','名前');
