@@ -108,5 +108,4 @@ public class FudoController {
 	public String viewhome(Model model) {
 		return "viewhome";
 	}
-
 }
