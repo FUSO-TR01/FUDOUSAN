@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+body {
+	background-color: #f2eee1;
+}
+
+h1 {
+	text-align: center;
+}
+
+.DivLink {
+	position: relative;
+	/*	display: inline-block;*/
+
+
+	justify-content: center;
+	align-items: center;
+
+
+
+	/*    ボタンの形について*/
+	width: 280px;
+	height: 96px;
+	border-radius: 10px;
+	padding-top: auto;
+	padding-bottom: auto;
+
+	/*    ボタンの背景色*/
+	background-color: #fffbb6;
+	/*    ボタンの枠線について*/
+	border: 3px solid orange;
+	/*    フォント情報*/
+	font-size: 30px;
+	font-weight: bold;
+	font-family: "Hannari";
+
+	text-align: center;
+	vertical-align: middle;
+
+
+	/*    margin-top: auto;*/
+	/*	margin-bottom: auto;*/
+	margin-left: auto;
+	margin-right: auto;
+
+
+
+}
+
+.DivLink .Link {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+
+}
+
+.DivLink:hover {
+	background-color: orange;
+}
