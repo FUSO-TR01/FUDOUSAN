@@ -4,54 +4,31 @@
 <head>
 	<title>物件情報一覧 - 一人暮らしの家探し</title>
 	<meta charset="utf-8" />
-	
+
 	<script>
-		function confirmDelete(){
+		function confirmDelete() {
 			var result = confirm("こちらの物件情報を削除してもいいですか？");
-			if (result){
+			if (result) {
 				//削除処理を実行するためのコードを追加
 				alert("削除しました");
 			}
 		}
 	</script>
-	
+
 </head>
 
 <body>
+
 	<h1>物件情報一覧</h1>
 
-<!--	<div align="center">-->
-<!--		<form method="get" action="#" th:action="@{/search/{money}}" th:object="${input}">-->
-<!--			<p class="defaultFont"> <input type="search" name="money" id="money" placeholder="金額を入力" class="defaultFont"-->
-<!--					required>から-->
-<!--				<input type="search" name="money2" id="money2" placeholder="金額を入力" class="defaultFont" required>の間-->
-<!--			</p>-->
-<!--			<input type="submit" class="MiniListButton" value="検索" required>-->
-<!--		</form>-->
-
-<!--		<form method="get" action="#" th:action="@{/search2/{space}}" th:object="${input}">-->
-<!--			<p class="defaultFont"> <input type="search" name="space" id="space" placeholder="スコアを入力"-->
-<!--					class="defaultFont" required></p>-->
-<!--			<input type="submit" class="MiniListButton" value="検索" required>-->
-<!--		</form>-->
-
-<!--		<p>-->
-<!--		<form method="get" action="#" th:action="@{/sort}" th:object="${input}" style="display: inline;">-->
-<!--			<input type="submit" class="MiniListButton" value="家賃">-->
-<!--		</form>-->
-<!--		<form method="get" action="#" th:action="@{/sort2}" th:object="${input}" style="display: inline;">-->
-<!--			<input type="submit" class="MiniListButton" value="間取り">-->
-<!--		</form>-->
-<!--	</div>-->
-
+	<table border="1">
 		<tr>
-			<th>番号</th>
+			<th>ID</th>
 			<th>物件名</th>
 			<th>間取り</th>
 			<th>家賃</th>
 			<th>住所</th>
-			<th>コメント</th>
-
+			<th>詳細</th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td th:text="${res.id}">1</td>
@@ -59,30 +36,28 @@
 			<td th:text="${res.space}">間取り</td>
 			<td th:text="${res.money}">家賃</td>
 			<td th:text="${res.address}">住所</td>
-			<td th:text="${res.comment}">コメント</td>
-			
+
+			<td th:text="${res.comment}">詳細</td>
 			<td>
 				<form th:action="@{/del/{id}(id=${res.id})}">
-					<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
+					<input type="submit" value="削除">
 				</form>
 			</td>
-			
+
 			<td>
 				<form th:action="@{/addhome/{id}(id=${res.id})}">
 					<input type="submit" value="編集" >
 
 				</form>
 			</td>
-			
 		</tr>
 	</table>
 
 
-				<form th:action="@{/merchant}">
-					<input type="submit" value="メニューへ戻る" >
-				</form>
-
-
+	<br><br>
+	<form th:action="@{/merchant}">
+		<input type="submit" value="メニューへ戻る">
+	</form>
 
 </body>
 
