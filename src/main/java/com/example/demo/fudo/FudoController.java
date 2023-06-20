@@ -26,7 +26,7 @@ public class FudoController {
 
 	//	①--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/home")
-	public String sample(Model model) {
+	public String sample(Model model, Input input) {
 		return "home";
 	}
 
@@ -129,6 +129,18 @@ public class FudoController {
 	//	④--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/addhome")
 	public String addhome(Model model, Input input) {
+//		Entity ent = new Entity();
+//		ent.setName(input.getName());
+//		ent.setSpace(input.getSpace());
+//		ent.setMoney(input.getMoney());
+//		ent.setAddress(input.getAddress());
+//		ent.setComment(input.getComment());
+//		dao.insertDb_addhome(ent);
+		return "addhome";
+	}
+	
+	@RequestMapping("/addhome2")
+	public String addhome2(@Validated Input input,Model model) {
 		Entity ent = new Entity();
 		ent.setName(input.getName());
 		ent.setSpace(input.getSpace());
@@ -136,8 +148,9 @@ public class FudoController {
 		ent.setAddress(input.getAddress());
 		ent.setComment(input.getComment());
 		dao.insertDb_addhome(ent);
-		return "addhome";
+		return "redirect:/addhome";
 	}
+
 
 	//	⑤--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/viewhome")

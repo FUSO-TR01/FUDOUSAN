@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>物件情報登録ページ</title>
 	<meta charset="utf-8" />
 	<script>
-		function openPopup(){
-			alert("ポップアップが表示されました！");
+		function openPopup() {
+			alert("ポップアップが表示されましたyo！");
 		}
 	</script>
 </head>
 
 <body>
 	<h1>物件情報登録ページ</h1>
-	<div th:object="${home}">
-		<form action="#" method="get" th:action="@{/edit/__*{id}__/exe}">
+<!--	<div th:object="${addhome2}">-->
+		<form action="#" method="get" th:action="${addhome2}" >
 			<p>
 				ID:<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">
 			</p>
@@ -36,11 +37,13 @@
 			<input type="checkbox" name=“詳細” value="4">室内洗濯機置き場あり
 			<input type="checkbox" name=“詳細” value="5">オートロックあり
 			<input type="checkbox" name=“詳細” value="6">バス・トイレ別
+
+			<input type="submit" value="登録" onclick="openPopup()" th:object="${addhome2}">
+
 			
-			<input type="submit" value="登録" onclick="openPopup()">
 		</form>
-		
-	</div>
+
+<!--	</div>-->
 </body>
 
 </html>
