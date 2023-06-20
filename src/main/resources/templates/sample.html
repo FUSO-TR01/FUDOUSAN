@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<meta charset="UTF-8">
+	<title>SAMPLE</title>
+	<link rel="stylesheet" th:href="@{/style-sample.css}">
+</head>
+
+<body>
+
+	<div align="center">
+		<h1>一人暮らしの家探し SAMPLE</h1>
+	</div>
+
+	<div class="DivLink">
+		<form class="Link" th:action="@{/customer}">
+			<input type="submit" value="一般のお客様はこちら">
+		</form>
+	</div>
+	<br><br>
+
+	<div class="DivLink">
+		<form class="Link" th:action="@{/login1}">
+			<input type="submit" value="不動産業者の方はこちら">
+		</form>
+	</div>
+
+
+</body>
+
+</html>
