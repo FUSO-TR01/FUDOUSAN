@@ -13,20 +13,21 @@ import com.example.demo.entity.UserEntity;
 
 @Controller
 public class FudoController {
-	
+
 	private final Dao dao;
+
 	@Autowired
 	public FudoController(Dao dao) {
 		this.dao = dao;
 	}
-	//	①------------------------
+
+	//	①--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/home")
 	public String sample(Model model) {
 		return "home";
 	}
 
-
-	//	②
+	//	②--------------------------------------------------------------------------------------------------------------
 	//	ログイン画面１(不動産ログイン)
 	@GetMapping("/login1")
 	public String showLoginForm1(Model model) {
@@ -48,8 +49,9 @@ public class FudoController {
 			return "login1";
 		}
 	}
-	
-//	ログイン画面２(顧客ログイン)
+
+	//	　--------------------------------------------------------------------------------------------------------------
+	//	ログイン画面２(顧客ログイン)
 	@GetMapping("/customer")
 	public String showLoginForm2(Model model) {
 		return "customer";
@@ -70,6 +72,8 @@ public class FudoController {
 		}
 	}
 
+	//	⑥--------------------------------------------------------------------------------------------------------------
+	
 	//	新規登録
 	@RequestMapping("/signup")
 	public String signup(Model model, UserInput userinput) {
@@ -85,26 +89,23 @@ public class FudoController {
 		dao.insertDb2(userentform);
 		return "register";
 	}
-	
-//	③----------------------------------------------------------
-	
+
+	//	③--------------------------------------------------------------------------------------------------------------
+
 	@RequestMapping("/merchant")
 	public String merchant(Model model) {
 		return "merchant";
 	}
 
-//	④--------------------------------------------------
+	//	④--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/addhome")
 	public String addhome(Model model, Input onput) {
 		return "addhome";
 	}
-	
-//	⑤----------------
+
+	//	⑤--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/viewhome")
 	public String viewhome(Model model) {
 		return "viewhome";
 	}
-	
-	
-	
 }
