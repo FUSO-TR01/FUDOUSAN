@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.dao.Dao;
+import com.example.demo.entity.Entity;
 import com.example.demo.entity.UserEntity;
 
 @Controller
@@ -120,7 +121,14 @@ public class FudoController {
 
 	//	④--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/addhome")
-	public String addhome(Model model, Input onput) {
+	public String addhome(Model model, Input input) {
+		Entity ent = new Entity();
+		ent.setName(input.getName());
+		ent.setSpace(input.getSpace());
+		ent.setMoney(input.getMoney());
+		ent.setAddress(input.getAddress());
+		ent.setComment(input.getComment());
+		dao.insertDb_login(ent);
 		return "addhome";
 	}
 
