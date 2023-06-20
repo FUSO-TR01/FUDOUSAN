@@ -5,16 +5,6 @@
 	<title>物件情報一覧 - 一人暮らしの家探し</title>
 	<meta charset="utf-8" />
 	
-	<script>
-		function confirmDelete(){
-			var result = confirm("こちらの物件情報を削除してもいいですか？");
-			if (result){
-				//削除処理を実行するためのコードを追加
-				alert("削除しました");
-			}
-		}
-	</script>
-	
 </head>
 
 <body>
@@ -60,27 +50,24 @@
 			<td th:text="${res.address}">住所</td>
 			<td th:text="${res.comment}">コメント</td>
 			
-<!--			<td>-->
-<!--				<form th:action="@{/del/{id}(id=${res.id})}">-->
-<!--					<input type="button" value="削除" />-->
-<!--				</form>-->
-<!--			</td>-->
-			<button onclick="confirmDelete()">削除</button>
+			<td>
+				<form th:action="@{/del/{id}(id=${res.id})}">
+					<input type="button" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
+				</form>
+			</td>
 			
 			<td>
 				<form th:action="@{/edit/{id}(id=${res.id})}">
-					<input type="button" value="編集" />
+					<input type="submit" value="編集" />
 				</form>
 			</td>
 			
 		</tr>
 	</table>
 
-
-		<p>メニューへ戻る</p>
-		<a class="Link" href="merchant.html" th:href="@{/}"></a>
-
-
+				<form th:action="@{/merchant}">
+					<input type="submit" value="メニューへ戻る" />
+				</form>
 
 
 </body>
