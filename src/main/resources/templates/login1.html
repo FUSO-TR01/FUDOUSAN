@@ -9,7 +9,7 @@
 <body>
 	<h1>ログインページ</h1>
 
-	<form method="post" action="/login1">
+	<form method="post" action="/login1" th:action="@{/merchant}">
 
 		<p>ログインID：<input type="text" name="logId1" required></p>
 		<!--		<div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">エラーメッセージ</div>-->
