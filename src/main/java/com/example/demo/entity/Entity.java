@@ -1,25 +1,12 @@
 package com.example.demo.entity;
 
 public class Entity {
-
-	private int id;
+	
 	private String name;
 	private String space;
 	private int money;
 	private String address;
 	private String comment;
-
-	public Entity() {
-
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -28,7 +15,7 @@ public class Entity {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public String getSpace() {
 		return space;
 	}
@@ -36,7 +23,7 @@ public class Entity {
 	public void setSpace(String space) {
 		this.space = space;
 	}
-
+	
 	public int getMoney() {
 		return money;
 	}
@@ -52,7 +39,7 @@ public class Entity {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
 	public String getComment() {
 		return comment;
 	}
@@ -60,5 +47,6 @@ public class Entity {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-
+	
+	
 }

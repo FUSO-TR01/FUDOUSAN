@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>物件情報登録ページ</title>
@@ -7,12 +6,14 @@
 </head>
 
 <body>
-	
 	<h1>物件情報登録ページ</h1>
-	<div th:object="${input}">
-		<form action="#" method="get" th:action="@{/merchant}">
+	<div th:object="${home}">
+		<form action="#" method="get" th:action="@{/edit/__*{id}__/exe}">
 			<p>
-				物件名: <input type="text" name="name" th:value="*{name}">
+				ID:<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">
+			</p>
+			<p>
+				物件名: <input type="text" name="name1" th:value="*{name}">
 			</p>
 			<p>
 				間取り: <input type="text" name="space" th:value="*{space}">
