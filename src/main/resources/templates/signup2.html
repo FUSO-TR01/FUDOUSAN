@@ -7,22 +7,15 @@
 </head>
 
 <body>
-	
-	<h1>一般のお客様ユーザー登録画面</h1>
+	<h1 th:text="${title}"></h1>
+	<h1>ユーザー登録画面</h1>
 	<p>IDとパスワードを設定してください</p>
-	
-	<form method="get" action="#" th:action="@{/register2}" th:object="${UserInput}">
+	<form method="get" action="#" th:action="@{/register}" th:object="${UserInput}">
 		<p>
 			ID：<input type="text" name="logId" placeholder="IDを入力してください" th:value="*{logId}" >
 		</p>
 		<p>
-			パスワード：<input type="text" name="pass2" placeholder="パスワードを入力してください" th:value="*{pass2}" >
-		</p>
-		<p>
-			パスワード（確認用）：<input type="text" name="pass2" placeholder="パスワードを入力してください" th:value="*{pass2}" >
-		</p>
-		<p>
-			氏名：<input type="text" name="name" placeholder="パスワードを入力してください" th:value="*{name}" >
+			パスワード：<input type="text" name="pass" placeholder="パスワードを入力してください" th:value="*{pass}" >
 		</p>
 		<input type="submit" value="登録" >
 	</form>

@@ -60,34 +60,9 @@ public class Dao {
 				userentform.getLogId(), userentform.getPass(),userentform.getType(), userentform.getName());
 	}
 	public void insertDb_loginC(UserEntity userentform) {
-		db.update("INSERT INTO login(logId,pass,name) VALUES(?,?,?)",
+		db.update("INSERT INTO loginC(logId,pass,name) VALUES(?,?,?)",
 				userentform.getLogId(), userentform.getPass(), userentform.getName());
 	}
-	
-	
-//	______________________
-	
-	public List<Entity> searchBKN() {
-
-		List<Map<String, Object>> bknDB1 = db.queryForList("SELECT * FROM home");
-		List<Entity> bknDB2 = new ArrayList<Entity>();
-
-		for (Map<String, Object> record : bknDB1) {
-			Entity entdb = new Entity();
-			
-			entdb.setId((int) record.get("id"));
-			
-			entdb.setName((String) record.get("name"));
-			entdb.setSpace((String) record.get("space"));
-			entdb.setMoney((int) record.get("money"));
-			entdb.setAddress((String) record.get("address"));
-			entdb.setComment((String) record.get("comment"));
-			
-			bknDB2.add(entdb);
-		}
-		return bknDB2;
-	}
-	
 	
 	public void insertDb_addhome(Entity ent) {
 		db.update("INSERT INTO home(name,space,money,address,comment) VALUES(?,?,?,?,?)",
