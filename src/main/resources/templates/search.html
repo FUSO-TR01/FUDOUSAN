@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>物件検索 - 一人暮らしの家探し</title>
+	<meta charset="utf-8" />
+
+</head>
+
+<body>
+	<h1>物件検索</h1>
+
+	//間取り検索プルダウンメニュー
+	<p>間取り</p>
+	<form method="get" action="#" th:action="@{/search/{space}}" th:object="${input}">
+		<select name="space">
+			<option value="">▼選択してください</option>
+			<option value="1R">1R</option>
+			<option value="1K">1K</option>
+			<option value="1DK">1DK</option>
+			<option value="1LDK">1LDK</option>
+		</select>
+	</form>
+
+	//家賃検索プルダウンメニュー
+	<p>家賃</p>
+	<form method="get" action="#" th:action="@{/search/{money}}" th:object="${input}">
+		<select name="money1">
+			<optgroup label="家賃　下限">
+				<option value="">下限なし</option>
+				<option value="2">４万</option>
+				<option value="3">５万</option>
+				<option value="4">６万</option>
+				<option value="5">７万</option>
+				<option value="6">８万</option>
+				<option value="7">９万</option>
+			</optgroup>
+		</select>～
+
+		<select name="money2">
+			<optgroup label="家賃　上限">
+				<option value="">上限なし</option>
+				<option value="2">４万</option>
+				<option value="3">５万</option>
+				<option value="4">６万</option>
+				<option value="5">７万</option>
+				<option value="6">８万</option>
+				<option value="7">９万</option>
+				<option value="8">１０万</option>
+			</optgroup>
+		</select>
+	</form>
+
+	<p>物件名を検索</p>
+	<form method="get" action="#" th:action="@{/search/{name}}" th:object="${input}">
+		<input type="search" name="search" placeholder="キーワードを入力”size=" 40">
+		<input type="submit" name="submit" value="検索”>
+	</form>
+	
+	<input type=" submit" value="検索" required>
+
+
+		<form th:action="@{/merchant}">
+			<input type="submit" value="メニューへ戻る">
+		</form>
+
+
+
+</body>
+
+</html>
