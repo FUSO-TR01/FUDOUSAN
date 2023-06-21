@@ -8,7 +8,7 @@
 
 <body>
 
-	<h1>不動産業者様ユーザー登録画面</h1>
+	<h1>ユーザー登録画面</h1>
 	<p>IDとパスワードを設定してください</p>
 
 	<form method="get" action="#" th:action="@{/register1}" th:object="${userinput}">
@@ -35,6 +35,10 @@
 			氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}" required>
 		</p>
 		<input type="submit" value="登録">
+	</form>
+	<br>
+	<form th:action="@{/login1}">
+	<input type="submit" value="戻る">
 	</form>
 </body>
 

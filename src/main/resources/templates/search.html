@@ -35,8 +35,9 @@
 				<option value="6">８万</option>
 				<option value="7">９万</option>
 			</optgroup>
-		</select>～
-
+		</select>
+	</form>
+	<form>
 		<select name="money2">
 			<optgroup label="家賃　上限">
 				<option value="">上限なし</option>
@@ -57,12 +58,11 @@
 		<input type="submit" name="submit" value="検索”>
 	</form>
 	
-	<input type=" submit" value="検索" required>
-
-
-		<form th:action="@{/merchant}">
-			<input type="submit" value="メニューへ戻る">
-		</form>
+	<input type="submit" value="検索">
+	<br><br>
+	<form th:action="@{/customermenu}">
+	<input type="submit" value="メニューに戻る">
+	</form>
 
 
 
