@@ -17,6 +17,7 @@
 		<div class="hamburger-menu">
 			<input type="checkbox" id="menu-btn-check">
 			<label for="menu-btn-check" class="menu-btn"><span></span></label>
+
 			<!--ここからメニュー-->
 			<div class="menu-content">
 				<ul>
@@ -35,13 +36,12 @@
 		</div>
 	</header>
 
-	</div>
-	</header>
 
 	<!--	<div align="center">-->
 	<div class="header">
 		<h1>一人暮らしの家探し SAMPLE</h1>
 	</div>
+	<br><br>
 
 	<div class="button019">
 		<a href="customer.html" th:href="@{/customer}">一般のお客様はこちら</a>
@@ -52,11 +52,67 @@
 		<a href="login1.html" th:href="@{/login1}">不動産業者の方はこちら</a>
 	</div>
 
-	<!--	<br><br>-->
+	<br><br>
 
-	<!--	<div class="button019">-->
-	<!--		<a href="#">ボタンのデザイン</a>-->
-	<!--	</div>-->
+	<table class="design08">
+
+		<tr>
+			<th>ID</th>
+			<th>物件名</th>
+			<th>間取り</th>
+			<th>家賃</th>
+			<th>住所</th>
+			<th>詳細</th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>でかマンション</td>
+			<td>1LDK</td>
+			<td>50000</td>
+			<td>東京都</td>
+			<td>トイレなし</td>
+
+			<td>
+				<!--				<form th:action="@{/edithome/{id}(id=${res.id})}">-->
+				<input type="submit" value="編集">
+
+				</form>
+			</td>
+			<td>
+				<!--				<form th:action="@{/del/{id}(id=${res.id})}">-->
+				<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
+				</form>
+			</td>
+
+		</tr>
+
+		<tr>
+
+			<td>2</td>
+			<td>でかでかマンション</td>
+			<td>1R</td>
+			<td>50000</td>
+			<td>大阪府</td>
+			<td>Wi-Fiなし</td>
+
+
+			<td>
+				<!--				<form th:action="@{/edithome/{id}(id=${res.id})}">-->
+				<input type="submit" value="編集">
+
+				</form>
+			</td>
+			<td>
+				<!--				<form th:action="@{/del/{id}(id=${res.id})}">-->
+				<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
+				</form>
+			</td>
+
+		</tr>
+
+	</table>
 
 	<div class="footer">
 		<p>copyright 株式会社サンプル 2023</p>
