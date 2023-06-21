@@ -203,5 +203,11 @@ public class FudoController {
 		return "edithome";
 	}
 
+	//	⑦--------------------------------------------------------------------------------------------------------------
+
+	@RequestMapping("/customermenu")
+	public String customermenu(Model model) {
+		return "customermenu";
+	}
 
 }
