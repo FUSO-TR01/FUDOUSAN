@@ -12,15 +12,18 @@
 
 	<h1>一人暮らしの家探し</h1>
 
-	<table>
+	<table border="1">
 
 		<tr>
 			<th>ID</th>
 			<th>チャット</th>
+			<th>name</th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td th:text="${res.id}">1</td>
 			<td th:text="${res.chat}">chat</td>
+			<td th:text="${res.name}">name</td>
+
 
 	</table>
 
@@ -30,6 +33,9 @@
 		</p>
 		<p>
 			chat: <input type="text" name="chat" th:value="*{chat}" required>
+		</p>
+		<p>
+			name: <input type="text" name="name" th:value="*{name}" placeholder="山田　太郎" required>
 		</p>
 		<input type="submit" value="送信">
 	</form>

@@ -4,6 +4,8 @@ public class ChatEntity {
 	
 	private int id;
 	private String chat;
+	private String name;
+	
 	
 	public ChatEntity() {
 
@@ -23,6 +25,14 @@ public class ChatEntity {
 
 	public void setChat(String chat) {
 		this.chat = chat;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

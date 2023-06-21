@@ -144,6 +144,8 @@ public class Dao {
 			entdb.setId((int) bkn.get("id"));
 
 			entdb.setChat((String) bkn.get("chat"));
+			
+			entdb.setName((String) bkn.get("name"));
 
 			dataList.add(entdb);
 		}
@@ -151,8 +153,8 @@ public class Dao {
 	}
 	
 	public void insertDb_addchat(ChatEntity chatent) {
-		db.update("INSERT INTO chat(chat) VALUES(?)",
-				chatent.getChat());
+		db.update("INSERT INTO chat(chat,name) VALUES(?,?)",
+				chatent.getChat(),chatent.getName());
 	}
 
 	//検索
