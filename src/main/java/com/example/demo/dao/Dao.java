@@ -159,10 +159,41 @@ public class Dao {
 
 	//検索
 		public List<Entity> getSearch(String name,String space,Integer start,Integer end,String place) {
-			String SHname = "%" + name + "%";
-			String SHplace = "%" + place + "%";
-			List<Map<String, Object>> queryResult =
-					db.queryForList("SELECT * FROM home WHERE name LIKE ? AND space = ? AND money BETWEEN ? AND ? AND address LIKE ?", SHname,space,start,end,SHplace);
+			
+			String sql="SELECT * FROM home WHERE";
+			if (!name.isEmpty()) {
+				String SHname = "'%" + name + "%'";
+			    sql= sql +" name LIKE " + SHname + " AND";
+			}
+			if (!space.isEmpty()) {
+			    sql= sql +" space = '"+ space + "' AND";
+			}
+			
+			if (start != 0) {
+				sql= sql +" money BETWEEN " + start + " AND ";
+			}
+			else {
+				sql= sql +" money BETWEEN (SELECT MIN(money) FROM home) AND ";
+			}
+			
+			if (end != 0) {
+			    sql= sql + end + " AND";
+			}
+			else {
+				sql= sql +" (SELECT MAX(money) FROM home) AND";
+			}
+			
+			if (!place.isEmpty()) {
+				String SHplace = "'%" + place + "%'";
+			    sql= sql +" address LIKE " + SHplace + " AND";
+			}
+			
+			sql = sql.substring(0, sql.length()-4);
+			
+//			List<Map<String, Object>> queryResult =
+//					db.queryForList("SELECT * FROM home WHERE name LIKE ? AND space = ? AND money BETWEEN ? AND ? AND address LIKE ?", SHname,space,start,end,SHplace);
+			List<Map<String, Object>> queryResult =db.queryForList(sql);
+			
 			List<Entity> dataList = new ArrayList<Entity>();
 
 			for (Map<String, Object> bkn : queryResult) {
