@@ -11,7 +11,7 @@
 
 <body>
 	<h1>物件情報登録ページ</h1>
-	<form action="#" method="get" th:action="${viwehome}">
+	<form action="#" method="get" th:action="@{/addhome2}">
 		<p>
 			<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">
 		</p>
@@ -54,7 +54,7 @@
 				<p id="popupAddress"></p>
 				<p id="popupComment"></p>
 				<p>登録しますか？</p>
-				<p><input type="submit" value="閉じる" onclick="modalClose()" th:action="${viewhome}"></p>
+				<p><input type="submit" value="閉じる" onclick="modalClose()" ></p>
 			</div>
 		</div>
 	</form>
