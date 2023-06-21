@@ -129,6 +129,7 @@ public class Dao {
 				entity.getName(),entity.getSpace(), entity.getMoney(), entity.getAddress(),entity.getComment(), id);
 	}
 	
+
 	
 //	____________________________
 	
@@ -153,4 +154,29 @@ public class Dao {
 		db.update("INSERT INTO chat(chat) VALUES(?)",
 				chatent.getChat());
 	}
+
+	//検索
+		public List<Entity> getSearch(String name,String space,Integer start,Integer end,String place) {
+			String SHname = "%" + name + "%";
+			String SHplace = "%" + place + "%";
+			List<Map<String, Object>> queryResult =
+					db.queryForList("SELECT * FROM home WHERE name LIKE ? AND space = ? AND money BETWEEN ? AND ? AND address LIKE ?", SHname,space,start,end,SHplace);
+			List<Entity> dataList = new ArrayList<Entity>();
+
+			for (Map<String, Object> bkn : queryResult) {
+				Entity entdb = new Entity();
+
+				entdb.setId((int) bkn.get("id"));
+
+				entdb.setName((String) bkn.get("name"));
+				entdb.setSpace((String) bkn.get("space"));
+				entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
+				entdb.setAddress((String) bkn.get("address"));
+				entdb.setComment((String) bkn.get("comment"));
+
+				dataList.add(entdb);
+			}
+			return dataList;
+		}
+
 }
