@@ -186,9 +186,9 @@ public class FudoController {
 	}
 	
 	//検索
-	@RequestMapping("/search")
+	@RequestMapping("/merchantsearch")
 	public String Search(@RequestParam("bkname") String name ,@RequestParam("space") String space,
-			@RequestParam("start") String start ,@RequestParam("end") String end,
+			@RequestParam("start") Integer start ,@RequestParam("end") Integer end,
 			@RequestParam("place") String place ,Model model) {
 		List<Entity> list = dao.getSearch(name,space,start,end,place);
 		LocalDate nowDate = LocalDate.now();
@@ -199,7 +199,7 @@ public class FudoController {
 		model.addAttribute("end", end);
 		model.addAttribute("place", place);
 		model.addAttribute("dbList", list);
-		return "search";
+		return "merchantsearch";
 	}
 	
 	

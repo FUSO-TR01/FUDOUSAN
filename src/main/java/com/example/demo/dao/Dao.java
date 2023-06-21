@@ -129,7 +129,7 @@ public class Dao {
 	}
 	
 	//検索
-		public List<Entity> getSearch(String name,String space,String start,String end,String place) {
+		public List<Entity> getSearch(String name,String space,Integer start,Integer end,String place) {
 			String SHname = "%" + name + "%";
 			String SHplace = "%" + place + "%";
 			List<Map<String, Object>> queryResult =
