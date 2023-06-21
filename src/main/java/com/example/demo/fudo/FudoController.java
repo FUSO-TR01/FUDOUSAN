@@ -198,10 +198,32 @@ public class FudoController {
 	public String editView(@PathVariable Long id, Model model) {
 		List<Entity> list = dao.getOne(id);
 		Entity entity = list.get(0);
-		model.addAttribute("entform", entity);
+		model.addAttribute("entity", entity);
 		model.addAttribute("title", "編集ページ");
+		
 		return "edithome";
 	}
+	
+	//更新
+		@RequestMapping("/edit/{id}/exe")
+		public String editExe(@PathVariable Long id, Model model, Input input) {
+			Entity entform = new Entity();
+			System.out.println(input.getName());
+			System.out.println(input.getSpace());
+			System.out.println(input.getMoney());
+			System.out.println(input.getAddress());
+			System.out.println(input.getComment());
+
+			entform.setName(input.getName());
+			entform.setSpace(input.getSpace());
+			entform.setMoney(input.getMoney());
+			entform.setAddress(input.getAddress());
+			entform.setComment(input.getComment());
+
+			dao.updateSample(id, entform);
+
+			return "redirect:/viewhome";
+		}
 
 	//	⑦--------------------------------------------------------------------------------------------------------------
 
@@ -209,7 +231,7 @@ public class FudoController {
 	public String customermenu(Model model) {
 		return "customermenu";
 	}
-	}
+}
 	
 
 

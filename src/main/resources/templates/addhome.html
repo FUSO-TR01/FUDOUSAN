@@ -5,13 +5,12 @@
 	<title>物件情報登録ページ</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" th:href="@{/style.css}">
-
 	<script src="modal.js"></script>
 </head>
 
 <body>
 	<h1>物件情報登録ページ</h1>
-	<form action="#" method="get" th:action="@{/addhome2}">
+	<form action="#" method="get">
 		<p>
 			<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">
 		</p>
@@ -54,7 +53,8 @@
 				<p id="popupAddress"></p>
 				<p id="popupComment"></p>
 				<p>登録しますか？</p>
-				<p><input type="submit" value="閉じる" onclick="modalClose()" ></p>
+				<p><input type="submit" value="登録" onclick="modalClose()" th:action="@{/addhome2}"></p>
+				<p><input type="submit" value="やめる" onclick="modalClose()"></p>
 			</div>
 		</div>
 	</form>
