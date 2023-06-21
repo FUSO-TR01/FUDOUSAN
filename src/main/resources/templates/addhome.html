@@ -13,22 +13,36 @@
 			//  モーダルウインドウ オープン
 			//------------------------------------------------------------
 			document.getElementById("modalArea").className = "modalBg modalBgOpen";
-			
-			var name = document.getElementById("name").value;
-			var item = document.getElementById("space").value;
-			var money = document.getElementById("money").value;
-			var address = document.getElementById("address").value;
-			var checkbox = document.getElementById("comment").value;
-			
+
+			var name = document.getElementsByName("name")[0].value;
+			var space = document.getElementsByName("space")[0].value;
+			var money = document.getElementsByName("money")[0].value;
+			var address = document.getElementsByName("address")[0].value;
+
+			var comments = document.getElementsByName("comment");
+
+			// 必須項目の入力チェック
+			if (!name || !space || !money || !address) {
+				alert("必須項目が入力されていません");
+				return;
+			}
+
+			var selectedComments = [];
+
+			for (var i = 0; i < comments.length; i++) {
+				if (comments[i].checked) {
+					selectedComments.push(comments[i].nextSibling.nodeValue.trim());
+				}
+			}
+
 			document.getElementById("popupName").textContent = "名前: " + name;
 			document.getElementById("popupSpace").textContent = "間取り: " + space;
 			document.getElementById("popupMoney").textContent = "家賃: " + money;
 			document.getElementById("popupAddress").textContent = "住所: " + address;
-			document.getElementById("popupComment").textContent = "詳細: " + comment;
+			document.getElementById("popupComment").textContent = "詳細: " + selectedComments.join(", ");
 
 			document.getElementById("modalArea").style.display = "block";
 			document.getElementById("modalWindow").style.display = "block";
-			
 		}
 
 		function modalClose() {
@@ -53,10 +67,10 @@
 		<label for="dropdown">間取り:</label>
 		<select name="space">
 			<option hidden>選択してください</option>
-			<option th value="space1">1R</option>
-			<option th value="space2">1K</option>
-			<option th value="space3">1DK</option>
-			<option th value="space4">1LDK</option>
+			<option value="1R">1R</option>
+			<option value="1K">1K</option>
+			<option value="1DK">1DK</option>
+			<option value="1LDK">1LDK</option>
 		</select>
 		<p>
 			家賃: <input type="text" name="money" th:value="*{money}" required>
@@ -65,16 +79,16 @@
 			住所: <input type="text" name="address" th:value="*{address}" required>
 		</p>
 		<p>詳細</p>
-		<input type="checkbox" name="comment" value="1">無料Wi-Fiあり<br>
-		<input type="checkbox" name="comment" value="2">駐車場空きあり<br>
-		<input type="checkbox" name="comment" value="3">ペット可<br>
-		<input type="checkbox" name="comment" value="4">室内洗濯機置き場あり<br>
-		<input type="checkbox" name="comment" value="5">オートロックあり<br>
-		<input type="checkbox" name="comment" value="6">バス・トイレ別
+		<input type="checkbox" name="comment" value="1" id="comment1">無料Wi-Fiあり<br>
+		<input type="checkbox" name="comment" value="2" id="comment2">駐車場空きあり<br>
+		<input type="checkbox" name="comment" value="3" id="comment3">ペット可<br>
+		<input type="checkbox" name="comment" value="4" id="comment4">室内洗濯機置き場あり<br>
+		<input type="checkbox" name="comment" value="5" id="comment5">オートロックあり<br>
+		<input type="checkbox" name="comment" value="6" id="comment6">バス・トイレ別
 		<br><br>
-		
+
 		<!-- 開くボタン -->
-		<input type="button" value="確認" onclick="modalOpen()">
+		<input type="button" value="確認" onclick="validateAndOpenModal()">
 
 		<!-- ウインドウのエリア -->
 		<div id="modalArea" class="modalNoDisp">
@@ -89,6 +103,61 @@
 				<p><input type="submit" value="閉じる" onclick="modalClose()" th:action="${viewhome}"></p>
 			</div>
 		</div>
+
+		<script type="text/javascript">
+			function validateAndOpenModal() {
+				var name = document.getElementsByName("name")[0].value;
+				var space = document.getElementsByName("space")[0].value;
+				var money = document.getElementsByName("money")[0].value;
+				var address = document.getElementsByName("address")[0].value;
+
+				// 必須項目の入力チェック
+				if (!name || !space || !money || !address) {
+					alert("必須項目が入力されていません");
+				} else {
+					modalOpen();
+				}
+			}
+
+			function modalOpen() {
+				//------------------------------------------------------------
+				//  モーダルウインドウ オープン
+				//------------------------------------------------------------
+				document.getElementById("modalArea").className = "modalBg modalBgOpen";
+
+				var name = document.getElementsByName("name")[0].value;
+				var space = document.getElementsByName("space")[0].value;
+				var money = document.getElementsByName("money")[0].value;
+				var address = document.getElementsByName("address")[0].value;
+
+				var comments = document.getElementsByName("comment");
+
+				var selectedComments = [];
+
+				for (var i = 0; i < comments.length; i++) {
+					if (comments[i].checked) {
+						selectedComments.push(comments[i].nextSibling.nodeValue.trim());
+					}
+				}
+
+				document.getElementById("popupName").textContent = "名前: " + name;
+				document.getElementById("popupSpace").textContent = "間取り: " + space;
+				document.getElementById("popupMoney").textContent = "家賃: " + money;
+				document.getElementById("popupAddress").textContent = "住所: " + address;
+				document.getElementById("popupComment").textContent = "詳細: " + selectedComments.join(", ");
+
+				document.getElementById("modalArea").style.display = "block";
+				document.getElementById("modalWindow").style.display = "block";
+			}
+
+			function modalClose() {
+				//------------------------------------------------------------
+				//  モーダルウインドウ クローズ
+				//------------------------------------------------------------
+				document.getElementById("modalArea").style.display = "none";
+				document.getElementById("modalWindow").style.display = "none";
+			}
+		</script>
 	</form>
 </body>
 
