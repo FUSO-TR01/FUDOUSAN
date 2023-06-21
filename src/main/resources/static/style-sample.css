@@ -1,63 +1,191 @@
 @charset "UTF-8";
 
 body {
-	background-color: #f2eee1;
+	background-color: white;
+	margin: 0;
+	padding: 0;
 }
 
-h1 {
+.header {
+
+	background-color: cadetblue;
+	color: white;
 	text-align: center;
+	padding: 10px;
 }
 
-.DivLink {
+.footer {
+	position: fixed;
+	/* フッターを固定する */
+	bottom: 0;
+	/* 上部から配置の基準位置を決める */
+	left: 0;
+	/* 左から配置の基準位置を決める */
+	width: 100%;
+	/* フッターの横幅を指定する */
+	height: 35px;
+	/* フッターの高さを指定する */
+	background-color: #f5f5f5;
+	text-align: center;
+	padding: 10px;
+}
+
+
+/*h1 {*/
+/*	text-align: center;*/
+/*}*/
+
+
+/* 019 */
+.button019 a {
+	background: #5c5c5c;
+	border-radius: 3px;
 	position: relative;
-	/*	display: inline-block;*/
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 280px;
+	padding: 10px 25px;
+	color: white;
+	transition: 0.3s ease-in-out;
+	font-weight: 500;
+	text-decoration: none;
+/*	border: 4px solid #6bb6ff;*/
+}
+
+/*.button019 input {*/
+/*	border: none;*/
+/*	font-size: 100%;*/
+
+/*}*/
 
 
+
+/*矢印*/
+.button019 a:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	bottom: 0;
+	right: 2rem;
+	font-size: 90%;
+	display: flex;
 	justify-content: center;
 	align-items: center;
-
-
-
-	/*    ボタンの形について*/
-	width: 280px;
-	height: 96px;
-	border-radius: 10px;
-	padding-top: auto;
-	padding-bottom: auto;
-
-	/*    ボタンの背景色*/
-	background-color: #fffbb6;
-	/*    ボタンの枠線について*/
-	border: 3px solid orange;
-	/*    フォント情報*/
-	font-size: 30px;
-	font-weight: bold;
-	font-family: "Hannari";
-
-	text-align: center;
-	vertical-align: middle;
-
-
-	/*    margin-top: auto;*/
-	/*	margin-bottom: auto;*/
-	margin-left: auto;
-	margin-right: auto;
-
-
+	transition: right 0.3s;
+	width: 6px;
+	height: 6px;
+	border-top: solid 2px currentColor;
+	border-right: solid 2px currentColor;
+	transform: translateY(-50%) rotate(45deg);
 
 }
 
-.DivLink .Link {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-
+.button019 a:hover {
+	background: #404040;
+	color: #FFF;
 
 }
 
-.DivLink:hover {
-	background-color: orange;
+/*矢印の動き*/
+.button019 a:hover:after {
+	right: 1.4rem;
+}
+
+
+
+
+/*ハンバーガーメニューボタン*/
+.menu-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: #5c5c5c;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+}
+.menu-btn span:before {
+    bottom: 8px;
+}
+.menu-btn span:after {
+    top: 8px;
+}
+
+/*ハンバーガーメニューボタン×マーク*/
+#menu-btn-check:checked ~ .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/*チェックボックスを隠す*/
+#menu-btn-check {
+    display: none;
+}
+
+/*ハンバーガーメニューコンテンツ*/
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;/*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background-color: #3584bb;
+    transition: all 0.5s;/*アニメーション設定*/
+}
+
+.menu-content ul {
+    padding: 70px 10px 0;
+}
+.menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+}
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+    position: relative;
+}
+.menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 11px;
+    top: 16px;
+}
+
+#menu-btn-check:checked ~ .menu-content {
+    left: 0;/*メニューを画面内へ*/
 }

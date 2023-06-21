@@ -209,5 +209,7 @@ public class FudoController {
 	public String customermenu(Model model) {
 		return "customermenu";
 	}
+	}
+	
 
-}
+
