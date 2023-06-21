@@ -2,11 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<link rel="stylesheet" th:href="@{/style-o.css}">
 	<title>ログインページ</title>
 	<meta charset="utf-8" />
 </head>
 
+<header>
+			<h1>
+				<a href="/home">一人暮らしの家探し</a>
+			</h1>
+			<nav class="fnavi">
+				<ul>
+					<li><a href="#">企業情報</a></li>
+					<li><a href="#">お知らせ</a></li>
+					<li><a href="#">お問い合わせ</a></li>
+				</ul>
+			</nav>
+</header>
+
 <body>
+	<br><br><br><br>
 	<h1>ログインページ</h1>
 
 	<form method="post" action="/login1" th:action="@{/merchant}">
@@ -16,21 +31,29 @@
 		<p>パスワード：<input type="text" name="pass1" required></p>
 		<!--		<div th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}">エラーメッセージ</div>-->
 
-		<input type="submit" value="ログイン">
-		<p th:text="${result}"></p>
 	</form>
 	
-	<form th:action="@{/signup1}">
-		<input type="submit" value="新規登録画面へ">
-	</form>
+		<input type="submit" value="ログイン" class="button020">
+		<p th:text="${result}"></p>
+
+	
+	<br>
+		
+	<div class="button019">
+			<a href="signup1.html" th:href="@{/signup1}">新規登録</a>
+	</div>
 		<br>
-	<form th:action="@{/customer}">
-		<input type="submit" value="一般のお客様用ログインページへ">
-	</form>
+	<div class="button019">
+			<a href="customer.html" th:href="@{/customer}">一般のお客様用ログインページへ</a>
+	</div>
 		<br>
-	<form th:action="@{/home}">
-		<input type="submit" value="ホーム画面へ戻る">
-	</form>
+	<div class="button019">
+			<a href="home.html" th:href="@{/home}">ホーム画面へ戻る</a>
+	</div>
+		<br><br>
+	<div class="footer">
+			<p>copyright 一人暮らしの家探し 2023</p>
+	</div>
 
 </body>
 

@@ -263,6 +263,7 @@ public class FudoController {
 	public String addchat(@Validated ChatInput chatinput, Model model) {
 		ChatEntity chatent = new ChatEntity();
 		chatent.setChat(chatinput.getChat());
+		chatent.setName(chatinput.getName());
 		dao.insertDb_addchat(chatent);
 		return "redirect:/chat";
 	}
