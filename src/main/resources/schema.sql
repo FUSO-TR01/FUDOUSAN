@@ -28,3 +28,11 @@ CREATE TABLE loginC
 	
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE chat
+(
+	id INT NOT NULL AUTO_INCREMENT,
+	chat VARCHAR (100) NOT NULL,
+	
+	PRIMARY KEY (id)
+);
