@@ -194,7 +194,7 @@ public class FudoController {
 	}
 
 	//編集画面の表示
-	@RequestMapping("/edit/{id}")
+	@RequestMapping("/edithome/{id}")
 	public String editView(@PathVariable Long id, Model model) {
 		List<Entity> list = dao.getOne(id);
 		Entity entity = list.get(0);
