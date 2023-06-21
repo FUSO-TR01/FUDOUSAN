@@ -1,5 +1,6 @@
 package com.example.demo.fudo;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -183,6 +184,24 @@ public class FudoController {
 	public String sample2(Model model) {
 		return "sample2";
 	}
+	
+	//検索
+	@RequestMapping("/search")
+	public String Search(@RequestParam("bkname") String name ,@RequestParam("space") String space,
+			@RequestParam("start") String start ,@RequestParam("end") String end,
+			@RequestParam("place") String place ,Model model) {
+		List<Entity> list = dao.getSearch(name,space,start,end,place);
+		LocalDate nowDate = LocalDate.now();
+		
+		model.addAttribute("nowDate", nowDate);
+		model.addAttribute("space", space);
+		model.addAttribute("start", start);
+		model.addAttribute("end", end);
+		model.addAttribute("place", place);
+		model.addAttribute("dbList", list);
+		return "search";
+	}
+	
 	
 
 
