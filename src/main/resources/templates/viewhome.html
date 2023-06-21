@@ -10,7 +10,74 @@
 <h1>物件情報一覧</h1>
 
 <body>
+	<form method="get" action="/merchantsearch">
+		<p>
+			物件名：<input type="text" name="bkname">
+			間取り：
+			<select name="space">
+				<option hidden>選択してください</option>
+				<option value="">全選択</option>
+				<option value="1R">1R</option>
+				<option value="1K">1K</option>
+				<option value="1DK">1DK</option>
+				<option value="1LDK">1LDK</option>
+			</select>
+			家賃：<select name="start">
+				<option hidden>選択してください</option>
+				<option value="0">下限なし</option>
+				<option value="10000">10,000</option>
+				<option value="20000">20,000</option>
+				<option value="30000">30,000</option>
+				<option value="40000">40,000</option>
+				<option value="50000">50,000</option>
+				<option value="60000">60,000</option>
+				<option value="70000">70,000</option>
+				<option value="80000">80,000</option>
+				<option value="90000">90,000</option>
+				<option value="100000">100,000</option>
+				<option value="110000">110,000</option>
+				<option value="120000">120,000</option>
+				<option value="130000">130,000</option>
+				<option value="140000">140,000</option>
+				<option value="150000">150,000</option>
+			</select>
+			～
+			<select name="end">
+				<option hidden>選択してください</option>
+				<option value="10000">10,000</option>
+				<option value="20000">20,000</option>
+				<option value="30000">30,000</option>
+				<option value="40000">40,000</option>
+				<option value="50000">50,000</option>
+				<option value="60000">60,000</option>
+				<option value="70000">70,000</option>
+				<option value="80000">80,000</option>
+				<option value="90000">90,000</option>
+				<option value="100000">100,000</option>
+				<option value="110000">110,000</option>
+				<option value="120000">120,000</option>
+				<option value="130000">130,000</option>
+				<option value="140000">140,000</option>
+				<option value="150000">150,000</option>
+				<option value="">上限なし</option>
+			</select>
 
+			住所：<input type="text" name="place">
+		<p>詳細<br>
+			<input type="checkbox" name="comment" value="1" id="comment1">無料Wi-Fiあり<br>
+			<input type="checkbox" name="comment" value="2" id="comment2">駐車場空きあり<br>
+			<input type="checkbox" name="comment" value="3" id="comment3">ペット可<br>
+			<input type="checkbox" name="comment" value="4" id="comment4">室内洗濯機置き場あり<br>
+			<input type="checkbox" name="comment" value="5" id="comment5">オートロックあり<br>
+			<input type="checkbox" name="comment" value="6" id="comment6">バス・トイレ別<br>
+		</p>
+		<p>
+			<input type="submit" value="検索" class="button">
+		</p>
+	</form>
+	<form th:action="@{/merchant}">
+		<input type="submit" value="メニューへ戻る">
+	</form>
 	<table border="1">
 
 		<tr>
@@ -28,7 +95,7 @@
 			<td th:text="${res.money}">家賃</td>
 			<td th:text="${res.address}">住所</td>
 			<td th:text="${res.comment}">詳細</td>
-			
+
 			<td>
 				<form th:action="@{/edithome/{id}(id=${res.id})}">
 					<input type="submit" value="編集">
@@ -40,14 +107,9 @@
 					<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
 				</form>
 			</td>
-
 		</tr>
-
 	</table>
 	<br><br>
-	<form th:action="@{/merchant}">
-		<input type="submit" value="メニューへ戻る">
-	</form>
 
 </body>
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.entity.ChatEntity;
 import com.example.demo.entity.Entity;
 import com.example.demo.entity.UserEntity;
 
@@ -127,4 +128,55 @@ public class Dao {
 		db.update("UPDATE home SET name=?,space=?,money = ?,address = ?,comment = ? WHERE id = ?",
 				entity.getName(),entity.getSpace(), entity.getMoney(), entity.getAddress(),entity.getComment(), id);
 	}
+	
+
+	
+//	____________________________
+	
+	public List<ChatEntity> getChat() {
+
+		List<Map<String, Object>> queryResult = db.queryForList("SELECT * FROM chat");
+		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
+
+		for (Map<String, Object> bkn : queryResult) {
+			ChatEntity entdb = new ChatEntity();
+
+			entdb.setId((int) bkn.get("id"));
+
+			entdb.setChat((String) bkn.get("chat"));
+
+			dataList.add(entdb);
+		}
+		return dataList;
+	}
+	
+	public void insertDb_addchat(ChatEntity chatent) {
+		db.update("INSERT INTO chat(chat) VALUES(?)",
+				chatent.getChat());
+	}
+
+	//検索
+		public List<Entity> getSearch(String name,String space,Integer start,Integer end,String place) {
+			String SHname = "%" + name + "%";
+			String SHplace = "%" + place + "%";
+			List<Map<String, Object>> queryResult =
+					db.queryForList("SELECT * FROM home WHERE name LIKE ? AND space = ? AND money BETWEEN ? AND ? AND address LIKE ?", SHname,space,start,end,SHplace);
+			List<Entity> dataList = new ArrayList<Entity>();
+
+			for (Map<String, Object> bkn : queryResult) {
+				Entity entdb = new Entity();
+
+				entdb.setId((int) bkn.get("id"));
+
+				entdb.setName((String) bkn.get("name"));
+				entdb.setSpace((String) bkn.get("space"));
+				entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
+				entdb.setAddress((String) bkn.get("address"));
+				entdb.setComment((String) bkn.get("comment"));
+
+				dataList.add(entdb);
+			}
+			return dataList;
+		}
+
 }

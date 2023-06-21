@@ -5,13 +5,12 @@
 	<title>物件情報登録ページ</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" th:href="@{/style.css}">
-
 	<script src="modal.js"></script>
 </head>
 
 <body>
 	<h1>物件情報登録ページ</h1>
-	<form action="#" method="get" th:action="@{/addhome2}">
+	<form action="#" method="get">
 		<p>
 			<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">
 		</p>
@@ -38,8 +37,7 @@
 		<input type="checkbox" name="comment" value="3" id="comment3">ペット可<br>
 		<input type="checkbox" name="comment" value="4" id="comment4">室内洗濯機置き場あり<br>
 		<input type="checkbox" name="comment" value="5" id="comment5">オートロックあり<br>
-		<input type="checkbox" name="comment" value="6" id="comment6">バス・トイレ別
-		<br><br>
+		<input type="checkbox" name="comment" value="6" id="comment6">バス・トイレ別<br><br>
 
 		<!-- 開くボタン -->
 		<input type="button" value="確認" onclick="validateAndOpenModal()">
@@ -54,7 +52,8 @@
 				<p id="popupAddress"></p>
 				<p id="popupComment"></p>
 				<p>登録しますか？</p>
-				<p><input type="submit" value="閉じる" onclick="modalClose()" ></p>
+				<p><input type="submit" value="登録" onclick="modalClose()" th:action="@{/addhome2}"></p>
+				<p><input type="submit" value="やめる" onclick="modalClose()"></p>
 			</div>
 		</div>
 	</form>

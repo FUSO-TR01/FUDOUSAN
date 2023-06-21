@@ -11,7 +11,7 @@
 <body>
 	<h1>物件情報編集ページ</h1>
 	<div th:object="${entity}">
-		<form action="#" method="get" th:action="@{/edithome/__*{id}__/exe}">
+		<form action="#" method="get" th:action="@{/edit/__*{id}__/exe}">
 			<p>
 				<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">
 			</p>
@@ -41,6 +41,10 @@
 			<input type="checkbox" name="comment" value="6" id="comment6">バス・トイレ別
 			<br><br>
 
+
+			<input type="submit" value="仮">
+
+
 			<!-- 開くボタン -->
 			<input type="button" value="確認" onclick="validateAndOpenModal()">
 
@@ -54,7 +58,8 @@
 					<p id="popupAddress"></p>
 					<p id="popupComment"></p>
 					<p>登録しますか？</p>
-					<p><input type="submit" value="閉じる" onclick="modalClose()" th:action="${viewhome}"></p>
+					<p><input type="submit" value="閉じる" onclick="modalClose()" th:action="@{/edithome/__*{id}__/exe}">
+					</p>
 				</div>
 			</div>
 		</form>

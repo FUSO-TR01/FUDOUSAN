@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<meta charset="UTF-8">
+	<title>検索結果</title>
+</head>
+
+<body>
+	<h1 th:text="${title}"></h1>
+
+	<h2 th:text="${word}"></h2>
+	<form method="get" action="#" th:action="@{/datesearch}">
+		<input type="hidden" name="start" th:value="*{start}">
+		<input type="hidden" name="end" th:value="*{end}">
+		<button type="submit" name="sort" value="ASC">昇順</button>
+		<button type="submit" name="sort" value="DESC">降順</button>
+	</form>
+	<form th:action="@{/merchant}">
+		<input type="submit" value="メニューへ戻る">
+	</form>
+	<table border="1">
+
+		<tr>
+			<th>ID</th>
+			<th>物件名</th>
+			<th>間取り</th>
+			<th>家賃</th>
+			<th>住所</th>
+			<th>詳細</th>
+		</tr>
+		<tr th:each=" res : ${dbList}">
+			<td th:text="${res.id}">1</td>
+			<td th:text="${res.name}">物件名</td>
+			<td th:text="${res.space}">間取り</td>
+			<td th:text="${res.money}">家賃</td>
+			<td th:text="${res.address}">住所</td>
+			<td th:text="${res.comment}">詳細</td>
+
+			<td>
+				<form th:action="@{/edithome/{id}(id=${res.id})}">
+					<input type="submit" value="編集">
+
+				</form>
+			</td>
+			<td>
+				<form th:action="@{/del/{id}(id=${res.id})}">
+					<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
+				</form>
+			</td>
+		</tr>
+	</table>
+
+</body>
+
+</html>
