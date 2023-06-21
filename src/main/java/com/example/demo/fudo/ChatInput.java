@@ -12,7 +12,7 @@ public class ChatInput {
 		return chat;
 	}
 
-	public void setName(String chat) {
+	public void setChat(String chat) {
 		this.chat = chat;
 	}
 }
