@@ -4,7 +4,7 @@ CREATE TABLE home(
 	space VARCHAR(100) NOT NULL,
 	money VARCHAR(100) NOT NULL,
 	address VARCHAR(100) NOT NULL,
-	comment VARCHAR(100) NOT NULL,
+	comment VARCHAR(100),
 	PRIMARY KEY(id)
 );
 
