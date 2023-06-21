@@ -22,6 +22,7 @@ header {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
 }
 
+/*ヘッダー内の文字*/
 h1 {
 	margin: 0;
 	padding: 0;
@@ -49,6 +50,13 @@ li {
 	font-weight: bold;
 }
 
+/*サブタイトル*/
+h2 {
+/*	margin-top: auto;*/
+	text-align: center;
+	padding: 10px;
+}
+
 .footerFixed {
 	display: flex;
 	flex-direction: column;
@@ -63,32 +71,35 @@ li {
 }
 
 /*文字線*/
-.fnavi li a{
+.fnavi li a {
 	position: relative;
 }
 
-.fnavi li a:hover{
+.fnavi li a:hover {
 	color: #3c6566;
 }
 
 .fnavi li a::after {
-    content: '';
-    /*絶対配置で線の位置を決める*/
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    /*線の形状*/
-    width: 80%;
-    height: 2px;
-    background:#3c6566;
-    /*アニメーションの指定*/
-    transition: all .3s;
-    transform: scale(0, 1);/*X方向0、Y方向1*/
-    transform-origin: left top;/*左上基点*/
+	content: '';
+	/*絶対配置で線の位置を決める*/
+	position: absolute;
+	bottom: 0;
+	left: 10%;
+	/*線の形状*/
+	width: 80%;
+	height: 2px;
+	background: #3c6566;
+	/*アニメーションの指定*/
+	transition: all .3s;
+	transform: scale(0, 1);
+	/*X方向0、Y方向1*/
+	transform-origin: left top;
+	/*左上基点*/
 }
 
 .fnavi li a:hover::after {
-    transform: scale(1, 1);/*X方向にスケール拡大*/
+	transform: scale(1, 1);
+	/*X方向にスケール拡大*/
 }
 
 /* 019 */

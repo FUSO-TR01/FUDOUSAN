@@ -4,30 +4,63 @@
 <head>
 	<meta charset="UTF-8">
 	<title>メニュー（業者用） - 一人暮らしの家探し</title>
+	<link rel="stylesheet" th:href="@{/style-n.css}">
 </head>
 
 <body>
 
+	<div class="footerFixed">
+		<header>
+			<h1>
+				<a href="/home">一人暮らしの家探し</a>
+			</h1>
+			<nav class="fnavi">
+				<ul>
+					<li><a href="#">企業情報</a></li>
+					<li><a href="#">お知らせ</a></li>
+					<li><a href="#">お問い合わせ</a></li>
+				</ul>
+			</nav>
+		</header>
 
-	<h1>メニュー（業者用）</h1>
+<br>
+
+		<h2>メニュー</h2>
 
 
-	<form th:action="@{/addhome}">
-	<input type="submit" value="物件情報　新規登録">
-	</form>
+		<!--	<form th:action="@{/addhome}">-->
+		<!--	<input type="submit" value="物件情報　新規登録">-->
+		<!--	</form>-->
 
-	<br>
+		<div class="button019">
+			<a href="addhome.html" th:href="@{/addhome}">物件情報　新規登録</a>
+		</div>
 
-	<form th:action="@{/viewhome}">
-	<input type="submit" value="物件情報　一覧">
-	</form>
+		<br><br>
 
-	<br>
+		<div class="button019">
+			<a href="viewhome.html" th:href="@{/viewhome}">物件情報　一覧</a>
+		</div>
 
-	<form th:action="@{/chat}">
-		<input type="submit" value="顧客とチャット">
-	</form>
+		<!--	<form th:action="@{/viewhome}">-->
+		<!--		<input type="submit" value="物件情報　一覧">-->
+		<!--	</form>-->
 
+		<br><br>
+
+		<!--	<form th:action="@{/chat}">-->
+		<!--		<input type="submit" value="顧客とチャット">-->
+		<!--	</form>-->
+
+		<div class="button019">
+			<a href="chat.html" th:href="@{/chat}">顧客とチャット</a>
+		</div>
+
+		<div class="footer">
+			<p>copyright 一人暮らしの家探し 2023</p>
+		</div>
+
+	</div>
 
 </body>
 
