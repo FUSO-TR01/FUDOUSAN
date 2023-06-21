@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.entity.ChatEntity;
 import com.example.demo.entity.Entity;
 import com.example.demo.entity.UserEntity;
 
@@ -126,5 +127,30 @@ public class Dao {
 		System.out.println("編集の実行");
 		db.update("UPDATE home SET name=?,space=?,money = ?,address = ?,comment = ? WHERE id = ?",
 				entity.getName(),entity.getSpace(), entity.getMoney(), entity.getAddress(),entity.getComment(), id);
+	}
+	
+	
+//	____________________________
+	
+	public List<ChatEntity> getChat() {
+
+		List<Map<String, Object>> queryResult = db.queryForList("SELECT * FROM chat");
+		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
+
+		for (Map<String, Object> bkn : queryResult) {
+			ChatEntity entdb = new ChatEntity();
+
+			entdb.setId((int) bkn.get("id"));
+
+			entdb.setChat((String) bkn.get("chat"));
+
+			dataList.add(entdb);
+		}
+		return dataList;
+	}
+	
+	public void insertDb_addchat(ChatEntity chatent) {
+		db.update("INSERT INTO chat(chat) VALUES(?)",
+				chatent.getChat());
 	}
 }

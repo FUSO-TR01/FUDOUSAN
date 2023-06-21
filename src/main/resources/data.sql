@@ -11,3 +11,9 @@ INSERT INTO login(logId,pass,type,name) VALUES
 INSERT INTO loginC(logId,pass,name) VALUES 
 ('ID','Password','名前'),
 ('test','test','名前');
+
+INSERT INTO chat(chat) VALUES 
+('t'),
+('te'),
+('tes'),
+('test');

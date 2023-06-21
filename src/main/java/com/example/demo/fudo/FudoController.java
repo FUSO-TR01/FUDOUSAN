@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.dao.Dao;
+import com.example.demo.entity.ChatEntity;
 import com.example.demo.entity.Entity;
 import com.example.demo.entity.UserEntity;
 
@@ -173,18 +174,15 @@ public class FudoController {
 		return "viewhome";
 	}
 
-	
 	@RequestMapping("/sample")
 	public String sample(Model model) {
 		return "sample";
 	}
-	
+
 	@RequestMapping("/sample2")
 	public String sample2(Model model) {
 		return "sample2";
 	}
-	
-
 
 	//削除
 	@RequestMapping("/del/{id}")
@@ -200,30 +198,30 @@ public class FudoController {
 		Entity entity = list.get(0);
 		model.addAttribute("entity", entity);
 		model.addAttribute("title", "編集ページ");
-		
+
 		return "edithome";
 	}
-	
+
 	//更新
-		@RequestMapping("/edit/{id}/exe")
-		public String editExe(@PathVariable Long id, Model model, Input input) {
-			Entity entform = new Entity();
-			System.out.println(input.getName());
-			System.out.println(input.getSpace());
-			System.out.println(input.getMoney());
-			System.out.println(input.getAddress());
-			System.out.println(input.getComment());
+	@RequestMapping("/edit/{id}/exe")
+	public String editExe(@PathVariable Long id, Model model, Input input) {
+		Entity entform = new Entity();
+		System.out.println(input.getName());
+		System.out.println(input.getSpace());
+		System.out.println(input.getMoney());
+		System.out.println(input.getAddress());
+		System.out.println(input.getComment());
 
-			entform.setName(input.getName());
-			entform.setSpace(input.getSpace());
-			entform.setMoney(input.getMoney());
-			entform.setAddress(input.getAddress());
-			entform.setComment(input.getComment());
+		entform.setName(input.getName());
+		entform.setSpace(input.getSpace());
+		entform.setMoney(input.getMoney());
+		entform.setAddress(input.getAddress());
+		entform.setComment(input.getComment());
 
-			dao.updateSample(id, entform);
+		dao.updateSample(id, entform);
 
-			return "redirect:/viewhome";
-		}
+		return "redirect:/viewhome";
+	}
 
 	//	⑦--------------------------------------------------------------------------------------------------------------
 
@@ -231,7 +229,22 @@ public class FudoController {
 	public String customermenu(Model model) {
 		return "customermenu";
 	}
-}
+
+	//__________________________________________
+
+	@RequestMapping("/chat")
+	public String chat(ChatInput chatinput, Model model) {
+		List<ChatEntity> list = dao.getChat();
+		model.addAttribute("dbList", list);
+		return "chat";
+	}
+
+	@RequestMapping("/addchat")
+	public String addchat(@Validated ChatInput chatinput, Model model) {
+		ChatEntity chatent = new ChatEntity();
+		chatent.setChat(chatinput.getChat());
+		dao.insertDb_addchat(chatent);
+		return "redirect:/chat";
+	}
 	
-
-
+}
