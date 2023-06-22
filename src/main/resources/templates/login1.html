@@ -7,7 +7,7 @@
 	<meta charset="utf-8" />
 </head>
 
-<header>
+	<header>
 			<h1>
 				<a href="/home">一人暮らしの家探し</a>
 			</h1>
@@ -18,8 +18,8 @@
 					<li><a href="#">お問い合わせ</a></li>
 				</ul>
 			</nav>
-</header>
-
+		</header>
+		
 <body>
 	<br><br><br><br><br>
 	<h1>ログインページ</h1>
@@ -31,31 +31,27 @@
 		<p>パスワード：<input type="text" name="pass1" required></p>
 		<!--		<div th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}">エラーメッセージ</div>-->
 
-		<input type="submit" value="ログイン" class="button0">
+		<input type="submit" value="ログイン" class="button019">
 		<p th:text="${result}"></p>
 	</form>
-
 	
-	<br>
-		
 	<div class="button019">
 			<a href="signup1.html" th:href="@{/signup1}">新規登録</a>
 	</div>
-		<br>
+	<br>
 	<div class="button019">
 			<a href="customer.html" th:href="@{/customer}">一般のお客様用ログインページへ</a>
 	</div>
-		<br>
+	<br>
 	<div class="button019">
 			<a href="home.html" th:href="@{/home}">ホーム画面へ戻る</a>
 	</div>
-		<br><br>
-	<div class="footer">
+	<br><br>
+	
+	<footer>
 			<p>copyright 一人暮らしの家探し 2023</p>
-	</div>
+	</footer>
 
 </body>
-
-
 
 </html>
