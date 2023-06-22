@@ -61,6 +61,7 @@ li {
 	background-color: #f5f5f5;
 	text-align: center;
 	padding: 10px;
+    bottom: 0; /*下に固定*/
 }
 
 /*文字線*/
@@ -96,7 +97,7 @@ li {
 }
 
 /* 019 */
-.button019 a {
+.button019 a{
 	background: #5c5c5c;
 	border-radius: 3px;
 	position: relative;

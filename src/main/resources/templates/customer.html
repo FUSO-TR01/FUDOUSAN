@@ -9,7 +9,7 @@
 
 <header>
 			<h1>
-				<a href="/home">一人暮らしの家探し（不動産業者様用ページ）</a>
+				<a href="/home">一人暮らしの家探し</a>
 			</h1>
 			<nav class="fnavi">
 				<ul>
@@ -21,6 +21,7 @@
 </header>
 
 <body>
+	<br><br><br><br>
 	<h1>ログインページ</h1>
 	<!--	 <form method="get" action="#" th:action="@{/merchant}" th:object="${input}">-->
 
@@ -40,7 +41,6 @@
 	<!--		<form th:action="@{/login1}">-->
 	<!--			<input type="submit" value="不動産用ログインページへ">-->
 	<!--		</form>-->
-
 
 	<form method="post" action="/customer" th:action="@{/customermenu}">
 		<p>ログインID：<input type="text" name="login2" required></p>
@@ -62,9 +62,9 @@
 	<form th:action="@{/home}">
 		<input type="submit" value="ホーム画面へ戻る">
 	</form>
-
-
-
+	<br><br>
+	<div class="footer">
+			<p>copyright 一人暮らしの家探し 2023</p>
+	</div>
 </body>
-
 </html>
