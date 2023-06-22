@@ -189,15 +189,18 @@ public class FudoController {
 	@RequestMapping("/merchantsearch")
 	public String Search(@RequestParam("bkname") String name ,@RequestParam("space") String space,
 			@RequestParam("start") Integer start ,@RequestParam("end") Integer end,
-			@RequestParam("place") String place ,Model model) {
-		List<Entity> list = dao.getSearch(name,space,start,end,place);
+			@RequestParam("place") String place ,@RequestParam("comment") String comment ,Model model) {
+		System.out.println(comment);
+		List<Entity> list = dao.getSearch(name,space,start,end,place,comment);
 		LocalDate nowDate = LocalDate.now();
 		
 		model.addAttribute("nowDate", nowDate);
+		model.addAttribute("bkname", name);
 		model.addAttribute("space", space);
 		model.addAttribute("start", start);
 		model.addAttribute("end", end);
 		model.addAttribute("place", place);
+		model.addAttribute("comment", comment);
 		model.addAttribute("dbList", list);
 		return "merchantsearch";
 	}
@@ -206,16 +209,21 @@ public class FudoController {
 	@RequestMapping("/sort")
 	public String sort(@RequestParam("sort") String sort,@RequestParam("bkname") String name ,
 			@RequestParam("space") String space,@RequestParam("start") Integer start ,
-			@RequestParam("end") Integer end,@RequestParam("place") String place ,Model model) {
-		List<Entity> list = dao.getSort(sort,name,space,start,end,place);
+			@RequestParam("end") Integer end,@RequestParam("place") String place ,
+			@RequestParam("comment") String comment ,Model model) {
+		List<Entity> list = dao.getSort(sort,name,space,start,end,place,comment);
 		LocalDate nowDate = LocalDate.now();
 		
 		model.addAttribute("nowDate", nowDate);
 		model.addAttribute("dbList", list);
 		model.addAttribute("sort", "昇順並び替え");
 		model.addAttribute("sort", "降順並び替え");
+		model.addAttribute("bkname", name);
+		model.addAttribute("space", space);
 		model.addAttribute("start", start);
 		model.addAttribute("end", end);
+		model.addAttribute("place", place);
+		model.addAttribute("comment", comment);
 		return "merchantsearch";
 	}
 	
