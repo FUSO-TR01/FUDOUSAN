@@ -11,7 +11,7 @@ body {
 	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-align: center;
 }
-
+/*ヘッター-----------------------------------------------------------------------*/
 header {
 	padding: 30px 4% 10px;
 	position: fixed;
@@ -50,7 +50,7 @@ li {
 	font-size: 20px;
 	font-weight: bold;
 }
-
+/*フッター-----------------------------------------------------------------------*/
 footer {
 	background-color: #f5f5f5;
 	display: flex;
@@ -93,7 +93,7 @@ footer {
 	/*X方向にスケール拡大*/
 }
 
-/* 019 */
+/*ボタン-----------------------------------------------------------------------*/
 .button019{
 	background: #5c5c5c;
 	border-radius: 3px;
@@ -112,16 +112,7 @@ footer {
 	border: 3px solid #5c5c5c;
 	font-weight:normal;
 }
-
-/*.button019 input {*/
-/*	border: none;*/
-/*	font-size: 100%;*/
-
-/*}*/
-
-
-
-/*矢印*/
+/*ボタン矢印*/
 .button019:after {
 	content: "";
 	position: absolute;
@@ -140,48 +131,35 @@ footer {
 	transform: translateY(-50%) rotate(45deg);
 
 }
-
+/*ボタンの動き*/
 .button019:hover {
 	background: #fff;
 	color: #5c5c5c;
 	border: 3px solid #5c5c5c;
 }
-
 /*矢印の動き*/
 .button019:hover:after {
 	right: 1.4rem;
 }
+/*登録用背景ボックス------------------------------------------------------------------*/
 
-.button020 {
-	display: inline-block;
-	border-radius: 5%;
-	/* 角丸       */
-	font-size: 18pt;
-	/* 文字サイズ */
+.ConfirmBox {
+	position: relative;
+	width: 500px;
+	height: px;
+	background-color: white;
+	/*	margin:100px 100px 50px;*/
+	margin: 50px auto;
+	padding: 25px 50px;
+	border-radius: 20px;
+}
+/*サブタイトル*/
+.kyocho {
+	background-color: cadetblue;
+	font-weight: bold;
+	color: white;
+	padding: 20px;
+	border-radius: 20px;
 	text-align: center;
-	/* 文字位置   */
-	cursor: pointer;
-	/* カーソル   */
-	padding: 12px 12px;
-	/* 余白       */
-	background: #595959;
-	/* 背景色     */
-	color: #ffffff;
-	/* 文字色     */
-	line-height: 1em;
-	/* 1行の高さ  */
-	transition: .3s;
-	/* なめらか変化 */
-
-	border: 2px solid #595959;
-	/* 枠の指定 */
 }
 
-.button020:hover {
-	box-shadow: none;
-	/* カーソル時の影消去 */
-	color: #595959;
-	/* 背景色     */
-	background: #ffffff;
-	/* 文字色     */
-}

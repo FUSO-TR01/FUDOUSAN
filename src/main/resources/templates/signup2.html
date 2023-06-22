@@ -22,7 +22,8 @@
 
 <body>
 	<br><br><br><br><br>
-	<h1>ユーザー登録画面</h1>
+	<div class="ConfirmBox">
+	<h1  class="kyocho">ユーザー登録画面</h1>
 	<p>IDとパスワードを設定してください</p>
 
 	<form method="get" action="#" th:action="@{/register2}" th:object="${userinput}">
@@ -49,7 +50,7 @@
 	<form th:action="@{/login2}">
 	<input type="submit" value="戻る" class="button019">
 	</form>
-	
+	</div>
 	<br><br>
 	<footer>
 		<p>copyright 一人暮らしの家探し 2023</p>
