@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>お問い合わせ完了画面</title>
+	<style>
+		body {
+			font-size: 20px;
+			margin: 20px;
+			overflow: auto;
+			background-image: url('/image.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			min-height: calc(100vh - 40px);
+			margin-top: 10px;
+			background-color: rgba(255, 255, 255, 0.7);
+			padding: 20px;
+			border-radius: 20px;
+		}
+
+		.table-container {
+			overflow-x: auto;
+		}
+
+		table {
+			border: 8px solid rgb(71, 71, 71);
+			border-collapse: collapse;
+			table-layout: fixed;
+			width: 90%;
+			margin: 0 auto;
+			background-color: rgba(255, 255, 255, 0.9);
+		}
+
+		th,
+		td {
+			border: 2px solid rgb(64, 0, 64);
+			padding: 10px;
+			overflow-wrap: break-word;
+			font-weight: bold;
+		}
+
+		.col1 {
+			width: 20%;
+			text-align: center;
+		}
+
+		.col2 {
+			width: 20%;
+		}
+
+		.col3 {
+			width: 60%;
+		}
+
+		.title {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding: 20px;
+			background-color: rgb(255, 255, 181);
+			font-size: 40px;
+			text-align: center;
+			margin: 0;
+		}
+
+		.message {
+			margin-top: 60px;
+			margin-bottom: 20px;
+			font-size: 25px;
+			text-align: center;
+		}
+
+		.button {
+			font-size: 20px;
+			border-radius: 10px;
+			padding: 15px 25px;
+			text-align: center;
+			background-color: rgb(181, 255, 106);
+			color: rgb(0, 0, 0);
+			cursor: pointer;
+			font-weight: bold;
+			transition: background-color 0.3s ease-in-out;
+		}
+
+		.button:hover {
+			background-color: rgb(0, 0, 0);
+			color: rgb(255, 255, 255);
+		}
+
+
+		.col-centered {
+			text-align: center;
+		}
+
+		.copyright {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			background-color: #f2f2f2;
+			color: #999999;
+			text-align: center;
+			padding: 10px 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="title">お問い合わせ完了画面</h1>
+
+		<div class="message">
+			<p>
+				お問い合わせいただき、ありがとうございます。<br>
+				お問い合わせ頂いた内容については、確認の上、ご返信させていただきます。<br>
+			</p>
+			<form method="get" action="#" th:action="@{/home}">
+				<input type="submit" value="ホーム画面に戻る" class="button">
+			</form>
+		</div>
+
+		<h2 class="subtitle">過去のお問い合わせ履歴</h2>
+		<div class="table-container">
+			<table>
+				<tr>
+					<th class="col1">お問い合わせ時期</th>
+					<th class="col2">お問い合わせの種別</th>
+					<th class="col3">お問い合わせ内容</th>
+				</tr>
+				<tr th:each="res : ${dbList}">
+					<td th:text="${res.date}" class="col-centered"></td>
+					<td th:text="${res.type}" class="col-centered"></td>
+					<td th:text="${res.message}"></td>
+				</tr>
+			</table><br>
+		</div>
+		<div class="copyright">
+			&copy; 2023 chujo. All rights reserved.
+		</div>
+	</div>
+</body>
+
+</html>
