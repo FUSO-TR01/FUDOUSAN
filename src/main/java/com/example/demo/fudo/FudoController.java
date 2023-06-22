@@ -189,6 +189,13 @@ public class FudoController {
 	public String form(Model model) {
 		return "form";
 	}
+	
+	@RequestMapping("/news")
+	public String news(Input input,Model model) {
+		List<Entity> list = dao.getBKN();
+		model.addAttribute("dbList", list);
+		return "news";
+	}
 
 	//検索
 	@RequestMapping("/merchantsearch")
