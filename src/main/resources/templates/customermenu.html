@@ -7,26 +7,15 @@
 </head>
 
 <body>
-
-
 	<h1>メニュー（一般のお客様用）</h1>
-
-
 	<form th:action="@{/viewhome2}">
 		<input type="submit" value="物件検索">
 	</form>
-
 	<br>
-
-	<form th:action="@{/chat}">
-
-
+	<form th:action="@{/customerchat}">
 		<input type="submit" value="不動産業者とチャット">
-
-
+		<input type="hidden" name="logId" th:value="*{logId}">
 	</form>
-
-
 </body>
 
 </html>

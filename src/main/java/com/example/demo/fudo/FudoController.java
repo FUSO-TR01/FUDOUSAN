@@ -50,6 +50,7 @@ public class FudoController {
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
 			model.addAttribute("result", "ログイン成功");
+			model.addAttribute("logId", LogId);
 			return "merchant"; // タスク管理画面にリダイレクト
 		} else {
 			// ログイン失敗の処理
@@ -72,6 +73,7 @@ public class FudoController {
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
 			model.addAttribute("result", "ログイン成功");
+			model.addAttribute("logId", LogId);
 			return "customermenu"; // タスク管理画面にリダイレクト
 		} else {
 			// ログイン失敗の処理
@@ -321,9 +323,9 @@ public class FudoController {
 
 	//__________________________________________
 
-	@RequestMapping("/chat")
-	public String chat(ChatInput chatinput, Model model) {
-		List<ChatEntity> list = dao.getChat();
+	@RequestMapping("/merchantchat")
+	public String chat(ChatInput chatinput,@RequestParam("logId") String logId, Model model) {
+		List<ChatEntity> list = dao.getChatmem(logId);
 		model.addAttribute("dbList", list);
 		return "chat";
 	}
