@@ -15,18 +15,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.dao.Dao;
+import com.example.demo.dao.Formdao;
 import com.example.demo.entity.ChatEntity;
 import com.example.demo.entity.Entity;
+import com.example.demo.entity.Forment;
 import com.example.demo.entity.UserEntity;
 
 @Controller
 public class FudoController {
 
 	private final Dao dao;
+	private final Formdao formdao;
 
 	@Autowired
-	public FudoController(Dao dao) {
+	public FudoController(Dao dao,Formdao formdao) {
 		this.dao = dao;
+		this.formdao = formdao;
 	}
 
 	//	①--------------------------------------------------------------------------------------------------------------
@@ -50,6 +54,7 @@ public class FudoController {
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
 			model.addAttribute("result", "ログイン成功");
+			model.addAttribute("logId", LogId);
 			return "merchant"; // タスク管理画面にリダイレクト
 		} else {
 			// ログイン失敗の処理
@@ -72,6 +77,7 @@ public class FudoController {
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
 			model.addAttribute("result", "ログイン成功");
+			model.addAttribute("logId", LogId);
 			return "customermenu"; // タスク管理画面にリダイレクト
 		} else {
 			// ログイン失敗の処理
@@ -188,6 +194,13 @@ public class FudoController {
 	@RequestMapping("/form")
 	public String form(Model model) {
 		return "form";
+	}
+	
+	@RequestMapping("/news")
+	public String news(Input input,Model model) {
+		List<Entity> list = dao.getBKN();
+		model.addAttribute("dbList", list);
+		return "news";
 	}
 
 	//検索
@@ -315,10 +328,20 @@ public class FudoController {
 	//__________________________________________
 
 	@RequestMapping("/chat")
-	public String chat(ChatInput chatinput, Model model) {
-		List<ChatEntity> list = dao.getChat();
+	public String chat(ChatInput chatinput,@RequestParam("logId") String logId,
+			@RequestParam("tp") String tp, Model model) {
+		List<ChatEntity> list = dao.getChatmem(tp);
 		model.addAttribute("dbList", list);
-		return "chat";
+		model.addAttribute("logId", logId);
+		
+		return "merchantchat";
+	}
+	
+	@RequestMapping("/memsearch")
+	public String memsearch(ChatInput chatinput,@RequestParam("logId") String logId,
+			@RequestParam("tp") String tp, Model model) {
+		
+		return "redirect:/merchantchat";
 	}
 
 	@RequestMapping("/addchat")
@@ -330,4 +353,63 @@ public class FudoController {
 		return "redirect:/chat";
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+//	___________________________________
+
+
+
+	@RequestMapping("/checkform")
+	public String checkform(@Validated FormInput input, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			return "form";
+		}
+
+		return "checkform";
+	}
+
+	@RequestMapping("/compform")
+	public String compform(Model model, FormInput input) {
+
+	    LocalDate nowDate = LocalDate.now();
+	    System.out.println(nowDate);
+
+	    Forment entform = new Forment();
+	    entform.setName(input.getName());
+	    entform.setMail(input.getMail());
+	    entform.setMessage(input.getMessage());
+	    entform.setType(input.getType());
+	    entform.setNowDate(nowDate);
+
+	    if (!isDuplicateEntry(entform, input)) {
+	        Formdao.insertDb(entform);
+	    }
+
+	    List<Forment> list = formdao.getSelect(input.getName());
+	    model.addAttribute("dbList", list);
+	    System.out.println("データ取得");
+
+	    return "compform";
+	}
+
+	private boolean isDuplicateEntry(Forment entform,FormInput input) {
+	    List<Forment> list = formdao.getSelect(input.getName());
+
+	    for (Forment existingForm : list) {
+	        if (existingForm.getName().equals(entform.getName()) && existingForm.getMail().equals(entform.getMail()) &&
+	        	existingForm.getMessage().equals(entform.getMessage()) && existingForm.getType().equals(entform.getType())) {
+	            // 既存のデータと入力データが重複する場合はtrueを返す
+	            return true;
+	        }
+	    }
+
+	    // 重複しない場合はfalseを返す
+	    return false;
+	}
 }

@@ -29,23 +29,30 @@ INSERT INTO loginC(logId,pass,name) VALUES
 ('test2','test2','大渡'),
 ('test3','test3','中島');
 
-INSERT INTO chat(logId,toId,chat,name) VALUES
-('test1','test11','a','中條'),
-('test2','test12','a','大渡'),
-('test11','test1','aa','高橋1'),
-('test12','test2','aa','高橋2'),
-('test1','test11','b','中條'),
-('test3','test12','a','中島'),
-('test11','test1','bb','高橋1'),
-('test12','test3','aa','高橋2'),
-('test3','test12','b','中島'),
-('test1','test11','c','中條'),
-('test12','test3','bb','高橋2'),
-('test2','test12','b','大渡'),
-('test12','test2','bb','高橋2'),
-('test11','test1','cc','高橋1'),
-('test2','test12','c','大渡'),
-('test1','test11','d','中條'),
-('test11','test1','dd','高橋1'),
-('test12','test2','bb','高橋2');
+INSERT INTO chat(logId,toId,chat,name,toname) VALUES
+('test1','test11','a','中條','高橋1'),
+('test2','test12','a','大渡','高橋2'),
+('test11','test1','aa','高橋1','中條'),
+('test12','test2','aa','高橋2','大渡'),
+('test1','test11','b','中條','高橋1'),
+('test3','test12','a','中島','高橋2'),
+('test11','test1','bb','高橋1','中條'),
+('test12','test3','aa','高橋2','中島'),
+('test3','test12','b','中島','高橋2'),
+('test1','test11','c','中條','高橋1'),
+('test12','test3','bb','高橋2','中島'),
+('test2','test12','b','大渡','高橋2'),
+('test12','test2','bb','高橋2','大渡'),
+('test11','test1','cc','高橋1','中條'),
+('test2','test12','c','大渡','高橋2'),
+('test1','test11','d','中條','高橋1'),
+('test11','test1','dd','高橋1','中條'),
+('test12','test2','bb','高橋2','大渡');
 
+INSERT INTO inquiry (name,mail,type,message,date) VALUES 
+('山田太郎','0000@gmail.com','製品の故障・不具合','電話がつながらない','2022-12-12'),
+('田中一郎','1111@gmail.com','製品の故障・不具合','扇風機の初期不良','2023-01-20'),
+('山田太郎','0000@gmail.com','ご使用方法','洗濯機の操作方法が分からない','2023-02-15'),
+('山田太郎','0000@gmail.com','部品購入','テレビのリモコンの購入がしたい','2023-02-17'),
+('田中一郎','1111@gmail.com','製品の故障・不具合','洗濯機の調子が悪い','2023-02-28'),
+('山田太郎','0000@gmail.com','製品の故障・不具合','テレビが壊れた','2023-03-28');

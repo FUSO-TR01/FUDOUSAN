@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>お知らせ</title>
+	<link rel="stylesheet" th:href="@{/style-n.css}">
+	<link rel="stylesheet" th:href="@{/news.css}">
+</head>
+
+<body>
+	<header id="header">
+		<div class="wrapper">
+			<p class="logo"><a href="#">PROFILE</a></p>
+			<nav>
+				<ul>
+					<li><a href="#">トップ</a></li>
+					<li><a href="#">お知らせ</a></li>
+					<li><a href="#">お問い合わせ</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<table>
+		<tr>
+			<th>物件お知らせ</th>
+		</tr>
+		<tr th:each=" res : ${dbList}">
+			<td th:text="|${res.address}の物件一覧に${res.name}が追加されました|"></td>
+		</tr>
+	</table>
+
+</body>
+
+
+</html>
