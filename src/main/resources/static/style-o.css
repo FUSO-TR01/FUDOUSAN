@@ -1,50 +1,50 @@
 @charset "UTF-8";
 
 * {
-	box-sizing: border-box;
+	box-sizing: border-box;/*要素が入る幅の設定*/
 }
-
+/*ボディの設定-----------------------------------------------------------------------*/
 body {
 	background-color: #f0f0f0;
-	margin: 0;
-	padding: 0;
+	margin: 0;/*要素の外側の余白の幅の設定*/
+	padding: 0;/*要素の内側の余白の幅の設定*/
 	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-align: center;
 }
 /*ヘッター-----------------------------------------------------------------------*/
 header {
 	padding: 30px 4% 10px;
-	position: fixed;
+	position: fixed;/*要素の場所の固定*/
 	top: 0;
-	width: 100%;
+	width: 100%;/*幅の設定*/
 	background-color: cadetblue;
 	display: flex;
-	align-items: center;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-	z-index:10000;
+	align-items: center;/*フレックスボックスレイアウト作成*/
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);/*影の追加*/
+	z-index:10000;/*最上面に表示*/
 }
-
+/*ヘッタータイトル*/
 h1 {
 	margin: 0;
 	padding: 0;
 	font-size: 30px;
 }
-
+/*ヘッターaタグ*/
 a {
-	text-decoration: none;
+	text-decoration: none;/*装飾の削除*/
 	color: white;
 }
-
+/*ヘッターnavタグ*/
 nav {
-	margin: 0 0 0 auto;
+	margin: 0 0 0 auto;/*要素の外側の余白の幅の設定*/
 }
-
+/*ヘッターulタグ*/
 ul {
-	list-style: none;
+	list-style: none;/*どのように並べるのか*/
 	margin: 0;
 	display: flex;
 }
-
+/*ヘッターliタグ*/
 li {
 	margin: 0 0 0 15px;
 	font-size: 20px;
@@ -54,8 +54,8 @@ li {
 footer {
 	background-color: #f5f5f5;
 	display: flex;
-	flex-direction: column;
-	margin-top: auto;
+	flex-direction: column;/*アイテムの並びの決定*/
+	margin-top: auto;/*余白の自動計算設定*/
 	text-align: center;
 	padding: 10px; /*内部余白の設定*/
     bottom: 0;
@@ -93,7 +93,7 @@ footer {
 	/*X方向にスケール拡大*/
 }
 
-/*ボタン-----------------------------------------------------------------------*/
+/*ボタン（aタグ用）-----------------------------------------------------------------------*/
 .button020 a{
 	background: #5c5c5c;
 	border-radius: 3px;
@@ -141,7 +141,7 @@ footer {
 .button020 a:hover:after {
 	right: 1.4rem;
 }
-/*ボタン-----------------------------------------------------------------------*/
+/*ボタン（imputタグ用）-----------------------------------------------------------------------*/
 .button019{
 	background: #5c5c5c;
 	border-radius: 3px;
@@ -234,8 +234,8 @@ footer {
 .design08 td:first-child {
 	background: #e9faf9;
 }
-/*ボタン②------------------------------------------------------------------*/
-.custom-button {
+/*ボタン（aタグにもimputタグにも使用可能）------------------------------------------------------------------*/
+custom-button {
 		background-color: #f39700;
 		/* ボタンの背景色を赤に設定 */
 		color: #ffffff;
