@@ -148,7 +148,7 @@ public class Dao {
 
 	//	____________________________
 
-	public List<ChatEntity> getChat() {
+	public List<ChatEntity> getChatmem(String logId) {
 
 		List<Map<String, Object>> queryResult = db.queryForList("SELECT * FROM chat");
 		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
