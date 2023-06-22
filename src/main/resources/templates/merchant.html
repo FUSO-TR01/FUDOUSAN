@@ -8,37 +8,47 @@
 </head>
 
 <header>
-	<h1>
-		<a href="/home">一人暮らしの家探し</a>
-	</h1>
-	<nav class="fnavi">
-		<ul>
-			<li><a href="#">企業情報</a></li>
-			<li><a href="#">お知らせ</a></li>
-			<li><a href="#">お問い合わせ</a></li>
-		</ul>
-	</nav>
-</header>
+
+			<h1>
+				<a href="/home">一人暮らしの家探し</a>
+			</h1>
+			<nav class="fnavi">
+				<ul>
+					<li><a href="#">企業情報</a></li>
+					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
+					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+				</ul>
+			</nav>
+		</header>
 
 <body>
 	<br><br><br><br><br>
-	<div class="ConfirmBox">
-		<h2 class="kyocho">メニュー</h2>
-		<form th:action="@{/addhome}">
-			<input type="submit" value="物件情報　新規登録" class="button019">
-		</form>
-		<br><br>
+<div class="ConfirmBox">
+	<h2>メニュー</h2>
 
-		<form th:action="@{/viewhome}">
-			<input type="submit" value="物件情報　一覧" class="button019">
-		</form>
+	<form th:action="@{/addhome}">
+		<input type="submit" value="物件情報　新規登録" class="button019">
+	</form>
+	<br><br>
 
-		<br><br>
+
+	<form th:action="@{/viewhome}">
+		<input type="submit" value="物件情報　一覧" class="button019">
+	</form>
+
+
+	<br><br>
+
+	<form th:action="@{/merchantchat}">
+		<input type="submit" value="顧客とチャット" class="button019">
+		<input type="hidden" name="logId" th:value="*{logId}">
+	</form>
 
 		<form th:action="@{/chat}">
 			<input type="submit" value="顧客とチャット" class="button019">
 		</form>
 	</div>
+
 	<br><br>
 
 	<footer>
