@@ -32,28 +32,28 @@
 		<!--	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>-->
 		<p th:text="${mes1}"></p>
 		<p>
-			ID：<input type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}"required>
+			ID：<input style="width:150px;" type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}"required>
 		</p>
 		<p>
-			パスワード：<input type="text" name="pass1" placeholder="パスワードを入力してください" th:value="${pass1}" required>
+			パスワード：<input style="width:200px;" type="text" name="pass1" placeholder="パスワードを入力してください" th:value="${pass1}" required>
 		</p>
 		<p>
-			パスワード（確認用）：<input type="text" name="pass2" placeholder="パスワードを入力してください" th:value="${pass2}" required>
+			パスワード（確認用）：<input style="width:200px;" type="text" name="pass2" placeholder="パスワードを入力してください" th:value="${pass2}" required>
 		</p>
 		<p>
 			氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}" required>
 		</p>
-		<input type="submit" value="登録">
+		<input type="submit" value="登録" class="button019">
 	</form>
 	<br>
-	<form th:action="@{/customer}">
-	<input type="submit" value="戻る">
+	<form th:action="@{/login2}">
+	<input type="submit" value="戻る" class="button019">
 	</form>
 	
 	<br><br>
-	<div class="footer">
-			<p>copyright 一人暮らしの家探し 2023</p>
-	</div>
+	<footer>
+		<p>copyright 一人暮らしの家探し 2023</p>
+	</footer>
 
 </body>
 

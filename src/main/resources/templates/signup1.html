@@ -8,16 +8,16 @@
 </head>
 
 <header>
-			<h1>
-				<a href="/home">一人暮らしの家探し</a>
-			</h1>
-			<nav class="fnavi">
-				<ul>
-					<li><a href="#">企業情報</a></li>
-					<li><a href="#">お知らせ</a></li>
-					<li><a href="#">お問い合わせ</a></li>
-				</ul>
-			</nav>
+	<h1>
+		<a href="/home">一人暮らしの家探し</a>
+	</h1>
+	<nav class="fnavi">
+		<ul>
+			<li><a href="#">企業情報</a></li>
+			<li><a href="#">お知らせ</a></li>
+			<li><a href="#">お問い合わせ</a></li>
+		</ul>
+	</nav>
 </header>
 
 <body>
@@ -34,31 +34,31 @@
 		<!--		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>-->
 		<p th:text="${mes1}"></p>
 		<p>
-			ID：<input type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}"required>
+			ID：<input style="width:150px;" type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}" required>
 		</p>
 		<p>
-			パスワード：<input type="text" name="pass1" placeholder="パスワードを入力してください" th:value="${pass1}" required>
+			パスワード：<input style="width:200px;" type="text" name="pass1" placeholder="パスワードを入力してください" th:value="${pass1}" required>
 		</p>
 		<p>
-			パスワード（確認用）：<input type="text" name="pass2" placeholder="パスワードを入力してください" th:value="${pass2}" required>
+			パスワード（確認用）：<input style="width:200px;" type="text" name="pass2" placeholder="パスワードを入力してください" th:value="${pass2}" required>
 		</p>
 		<p>
-			不動産名：<input type="text" name="type" placeholder="不動産名を入力してください" th:value="${type}" required>
+			不動産名：<input style="width:200px;" type="text" name="type" placeholder="不動産名を入力してください" th:value="${type}" required>
 		</p>
 		<p>
 			氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}" required>
 		</p>
-		<input type="submit" value="登録">
+		<input type="submit" value="登録" class="button019">
 	</form>
 	<br>
 	<form th:action="@{/login1}">
-	<input type="submit" value="戻る">
+		<input type="submit" value="戻る" class="button019">
 	</form>
-	
-		<br><br>
-	<div class="footer">
-			<p>copyright 一人暮らしの家探し 2023</p>
-	</div>
+
+	<br><br>
+	<footer>
+		<p>copyright 一人暮らしの家探し 2023</p>
+	</footer>
 </body>
 
 
