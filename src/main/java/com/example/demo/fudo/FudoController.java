@@ -45,7 +45,7 @@ public class FudoController {
 	@PostMapping("/login1")
 	public String login1(Model model, @RequestParam("logId1") String LogId,
 			@RequestParam("pass1") String pass) {
-		UserEntity user = Dao.findByUsername(LogId);
+		UserEntity user = Dao.findByUsername1(LogId);
 
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
@@ -60,19 +60,19 @@ public class FudoController {
 
 	//	　--------------------------------------------------------------------------------------------------------------
 	//	ログイン画面２(顧客ログイン)
-	@GetMapping("/customer")
+	@GetMapping("/login2")
 	public String showLoginForm2(Model model) {
-		return "customer";
+		return "login2";
 	}
 
 	@PostMapping("/login2")
 	public String login2(Model model, @RequestParam("logId2") String LogId,
 			@RequestParam("pass2") String pass) {
-		UserEntity user = Dao.findByUsername(LogId);
+		UserEntity user = Dao.findByUsername2(LogId);
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
 			model.addAttribute("result", "ログイン成功");
-			return "redirect:/view"; // タスク管理画面にリダイレクト
+			return "customermenu"; // タスク管理画面にリダイレクト
 		} else {
 			// ログイン失敗の処理
 			model.addAttribute("result", "ユーザー名またはパスワードが間違っています");
@@ -184,25 +184,62 @@ public class FudoController {
 	public String sample2(Model model) {
 		return "sample2";
 	}
+	
+	@RequestMapping("/form")
+	public String form(Model model) {
+		return "form";
+	}
 
 	//検索
 	@RequestMapping("/merchantsearch")
-	public String Search(@RequestParam("bkname") String name ,@RequestParam("space") String space,
-			@RequestParam("start") Integer start ,@RequestParam("end") Integer end,
-			@RequestParam("place") String place ,Model model) {
-		List<Entity> list = dao.getSearch(name,space,start,end,place);
+	public String Search(@RequestParam("bkname") String name, @RequestParam("space") String space,
+			@RequestParam("start") Integer start, @RequestParam("end") Integer end,
+			@RequestParam("place") String place, @RequestParam("comment") String comment, Model model) {
+		System.out.println(comment);
+		List<Entity> list = dao.getSearch(name, space, start, end, place, comment);
 		LocalDate nowDate = LocalDate.now();
-		
+
 		model.addAttribute("nowDate", nowDate);
+		model.addAttribute("bkname", name);
 		model.addAttribute("space", space);
 		model.addAttribute("start", start);
 		model.addAttribute("end", end);
 		model.addAttribute("place", place);
+		model.addAttribute("comment", comment);
 		model.addAttribute("dbList", list);
 		return "merchantsearch";
 	}
-	
 
+	//並び替え
+	@RequestMapping("/sort")
+	public String sort(@RequestParam("sort") String sort, @RequestParam("bkname") String name,
+			@RequestParam("space") String space, @RequestParam("start") Integer start,
+			@RequestParam("end") Integer end, @RequestParam("place") String place,
+
+			@RequestParam("comment") String comment,@RequestParam("type") String type, Model model) {
+		List<Entity> list = dao.getSort(sort, name, space, start, end, place, comment);
+		LocalDate nowDate = LocalDate.now();
+
+		if(sort.equals("ASC")) {
+			model.addAttribute("sort", "昇順並び替え");			
+		}
+		if(sort.equals("DESC")) {
+			model.addAttribute("sort", "降順並び替え");		
+		}
+		model.addAttribute("nowDate", nowDate);
+		model.addAttribute("dbList", list);
+		model.addAttribute("bkname", name);
+		model.addAttribute("space", space);
+		model.addAttribute("start", start);
+		model.addAttribute("end", end);
+		model.addAttribute("place", place);
+		model.addAttribute("comment", comment);
+	
+		if(type.equals("customer")) {
+			return "customersearch";
+		}
+		return "merchantsearch";
+	}
 
 	//削除
 	@RequestMapping("/del/{id}")
@@ -250,6 +287,31 @@ public class FudoController {
 		return "customermenu";
 	}
 
+	//	⑧--------------------------------------------------------------------------------------------------------------
+	@RequestMapping("/viewhome2")
+	public String viewhome2(Input input, Model model) {
+		return "viewhome2";
+	}
+
+	@RequestMapping("/customersearch")
+	public String Search2(@RequestParam("bkname") String name, @RequestParam("space") String space,
+			@RequestParam("start") Integer start, @RequestParam("end") Integer end,
+			@RequestParam("place") String place, @RequestParam("comment") String comment, Model model) {
+		System.out.println(comment);
+		List<Entity> list = dao.getSearch(name, space, start, end, place, comment);
+		LocalDate nowDate = LocalDate.now();
+
+		model.addAttribute("nowDate", nowDate);
+		model.addAttribute("bkname", name);
+		model.addAttribute("space", space);
+		model.addAttribute("start", start);
+		model.addAttribute("end", end);
+		model.addAttribute("place", place);
+		model.addAttribute("comment", comment);
+		model.addAttribute("dbList", list);
+		return "customersearch";
+	}
+
 	//__________________________________________
 
 	@RequestMapping("/chat")
@@ -267,5 +329,5 @@ public class FudoController {
 		dao.insertDb_addchat(chatent);
 		return "redirect:/chat";
 	}
-	
+
 }

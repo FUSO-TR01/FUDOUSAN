@@ -15,7 +15,7 @@
 				<ul>
 					<li><a href="#">企業情報</a></li>
 					<li><a href="#">お知らせ</a></li>
-					<li><a href="#">お問い合わせ</a></li>
+					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -24,11 +24,11 @@
 	<br><br><br><br><br>
 	<h1>ログインページ</h1>
 
-	<form method="post" action="/login1" th:action="@{/merchant}">
+	<form method="post" action="/login1">
 
 		<p>ログインID：<input type="text" name="logId1" required></p>
 		<!--		<div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">エラーメッセージ</div>-->
-		<p>パスワード：<input type="text" name="pass1" required></p>
+		<p>パスワード：<input type="password" name="pass1" required></p>
 		<!--		<div th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}">エラーメッセージ</div>-->
 
 		<input type="submit" value="ログイン" class="button019">
