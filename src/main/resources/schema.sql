@@ -39,3 +39,14 @@ CREATE TABLE chat
 	chat VARCHAR (100) NOT NULL,
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE inquiry
+(
+   id INT NOT NULL AUTO_INCREMENT,
+   name VARCHAR (100) NOT NULL,
+   mail VARCHAR (100) NOT NULL,
+   type VARCHAR (100) NOT NULL,
+   message VARCHAR (500) NOT NULL,
+   date DATE ,
+   PRIMARY KEY (id)
+);

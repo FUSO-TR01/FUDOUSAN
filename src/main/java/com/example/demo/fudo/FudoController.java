@@ -15,18 +15,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.dao.Dao;
+import com.example.demo.dao.Formdao;
 import com.example.demo.entity.ChatEntity;
 import com.example.demo.entity.Entity;
+import com.example.demo.entity.Forment;
 import com.example.demo.entity.UserEntity;
 
 @Controller
 public class FudoController {
 
 	private final Dao dao;
+	private final Formdao formdao;
 
 	@Autowired
-	public FudoController(Dao dao) {
+	public FudoController(Dao dao,Formdao formdao) {
 		this.dao = dao;
+		this.formdao = formdao;
 	}
 
 	//	①--------------------------------------------------------------------------------------------------------------
@@ -339,4 +343,63 @@ public class FudoController {
 		return "redirect:/chat";
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+//	___________________________________
+
+
+
+	@RequestMapping("/checkform")
+	public String checkform(@Validated FormInput input, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			return "form";
+		}
+
+		return "checkform";
+	}
+
+	@RequestMapping("/compform")
+	public String compform(Model model, FormInput input) {
+
+	    LocalDate nowDate = LocalDate.now();
+	    System.out.println(nowDate);
+
+	    Forment entform = new Forment();
+	    entform.setName(input.getName());
+	    entform.setMail(input.getMail());
+	    entform.setMessage(input.getMessage());
+	    entform.setType(input.getType());
+	    entform.setNowDate(nowDate);
+
+	    if (!isDuplicateEntry(entform, input)) {
+	        Formdao.insertDb(entform);
+	    }
+
+	    List<Forment> list = formdao.getSelect(input.getName());
+	    model.addAttribute("dbList", list);
+	    System.out.println("データ取得");
+
+	    return "compform";
+	}
+
+	private boolean isDuplicateEntry(Forment entform,FormInput input) {
+	    List<Forment> list = formdao.getSelect(input.getName());
+
+	    for (Forment existingForm : list) {
+	        if (existingForm.getName().equals(entform.getName()) && existingForm.getMail().equals(entform.getMail()) &&
+	        	existingForm.getMessage().equals(entform.getMessage()) && existingForm.getType().equals(entform.getType())) {
+	            // 既存のデータと入力データが重複する場合はtrueを返す
+	            return true;
+	        }
+	    }
+
+	    // 重複しない場合はfalseを返す
+	    return false;
+	}
 }

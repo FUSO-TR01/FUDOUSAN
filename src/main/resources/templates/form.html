@@ -24,7 +24,7 @@
 	<div class="contact">
 		<h1 class="contact-ttl">お問い合わせフォーム</h1>
 
-		<form action="">
+		<form th:action="@{/checkform}">
 			<table class="contact-table">
 				<tr>
 					<th class="contact-item">名前</th>
@@ -75,7 +75,6 @@
 					</td>
 				</tr>
 			</table>
-
 			<input class="contact-submit" type="submit" value="送信" />
 		</form>
 	</div>
