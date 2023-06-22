@@ -202,6 +202,23 @@ public class FudoController {
 		return "merchantsearch";
 	}
 	
+	//並び替え
+	@RequestMapping("/sort")
+	public String sort(@RequestParam("sort") String sort,@RequestParam("bkname") String name ,
+			@RequestParam("space") String space,@RequestParam("start") Integer start ,
+			@RequestParam("end") Integer end,@RequestParam("place") String place ,Model model) {
+		List<Entity> list = dao.getSort(sort,name,space,start,end,place);
+		LocalDate nowDate = LocalDate.now();
+		
+		model.addAttribute("nowDate", nowDate);
+		model.addAttribute("dbList", list);
+		model.addAttribute("sort", "昇順並び替え");
+		model.addAttribute("sort", "降順並び替え");
+		model.addAttribute("start", start);
+		model.addAttribute("end", end);
+		return "merchantsearch";
+	}
+	
 
 
 	//削除

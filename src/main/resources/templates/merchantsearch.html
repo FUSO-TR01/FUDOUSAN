@@ -11,11 +11,18 @@
 	<h1 th:text="${title}"></h1>
 
 	<h2 th:text="${word}"></h2>
-	<form method="get" action="#" th:action="@{/datesearch}">
+	<form method="get" action="#" th:action="@{/sort}">
+		<input type="hidden" name="bkname" th:value="*{bkname}">
+		<input type="hidden" name="space" th:value="*{space}">
 		<input type="hidden" name="start" th:value="*{start}">
 		<input type="hidden" name="end" th:value="*{end}">
+		<input type="hidden" name="place" th:value="*{place}">
+		家賃並び替え
 		<button type="submit" name="sort" value="ASC">昇順</button>
 		<button type="submit" name="sort" value="DESC">降順</button>
+	</form>
+	<form th:action="@{/viewhome}">
+		<input type="submit" value="一覧へ戻る">
 	</form>
 	<form th:action="@{/merchant}">
 		<input type="submit" value="メニューへ戻る">
