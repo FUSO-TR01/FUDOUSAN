@@ -3,16 +3,36 @@
 
 <head>
 	<meta charset="utf-8" />
+	<link rel="stylesheet" th:href="@{/style-o.css}">
 </head>
 
+<header>
+			<h1>
+				<a href="/home">一人暮らしの家探し</a>
+			</h1>
+			<nav class="fnavi">
+				<ul>
+					<li><a href="#">企業情報</a></li>
+					<li><a href="#">お知らせ</a></li>
+					<li><a href="#">お問い合わせ</a></li>
+				</ul>
+			</nav>
+		</header>
+
 <body>
+	<br><br><br><br><br>
 	<h1>ユーザー登録完了画面</h1>
 	<p>ユーザー登録が完了しました！</p>
-	<a href="http://localhost:8080/h2-console" target="_blank">H2コンソール(別タブで開く)</a>
-	<br><br>
+<!--	<a href="http://localhost:8080/h2-console" target="_blank">H2コンソール(別タブで開く)</a>-->
+	
 	<form method="get" action="#" th:action="@{/login1}">
 		<input type="submit" value="ログイン画面へ">
 	</form>
+	
+	<br><br>
+	<div class="footer">
+			<p>copyright 一人暮らしの家探し 2023</p>
+	</div>
 </body>
 
 </html>
