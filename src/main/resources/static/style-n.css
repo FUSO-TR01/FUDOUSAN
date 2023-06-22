@@ -20,6 +20,8 @@ header {
 	display: flex;
 	align-items: center;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+	/*↓headerがmainに隠れないようにする*/
+	z-index: 99
 }
 
 /*ヘッダー内の文字*/
@@ -50,13 +52,39 @@ li {
 	font-weight: bold;
 }
 
-/*サブタイトル*/
-h2 {
-/*	margin-top: auto;*/
+/*-------------------------------------------------------------------------*/
+
+/*ボタンの中央揃え*/
+.Center {
 	text-align: center;
-	padding: 10px;
 }
 
+/*-------------------------------------------------------------------------*/
+
+.ConfirmBox {
+	position: relative;
+	width: 500px;
+	height: px;
+	background-color: white;
+	/*	margin:100px 100px 50px;*/
+	margin: 50px auto;
+	padding: 25px 50px;
+	border-radius: 20px;
+}
+
+/*-------------------------------------------------------------------------*/
+/*サブタイトル*/
+.kyocho {
+	background-color: cadetblue;
+	font-weight: bold;
+	color: white;
+	padding: 20px;
+	border-radius: 20px;
+	text-align: center;
+}
+
+/*-------------------------------------------------------------------------*/
+/*フッターの固定*/
 .footerFixed {
 	display: flex;
 	flex-direction: column;
@@ -160,3 +188,19 @@ h2 {
 .button019 a:hover:after {
 	right: 1.4rem;
 }
+
+/*チェックボックスをそろえる*/
+/*.checkboxAlign {*/
+/*	display: block;*/
+/*	position: relative;*/
+/*	padding-left: 1em;*/
+/*}*/
+
+/*.checkboxAlign input {*/
+/*	position: absolute;*/
+/*	top: 0;*/
+/*	bottom: 0;*/
+/*	left: 0;*/
+/*	margin: auto;*/
+
+/*}*/
