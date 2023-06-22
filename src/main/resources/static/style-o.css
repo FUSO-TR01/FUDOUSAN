@@ -94,6 +94,54 @@ footer {
 }
 
 /*ボタン-----------------------------------------------------------------------*/
+.button020 a{
+	background: #5c5c5c;
+	border-radius: 3px;
+	position: relative;
+	display: flex;
+	/*	justify-content: space-around;*/
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 280px;
+	padding: 10px 25px;
+	color: white;
+	transition: 0.3s ease-in-out;
+	font-weight: 500;
+	text-decoration: none;
+	border: 3px solid #5c5c5c;
+	font-weight: normal;
+}
+/*ボタン矢印*/
+.button020 a:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	bottom: 0;
+	right: 2rem;
+	font-size: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: right 0.3s;
+	width: 6px;
+	height: 6px;
+	border-top: solid 2px currentColor;
+	border-right: solid 2px currentColor;
+	transform: translateY(-50%) rotate(45deg);
+
+}
+/*ボタンの動き*/
+.button020 a:hover {
+	background: #fff;
+	color: #5c5c5c;
+	border: 3px solid #5c5c5c;
+}
+/*矢印の動き*/
+.button020 a:hover:after {
+	right: 1.4rem;
+}
+/*ボタン-----------------------------------------------------------------------*/
 .button019{
 	background: #5c5c5c;
 	border-radius: 3px;
@@ -103,14 +151,14 @@ footer {
 	justify-content: center;
 	align-items: center;
 	margin: 0 auto;
-	max-width: 350px;
+	max-width: 280px;
 	padding: 10px 25px;
 	color: white;
 	transition: 0.3s ease-in-out;
 	font-weight: 500;
 	text-decoration: none;
 	border: 3px solid #5c5c5c;
-	font-weight:normal;
+	font-weight: normal;
 }
 /*ボタン矢印*/
 .button019:after {
@@ -162,4 +210,41 @@ footer {
 	border-radius: 20px;
 	text-align: center;
 }
+/*表デザイン------------------------------------------------------------------*/
+.design08 {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	border-spacing: 0;
 
+}
+
+.design08 th {
+	padding: 10px;
+	background: #778ca3;
+	border: solid 1px #666666;
+	color: #ffffff;
+}
+
+.design08 td {
+	padding: 10px;
+	border: solid 1px #666666;
+}
+
+.design08 td:first-child {
+	background: #e9faf9;
+}
+/*ボタン②------------------------------------------------------------------*/
+.custom-button {
+		background-color: #f39700;
+		/* ボタンの背景色を赤に設定 */
+		color: #ffffff;
+		/* ボタンのテキスト色を白に設定 */
+		border: none;
+		/* ボタンのボーダーをなしに設定 */
+		padding: 20px 30px;
+		/* ボタンの余白を設定 */
+		border-radius: 5px;
+		/* ボタンの角を丸くするために設定 */
+		/* 他のスタイルプロパティを追加することもできます */
+	}

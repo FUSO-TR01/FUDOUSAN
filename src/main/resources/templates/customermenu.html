@@ -4,19 +4,43 @@
 <head>
 	<meta charset="UTF-8">
 	<title>メニュー（一般のお客様用） - 一人暮らしの家探し</title>
+	<link rel="stylesheet" th:href="@{/style-o.css}">
 </head>
+<header>
+	<h1>
+		<a href="/home">一人暮らしの家探し</a>
+	</h1>
+	<nav class="fnavi">
+		<ul>
+			<li><a href="#">企業情報</a></li>
+			<li><a href="#">お知らせ</a></li>
+			<li><a href="#">お問い合わせ</a></li>
+		</ul>
+	</nav>
+</header>
 
 <body>
-	<h1>メニュー（一般のお客様用）</h1>
-	<form th:action="@{/viewhome2}">
-		<input type="submit" value="物件検索">
-	</form>
-	<br>
-	<form th:action="@{/chat}">
+
+	<br><br><br><br><br>
+	<div class="ConfirmBox" style="width: 700px;">
+		<h1 class="kyocho">メニュー（一般のお客様用）</h1>
+		<br>
+		<form th:action="@{/viewhome2}">
+			<input type="submit" value="物件検索" class="button019">
+		</form>
+<form th:action="@{/chat}">
 		<input type="submit" value="不動産業者とチャット">
 		<input type="hidden" name="logId" th:value="*{logId}">
 		<input type="hidden" name="tp" value="merchant">
 	</form>
+		<br><br>
+	</div>
+	<br><br>
+	
+	<footer>
+		<p>copyright 一人暮らしの家探し 2023</p>
+  </footer>
+
 </body>
 
 </html>
