@@ -16,13 +16,13 @@
 		<input type="hidden" name="end" th:value="*{end}">
 		<input type="hidden" name="place" th:value="*{place}">
 		<input type="hidden" name="comment" th:value="*{comment}">
-		<input type="hidden" name="type" value="merchant">
+		<input type="hidden" name="type" value="customer">
 		家賃並び替え
 		<button type="submit" name="sort" value="ASC">昇順</button>
 		<button type="submit" name="sort" value="DESC">降順</button>
 	</form>
-	<form th:action="@{/viewhome}">
-		<input type="submit" value="一覧へ戻る">
+	<form th:action="@{/viewhome2}">
+		<input type="submit" value="検索画面へ戻る">
 	</form>
 	<form th:action="@{/merchant}">
 		<input type="submit" value="メニューへ戻る">
@@ -44,18 +44,6 @@
 			<td th:text="${res.money}">家賃</td>
 			<td th:text="${res.address}">住所</td>
 			<td th:text="${res.comment}">詳細</td>
-
-			<td>
-				<form th:action="@{/edithome/{id}(id=${res.id})}">
-					<input type="submit" value="編集">
-
-				</form>
-			</td>
-			<td>
-				<form th:action="@{/del/{id}(id=${res.id})}">
-					<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
-				</form>
-			</td>
 		</tr>
 	</table>
 
