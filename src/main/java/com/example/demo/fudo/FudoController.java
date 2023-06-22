@@ -45,7 +45,7 @@ public class FudoController {
 	@PostMapping("/login1")
 	public String login1(Model model, @RequestParam("logId1") String LogId,
 			@RequestParam("pass1") String pass) {
-		UserEntity user = Dao.findByUsername(LogId);
+		UserEntity user = Dao.findByUsername1(LogId);
 
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
@@ -60,19 +60,19 @@ public class FudoController {
 
 	//	　--------------------------------------------------------------------------------------------------------------
 	//	ログイン画面２(顧客ログイン)
-	@GetMapping("/customer")
+	@GetMapping("/login2")
 	public String showLoginForm2(Model model) {
-		return "customer";
+		return "login2";
 	}
 
 	@PostMapping("/login2")
 	public String login2(Model model, @RequestParam("logId2") String LogId,
 			@RequestParam("pass2") String pass) {
-		UserEntity user = Dao.findByUsername(LogId);
+		UserEntity user = Dao.findByUsername2(LogId);
 		if (user != null && user.getPass().equals(pass)) {
 			// ログイン成功の処理
 			model.addAttribute("result", "ログイン成功");
-			return "redirect:/view"; // タスク管理画面にリダイレクト
+			return "customermenu"; // タスク管理画面にリダイレクト
 		} else {
 			// ログイン失敗の処理
 			model.addAttribute("result", "ユーザー名またはパスワードが間違っています");

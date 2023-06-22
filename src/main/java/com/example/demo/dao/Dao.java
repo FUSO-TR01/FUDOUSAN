@@ -21,8 +21,8 @@ public class Dao {
 		Dao.db = db;
 	}
 
-	//ログイン
-	public static UserEntity findByUsername(String logId) {
+	//業者ログイン
+	public static UserEntity findByUsername1(String logId) {
 		String sql = "SELECT * FROM login WHERE logId = ?";
 		List<Map<String, Object>> rows = db.queryForList(sql, logId);
 
@@ -37,6 +37,23 @@ public class Dao {
 
 		return null;
 	}
+	
+	//顧客ログイン
+		public static UserEntity findByUsername2(String logId) {
+			String sql = "SELECT * FROM loginC WHERE logId = ?";
+			List<Map<String, Object>> rows = db.queryForList(sql, logId);
+
+			if (!rows.isEmpty()) {
+				Map<String, Object> userData = rows.get(0);
+				UserEntity user = new UserEntity();
+				user.setId((int) userData.get("id"));
+				user.setLogId((String) userData.get("logId"));
+				user.setPass((String) userData.get("pass"));
+				return user;
+			}
+
+			return null;
+		}
 
 	public List<UserEntity> getAll2() {
 
@@ -239,5 +256,6 @@ public class Dao {
 			}
 			return dataList;
 		}
+
 
 }
