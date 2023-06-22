@@ -327,11 +327,21 @@ public class FudoController {
 
 	//__________________________________________
 
-	@RequestMapping("/merchantchat")
-	public String chat(ChatInput chatinput,@RequestParam("logId") String logId, Model model) {
-		List<ChatEntity> list = dao.getChatmem(logId);
+	@RequestMapping("/chat")
+	public String chat(ChatInput chatinput,@RequestParam("logId") String logId,
+			@RequestParam("tp") String tp, Model model) {
+		List<ChatEntity> list = dao.getChatmem(tp);
 		model.addAttribute("dbList", list);
-		return "chat";
+		model.addAttribute("logId", logId);
+		
+		return "merchantchat";
+	}
+	
+	@RequestMapping("/memsearch")
+	public String memsearch(ChatInput chatinput,@RequestParam("logId") String logId,
+			@RequestParam("tp") String tp, Model model) {
+		
+		return "redirect:/merchantchat";
 	}
 
 	@RequestMapping("/addchat")

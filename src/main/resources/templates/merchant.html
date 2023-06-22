@@ -39,14 +39,11 @@
 
 	<br><br>
 
-	<form th:action="@{/merchantchat}">
+	<form th:action="@{/chat}">
 		<input type="submit" value="顧客とチャット" class="button019">
 		<input type="hidden" name="logId" th:value="*{logId}">
+		<input type="hidden" name="tp" value="merchant">
 	</form>
-
-		<form th:action="@{/chat}">
-			<input type="submit" value="顧客とチャット" class="button019">
-		</form>
 	</div>
 
 	<br><br>

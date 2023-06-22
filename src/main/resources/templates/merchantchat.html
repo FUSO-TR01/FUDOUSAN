@@ -11,34 +11,37 @@
 <body>
 
 	<h1>一人暮らしの家探し</h1>
+		<form method="get" action="/memsearch">
+			<input type="text" name="memname">
+			<input type="submit" value="検索" class="button">
+		</form>
 
 	<table border="1">
 
 		<tr>
 <!--			<th>ID</th>-->
-			<th>チャット</th>
 			<th>name</th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
-<!--			<td th:text="${res.id}">1</td>-->
-			<td th:text="${res.chat}">chat</td>
-			<td th:text="${res.name}">name</td>
+			<td>
+				<button th:text="${res.name}">name</button>
+			</td>
 
 
 	</table>
 
-	<form action="#" method="get" th:action="@{/addchat}">
-		<p>
-			<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">
-		</p>
-		<p>
-			chat: <input type="text" name="chat" th:value="*{chat}" required>
-		</p>
-		<p>
-			name: <input type="text" name="name" th:value="*{name}" placeholder="山田　太郎" required>
-		</p>
-		<input type="submit" value="送信">
-	</form>
+<!--	<form action="#" method="get" th:action="@{/addchat}">-->
+<!--		<p>-->
+<!--			<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">-->
+<!--		</p>-->
+<!--		<p>-->
+<!--			chat: <input type="text" name="chat" th:value="*{chat}" required>-->
+<!--		</p>-->
+<!--		<p>-->
+<!--			name: <input type="text" name="name" th:value="*{name}" placeholder="山田　太郎" required>-->
+<!--		</p>-->
+<!--		<input type="submit" value="送信">-->
+<!--	</form>-->
 
 </body>
 

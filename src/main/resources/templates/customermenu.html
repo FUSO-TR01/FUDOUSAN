@@ -20,6 +20,7 @@
 </header>
 
 <body>
+
 	<br><br><br><br><br>
 	<div class="ConfirmBox" style="width: 700px;">
 		<h1 class="kyocho">メニュー（一般のお客様用）</h1>
@@ -27,18 +28,19 @@
 		<form th:action="@{/viewhome2}">
 			<input type="submit" value="物件検索" class="button019">
 		</form>
-
+<form th:action="@{/chat}">
+		<input type="submit" value="不動産業者とチャット">
+		<input type="hidden" name="logId" th:value="*{logId}">
+		<input type="hidden" name="tp" value="merchant">
+	</form>
 		<br><br>
-
-		<form th:action="@{/chat}">
-			<input type="submit" value="不動産業者とチャット" class="button019">
-		</form>
 	</div>
 	<br><br>
 	
 	<footer>
 		<p>copyright 一人暮らしの家探し 2023</p>
   </footer>
+
 </body>
 
 </html>
