@@ -156,7 +156,7 @@ public class Dao {
 	}
 
 	//sql生成
-	public static String sql(String name, String space, Integer start, Integer end, String place) {
+	public static String sql(String name, String space, Integer start, Integer end, String place,String comment) {
 		String sql = "SELECT * FROM home WHERE";
 		if (!name.isEmpty()) {
 			String SHname = "'%" + name + "%'";
@@ -179,15 +179,22 @@ public class Dao {
 			String SHplace = "'%" + place + "%'";
 			sql = sql + " address LIKE " + SHplace + " AND";
 		}
+		if (!comment.isEmpty()) {
+			String[] comments = comment.split(",");
+	        for (String word : comments) {
+	        	String SHcomment = "'%" + word + "%'";
+			sql = sql + " comment LIKE " + SHcomment + " AND";
+	        }			
+		}
 		sql = sql.substring(0, sql.length() - 4);
 
 		return sql;
 	}
 
 	//検索
-	public List<Entity> getSearch(String name, String space, Integer start, Integer end, String place) {
+	public List<Entity> getSearch(String name, String space, Integer start, Integer end, String place, String comment) {
 
-		String sql = sql(name, space, start, end, place);
+		String sql = sql(name, space, start, end, place,comment);
 		List<Map<String, Object>> queryResult = db.queryForList(sql);
 		List<Entity> dataList = new ArrayList<Entity>();
 
@@ -205,9 +212,9 @@ public class Dao {
 	}
 	
 	//業者ソート
-		public List<Entity> getSort(String sort,String name, String space, Integer start, Integer end, String place) {
+		public List<Entity> getSort(String sort,String name, String space, Integer start, Integer end, String place, String comment) {
 
-			String sql = sql(name, space, start, end, place);
+			String sql = sql(name, space, start, end, place,comment);
 			List<Map<String, Object>> queryResult = db.queryForList(sql);
 			List<Entity> dataList = new ArrayList<Entity>();
 			if (sort.equals("ASC")) {
