@@ -8,48 +8,51 @@
 </head>
 
 <header>
-			<h1>
-				<a href="/home">一人暮らしの家探し</a>
-			</h1>
-			<nav class="fnavi">
-				<ul>
-					<li><a href="#">企業情報</a></li>
-					<li><a href="#">お知らせ</a></li>
-					<li><a href="#">お問い合わせ</a></li>
-				</ul>
-			</nav>
+	<h1>
+		<a href="/home">一人暮らしの家探し</a>
+	</h1>
+	<nav class="fnavi">
+		<ul>
+			<li><a href="#">企業情報</a></li>
+			<li><a href="#">お知らせ</a></li>
+			<li><a href="#">お問い合わせ</a></li>
+		</ul>
+	</nav>
 </header>
 
 <body>
 	<br><br><br><br><br>
 	<div class="ConfirmBox">
-	<h1  class="kyocho">ユーザー登録画面</h1>
-	<p>IDとパスワードを設定してください</p>
+		<h1 class="kyocho">ユーザー登録画面</h1>
+		<p>IDとパスワードを設定してください</p>
 
-	<form method="get" action="#" th:action="@{/register2}" th:object="${userinput}">
-		<!--	<span th:if="${#fields.hasErrors('logId1')}" th:errors="*{logId1}" class="error"></span>-->
-		<!--	<span th:if="${#fields.hasErrors('pass1')}" th:errors="*{pass1}" class="error"></span>-->
-		<!--	<span th:if="${#fields.hasErrors('pass2')}" th:errors="*{pass2}" class="error"></span>-->
-		<!--	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>-->
-		<p th:text="${mes1}"></p>
-		<p>
-			ID：<input style="width:150px;" type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}"required>
-		</p>
-		<p>
-			パスワード：<input style="width:200px;" type="text" name="pass1" placeholder="パスワードを入力してください" th:value="${pass1}" required>
-		</p>
-		<p>
-			パスワード（確認用）：<input style="width:200px;" type="text" name="pass2" placeholder="パスワードを入力してください" th:value="${pass2}" required>
-		</p>
-		<p>
-			氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}" required>
-		</p>
-		<input type="submit" value="登録" class="button019">
-	</form>
-	<br>
-	<form th:action="@{/login2}">
-	<input type="submit" value="戻る" class="button019">
-	</form>
+		<form method="get" action="#" th:action="@{/register2}" th:object="${userinput}">
+			<!--	<span th:if="${#fields.hasErrors('logId1')}" th:errors="*{logId1}" class="error"></span>-->
+			<!--	<span th:if="${#fields.hasErrors('pass1')}" th:errors="*{pass1}" class="error"></span>-->
+			<!--	<span th:if="${#fields.hasErrors('pass2')}" th:errors="*{pass2}" class="error"></span>-->
+			<!--	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>-->
+			<p th:text="${mes1}"></p>
+			<p>
+				ID：<input style="width:150px;" type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}"
+					required>
+			</p>
+			<p>
+				パスワード：<input style="width:200px;" type="text" name="pass1" placeholder="パスワードを入力してください"
+					th:value="${pass1}" required>
+			</p>
+			<p>
+				パスワード（確認用）：<input style="width:200px;" type="text" name="pass2" placeholder="パスワードを入力してください"
+					th:value="${pass2}" required>
+			</p>
+			<p>
+				氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}" required>
+			</p>
+			<input type="submit" value="登録" class="button019">
+		</form>
+		<br>
+		<form th:action="@{/login2}">
+			<input type="submit" value="戻る" class="button019">
+		</form>
 	</div>
 	<br><br>
 	<footer>
