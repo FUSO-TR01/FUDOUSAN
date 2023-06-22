@@ -210,6 +210,7 @@ public class FudoController {
 	public String sort(@RequestParam("sort") String sort, @RequestParam("bkname") String name,
 			@RequestParam("space") String space, @RequestParam("start") Integer start,
 			@RequestParam("end") Integer end, @RequestParam("place") String place,
+
 			@RequestParam("comment") String comment,@RequestParam("type") String type, Model model) {
 		List<Entity> list = dao.getSort(sort, name, space, start, end, place, comment);
 		LocalDate nowDate = LocalDate.now();

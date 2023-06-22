@@ -21,7 +21,7 @@
 </header>
 
 <body>
-	<br><br><br><br>
+	<br><br><br><br><br>
 	<h1>ログインページ</h1>
 
 	<form method="post" action="/login1" th:action="@{/merchant}">
@@ -31,10 +31,9 @@
 		<p>パスワード：<input type="text" name="pass1" required></p>
 		<!--		<div th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}">エラーメッセージ</div>-->
 
-	</form>
-	
-		<input type="submit" value="ログイン" class="button020">
+		<input type="submit" value="ログイン" class="button0">
 		<p th:text="${result}"></p>
+	</form>
 
 	
 	<br>
