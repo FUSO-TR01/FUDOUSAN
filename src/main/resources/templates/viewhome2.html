@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>物件情報一覧 - 一人暮らしの家探し</title>
+	<meta charset="utf-8" />
+
+</head>
+
+<h1>物件情報一覧</h1>
+
+<body>
+	<form method="get" action="/customersearch">
+		<p>
+			物件名：<input type="text" name="bkname">
+			間取り：
+			<select name="space">
+				<option value="" hidden>選択してください</option>
+				<option value="">全選択</option>
+				<option value="1R">1R</option>
+				<option value="1K">1K</option>
+				<option value="1DK">1DK</option>
+				<option value="1LDK">1LDK</option>
+			</select>
+			家賃：<select name="start">
+				<option value="0" hidden>選択してください</option>
+				<option value="0" selected>下限なし</option>
+				<option value="10000">10,000</option>
+				<option value="20000">20,000</option>
+				<option value="30000">30,000</option>
+				<option value="40000">40,000</option>
+				<option value="50000">50,000</option>
+				<option value="60000">60,000</option>
+				<option value="70000">70,000</option>
+				<option value="80000">80,000</option>
+				<option value="90000">90,000</option>
+				<option value="100000">100,000</option>
+				<option value="110000">110,000</option>
+				<option value="120000">120,000</option>
+				<option value="130000">130,000</option>
+				<option value="140000">140,000</option>
+				<option value="150000">150,000</option>
+			</select>
+			～
+			<select name="end">
+				<option value="0" hidden>選択してください</option>
+				<option value="10000">10,000</option>
+				<option value="20000">20,000</option>
+				<option value="30000">30,000</option>
+				<option value="40000">40,000</option>
+				<option value="50000">50,000</option>
+				<option value="60000">60,000</option>
+				<option value="70000">70,000</option>
+				<option value="80000">80,000</option>
+				<option value="90000">90,000</option>
+				<option value="100000">100,000</option>
+				<option value="110000">110,000</option>
+				<option value="120000">120,000</option>
+				<option value="130000">130,000</option>
+				<option value="140000">140,000</option>
+				<option value="150000">150,000</option>
+				<option value="0" selected>上限なし</option>
+			</select>
+
+			住所：<input type="text" name="place">
+		<p>詳細<br>
+
+			<label><input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment1">無料Wi-Fiあり<br>	</label>
+				<label><input type="checkbox" name="comment" value="駐車場空きあり" id="comment2">駐車場空きあり<br>	</label>
+				<label><input type="checkbox" name="comment" value="ペット可" id="comment3">ペット可<br>	</label>
+				<label><input type="checkbox" name="comment" value="室内洗濯機置き場あり" id="comment4">室内洗濯機置き場あり<br>	</label>
+				<label><input type="checkbox" name="comment" value="オートロックあり" id="comment5">オートロックあり<br>	</label>
+				<label><input type="checkbox" name="comment" value="バス・トイレ別" id="comment6">バス・トイレ別<br></label>
+          <input type="hidden" name="comment" value="">
+
+		</p>
+		<p>
+			<input type="submit" value="検索" class="button">
+		</p>
+	</form>
+	<form th:action="@{/customermenu}">
+		<input type="submit" value="メニューへ戻る">
+	</form>
+
+</body>
+
+</html>

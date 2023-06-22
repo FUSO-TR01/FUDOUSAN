@@ -210,23 +210,29 @@ public class FudoController {
 	public String sort(@RequestParam("sort") String sort, @RequestParam("bkname") String name,
 			@RequestParam("space") String space, @RequestParam("start") Integer start,
 			@RequestParam("end") Integer end, @RequestParam("place") String place,
-			@RequestParam("comment") String comment, Model model) {
+
+			@RequestParam("comment") String comment,@RequestParam("type") String type, Model model) {
 		List<Entity> list = dao.getSort(sort, name, space, start, end, place, comment);
 		LocalDate nowDate = LocalDate.now();
-		if (sort.equals("ASC")) {
-			model.addAttribute("sort", "昇順並び替え");
+
+		if(sort.equals("ASC")) {
+			model.addAttribute("sort", "昇順並び替え");			
 		}
-		if (sort.equals("DESC")) {
-			model.addAttribute("sort", "降順並び替え");
+		if(sort.equals("DESC")) {
+			model.addAttribute("sort", "降順並び替え");		
 		}
 		model.addAttribute("nowDate", nowDate);
-		model.addAttribute("dbList", list);		
+		model.addAttribute("dbList", list);
 		model.addAttribute("bkname", name);
 		model.addAttribute("space", space);
 		model.addAttribute("start", start);
 		model.addAttribute("end", end);
 		model.addAttribute("place", place);
 		model.addAttribute("comment", comment);
+	
+		if(type.equals("customer")) {
+			return "customersearch";
+		}
 		return "merchantsearch";
 	}
 
@@ -274,6 +280,31 @@ public class FudoController {
 	@RequestMapping("/customermenu")
 	public String customermenu(Model model) {
 		return "customermenu";
+	}
+
+	//	⑧--------------------------------------------------------------------------------------------------------------
+	@RequestMapping("/viewhome2")
+	public String viewhome2(Input input, Model model) {
+		return "viewhome2";
+	}
+
+	@RequestMapping("/customersearch")
+	public String Search2(@RequestParam("bkname") String name, @RequestParam("space") String space,
+			@RequestParam("start") Integer start, @RequestParam("end") Integer end,
+			@RequestParam("place") String place, @RequestParam("comment") String comment, Model model) {
+		System.out.println(comment);
+		List<Entity> list = dao.getSearch(name, space, start, end, place, comment);
+		LocalDate nowDate = LocalDate.now();
+
+		model.addAttribute("nowDate", nowDate);
+		model.addAttribute("bkname", name);
+		model.addAttribute("space", space);
+		model.addAttribute("start", start);
+		model.addAttribute("end", end);
+		model.addAttribute("place", place);
+		model.addAttribute("comment", comment);
+		model.addAttribute("dbList", list);
+		return "customersearch";
 	}
 
 	//__________________________________________
