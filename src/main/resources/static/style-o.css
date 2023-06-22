@@ -21,6 +21,7 @@ header {
 	display: flex;
 	align-items: center;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+	z-index:10000;
 }
 
 h1 {
@@ -50,22 +51,14 @@ li {
 	font-weight: bold;
 }
 
-.footerFixed {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-.footer {
-	display: flex;
-	flex-direction: column;
-	min-height: 50vh;
-	margin-top: auto;
+footer {
 	background-color: #f5f5f5;
+	display: flex;
+	flex-direction: column;
+	margin-top: auto;
 	text-align: center;
-	padding: 10px;
-    bottom: 0; /*下に固定*/
-    
+	padding: 10px; /*内部余白の設定*/
+    bottom: 0;
 }
 
 /*文字線*/
@@ -191,43 +184,4 @@ li {
 	/* 背景色     */
 	background: #ffffff;
 	/* 文字色     */
-}
-
-.button0{
-	width: 300px;
-	background: #5c5c5c;
-	border-radius: 3px;
-	position: relative;
-	display: flex;
-	/*	justify-content: space-around;*/
-	justify-content: center;
-	align-items: center;
-	margin: 0 auto;
-	max-width: 350px;
-	padding: 10px 25px;
-	color: white;
-	transition: 0.3s ease-in-out;
-	font-weight: 500;
-	text-decoration: none;
-	border: 3px solid #5c5c5c;
-	font-weight:normal;
-}
-/*矢印*/
-.button0:after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	bottom: 0;
-	right: 2rem;
-	font-size: 90%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: right 0.3s;
-	width: 6px;
-	height: 6px;
-	border-top: solid 2px currentColor;
-	border-right: solid 2px currentColor;
-	transform: translateY(-50%) rotate(45deg);
-
 }
