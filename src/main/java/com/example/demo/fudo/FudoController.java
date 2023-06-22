@@ -185,9 +185,9 @@ public class FudoController {
 		return "sample2";
 	}
 	
-	@RequestMapping("/memo")
-	public String memo(Model model) {
-		return "memo";
+	@RequestMapping("/form")
+	public String form(Model model) {
+		return "form";
 	}
 
 	//検索
