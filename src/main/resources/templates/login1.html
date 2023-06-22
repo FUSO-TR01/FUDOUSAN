@@ -7,49 +7,50 @@
 	<meta charset="utf-8" />
 </head>
 
-	<header>
-			<h1>
-				<a href="/home">一人暮らしの家探し</a>
-			</h1>
-			<nav class="fnavi">
-				<ul>
-					<li><a href="#">企業情報</a></li>
-					<li><a href="#">お知らせ</a></li>
-					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
-				</ul>
-			</nav>
-		</header>
-		
+<header>
+	<h1>
+		<a href="/home">一人暮らしの家探し</a>
+	</h1>
+	<nav class="fnavi">
+		<ul>
+			<li><a href="#">企業情報</a></li>
+			<li><a href="#">お知らせ</a></li>
+			<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+		</ul>
+	</nav>
+</header>
+
 <body>
 	<br><br><br><br><br>
-	<h1>業者様用ログインページ</h1>
+	<div class="ConfirmBox">
+		<h1 class="kyocho">業者様用ログインページ</h1>
 
-	<form method="post" action="/login1">
+		<form method="post" action="/login1">
 
-		<p>ログインID：<input type="text" name="logId1" required></p>
-		<!--		<div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">エラーメッセージ</div>-->
-		<p>パスワード：<input type="password" name="pass1" required></p>
-		<!--		<div th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}">エラーメッセージ</div>-->
+			<p>ログインID：<input type="text" name="logId1" required></p>
+			<!--		<div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">エラーメッセージ</div>-->
+			<p>パスワード：<input type="password" name="pass1" required></p>
+			<!--		<div th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}">エラーメッセージ</div>-->
 
-		<input type="submit" value="ログイン" class="button019">
-		<p th:text="${result}"></p>
-	</form>
-	
-	<div class="button019">
+			<input type="submit" value="ログイン" class="button019">
+			<p th:text="${result}"></p>
+		</form>
+
+		<div class="button019">
 			<a href="signup1.html" th:href="@{/signup1}">新規登録</a>
-	</div>
-	<br>
-	<div class="button019">
+		</div>
+		<br>
+		<div class="button019">
 			<a href="login2.html" th:href="@{/login2}">一般のお客様用ログインページへ</a>
-	</div>
-	<br>
-	<div class="button019">
+		</div>
+		<br>
+		<div class="button019">
 			<a href="home.html" th:href="@{/home}">ホーム画面へ戻る</a>
+		</div>
+		<br><br>
 	</div>
-	<br><br>
-	
 	<footer>
-			<p>copyright 一人暮らしの家探し 2023</p>
+		<p>copyright 一人暮らしの家探し 2023</p>
 	</footer>
 
 </body>
