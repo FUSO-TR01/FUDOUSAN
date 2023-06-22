@@ -9,6 +9,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: center;
 }
 
 header {
@@ -63,7 +64,7 @@ li {
 
 .ConfirmBox {
 	position: relative;
-	width: 500px;
+	width: 700px;
 	height: px;
 	background-color: white;
 	/*	margin:100px 100px 50px;*/
@@ -84,6 +85,20 @@ li {
 }
 
 /*-------------------------------------------------------------------------*/
+/*詳細タイトル*/
+.kyocho2 {
+	background-color: cadetblue;
+	font-weight: bold;
+	color: white;
+	padding: 20px;
+	border-radius: 30px;
+	text-align: center;
+	word-wrap: break-word;
+	width: 150px;
+	margin: 0 auto;
+}
+
+/*-------------------------------------------------------------------------*/
 /*フッターの固定*/
 .footerFixed {
 	display: flex;
@@ -97,6 +112,8 @@ li {
 	text-align: center;
 	padding: 10px;
 }
+
+/*-------------------------------------------------------------------------*/
 
 /*文字線*/
 .fnavi li a {
@@ -130,7 +147,9 @@ li {
 	/*X方向にスケール拡大*/
 }
 
-/* 019 */
+/*-------------------------------------------------------------------------*/
+
+/* ログイン前のボタン */
 .button019 a {
 	background: #5c5c5c;
 	border-radius: 3px;
@@ -189,18 +208,158 @@ li {
 	right: 1.4rem;
 }
 
+/*-------------------------------------------------------------------------*/
+
+/*ログイン以降のボタン*/
+.button0 {
+	width: 300px;
+	background: #5c5c5c;
+	border-radius: 3px;
+	position: relative;
+	display: flex;
+	/*	justify-content: space-around;*/
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 280px;
+	padding: 10px 25px;
+	color: white;
+	transition: 0.3s ease-in-out;
+	font-weight: 500;
+	text-decoration: none;
+	border: 3px solid #5c5c5c;
+	font-weight: normal;
+}
+
+/*矢印*/
+.button0:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	bottom: 0;
+	right: 2rem;
+	font-size: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: right 0.3s;
+	width: 6px;
+	height: 6px;
+	border-top: solid 2px currentColor;
+	border-right: solid 2px currentColor;
+	transform: translateY(-50%) rotate(45deg);
+
+}
+
+.button0:hover {
+	background: #fff;
+	color: #5c5c5c;
+	border: 3px solid #5c5c5c;
+}
+
+/*矢印の動き*/
+.button0:hover:after {
+	right: 1.4rem;
+}
+
+/*-------------------------------------------------------------------------*/
+
 /*チェックボックスをそろえる*/
-/*.checkboxAlign {*/
-/*	display: block;*/
-/*	position: relative;*/
-/*	padding-left: 1em;*/
+
+.form-align {
+	display: inline-block;
+	text-align: left;
+}
+
+/*-------------------------------------------------------------------------*/
+/*テキストボックス*/
+
+
+.Form {
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+/*  max-width: 720px;*/
+}
+
+.Form-Item {
+  border-top: 1px solid #ddd;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/*.Form-Item:nth-child(5) {*/
+/*  border-bottom: 1px solid #ddd;*/
 /*}*/
 
-/*.checkboxAlign input {*/
-/*	position: absolute;*/
-/*	top: 0;*/
-/*	bottom: 0;*/
-/*	left: 0;*/
-/*	margin: auto;*/
+/*項目名*/
+.Form-Item-Label {
+  width: 100%;
+  max-width: 248px;
+  letter-spacing: 0.05em;
+  font-weight: normal;
+  font-size: 18px;
+}
 
+/*.Form-Item-Label.isMsg {*/
+/*  margin-top: 8px;*/
+/*  margin-bottom: auto;*/
 /*}*/
+
+
+/*必須マーク*/
+.hissu{
+	border-radius: 6px;
+  margin-right: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  width: 48px;
+  display: inline-block;
+  text-align: center;
+  background: #5bc8ac;
+  color: #fff;
+  font-size: 14px;
+}
+
+.hissu2{
+    padding-right: 4em;
+    position: relative;
+}
+.hissu2::after{
+    content: "必須";
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    border: 1px solid #CCC;
+    padding: 0 5px;
+    font-size: 85%;
+    background: #d40000;
+    color: #FFF;
+}
+
+.Form-Item-Input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 48px;
+  flex: 1;
+/*  width: 100%;*/
+  max-width: 410px;
+  background: #eaedf2;
+  font-size: 14px;
+}
+
+input[type=text]{
+width:500px;
+height:45px;
+/*font-size:0.6em;*/
+margin: 0 auto;
+}
+
+
