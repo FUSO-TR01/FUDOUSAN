@@ -8,6 +8,7 @@
 </head>
 
 <header>
+
 			<h1>
 				<a href="/home">一人暮らしの家探し</a>
 			</h1>
@@ -22,7 +23,7 @@
 
 <body>
 	<br><br><br><br><br>
-
+<div class="ConfirmBox">
 	<h2>メニュー</h2>
 
 	<form th:action="@{/addhome}">
@@ -35,12 +36,18 @@
 		<input type="submit" value="物件情報　一覧" class="button019">
 	</form>
 
+
 	<br><br>
 
 	<form th:action="@{/merchantchat}">
 		<input type="submit" value="顧客とチャット" class="button019">
 		<input type="hidden" name="logId" th:value="*{logId}">
 	</form>
+
+		<form th:action="@{/chat}">
+			<input type="submit" value="顧客とチャット" class="button019">
+		</form>
+	</div>
 
 	<br><br>
 
