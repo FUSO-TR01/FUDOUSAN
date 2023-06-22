@@ -184,6 +184,11 @@ public class FudoController {
 	public String sample2(Model model) {
 		return "sample2";
 	}
+	
+	@RequestMapping("/memo")
+	public String memo(Model model) {
+		return "memo";
+	}
 
 	//検索
 	@RequestMapping("/merchantsearch")
