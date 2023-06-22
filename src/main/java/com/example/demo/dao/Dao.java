@@ -93,12 +93,12 @@ public class Dao {
 		db.update("INSERT INTO home(name,space,money,address,comment) VALUES(?,?,?,?,?)",
 				ent.getName(), ent.getSpace(), ent.getMoney(), ent.getAddress(), ent.getComment());
 	}
-	
+
 	//削除
-		public void deleteBKN(Long id) {
-			System.out.println("削除しました");
-			db.update("delete from home where id=?", id);
-		}
+	public void deleteBKN(Long id) {
+		System.out.println("削除しました");
+		db.update("delete from home where id=?", id);
+	}
 
 	//編集
 	public List<Entity> getOne(Long id) {
@@ -126,13 +126,11 @@ public class Dao {
 	public void updateSample(Long id, Entity entity) {
 		System.out.println("編集の実行");
 		db.update("UPDATE home SET name=?,space=?,money = ?,address = ?,comment = ? WHERE id = ?",
-				entity.getName(),entity.getSpace(), entity.getMoney(), entity.getAddress(),entity.getComment(), id);
+				entity.getName(), entity.getSpace(), entity.getMoney(), entity.getAddress(), entity.getComment(), id);
 	}
-	
 
-	
-//	____________________________
-	
+	//	____________________________
+
 	public List<ChatEntity> getChat() {
 
 		List<Map<String, Object>> queryResult = db.queryForList("SELECT * FROM chat");
@@ -144,69 +142,92 @@ public class Dao {
 			entdb.setId((int) bkn.get("id"));
 
 			entdb.setChat((String) bkn.get("chat"));
-			
+
 			entdb.setName((String) bkn.get("name"));
 
 			dataList.add(entdb);
 		}
 		return dataList;
 	}
-	
+
 	public void insertDb_addchat(ChatEntity chatent) {
 		db.update("INSERT INTO chat(chat,name) VALUES(?,?)",
-				chatent.getChat(),chatent.getName());
+				chatent.getChat(), chatent.getName());
+	}
+
+	//sql生成
+	public static String sql(String name, String space, Integer start, Integer end, String place) {
+		String sql = "SELECT * FROM home WHERE";
+		if (!name.isEmpty()) {
+			String SHname = "'%" + name + "%'";
+			sql = sql + " name LIKE " + SHname + " AND";
+		}
+		if (!space.isEmpty()) {
+			sql = sql + " space = '" + space + "' AND";
+		}
+		if (start != 0) {
+			sql = sql + " money BETWEEN " + start + " AND ";
+		} else {
+			sql = sql + " money BETWEEN (SELECT MIN(money) FROM home) AND ";
+		}
+		if (end != 0) {
+			sql = sql + end + " AND";
+		} else {
+			sql = sql + " (SELECT MAX(money) FROM home) AND";
+		}
+		if (!place.isEmpty()) {
+			String SHplace = "'%" + place + "%'";
+			sql = sql + " address LIKE " + SHplace + " AND";
+		}
+		sql = sql.substring(0, sql.length() - 4);
+
+		return sql;
 	}
 
 	//検索
-		public List<Entity> getSearch(String name,String space,Integer start,Integer end,String place) {
-			
-			String sql="SELECT * FROM home WHERE";
-			if (!name.isEmpty()) {
-				String SHname = "'%" + name + "%'";
-			    sql= sql +" name LIKE " + SHname + " AND";
-			}
-			if (!space.isEmpty()) {
-			    sql= sql +" space = '"+ space + "' AND";
-			}
-			
-			if (start != 0) {
-				sql= sql +" money BETWEEN " + start + " AND ";
-			}
-			else {
-				sql= sql +" money BETWEEN (SELECT MIN(money) FROM home) AND ";
-			}
-			
-			if (end != 0) {
-			    sql= sql + end + " AND";
-			}
-			else {
-				sql= sql +" (SELECT MAX(money) FROM home) AND";
-			}
-			
-			if (!place.isEmpty()) {
-				String SHplace = "'%" + place + "%'";
-			    sql= sql +" address LIKE " + SHplace + " AND";
-			}
-			
-			sql = sql.substring(0, sql.length()-4);
-			
-//			List<Map<String, Object>> queryResult =
-//					db.queryForList("SELECT * FROM home WHERE name LIKE ? AND space = ? AND money BETWEEN ? AND ? AND address LIKE ?", SHname,space,start,end,SHplace);
-			List<Map<String, Object>> queryResult =db.queryForList(sql);
-			
-			List<Entity> dataList = new ArrayList<Entity>();
+	public List<Entity> getSearch(String name, String space, Integer start, Integer end, String place) {
 
+		String sql = sql(name, space, start, end, place);
+		List<Map<String, Object>> queryResult = db.queryForList(sql);
+		List<Entity> dataList = new ArrayList<Entity>();
+
+		for (Map<String, Object> bkn : queryResult) {
+			Entity entdb = new Entity();
+			entdb.setId((int) bkn.get("id"));
+			entdb.setName((String) bkn.get("name"));
+			entdb.setSpace((String) bkn.get("space"));
+			entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
+			entdb.setAddress((String) bkn.get("address"));
+			entdb.setComment((String) bkn.get("comment"));
+			dataList.add(entdb);
+		}
+		return dataList;
+	}
+	
+	//業者ソート
+		public List<Entity> getSort(String sort,String name, String space, Integer start, Integer end, String place) {
+
+			String sql = sql(name, space, start, end, place);
+			List<Map<String, Object>> queryResult = db.queryForList(sql);
+			List<Entity> dataList = new ArrayList<Entity>();
+			if (sort.equals("ASC")) {
+				sql = sql + " ORDER BY money ASC";
+				queryResult = db.queryForList(sql);
+				System.out.println("昇順ソート");
+			}
+			if (sort.equals("DESC")) {
+				sql = sql + " ORDER BY money DESC";				
+				queryResult = db.queryForList(sql);
+				System.out.println("降順ソート");
+			}
 			for (Map<String, Object> bkn : queryResult) {
 				Entity entdb = new Entity();
-
 				entdb.setId((int) bkn.get("id"));
-
 				entdb.setName((String) bkn.get("name"));
 				entdb.setSpace((String) bkn.get("space"));
 				entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
 				entdb.setAddress((String) bkn.get("address"));
 				entdb.setComment((String) bkn.get("comment"));
-
 				dataList.add(entdb);
 			}
 			return dataList;
