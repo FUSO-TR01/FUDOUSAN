@@ -96,11 +96,11 @@
 
 			</p>
 			<p>
-				<input type="submit" value="検索" class="button">
+				<input type="submit" value="検索" class="button019">
 			</p>
 		</form>
 		<form th:action="@{/merchant}">
-			<input type="submit" value="メニューへ戻る">
+			<input type="submit" value="メニューへ戻る" class="button019">
 		</form>
 	</div>
 	<table border="1" class="design08">
@@ -112,6 +112,8 @@
 			<th>家賃</th>
 			<th>住所</th>
 			<th>詳細</th>
+			<th>編集</th>
+			<th>削除</th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td th:text="${res.id}">1</td>
@@ -123,13 +125,13 @@
 
 			<td>
 				<form th:action="@{/edithome/{id}(id=${res.id})}">
-					<input type="submit" value="編集">
+					<input type="submit" value="編集" class="button019"> 
 
 				</form>
 			</td>
 			<td>
 				<form th:action="@{/del/{id}(id=${res.id})}">
-					<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
+					<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');" class="button019">
 				</form>
 			</td>
 		</tr>
