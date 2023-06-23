@@ -4,12 +4,26 @@
 
 
 <head>
+	<link rel="stylesheet" th:href="@{/style-o.css}">
 	<meta charset="UTF-8">
 	<title>HOME</title>
 </head>
 
-<body>
+<header>
+	<h1>
+		<a href="/home">一人暮らしの家探し</a>
+	</h1>
+	<nav class="fnavi">
+		<ul>
+			<li><a href="#">企業情報</a></li>
+			<li><a href="#">お知らせ</a></li>
+			<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+		</ul>
+	</nav>
+</header>
 
+<body>
+	<br><br><br><br><br>
 	<h1>一人暮らしの家探し</h1>
 
 	<table border="1">
@@ -37,7 +51,11 @@
 		<p>
 			name: <input type="text" name="name" th:value="*{name}" placeholder="山田　太郎" required>
 		</p>
-		<input type="submit" value="送信">
+		<input type="submit" value="送信" class="button019">
+		<br><br><br>
+		<footer>
+		<p>copyright 一人暮らしの家探し 2023</p>
+	</footer>
 	</form>
 
 </body>
