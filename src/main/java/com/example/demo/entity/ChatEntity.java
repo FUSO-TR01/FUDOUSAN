@@ -3,6 +3,7 @@ package com.example.demo.entity;
 public class ChatEntity {
 	
 	private int id;
+	private String logId;
 	private String chat;
 	private String name;
 	
@@ -33,6 +34,14 @@ public class ChatEntity {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getLogId() {
+		return logId;
+	}
+
+	public void setLogId(String logId) {
+		this.logId = logId;
 	}
 	
 }
