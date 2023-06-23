@@ -12,8 +12,8 @@
 
 	<h1>一人暮らしの家探し</h1>
 	<form method="get" action="/memsearch">
-		<input type="text" name="memname">
 		<input type="hidden" name="logId" th:value="*{logId}">
+		<input type="text" name="memname">
 		<input type="hidden" name="tp" th:value="*{tp}">
 		<input type="submit" value="検索" class="button">
 	</form>
@@ -25,8 +25,11 @@
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td>
-				<form th:action="@{/stratchat/{id}(id=${res.id})}">
-					<input type="submit" th:text="${res.name}"> 
+				<form th:action="@{/startchat/{id}(id=${res.id})}">
+					<input type="submit" th:value="${res.name}">
+					<input type="hidden" name="logId" th:value="*{logId}">
+					<input type="hidden" name="memname" th:value="*{memname}">
+					<input type="hidden" name="tp" th:value="*{tp}">
 				</form>
 			</td>
 
