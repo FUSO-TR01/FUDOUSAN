@@ -196,7 +196,7 @@ public class Dao {
 	
 	public static String chatsql(String logId, String toId) {
 
-//		String chatsql = "SELECT * FROM chat WHERE (logId = '"+logId+"' AND toId = '"+toId+"') OR (logId = '"+toId+"' AND toId = '"+logId+"')";
+		String chatsql = "SELECT * FROM chat WHERE (logId = '"+logId+"' AND toId = '"+toId+"') OR (logId = '"+toId+"' AND toId = '"+logId+"')";
 		return chatsql;
 	}
 	
@@ -231,7 +231,7 @@ public class Dao {
 			entdb.setName((String) mem.get("name"));
 			entdb.setToname((String) mem.get("toname"));
 			entdb.setChat((String) mem.get("chat"));
-//			entdb.setChatC((String) mem.get("chatC"));
+			entdb.setChatC((String) mem.get("chatC"));
 
 			chatList.add(entdb);
 		}		
