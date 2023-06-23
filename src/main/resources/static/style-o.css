@@ -212,10 +212,11 @@ footer {
 }
 /*表デザイン------------------------------------------------------------------*/
 .design08 {
-	width: 100%;
+	width: 70%;
 	text-align: center;
 	border-collapse: collapse;
 	border-spacing: 0;
+	margin:auto
 
 }
 
@@ -247,4 +248,10 @@ custom-button {
 		border-radius: 5px;
 		/* ボタンの角を丸くするために設定 */
 		/* 他のスタイルプロパティを追加することもできます */
+	}
+/*写真の設定--------------------------------------------------------------------------------*/
+#photo {
+		position: center;
+		top: 20px;
+		right: 20px;
 	}

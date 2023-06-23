@@ -34,6 +34,8 @@
 			<!--		<span th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="error"></span>-->
 			<!--		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>-->
 			<p th:text="${mes1}"></p>
+			
+			<div class="label">
 			<p>
 				ID：<input style="width:150px;" type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}"
 					required>
@@ -53,6 +55,8 @@
 			<p>
 				氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}" required>
 			</p>
+			</div>
+			
 			<input type="submit" value="登録" class="button019">
 		</form>
 		<br>
