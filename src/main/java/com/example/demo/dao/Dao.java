@@ -168,27 +168,52 @@ public class Dao {
 		return dataList;
 	}
 
+	public static String memsql(String tp, String memname) {
+		String memsql = "SELECT id, name FROM";
+		String pattern = "'%" + memname + "%'";
+		if (tp.equals("merchant")) {
+			memsql = memsql + " LOGINC WHERE name LIKE " + pattern;
+		}
+		if (tp.equals("customer")) {
+			memsql = memsql + " LOGIN WHERE name LIKE " + pattern;
+		}
+		return memsql;
+	}
+
 	public List<ChatEntity> getChatsearchmem(String tp, String memname) {
 		List<Map<String, Object>> queryResult = null;
 		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
-		String pattern = "%" + memname + "%";
-		String query = null;
-		if (tp.equals("merchant")) {
-			query = "SELECT id, name FROM LOGINC WHERE name LIKE ?";
-		}
-		if (tp.equals("customer")) {
-			query = "SELECT od,name FROM LOGIN WHERE name LIKE ?";
-		}
-		queryResult = db.queryForList(query, pattern);
+		String memsql = memsql(tp, memname);
+		queryResult = db.queryForList(memsql);
 		for (Map<String, Object> mem : queryResult) {
 			ChatEntity entdb = new ChatEntity();
 			entdb.setId((int) mem.get("id"));
 			entdb.setName((String) mem.get("name"));
 			dataList.add(entdb);
 		}
-
 		return dataList;
-
+	}
+	
+	public List<ChatEntity> getStartchat(String tp, String memname,String logId, Integer id) {
+		List<Map<String, Object>> queryTo = null;
+		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
+		String to = "SELECT logId FROM";
+		if (tp.equals("merchant")) {
+			to = to + " LOGINC WHERE id = " + id;
+		}
+		if (tp.equals("customer")) {
+			to = to + " LOGIN WHERE name LIKE " + id;
+		}
+		queryTo = db.queryForList(to);
+		
+		
+		for (Map<String, Object> mem : queryResult) {
+			ChatEntity entdb = new ChatEntity();
+			entdb.setId((int) mem.get("id"));
+			entdb.setName((String) mem.get("name"));
+			dataList.add(entdb);
+		}
+		return dataList;
 	}
 
 	public void insertDb_addchat(ChatEntity chatent) {
