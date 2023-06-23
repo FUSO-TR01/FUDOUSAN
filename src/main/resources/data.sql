@@ -26,34 +26,35 @@ INSERT INTO home (name,space,money,address,comment) VALUES
 INSERT INTO login(logId,pass,type,name) VALUES 
 ('ID','Password','業者名','名前'),
 ('test11','test11','高橋不動産','高橋1'),
+('a','a','a','a'),
 ('test12','test12','高橋商事','高橋2');
 
 INSERT INTO loginC(logId,pass,name) VALUES 
 ('ID','Password','名前'),
 ('test1','test1','中條'),
 ('test2','test2','大渡'),
+('i','i','i'),
 ('test3','test3','中島');
 
-INSERT INTO chat(logId, toId, chatC, chat, name, toname) VALUES
-('test1', 'test11', 'a', '', '中條', '高橋1'),
-('test2', 'test12', 'a', '', '大渡', '高橋2'),
-('test11', 'test1', '', 'aa', '高橋1', '中條'),
-('test12', 'test2', '', 'aa', '高橋2', '大渡'),
-('test1', 'test11', 'b', '', '中條', '高橋1'),
-('test3', 'test12', 'a', '', '中島', '高橋2'),
-('test11', 'test1', '', 'bb', '高橋1', '中條'),
-('test12', 'test3', '', 'aa', '高橋2', '中島'),
-('test3', 'test12', 'b', '', '中島', '高橋2'),
-('test1', 'test11', 'c', '', '中條', '高橋1'),
-('test12', 'test3', '', 'bb', '高橋2', '中島'),
-('test2', 'test12', 'b', '', '大渡', '高橋2'),
-('test12', 'test2', '', 'bb', '高橋2', '大渡'),
-('test11', 'test1', '', 'cc', '高橋1', '中條'),
-('test2', 'test12', 'c', '', '大渡', '高橋2'),
-('test1', 'test11', 'd', '', '中條', '高橋1'),
-('test11', 'test1', '', 'dd', '高橋1', '中條'),
-('test12', 'test2', '', 'bb', '高橋2', '大渡');
-
+INSERT INTO chat(logId,toId,chat,name,toname) VALUES
+('test1','test11','a','中條','高橋1'),
+('test2','test12','a','大渡','高橋2'),
+('test11','test1','aa','高橋1','中條'),
+('test12','test2','aa','高橋2','大渡'),
+('test1','test11','b','中條','高橋1'),
+('test3','test12','a','中島','高橋2'),
+('test11','test1','bb','高橋1','中條'),
+('test12','test3','aa','高橋2','中島'),
+('test3','test12','b','中島','高橋2'),
+('test1','test11','c','中條','高橋1'),
+('test12','test3','bb','高橋2','中島'),
+('test2','test12','b','大渡','高橋2'),
+('test12','test2','bb','高橋2','大渡'),
+('test11','test1','cc','高橋1','中條'),
+('test2','test12','c','大渡','高橋2'),
+('test1','test11','d','中條','高橋1'),
+('test11','test1','dd','高橋1','中條'),
+('test12','test2','bb','高橋2','大渡');
 
 INSERT INTO inquiry (name,mail,type,message,date) VALUES 
 ('山田太郎','0000@gmail.com','製品の故障・不具合','電話がつながらない','2022-12-12'),
