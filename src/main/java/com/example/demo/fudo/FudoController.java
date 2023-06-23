@@ -362,6 +362,7 @@ public class FudoController {
 		List<ChatEntity> chatlist = dao.getStartchat(tp,memname,logId,id);
 		model.addAttribute("chatList", chatlist);
 		model.addAttribute("dbList", list);
+		model.addAttribute("Id", id);
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);
 		model.addAttribute("memname", memname);
@@ -370,12 +371,22 @@ public class FudoController {
 	}
 
 	@RequestMapping("/addchat")
-	public String addchat(@Validated ChatInput chatinput, Model model) {
-		ChatEntity chatent = new ChatEntity();
-		chatent.setChat(chatinput.getChat());
-		chatent.setName(chatinput.getName());
-		dao.insertDb_addchat(chatent);
-		return "redirect:/chat";
+	public String addchat(ChatInput chatinput,@RequestParam("memname") String memname,@RequestParam("Id") Integer id,
+			@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
+		List<ChatEntity> list = dao.getChatsearchmem(tp,memname);
+		List<ChatEntity> chatlist = dao.getStartchat(tp,memname,logId,id);
+		model.addAttribute("chatList", chatlist);
+		model.addAttribute("dbList", list);
+		model.addAttribute("Id", id);
+		model.addAttribute("logId", logId);
+		model.addAttribute("tp", tp);
+		model.addAttribute("memname", memname);
+		
+//		ChatEntity chatent = new ChatEntity();
+//		chatent.setChat(chatinput.getChat());
+//		chatent.setName(chatinput.getName());
+//		dao.insertDb_addchat(chatent);
+		return "merchantchat";
 	}
 
 	
