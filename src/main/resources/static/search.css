@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f0f0f0;
+	margin: 0;
+	padding: 0;
+	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: center;
+}
+
+/*-------------------------------------------------------------------------*/
+/*白い背景*/
+.SearchBox {
+	position: relative;
+	width: 90%;
+	height: px;
+	background-color: white;
+	/*	margin:100px 100px 50px;*/
+	margin: 50px auto;
+	padding: 25px 50px;
+	border-radius: 20px;
+}
+
+/*-------------------------------------------------------------------------*/
+
+/*昇順ボタン*/
+.MiniButton1 {
+display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+/*	width: 30px;*/
+	margin: auto;
+	padding: 0.7rem 2rem;
+	font-weight: bold;
+	border-radius: 100vh;
+	border:solid #c36b00;
+	border-width: 0px 0px 5px 0px;
+	background: #fc8a00;
+	color: #fff;
+		white-space: nowrap;
+		
+
+}
+
+.MiniButton1:hover {
+	margin-top: 3px;
+	border-bottom: 2px solid #c36b00;
+	color: #fff;
+}
+
+
+/*-------------------------------------------------------------------------*/
+
+/*降順ボタン*/
+.MiniButton2 {
+display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+/*	width: 30px;*/
+	margin: auto;
+	padding: 0.7rem 2rem;
+	font-weight: bold;
+	border-radius: 100vh;
+	border:solid #245182;
+	border-width: 0px 0px 5px 0px;
+	background: #3274ba;
+	color: #fff;
+		white-space: nowrap;
+		
+
+}
+
+.MiniButton2:hover {
+	margin-top: 3px;
+	border-bottom: 2px solid #245182;
+	color: #fff;
+}
+
+
+/*-------------------------------------------------------------------------*/
+
+/*表デザイン*/
+.design08 {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	border-spacing: 0;
+
+}
+
+.design08 th {
+	padding: 10px;
+	background: #778ca3;
+	border: solid 1px #666666;
+	color: #ffffff;
+}
+
+.design08 td {
+	padding: 10px;
+	border: solid 1px #666666;
+}
+
+.design08 td:first-child {
+	background: #e9faf9;
+}
+
+/*-------------------------------------------------------------------------*/
+/*削除ボタン*/
+
+.DeleteButton {
+	width: 30px;
+	background: #d9381e;
+	border-radius: 3px;
+	position: relative;
+	display: flex;
+	/*	justify-content: space-around;*/
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 280px;
+	padding: 3px 20px;
+	color: white;
+	transition: 0.3s ease-in-out;
+	font-weight: 500;
+	text-decoration: none;
+	border: 3px solid #d9381e;
+	font-weight: normal;
+	font-size: 15px;
+}
+
+/*矢印*/
+.DeleteButton:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	bottom: 0;
+	right: 2rem;
+	font-size: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: right 0.3s;
+	width: 6px;
+	height: 6px;
+	border-top: solid 2px currentColor;
+	border-right: solid 2px currentColor;
+	transform: translateY(-50%) rotate(45deg);
+
+}
+
+.DeleteButton:hover {
+	background: #fff;
+	color: #d9381e;
+	border: 3px solid #d9381e;
+}
+
+/*矢印の動き*/
+.DeleteButton:hover:after {
+	right: 1.4rem;
+}
+
+/*-------------------------------------------------------------------------*/
+/*編集ボタン*/
+
+.EditButton {
+	width: 30px;
+	background: #5c5c5c;
+	border-radius: 3px;
+	position: relative;
+	display: flex;
+	/*	justify-content: space-around;*/
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 280px;
+	padding: 3px 20px;
+	color: white;
+	transition: 0.3s ease-in-out;
+	font-weight: 500;
+	text-decoration: none;
+	border: 3px solid #5c5c5c;
+	font-weight: normal;
+	font-size: 15px;
+}
+
+/*矢印*/
+.EditButton:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	bottom: 0;
+	right: 2rem;
+	font-size: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: right 0.3s;
+	width: 6px;
+	height: 6px;
+	border-top: solid 2px currentColor;
+	border-right: solid 2px currentColor;
+	transform: translateY(-50%) rotate(45deg);
+
+}
+
+.EditButton:hover {
+	background: #fff;
+	color: #5c5c5c;
+	border: 3px solid #5c5c5c;
+}
+
+/*矢印の動き*/
+.EditButton:hover:after {
+	right: 1.4rem;
+}

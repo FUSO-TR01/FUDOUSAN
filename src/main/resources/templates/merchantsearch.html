@@ -5,9 +5,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>検索結果</title>
+	<link rel="stylesheet" th:href="@{/style-n.css}">
+	<link rel="stylesheet" th:href="@{/search.css}">
 </head>
 
 <body>
+
+	<div class="footerFixed">
+		<header>
+			<h1>
+				<a href="/home">一人暮らしの家探し</a>
+			</h1>
+			<nav class="fnavi">
+				<ul>
+					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>
+					<li><a href="#">企業情報</a></li>
+					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
+					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<br>
+
+		<div class="SearchBox">
+			<h2 class="kyocho">検索結果</h2>
 
 	<label th:text="${sort}"></label>
 	<form method="get" action="#" th:action="@{/sort}">
@@ -18,17 +40,20 @@
 		<input type="hidden" name="place" th:value="*{place}">
 		<input type="hidden" name="comment" th:value="*{comment}">
 		<input type="hidden" name="type" value="merchant">
-		家賃並び替え
-		<button type="submit" name="sort" value="ASC">昇順</button>
-		<button type="submit" name="sort" value="DESC">降順</button>
+		<label class="Form-Item-Label">家賃並び替え</label>
+		<button type="submit" name="sort" value="ASC" class="MiniButton1">昇順</button>
+		<button type="submit" name="sort" value="DESC" class="MiniButton2">降順</button>
 	</form>
+	<br>
 	<form th:action="@{/viewhome}">
-		<input type="submit" value="一覧へ戻る">
+		<input type="submit" value="一覧へ戻る" class="button0">
 	</form>
+	<br>
 	<form th:action="@{/merchant}">
-		<input type="submit" value="メニューへ戻る">
+		<input type="submit" value="メニューへ戻る" class="button0">
 	</form>
-	<table border="1">
+	<br><br>
+	<table border="1" class="design08">
 
 		<tr>
 			<th>ID</th>
@@ -37,6 +62,8 @@
 			<th>家賃</th>
 			<th>住所</th>
 			<th>詳細</th>
+			<th></th>
+			<th></th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td th:text="${res.id}">1</td>
@@ -48,17 +75,26 @@
 
 			<td>
 				<form th:action="@{/edithome/{id}(id=${res.id})}">
-					<input type="submit" value="編集">
+					<input type="submit" value="編集" class="EditButton">
 
 				</form>
 			</td>
 			<td>
 				<form th:action="@{/del/{id}(id=${res.id})}">
-					<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');">
+					<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');" class="DeleteButton">
 				</form>
 			</td>
 		</tr>
 	</table>
+
+		</div>
+
+		<div class="footer">
+			<p>copyright 一人暮らしの家探し 2023</p>
+		</div>
+
+	</div>
+
 
 </body>
 
