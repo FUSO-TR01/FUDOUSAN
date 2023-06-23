@@ -89,12 +89,13 @@ li {
 .kyocho2 {
 	background-color: cadetblue;
 	font-weight: bold;
+	font-size: 18px;
 	color: white;
 	padding: 20px;
-	border-radius: 30px;
+	border-radius: 20px;
 	text-align: center;
 	word-wrap: break-word;
-	width: 150px;
+	width: 300px;
 	margin: 0 auto;
 }
 
@@ -169,14 +170,6 @@ li {
 	font-weight: normal;
 }
 
-/*.button019 input {*/
-/*	border: none;*/
-/*	font-size: 100%;*/
-
-/*}*/
-
-
-
 /*矢印*/
 .button019 a:after {
 	content: "";
@@ -229,6 +222,7 @@ li {
 	text-decoration: none;
 	border: 3px solid #5c5c5c;
 	font-weight: normal;
+	font-size: 15px;
 }
 
 /*矢印*/
@@ -314,7 +308,8 @@ li {
 	/*  width: 100%;*/
 	max-width: 410px;
 	background: #eaedf2;
-	font-size: 14px;
+	/*	font-size: 14px;*/
+	font-size: 1em;
 }
 
 input[type=text] {
@@ -386,4 +381,11 @@ input[type=text] {
 
 .selectbox-001 select:focus {
 	outline: 2px solid #5c5c5c;
+}
+
+select {
+	width: 410px;
+	/*	height: 45px;*/
+	font-size: 0.6em;
+	margin: 0 auto;
 }
