@@ -351,13 +351,14 @@ public class FudoController {
 	}
 	
 	@RequestMapping("/startchat")
-	public String startchat(ChatInput chatinput,@RequestParam("memname") String memname,@RequestParam("id") String id,
+	public String startchat(ChatInput chatinput,@RequestParam("memname") String memname,@RequestParam("Id") Integer id,
 			@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
 		List<ChatEntity> list = dao.getChatsearchmem(tp,memname);
 		List<ChatEntity> chatlist = dao.getStartchat(tp,memname,logId,id);
 		model.addAttribute("dbList", list);
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);
+		model.addAttribute("memname", memname);
 		
 		return "merchantchat";
 	}

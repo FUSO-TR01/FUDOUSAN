@@ -197,22 +197,22 @@ public class Dao {
 	public List<ChatEntity> getStartchat(String tp, String memname,String logId, Integer id) {
 		List<Map<String, Object>> queryTo = null;
 		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
+		String toId = null;
 		String to = "SELECT logId FROM";
 		if (tp.equals("merchant")) {
 			to = to + " LOGINC WHERE id = " + id;
 		}
 		if (tp.equals("customer")) {
-			to = to + " LOGIN WHERE name LIKE " + id;
+			to = to + " LOGIN WHERE id = " + id;
 		}
 		queryTo = db.queryForList(to);
-		
-		
-		for (Map<String, Object> mem : queryResult) {
+		for (Map<String, Object> map : queryTo) {
 			ChatEntity entdb = new ChatEntity();
-			entdb.setId((int) mem.get("id"));
-			entdb.setName((String) mem.get("name"));
-			dataList.add(entdb);
+		    toId = ((String) map.get("logId"));
+		    entdb.setLogId((String) map.get("logId"));
+		    dataList.add(entdb);
 		}
+		System.out.println(toId);
 		return dataList;
 	}
 
