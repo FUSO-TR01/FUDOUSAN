@@ -412,4 +412,14 @@ public class FudoController {
 	    // 重複しない場合はfalseを返す
 	    return false;
 	}
+	
+//	__________________________________
+	
+	
+	@RequestMapping("/sampleview")
+	public String sampleview(Input input, Model model) {
+		List<Entity> list = dao.getBKN();
+		model.addAttribute("dbList", list);
+		return "sampleview";
+	}
 }
