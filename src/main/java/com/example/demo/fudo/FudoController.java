@@ -202,6 +202,11 @@ public class FudoController {
 		model.addAttribute("dbList", list);
 		return "news";
 	}
+	
+	@RequestMapping("/intro")
+	public String intro(Model model) {
+		return "intro";
+	}
 
 	//検索
 	@RequestMapping("/merchantsearch")
