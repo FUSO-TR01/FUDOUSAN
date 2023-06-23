@@ -25,7 +25,9 @@
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td>
-				<button th:text="${res.name}">name</button>
+				<form th:action="@{/stratchat/{id}(id=${res.id})}">
+					<input type="submit" th:text="${res.name}"> 
+				</form>
 			</td>
 
 

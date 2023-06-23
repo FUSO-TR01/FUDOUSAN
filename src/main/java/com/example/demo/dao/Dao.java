@@ -153,10 +153,10 @@ public class Dao {
 		List<Map<String, Object>> queryResult = null;
 		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
 		if (tp.equals("merchant")) {
-			queryResult = db.queryForList("SELECT Id,name FROM LOGINC ");
+			queryResult = db.queryForList("SELECT id,name FROM LOGINC ");
 		}
 		if (tp.equals("customer")) {
-			queryResult = db.queryForList("SELECT Id,name FROM LOGIN ");
+			queryResult = db.queryForList("SELECT id,name FROM LOGIN ");
 		}
 
 		for (Map<String, Object> mem : queryResult) {
@@ -174,10 +174,10 @@ public class Dao {
 		String pattern = "%" + memname + "%";
 		String query = null;
 		if (tp.equals("merchant")) {
-			query = "SELECT Id, name FROM LOGINC WHERE name LIKE ?";
+			query = "SELECT id, name FROM LOGINC WHERE name LIKE ?";
 		}
 		if (tp.equals("customer")) {
-			query = "SELECT Id,name FROM LOGIN WHERE name LIKE ?";
+			query = "SELECT od,name FROM LOGIN WHERE name LIKE ?";
 		}
 		queryResult = db.queryForList(query, pattern);
 		for (Map<String, Object> mem : queryResult) {
