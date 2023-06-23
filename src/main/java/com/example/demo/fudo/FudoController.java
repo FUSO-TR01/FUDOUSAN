@@ -355,6 +355,7 @@ public class FudoController {
 			@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
 		List<ChatEntity> list = dao.getChatsearchmem(tp,memname);
 		List<ChatEntity> chatlist = dao.getStartchat(tp,memname,logId,id);
+		model.addAttribute("chatList", chatlist);
 		model.addAttribute("dbList", list);
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);

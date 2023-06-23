@@ -19,7 +19,6 @@
 	</form>
 
 	<table border="1">
-
 		<tr>
 			<th>name</th>
 		</tr>
@@ -33,8 +32,24 @@
 					<input type="hidden" name="tp" th:value="*{tp}">
 				</form>
 			</td>
-
-
+		</tr>
+	</table><br>
+	
+	<table border="1">
+		<tr>
+<!--			<th>ID</th>-->
+<!--			<th>物件名</th>-->
+<!--			<th>間取り</th>-->
+<!--			<th>家賃</th>-->
+			<th>チャット</th>
+		</tr>
+		<tr th:each=" res : ${chatList}">
+<!--			<td th:text="${res.logId}">1</td>-->
+<!--			<td th:text="${res.toId}">物件名</td>-->
+<!--			<td th:text="${res.name}">間取り</td>-->
+<!--			<td th:text="${res.toname}">家賃</td>-->
+			<td th:text="${res.chat}">住所</td>
+		</tr>
 	</table>
 
 </body>

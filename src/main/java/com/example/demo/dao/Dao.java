@@ -194,9 +194,15 @@ public class Dao {
 		return dataList;
 	}
 	
+	public static String chatsql(String logId, String toId) {
+		String chatsql = "SELECT * FROM chat WHERE logId = '"+logId+"' AND toId = '"+toId+"'";
+		return chatsql;
+	}
+	
 	public List<ChatEntity> getStartchat(String tp, String memname,String logId, Integer id) {
 		List<Map<String, Object>> queryTo = null;
-		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
+		List<Map<String, Object>> queryChat = null;
+		List<ChatEntity> chatList = new ArrayList<ChatEntity>();
 		String toId = null;
 		String to = "SELECT logId FROM";
 		if (tp.equals("merchant")) {
@@ -207,13 +213,26 @@ public class Dao {
 		}
 		queryTo = db.queryForList(to);
 		for (Map<String, Object> map : queryTo) {
-			ChatEntity entdb = new ChatEntity();
+//			ChatEntity entdb = new ChatEntity();
 		    toId = ((String) map.get("logId"));
-		    entdb.setLogId((String) map.get("logId"));
-		    dataList.add(entdb);
+//		    entdb.setLogId((String) map.get("logId"));
+//		    dataList.add(entdb);
 		}
+		System.out.println(logId);
 		System.out.println(toId);
-		return dataList;
+		String chatsql = chatsql(logId,toId);
+		queryChat = db.queryForList(chatsql);
+		for (Map<String, Object> mem : queryChat) {
+			ChatEntity entdb = new ChatEntity();
+			entdb.setLogId((String) mem.get("logId"));
+			System.out.println((String) mem.get("logId"));
+			entdb.setToId((String) mem.get("toId"));
+			entdb.setName((String) mem.get("name"));
+			entdb.setToname((String) mem.get("toname"));
+			entdb.setChat((String) mem.get("chat"));
+			chatList.add(entdb);
+		}		
+		return chatList;
 	}
 
 	public void insertDb_addchat(ChatEntity chatent) {
