@@ -13,7 +13,7 @@ body {
 }
 /*ヘッター-----------------------------------------------------------------------*/
 header {
-	padding: 30px 4% 0px;
+	padding: 8px 4% 0px;
 	position: fixed;/*要素の場所の固定*/
 	top: 0;
 	width: 100%;/*幅の設定*/
@@ -288,13 +288,13 @@ custom-button {
 	display: inline-block;
 	text-align: left;
 }
+/*ロゴの設定--------------------------------------------------------------------------------*/
 .logo {
   float: left;
   margin: 0;
   padding: 0;
 }
-
 .logo img {
-  width: 100px; /* ロゴの幅 */
+  width: 85px; /* ロゴの幅 */
   height: auto; /* ロゴの高さを自動調整 */
 }
