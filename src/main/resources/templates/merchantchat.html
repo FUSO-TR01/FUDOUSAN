@@ -6,6 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>HOME</title>
+<!--		<link rel="stylesheet" th:href="@{/chatmod.css}">-->
 </head>
 
 <body>
@@ -18,7 +19,7 @@
 		<input type="submit" value="検索" class="button">
 	</form>
 
-	<table border="1">
+	<table border="1" align="left" width="30%">
 		<tr>
 			<th>name</th>
 		</tr>
@@ -33,29 +34,29 @@
 				</form>
 			</td>
 		</tr>
-	</table><br>
-
-	<table border="1">
+	</table>
+	<table width="70%" border="1">
 		<tr>
 			<!--			<th>ID</th>-->
 			<!--			<th>物件名</th>-->
 			<!--			<th>間取り</th>-->
 			<!--			<th>家賃</th>-->
-			<th>チャット</th>
+		<th width="50%" colspan="2">チャット</th>
 		</tr>
-		<tr th:each=" res : ${chatList}">
+		<tr th:each=" res : ${chatList}" width="50%">
 			<!--			<td th:text="${res.logId}">1</td>-->
 			<!--			<td th:text="${res.toId}">物件名</td>-->
 			<!--			<td th:text="${res.name}">間取り</td>-->
 			<!--			<td th:text="${res.toname}">家賃</td>-->
-			<td th:text="${res.chatC}">住所</td>
-			<td th:text="${res.chat}">住所</td>
+			<td th:text="${res.chatC}" width="50%">住所</td>
+			<td th:text="${res.chat}" width="50%">住所</td>
 		</tr>
 	</table>
+
 	<p>
 		<label for="message" class="label">お問い合わせ内容</label><br>
 		<textarea id="message" name="Message" rows="10" class="textarea" th:text="*{Message}"></textarea><br>
-<!--		<span th:if="${#fields.hasErrors('Message')}" th:errors="*{Message}" class="error"></span>-->
+		<!--		<span th:if="${#fields.hasErrors('Message')}" th:errors="*{Message}" class="error"></span>-->
 	</p>
 
 
