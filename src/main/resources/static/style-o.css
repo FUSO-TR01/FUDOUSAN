@@ -13,7 +13,7 @@ body {
 }
 /*ヘッター-----------------------------------------------------------------------*/
 header {
-	padding: 30px 4% 10px;
+	padding: 30px 4% 0px;
 	position: fixed;/*要素の場所の固定*/
 	top: 0;
 	width: 100%;/*幅の設定*/
@@ -29,6 +29,7 @@ h1 {
 	padding: 0;
 	font-size: 30px;
 }
+
 /*ヘッターaタグ*/
 a {
 	text-decoration: none;/*装飾の削除*/
@@ -212,7 +213,7 @@ footer {
 }
 /*表デザイン------------------------------------------------------------------*/
 .design08 {
-	width: 70%;
+	width: 85%;
 	text-align: center;
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -286,4 +287,14 @@ custom-button {
 .form-align {
 	display: inline-block;
 	text-align: left;
+}
+.logo {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.logo img {
+  width: 100px; /* ロゴの幅 */
+  height: auto; /* ロゴの高さを自動調整 */
 }
