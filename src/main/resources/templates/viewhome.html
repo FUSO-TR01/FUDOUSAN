@@ -22,11 +22,12 @@
 
 <body>
 	<br><br><br><br><br>
-	<div class="ConfirmBox" style="width: 1250px;">
+	<div class="ConfirmBox" style="width: 800px;">
 		<h1 class="kyocho">物件情報一覧</h1>
 		<form method="get" action="/merchantsearch">
 			<p>
-				物件名：<input type="text" name="bkname">
+				物件名：<input type="text" name="bkname"> 
+				<br>
 				間取り：
 				<select name="space">
 					<option value="" hidden>選択してください</option>
@@ -36,6 +37,7 @@
 					<option value="1DK">1DK</option>
 					<option value="1LDK">1LDK</option>
 				</select>
+				<br>
 				家賃：<select name="start">
 					<option value="0" hidden>選択してください</option>
 					<option value="0" selected>下限なし</option>
@@ -75,9 +77,9 @@
 					<option value="150000">150,000</option>
 					<option value="0" selected>上限なし</option>
 				</select>
-
+				<br>
 				住所：<input type="text" name="place">
-			<p>詳細<br>
+
 			<label><input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment1">無料Wi-Fiあり<br> </label>
 			<label><input type="checkbox" name="comment" value="駐車場空きあり" id="comment2">駐車場空きあり<br> </label>
 			<label><input type="checkbox" name="comment" value="ペット可" id="comment3">ペット可<br> </label>
@@ -112,8 +114,8 @@
 			<th>家賃</th>
 			<th>住所</th>
 			<th>詳細</th>
-			<th>編集</th>
-			<th>削除</th>
+			<th> </th>
+			<th> </th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td th:text="${res.id}">1</td>
