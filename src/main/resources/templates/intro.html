@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<meta charset="UTF-8">
+	<title>HOME</title>
+	<link rel="stylesheet" href="form.css" media="all" />
+	<link rel="stylesheet" th:href="@{/style-n.css}">
+</head>
+
+<body>
+	<div class="footerFixed">
+		<header>
+			<h1>
+				<a href="/home">一人暮らしの家探し</a>
+			</h1>
+			<nav class="fnavi">
+				<ul>
+					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>
+					<li><a href="#">企業情報</a></li>
+					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
+					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<h1>グループ情報</h1>
+		<div class="contact">
+			<table class="contact-table">
+				<tr>
+					<th class="contact-item">会社名</th>
+					<td class="contact-body">グループ１</td>
+				</tr>
+				<tr>
+					<th class="contact-item">創業</th>
+					<td class="contact-body">2023年（昭和5年）6月
+				</tr>
+				<tr>
+					<th class="contact-item">設立</th>
+					<td class="contact-body">2023年（昭和5年）6月</td>
+				</tr>
+				<tr>
+					<th class="contact-item">資本金</th>
+					<td class="contact-body">0円</td>
+				</tr>
+				<tr>
+					<th class="contact-item">連結売上高</th>
+					<td class="contact-body">2023年6月23日現在<br>0円</td>
+				</tr>
+				<tr>
+					<th class="contact-item">グループ従業員数</th>
+					<td class="contact-body">2023年6月23日現在<br>4人</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
