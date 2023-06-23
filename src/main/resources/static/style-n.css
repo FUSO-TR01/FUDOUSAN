@@ -87,16 +87,17 @@ li {
 /*-------------------------------------------------------------------------*/
 /*詳細タイトル*/
 .kyocho2 {
-	background-color: cadetblue;
+/*	background-color: cadetblue;*/
+/*	border-radius: 20px;*/
 	font-weight: bold;
 	font-size: 18px;
-	color: white;
-	padding: 20px;
-	border-radius: 20px;
+	color: #383838;
+	padding: 10px;
 	text-align: center;
 	word-wrap: break-word;
-	width: 300px;
+	width: 400px;
 	margin: 0 auto;
+	 border-bottom: solid 3px #748ca5;
 }
 
 /*-------------------------------------------------------------------------*/
@@ -388,4 +389,15 @@ select {
 	/*	height: 45px;*/
 	font-size: 0.6em;
 	margin: 0 auto;
+}
+
+.selectbox-001 option{
+	background-color: white;
+}
+
+/*-------------------------------------------------------------------------*/
+/*テキストボックスの行間をあける*/
+.TableSpace{
+/*	border-collapse: separate;*/
+    border-spacing: 0px 30px;
 }
