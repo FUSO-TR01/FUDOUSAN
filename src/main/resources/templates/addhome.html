@@ -32,94 +32,93 @@
 			<div class="Center">
 
 				<form action="#" method="get">
-					<table>
-<!--					<div class="form-align">-->
-<!--						<div class="Form">-->
-<!--							<div class="Form-Item">-->
-								<p>
-									<span th:text="*{id}"></span>
-									<input type="hidden" name="id" th:value="*{id}">
-								</p>
-<!--								<p class="Form-Item-Label">-->
-<!--									<span class="Form-Item-Label-Required">必須</span>-->
-<!--									物件名-->
-<!--									<input type="text" name="name" th:value="*{name}" required-->
-<!--										class="Form-Item-Input">-->
-<!--								</p>-->
+					<div class="form-align">
+						<table class="TableSpace">
 
-									<tr>
-									<th><span class="hissu">必須</span>
-									<label class="Form-Item-Label">物件名</label></th>
-									<td><input type="text" name="name" th:value="*{name}" required
-										class="Form-Item-Input"></td>
-									</tr>
+							<p>
+								<span th:text="*{id}"></span>
+								<input type="hidden" name="id" th:value="*{id}">
+							</p>
 
-<!--							</div>-->
 							<tr>
-							<th><span class="hissu">必須</span>
-							<label for="dropdown" class="Form-Item-Label">間取り</label></th>
-							<td>
-							<label class="selectbox-001">
-							<select name="space">
-								<option hidden>選択してください</option>
-								<option value="1R">1R</option>
-								<option value="1K">1K</option>
-								<option value="1DK">1DK</option>
-								<option value="1LDK">1LDK</option>
-							</td>
-							</select>
-							</label>
+								<th><span class="hissu">必須</span>
+									<label class="Form-Item-Label">物件名</label>
+								</th>
+								<td><input type="text" name="name" th:value="*{name}" required class="Form-Item-Input"
+										placeholder="例）コーポ◯◯"></td>
+							</tr>
+
+							<tr>
+								<th><span class="hissu">必須</span>
+									<label for="dropdown" class="Form-Item-Label">間取り</label>
+								</th>
+								<td>
+									<label class="selectbox-001">
+										<select name="space">
+											<option hidden>選択してください</option>
+											<option value="1R">1R</option>
+											<option value="1K">1K</option>
+											<option value="1DK">1DK</option>
+											<option value="1LDK">1LDK</option>
+								</td>
+								</select>
+								</label>
 							</tr>
 							<tr>
 								<th><span class="hissu">必須</span>
-								<label class="Form-Item-Label">家　賃</label></th>
-									<td><input type="text" name="money" th:value="*{money}" required class="Form-Item-Input"></td>
+									<label class="Form-Item-Label">家　賃</label>
+								</th>
+								<td><input type="text" name="money" th:value="*{money}" required class="Form-Item-Input"
+										placeholder="例）50000"></td>
 							</tr>
 							<tr>
 								<th><span class="hissu">必須</span>
-								<label class="Form-Item-Label">住　所</label></th>
-									<td><input type="text" name="address" th:value="*{address}"  class="Form-Item-Input"></td>
+									<label class="Form-Item-Label">住　所</label>
+								</th>
+								<td><input type="text" name="address" th:value="*{address}" class="Form-Item-Input"
+										placeholder="例）大阪府"></td>
 							</tr>
-							
-<!--							<p>-->
-<!--								　家賃: <input type="text" name="money" th:value="*{money}" required>-->
-<!--							</p>-->
-<!--							<p>-->
-<!--								　住所: <input type="text" name="address" th:value="*{address}" required>-->
-<!--							</p>-->
-<!--						</div>-->
-<!--					</div>-->
-</table>
-						<br><br>
-						<p class="kyocho2">詳　細</p><br>
-						<div class="form-align">
-							<input type="checkbox" name="comment" value="1" id="comment1">無料Wi-Fiあり<br>
-							<input type="checkbox" name="comment" value="2" id="comment2">駐車場空きあり<br>
-							<input type="checkbox" name="comment" value="3" id="comment3">ペット可<br>
-							<input type="checkbox" name="comment" value="4" id="comment4">室内洗濯機置き場あり<br>
-							<input type="checkbox" name="comment" value="5" id="comment5">オートロックあり<br>
-							<input type="checkbox" name="comment" value="6" id="comment6">バス・トイレ別<br><br>
+
+							<!--							<p>-->
+							<!--								　家賃: <input type="text" name="money" th:value="*{money}" required>-->
+							<!--							</p>-->
+							<!--							<p>-->
+							<!--								　住所: <input type="text" name="address" th:value="*{address}" required>-->
+							<!--							</p>-->
+							<!--						</div>-->
+
+						</table>
+					</div>
+					<br><br>
+					<p class="kyocho2">詳　細</p><br>
+					<div class="form-align">
+						<input type="checkbox" name="comment" value="1" id="comment1">無料Wi-Fiあり<br>
+						<input type="checkbox" name="comment" value="2" id="comment2">駐車場空きあり<br>
+						<input type="checkbox" name="comment" value="3" id="comment3">ペット可<br>
+						<input type="checkbox" name="comment" value="4" id="comment4">室内洗濯機置き場あり<br>
+						<input type="checkbox" name="comment" value="5" id="comment5">オートロックあり<br>
+						<input type="checkbox" name="comment" value="6" id="comment6">バス・トイレ別<br><br>
+					</div>
+					<!-- 開くボタン -->
+
+					<input type="button" value="確　認" onclick="validateAndOpenModal()" class="button0">
+
+
+					<!-- ウインドウのエリア -->
+					<div id="modalArea" class="modalNoDisp">
+						<div class="modalWindow">
+							<!-- ここがウインドウとなります -->
+							<h2>入力データ</h2>
+							<p id="popupName"></p>
+							<p id="popupSpace"></p>
+							<p id="popupMoney"></p>
+							<p id="popupAddress"></p>
+							<p id="popupComment"></p>
+							<p>登録しますか？</p>
+							<p><input type="submit" value="登録" onclick="modalClose()" th:action="@{/addhome2}"></p>
+							<p><input type="submit" value="やめる" onclick="modalClose()"></p>
 						</div>
-						<!-- 開くボタン -->
-
-						<input type="button" value="確　認" onclick="validateAndOpenModal()" class="button0">
-
-
-						<!-- ウインドウのエリア -->
-						<div id="modalArea" class="modalNoDisp">
-							<div class="modalWindow">
-								<!-- ここがウインドウとなります -->
-								<h2>入力データ</h2>
-								<p id="popupName"></p>
-								<p id="popupSpace"></p>
-								<p id="popupMoney"></p>
-								<p id="popupAddress"></p>
-								<p id="popupComment"></p>
-								<p>登録しますか？</p>
-								<p><input type="submit" value="登録" onclick="modalClose()" th:action="@{/addhome2}"></p>
-								<p><input type="submit" value="やめる" onclick="modalClose()"></p>
-							</div>
-						</div>
+					</div>
 				</form>
 			</div>
 		</div>
