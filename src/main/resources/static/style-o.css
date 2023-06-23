@@ -255,3 +255,35 @@ custom-button {
 		top: 20px;
 		right: 20px;
 	}
+/*項目名*/
+.Form-Item-Label {
+	width: 100%;
+	max-width: 248px;
+	letter-spacing: 0.05em;
+	font-weight: normal;
+	font-size: 18px;
+	white-space: nowrap;
+}
+
+
+
+.Form-Item-Input {
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	margin-left: 40px;
+	padding-left: 1em;
+	padding-right: 1em;
+	height: 48px;
+	flex: 1;
+	/*  width: 100%;*/
+	max-width: 410px;
+	background: #eaedf2;
+	/*	font-size: 14px;*/
+	font-size: 1em;
+}
+/*チェックボックスをそろえる*/
+
+.form-align {
+	display: inline-block;
+	text-align: left;
+}
