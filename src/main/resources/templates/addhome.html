@@ -55,24 +55,30 @@
 									</tr>
 
 <!--							</div>-->
-							<label for="dropdown">間取り:</label>
+							<tr>
+							<th><span class="hissu">必須</span>
+							<label for="dropdown" class="Form-Item-Label">間取り</label></th>
+							<td>
+							<label class="selectbox-001">
 							<select name="space">
 								<option hidden>選択してください</option>
 								<option value="1R">1R</option>
 								<option value="1K">1K</option>
 								<option value="1DK">1DK</option>
 								<option value="1LDK">1LDK</option>
+							</td>
 							</select>
-							
-							<tr>
-								<th  class="hissu2">
-								<label class="Form-Item-Label">　家賃</label></th>
-									<td><input type="text" name="money" th:value="*{money}" required></td>
+							</label>
 							</tr>
 							<tr>
 								<th><span class="hissu">必須</span>
-								<label class="Form-Item-Label">　住所</label></th>
-									<td><input type="text" name="address" th:value="*{address}" required></td>
+								<label class="Form-Item-Label">家　賃</label></th>
+									<td><input type="text" name="money" th:value="*{money}" required class="Form-Item-Input"></td>
+							</tr>
+							<tr>
+								<th><span class="hissu">必須</span>
+								<label class="Form-Item-Label">住　所</label></th>
+									<td><input type="text" name="address" th:value="*{address}"  class="Form-Item-Input"></td>
 							</tr>
 							
 <!--							<p>-->
