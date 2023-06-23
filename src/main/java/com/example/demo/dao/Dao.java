@@ -37,23 +37,23 @@ public class Dao {
 
 		return null;
 	}
-	
+
 	//顧客ログイン
-		public static UserEntity findByUsername2(String logId) {
-			String sql = "SELECT * FROM loginC WHERE logId = ?";
-			List<Map<String, Object>> rows = db.queryForList(sql, logId);
+	public static UserEntity findByUsername2(String logId) {
+		String sql = "SELECT * FROM loginC WHERE logId = ?";
+		List<Map<String, Object>> rows = db.queryForList(sql, logId);
 
-			if (!rows.isEmpty()) {
-				Map<String, Object> userData = rows.get(0);
-				UserEntity user = new UserEntity();
-				user.setId((int) userData.get("id"));
-				user.setLogId((String) userData.get("logId"));
-				user.setPass((String) userData.get("pass"));
-				return user;
-			}
-
-			return null;
+		if (!rows.isEmpty()) {
+			Map<String, Object> userData = rows.get(0);
+			UserEntity user = new UserEntity();
+			user.setId((int) userData.get("id"));
+			user.setLogId((String) userData.get("logId"));
+			user.setPass((String) userData.get("pass"));
+			return user;
 		}
+
+		return null;
+	}
 
 	public List<UserEntity> getAll2() {
 
@@ -146,25 +146,49 @@ public class Dao {
 				entity.getName(), entity.getSpace(), entity.getMoney(), entity.getAddress(), entity.getComment(), id);
 	}
 
-	//	____________________________
+	//	________________________________________________________________________
 
-	public List<ChatEntity> getChat() {
+	public List<ChatEntity> getChatmem(String tp) {
 
-		List<Map<String, Object>> queryResult = db.queryForList("SELECT * FROM chat");
+		List<Map<String, Object>> queryResult = null;
 		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
+		if (tp.equals("merchant")) {
+			queryResult = db.queryForList("SELECT Id,name FROM LOGINC ");
+		}
+		if (tp.equals("customer")) {
+			queryResult = db.queryForList("SELECT Id,name FROM LOGIN ");
+		}
 
-		for (Map<String, Object> bkn : queryResult) {
+		for (Map<String, Object> mem : queryResult) {
 			ChatEntity entdb = new ChatEntity();
-
-			entdb.setId((int) bkn.get("id"));
-
-			entdb.setChat((String) bkn.get("chat"));
-
-			entdb.setName((String) bkn.get("name"));
-
+			entdb.setId((int) mem.get("id"));
+			entdb.setName((String) mem.get("name"));
 			dataList.add(entdb);
 		}
 		return dataList;
+	}
+
+	public List<ChatEntity> getChatsearchmem(String tp, String memname) {
+		List<Map<String, Object>> queryResult = null;
+		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
+		String pattern = "%" + memname + "%";
+		String query = null;
+		if (tp.equals("merchant")) {
+			query = "SELECT Id, name FROM LOGINC WHERE name LIKE ?";
+		}
+		if (tp.equals("customer")) {
+			query = "SELECT Id,name FROM LOGIN WHERE name LIKE ?";
+		}
+		queryResult = db.queryForList(query, pattern);
+		for (Map<String, Object> mem : queryResult) {
+			ChatEntity entdb = new ChatEntity();
+			entdb.setId((int) mem.get("id"));
+			entdb.setName((String) mem.get("name"));
+			dataList.add(entdb);
+		}
+
+		return dataList;
+
 	}
 
 	public void insertDb_addchat(ChatEntity chatent) {
@@ -173,7 +197,7 @@ public class Dao {
 	}
 
 	//sql生成
-	public static String sql(String name, String space, Integer start, Integer end, String place,String comment) {
+	public static String sql(String name, String space, Integer start, Integer end, String place, String comment) {
 		String sql = "SELECT * FROM home WHERE";
 		if (!name.isEmpty()) {
 			String SHname = "'%" + name + "%'";
@@ -198,10 +222,10 @@ public class Dao {
 		}
 		if (!comment.isEmpty()) {
 			String[] comments = comment.split(",");
-	        for (String word : comments) {
-	        	String SHcomment = "'%" + word + "%'";
-			sql = sql + " comment LIKE " + SHcomment + " AND";
-	        }			
+			for (String word : comments) {
+				String SHcomment = "'%" + word + "%'";
+				sql = sql + " comment LIKE " + SHcomment + " AND";
+			}
 		}
 		sql = sql.substring(0, sql.length() - 4);
 
@@ -211,7 +235,7 @@ public class Dao {
 	//検索
 	public List<Entity> getSearch(String name, String space, Integer start, Integer end, String place, String comment) {
 
-		String sql = sql(name, space, start, end, place,comment);
+		String sql = sql(name, space, start, end, place, comment);
 		List<Map<String, Object>> queryResult = db.queryForList(sql);
 		List<Entity> dataList = new ArrayList<Entity>();
 
@@ -227,35 +251,35 @@ public class Dao {
 		}
 		return dataList;
 	}
-	
+
 	//業者ソート
-		public List<Entity> getSort(String sort,String name, String space, Integer start, Integer end, String place, String comment) {
+	public List<Entity> getSort(String sort, String name, String space, Integer start, Integer end, String place,
+			String comment) {
 
-			String sql = sql(name, space, start, end, place,comment);
-			List<Map<String, Object>> queryResult = db.queryForList(sql);
-			List<Entity> dataList = new ArrayList<Entity>();
-			if (sort.equals("ASC")) {
-				sql = sql + " ORDER BY money ASC";
-				queryResult = db.queryForList(sql);
-				System.out.println("昇順ソート");
-			}
-			if (sort.equals("DESC")) {
-				sql = sql + " ORDER BY money DESC";				
-				queryResult = db.queryForList(sql);
-				System.out.println("降順ソート");
-			}
-			for (Map<String, Object> bkn : queryResult) {
-				Entity entdb = new Entity();
-				entdb.setId((int) bkn.get("id"));
-				entdb.setName((String) bkn.get("name"));
-				entdb.setSpace((String) bkn.get("space"));
-				entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
-				entdb.setAddress((String) bkn.get("address"));
-				entdb.setComment((String) bkn.get("comment"));
-				dataList.add(entdb);
-			}
-			return dataList;
+		String sql = sql(name, space, start, end, place, comment);
+		List<Map<String, Object>> queryResult = db.queryForList(sql);
+		List<Entity> dataList = new ArrayList<Entity>();
+		if (sort.equals("ASC")) {
+			sql = sql + " ORDER BY money ASC";
+			queryResult = db.queryForList(sql);
+			System.out.println("昇順ソート");
 		}
-
+		if (sort.equals("DESC")) {
+			sql = sql + " ORDER BY money DESC";
+			queryResult = db.queryForList(sql);
+			System.out.println("降順ソート");
+		}
+		for (Map<String, Object> bkn : queryResult) {
+			Entity entdb = new Entity();
+			entdb.setId((int) bkn.get("id"));
+			entdb.setName((String) bkn.get("name"));
+			entdb.setSpace((String) bkn.get("space"));
+			entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
+			entdb.setAddress((String) bkn.get("address"));
+			entdb.setComment((String) bkn.get("comment"));
+			dataList.add(entdb);
+		}
+		return dataList;
+	}
 
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<meta charset="UTF-8">
+	<title>HOME</title>
+</head>
+
+<body>
+
+	<h1>一人暮らしの家探し</h1>
+	<form method="get" action="/memsearch">
+		<input type="text" name="memname">
+		<input type="hidden" name="logId" th:value="*{logId}">
+		<input type="hidden" name="tp" th:value="*{tp}">
+		<input type="submit" value="検索" class="button">
+	</form>
+
+	<table border="1">
+
+		<tr>
+			<th>name</th>
+		</tr>
+		<tr th:each=" res : ${dbList}">
+			<td>
+				<button th:text="${res.name}">name</button>
+			</td>
+
+
+	</table>
+
+</body>
+
+</html>
