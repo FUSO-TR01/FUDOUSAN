@@ -168,6 +168,29 @@ public class Dao {
 		return dataList;
 	}
 
+	public List<ChatEntity> getChatsearchmem(String tp, String memname) {
+		List<Map<String, Object>> queryResult = null;
+		List<ChatEntity> dataList = new ArrayList<ChatEntity>();
+		String pattern = "%" + memname + "%";
+		String query = null;
+		if (tp.equals("merchant")) {
+			query = "SELECT Id, name FROM LOGINC WHERE name LIKE ?";
+		}
+		if (tp.equals("customer")) {
+			query = "SELECT Id,name FROM LOGIN WHERE name LIKE ?";
+		}
+		queryResult = db.queryForList(query, pattern);
+		for (Map<String, Object> mem : queryResult) {
+			ChatEntity entdb = new ChatEntity();
+			entdb.setId((int) mem.get("id"));
+			entdb.setName((String) mem.get("name"));
+			dataList.add(entdb);
+		}
+
+		return dataList;
+
+	}
+
 	public void insertDb_addchat(ChatEntity chatent) {
 		db.update("INSERT INTO chat(chat,name) VALUES(?,?)",
 				chatent.getChat(), chatent.getName());

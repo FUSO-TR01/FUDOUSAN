@@ -333,15 +333,20 @@ public class FudoController {
 		List<ChatEntity> list = dao.getChatmem(tp);
 		model.addAttribute("dbList", list);
 		model.addAttribute("logId", logId);
+		model.addAttribute("tp", tp);
 		
 		return "merchantchat";
 	}
 	
 	@RequestMapping("/memsearch")
-	public String memsearch(ChatInput chatinput,@RequestParam("logId") String logId,
-			@RequestParam("tp") String tp, Model model) {
+	public String memsearch(ChatInput chatinput,@RequestParam("memname") String memname,
+			@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
+		List<ChatEntity> list = dao.getChatsearchmem(tp,memname);
+		model.addAttribute("dbList", list);
+		model.addAttribute("logId", logId);
+		model.addAttribute("tp", tp);
 		
-		return "redirect:/merchantchat";
+		return "merchantchat";
 	}
 
 	@RequestMapping("/addchat")
@@ -353,13 +358,6 @@ public class FudoController {
 		return "redirect:/chat";
 	}
 
-	
-	
-	
-	
-	
-	
-	
 	
 //	___________________________________
 
