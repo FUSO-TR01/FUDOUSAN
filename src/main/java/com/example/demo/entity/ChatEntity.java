@@ -6,7 +6,7 @@ public class ChatEntity {
 	private String logId;
 	private String toId;
 	private String chat;
-	private String chatC;
+//	private String chatC;
 	private String name;
 	private String toname;
 	
@@ -63,12 +63,12 @@ public class ChatEntity {
 		this.toId = toId;
 	}
 
-	public String getChatC() {
-		return chatC;
-	}
-
-	public void setChatC(String chatC) {
-		this.chatC = chatC;
-	}
+//	public String getChatC() {
+//		return chatC;
+//	}
+//
+//	public void setChatC(String chatC) {
+//		this.chatC = chatC;
+//	}
 	
 }
