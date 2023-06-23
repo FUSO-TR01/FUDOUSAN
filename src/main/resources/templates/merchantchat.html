@@ -25,8 +25,9 @@
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td>
-				<form th:action="@{/startchat/{id}(id=${res.id})}">
+				<form th:action="@{/startchat}">
 					<input type="submit" th:value="${res.name}">
+					<input type="hidden" name="Id" th:value="${res.id}">
 					<input type="hidden" name="logId" th:value="*{logId}">
 					<input type="hidden" name="memname" th:value="*{memname}">
 					<input type="hidden" name="tp" th:value="*{tp}">

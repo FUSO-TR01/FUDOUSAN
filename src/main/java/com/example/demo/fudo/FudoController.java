@@ -350,16 +350,17 @@ public class FudoController {
 		return "merchantchat";
 	}
 	
-//	@RequestMapping("/memsearch")
-//	public String startchat(ChatInput chatinput,@RequestParam("memname") String memname,
-//			@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
-//		List<ChatEntity> list = dao.getChatsearchmem(tp,memname);
-//		model.addAttribute("dbList", list);
-//		model.addAttribute("logId", logId);
-//		model.addAttribute("tp", tp);
-//		
-//		return "merchantchat";
-//	}
+	@RequestMapping("/startchat")
+	public String startchat(ChatInput chatinput,@RequestParam("memname") String memname,@RequestParam("id") String id,
+			@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
+		List<ChatEntity> list = dao.getChatsearchmem(tp,memname);
+		List<ChatEntity> chatlist = dao.getStartchat(tp,memname,logId,id);
+		model.addAttribute("dbList", list);
+		model.addAttribute("logId", logId);
+		model.addAttribute("tp", tp);
+		
+		return "merchantchat";
+	}
 
 	@RequestMapping("/addchat")
 	public String addchat(@Validated ChatInput chatinput, Model model) {
