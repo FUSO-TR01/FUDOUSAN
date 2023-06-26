@@ -1,11 +1,13 @@
 package com.example.demo.entity;
 
+import java.math.BigDecimal;
+
 public class Entity {
 
 	private int id;
 	private String name;
 	private String space;
-	private int money;
+	private BigDecimal money;
 	private String address;
 	private String comment;
 
@@ -27,14 +29,6 @@ public class Entity {
 
 	public void setSpace(String space) {
 		this.space = space;
-	}
-
-	public int getMoney() {
-		return money;
-	}
-
-	public void setMoney(int money) {
-		this.money = money;
 	}
 
 	public String getAddress() {
@@ -59,6 +53,14 @@ public class Entity {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public BigDecimal getMoney() {
+		return money;
+	}
+
+	public void setMoney(BigDecimal money) {
+		this.money = money;
 	}
 
 }

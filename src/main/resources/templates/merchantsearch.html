@@ -28,10 +28,16 @@
 
 		<br>
 
+
 		<div class="SearchBox">
 			<h2 class="kyocho">検索結果</h2>
+			<table class="tab">
+				<tr>
+					<td th:text="${sort}" class="kyocho3"><label></label></td>
+				</tr>
+			</table>
+<!--			<label th:text="${sort}" class="kyocho3"></label>-->
 
-			<label th:text="${sort}" class="kyocho3"></label>
 			<form method="get" action="#" th:action="@{/sort}">
 				<input type="hidden" name="bkname" th:value="*{bkname}">
 				<input type="hidden" name="space" th:value="*{space}">

@@ -231,10 +231,15 @@ body {
 	padding: 1px 5px 1px 5px;
 	text-align: center;
 	word-wrap: break-word;
-	width: 400px;
+	width: auto;
 	margin: 0 auto;
 	border-bottom: solid 3px #748ca5;
-/*	display: none;*/
+	empty-cells: hide;
+	/*	display: none;*/
+}
+
+.tab {
+	margin: auto;
 }
 
 /*button[type="submit"]:checked+kyocho3 {*/

@@ -29,27 +29,25 @@
 		<br>
 
 		<div class="SearchBox">
-			<h2 class="kyocho">検索結果</h2>
-
-			<label th:text="${sort}" class="kyocho3"></label>
-			<form method="get" action="#" th:action="@{/sort}">
-				<input type="hidden" name="bkname" th:value="*{bkname}">
-				<input type="hidden" name="space" th:value="*{space}">
-				<input type="hidden" name="start" th:value="*{start}">
-				<input type="hidden" name="end" th:value="*{end}">
-				<input type="hidden" name="place" th:value="*{place}">
-				<input type="hidden" name="comment" th:value="*{comment}">
-				<input type="hidden" name="type" value="customer">
+				<h2 class="kyocho">検索結果</h2>
+				<label th:text="${sort}" class="kyocho3"></label>
+				<form method="get" action="#" th:action="@{/sort}">
+					<input type="hidden" name="bkname" th:value="*{bkname}">
+					<input type="hidden" name="space" th:value="*{space}">
+					<input type="hidden" name="start" th:value="*{start}">
+					<input type="hidden" name="end" th:value="*{end}">
+					<input type="hidden" name="place" th:value="*{place}">
+					<input type="hidden" name="comment" th:value="*{comment}">
+					<input type="hidden" name="type" value="customer">
+					家賃並び替え
+					<button type="submit" name="sort" value="ASC" class="MiniButton1">昇順</button>
+					<button type="submit" name="sort" value="DESC" class="MiniButton2">降順</button>
+				</form>
 				<br>
-				家賃並び替え
-				<button type="submit" name="sort" value="ASC" class="MiniButton1">昇順</button>
-				<button type="submit" name="sort" value="DESC" class="MiniButton2">降順</button>
-			</form>
-			<br>
-			<form th:action="@{/viewhome2}">
-				<input type="submit" value="検索画面へ戻る" class="button0">
-			</form>
-			<br>
+				<form th:action="@{/viewhome2}">
+					<input type="submit" value="検索画面へ戻る" class="button0">
+				</form>
+				<br>
 			<form th:action="@{/merchant}">
 				<input type="submit" value="メニューへ戻る" class="button0">
 			</form>
@@ -57,23 +55,26 @@
 			<br><br>
 			<table class="design08">
 
-				<tr>
-					<th>ID</th>
-					<th>物件名</th>
-					<th>間取り</th>
-					<th>家賃</th>
-					<th>住所</th>
-					<th>詳細</th>
-				</tr>
-				<tr th:each=" res : ${dbList}">
-					<td th:text="${res.id}">1</td>
-					<td th:text="${res.name}">物件名</td>
-					<td th:text="${res.space}">間取り</td>
-					<td th:text="${res.money}">家賃</td>
-					<td th:text="${res.address}">住所</td>
-					<td th:text="${res.comment}">詳細</td>
-				</tr>
-			</table>
+
+					<tr>
+						<th>ID</th>
+						<th>物件名</th>
+						<th>間取り</th>
+						<th>家賃</th>
+						<th>住所</th>
+						<th>詳細</th>
+					</tr>
+					<tr th:each=" res : ${dbList}">
+						<td th:text="${res.id}">1</td>
+						<td th:text="${res.name}">物件名</td>
+						<td th:text="${res.space}">間取り</td>
+						<td th:text="${res.money}">家賃</td>
+						<td th:text="${res.address}">住所</td>
+						<td th:text="${res.comment}">詳細</td>
+					</tr>
+				</table>
+
+
 
 		</div>
 

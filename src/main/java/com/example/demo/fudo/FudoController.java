@@ -1,5 +1,6 @@
 package com.example.demo.fudo;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -166,7 +167,7 @@ public class FudoController {
 		Entity ent = new Entity();
 		ent.setName(input.getName());
 		ent.setSpace(input.getSpace());
-		ent.setMoney(input.getMoney());
+		ent.setMoney(BigDecimal.valueOf(input.getMoney()));
 		ent.setAddress(input.getAddress());
 		ent.setComment(input.getComment());
 		dao.insertDb_addhome(ent);
@@ -289,7 +290,7 @@ public class FudoController {
 
 		entform.setName(input.getName());
 		entform.setSpace(input.getSpace());
-		entform.setMoney(input.getMoney());
+		entform.setMoney(BigDecimal.valueOf(input.getMoney()));
 		entform.setAddress(input.getAddress());
 		entform.setComment(input.getComment());
 
@@ -371,21 +372,17 @@ public class FudoController {
 	}
 
 	@RequestMapping("/addchat")
-	public String addchat(ChatInput chatinput,@RequestParam("memname") String memname,@RequestParam("Id") Integer id,
-			@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
+	public String addchat(ChatInput chatinput,@RequestParam("Message") String message,@RequestParam("memname") String memname,
+			@RequestParam("Id") Integer id,@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
 		List<ChatEntity> list = dao.getChatsearchmem(tp,memname);
 		List<ChatEntity> chatlist = dao.getStartchat(tp,memname,logId,id);
+		dao.insertDb_addchat(tp,message,logId,id);
 		model.addAttribute("chatList", chatlist);
 		model.addAttribute("dbList", list);
 		model.addAttribute("Id", id);
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);
-		model.addAttribute("memname", memname);
-		
-//		ChatEntity chatent = new ChatEntity();
-//		chatent.setChat(chatinput.getChat());
-//		chatent.setName(chatinput.getName());
-//		dao.insertDb_addchat(chatent);
+		model.addAttribute("memname", memname);		
 		return "merchantchat";
 	}
 
