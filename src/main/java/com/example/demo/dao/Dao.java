@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -97,7 +98,7 @@ public class Dao {
 
 			entdb.setName((String) bkn.get("name"));
 			entdb.setSpace((String) bkn.get("space"));
-			entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
+			entdb.setMoney((BigDecimal) bkn.get("money"));
 			entdb.setAddress((String) bkn.get("address"));
 			entdb.setComment((String) bkn.get("comment"));
 
@@ -131,7 +132,7 @@ public class Dao {
 
 			entdb.setName((String) bkn.get("name"));
 			entdb.setSpace((String) bkn.get("space"));
-			entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
+			entdb.setMoney((BigDecimal) bkn.get("money"));
 			entdb.setAddress((String) bkn.get("address"));
 			entdb.setComment((String) bkn.get("comment"));
 
@@ -194,17 +195,15 @@ public class Dao {
 		return dataList;
 	}
 	
-	public static String chatsql(String logId, String toId) {
+	public static String chatresultsql(String logId, String toId) {
 
 		String chatsql = "SELECT * FROM chat WHERE (logId = '"+logId+"' AND toId = '"+toId+"') OR (logId = '"+toId+"' AND toId = '"+logId+"')";
 		return chatsql;
 	}
 	
-	public List<ChatEntity> getStartchat(String tp, String memname,String logId, Integer id) {
+	public static String toId(Integer id, String tp) {
 		List<Map<String, Object>> queryTo = null;
-		List<Map<String, Object>> queryChat = null;
-		List<ChatEntity> chatList = new ArrayList<ChatEntity>();
-		String toId = null;
+		String toId=null;
 		String to = "SELECT logId FROM";
 		if (tp.equals("merchant")) {
 			to = to + " LOGINC WHERE id = " + id;
@@ -214,14 +213,20 @@ public class Dao {
 		}
 		queryTo = db.queryForList(to);
 		for (Map<String, Object> map : queryTo) {
-//			ChatEntity entdb = new ChatEntity();
 		    toId = ((String) map.get("logId"));
-//		    entdb.setLogId((String) map.get("logId"));
-//		    dataList.add(entdb);
 		}
+		return toId;
+		
+	}
+	
+	public List<ChatEntity> getStartchat(String tp, String memname,String logId, Integer id) {
+		
+		List<Map<String, Object>> queryChat = null;
+		List<ChatEntity> chatList = new ArrayList<ChatEntity>();
+		String toId = toId(id, tp);
 		System.out.println(logId);
 		System.out.println(toId);
-		String chatsql = chatsql(logId,toId);
+		String chatsql = chatresultsql(logId,toId);
 		queryChat = db.queryForList(chatsql);
 		for (Map<String, Object> mem : queryChat) {
 			ChatEntity entdb = new ChatEntity();
@@ -238,9 +243,15 @@ public class Dao {
 		return chatList;
 	}
 
-	public void insertDb_addchat(ChatEntity chatent) {
-		db.update("INSERT INTO chat(chat,name) VALUES(?,?)",
-				chatent.getChat(), chatent.getName());
+	public void insertDb_addchat(String tp,String message,String logId,Integer id) {
+		String toId = toId(id, tp);
+		if (tp.equals("merchant")) {
+			db.update("INSERT INTO chat(chat,name) VALUES(?,?)");
+		}
+		if (tp.equals("customer")) {
+			db.update("INSERT INTO chat(chat,name) VALUES(?,?)");
+		}
+		
 	}
 
 	//sql生成
@@ -291,7 +302,7 @@ public class Dao {
 			entdb.setId((int) bkn.get("id"));
 			entdb.setName((String) bkn.get("name"));
 			entdb.setSpace((String) bkn.get("space"));
-			entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
+			entdb.setMoney((BigDecimal) bkn.get("money"));
 			entdb.setAddress((String) bkn.get("address"));
 			entdb.setComment((String) bkn.get("comment"));
 			dataList.add(entdb);
@@ -321,7 +332,7 @@ public class Dao {
 			entdb.setId((int) bkn.get("id"));
 			entdb.setName((String) bkn.get("name"));
 			entdb.setSpace((String) bkn.get("space"));
-			entdb.setMoney(Integer.parseInt((String) bkn.get("money")));
+			entdb.setMoney((BigDecimal) bkn.get("money"));
 			entdb.setAddress((String) bkn.get("address"));
 			entdb.setComment((String) bkn.get("comment"));
 			dataList.add(entdb);
