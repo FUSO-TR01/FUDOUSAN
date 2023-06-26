@@ -347,6 +347,28 @@ public class FudoController {
 		}
 	}
 
+	@RequestMapping("/displaychat")
+	public String displayChat(@RequestParam("memname") String memname,
+			@RequestParam("Id") Integer id, @RequestParam("logId") String logId, @RequestParam("tp") String tp,
+			Model model) {
+		List<ChatEntity> list = dao.getChatsearchmem(tp, memname);
+		List<ChatEntity> chatlist = dao.getStartchat(tp, memname, logId, id);
+		model.addAttribute("chatList", chatlist);
+		model.addAttribute("dbList", list);
+		model.addAttribute("Id", id);
+		model.addAttribute("logId", logId);
+		model.addAttribute("tp", tp);
+		model.addAttribute("memname", memname);
+		String toname = dao.toname(id, tp);
+		model.addAttribute("toname", toname);
+
+		if (tp.equals("merchant")) {
+			return "merchantchat";
+		} else {
+			return "customerchat";
+		}
+	}
+
 	@RequestMapping("/memsearch")
 	public String memsearch(ChatInput chatinput, @RequestParam("memname") String memname,
 			@RequestParam("logId") String logId, @RequestParam("tp") String tp, Model model) {
@@ -374,7 +396,7 @@ public class FudoController {
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);
 		model.addAttribute("memname", memname);
-		String toname = dao.toname(id,tp);
+		String toname = dao.toname(id, tp);
 		model.addAttribute("toname", toname);
 		if (tp.equals("merchant")) {
 			return "merchantchat";
@@ -389,21 +411,17 @@ public class FudoController {
 			@RequestParam("Id") Integer id, @RequestParam("logId") String logId, @RequestParam("tp") String tp,
 			Model model) {
 		dao.insertDb_addchat(tp, message, logId, id);
-		List<ChatEntity> list = dao.getChatsearchmem(tp, memname);
-		List<ChatEntity> chatlist = dao.getStartchat(tp, memname, logId, id);
-		model.addAttribute("chatList", chatlist);
-		model.addAttribute("dbList", list);
-		model.addAttribute("Id", id);
-		model.addAttribute("logId", logId);
-		model.addAttribute("tp", tp);
-		model.addAttribute("memname", memname);
-		String toname = dao.toname(id,tp);
-		model.addAttribute("toname", toname);
-		if (tp.equals("merchant")) {
-			return "merchantchat";
-		} else {
-			return "customerchat";
-		}
+//		List<ChatEntity> list = dao.getChatsearchmem(tp, memname);
+//		List<ChatEntity> chatlist = dao.getStartchat(tp, memname, logId, id);
+//		model.addAttribute("chatList", chatlist);
+//		model.addAttribute("dbList", list);
+//		model.addAttribute("Id", id);
+//		model.addAttribute("logId", logId);
+//		model.addAttribute("tp", tp);
+//		model.addAttribute("memname", memname);
+//		String toname = dao.toname(id, tp);
+//		model.addAttribute("toname", toname);
+		return "redirect:/displaychat?Id=" + id + "&logId=" + logId + "&memname=" + memname + "&tp=" + tp;
 	}
 
 	//	___________________________________
