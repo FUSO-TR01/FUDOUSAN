@@ -1,12 +1,12 @@
 .textarea {
-			width: 30%;
-			box-sizing: border-box;
-			resize: none;
-			/* ユーザーによるリサイズを無効化 */
-		}
+	width: 30%;
+	box-sizing: border-box;
+	resize: none;
+	/* ユーザーによるリサイズを無効化 */
+}
 
-		table {
-			border-spacing: 10px 4px;
-			border-collapse: separate;
-			empty-cells: hide;
-		}
+table {
+	border-spacing: 10px 4px;
+	border-collapse: separate;
+	empty-cells: hide;
+}
