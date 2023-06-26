@@ -29,21 +29,21 @@ body {
 
 /*昇順ボタン*/
 .MiniButton1 {
-display: inline-block;
+	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
 	text-decoration: none;
-/*	width: 30px;*/
+	/*	width: 30px;*/
 	margin: auto;
 	padding: 0.7rem 2rem;
 	font-weight: bold;
 	border-radius: 100vh;
-	border:solid #c36b00;
+	border: solid #c36b00;
 	border-width: 0px 0px 5px 0px;
 	background: #fc8a00;
 	color: #fff;
-		white-space: nowrap;
-		
+	white-space: nowrap;
+
 
 }
 
@@ -58,21 +58,21 @@ display: inline-block;
 
 /*降順ボタン*/
 .MiniButton2 {
-display: inline-block;
+	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
 	text-decoration: none;
-/*	width: 30px;*/
+	/*	width: 30px;*/
 	margin: auto;
 	padding: 0.7rem 2rem;
 	font-weight: bold;
 	border-radius: 100vh;
-	border:solid #245182;
+	border: solid #245182;
 	border-width: 0px 0px 5px 0px;
 	background: #3274ba;
 	color: #fff;
-		white-space: nowrap;
-		
+	white-space: nowrap;
+
 
 }
 
@@ -219,3 +219,24 @@ display: inline-block;
 .EditButton:hover:after {
 	right: 1.4rem;
 }
+
+/*-------------------------------------------------------------------------*/
+/*昇順降順表示*/
+.kyocho3 {
+	/*	background-color: cadetblue;*/
+	/*	border-radius: 20px;*/
+	font-weight: bold;
+	font-size: 18px;
+	color: #383838;
+	padding: 1px 5px 1px 5px;
+	text-align: center;
+	word-wrap: break-word;
+	width: 400px;
+	margin: 0 auto;
+	border-bottom: solid 3px #748ca5;
+/*	display: none;*/
+}
+
+/*button[type="submit"]:checked+kyocho3 {*/
+/*	display: block;*/
+/*}*/

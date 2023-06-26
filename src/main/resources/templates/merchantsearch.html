@@ -31,7 +31,7 @@
 		<div class="SearchBox">
 			<h2 class="kyocho">検索結果</h2>
 
-	<label th:text="${sort}"></label>
+	<label th:text="${sort}" class="kyocho3"></label>
 	<form method="get" action="#" th:action="@{/sort}">
 		<input type="hidden" name="bkname" th:value="*{bkname}">
 		<input type="hidden" name="space" th:value="*{space}">
@@ -40,6 +40,7 @@
 		<input type="hidden" name="place" th:value="*{place}">
 		<input type="hidden" name="comment" th:value="*{comment}">
 		<input type="hidden" name="type" value="merchant">
+		<br>
 		<label class="Form-Item-Label">家賃並び替え</label>
 		<button type="submit" name="sort" value="ASC" class="MiniButton1">昇順</button>
 		<button type="submit" name="sort" value="DESC" class="MiniButton2">降順</button>
@@ -53,7 +54,7 @@
 		<input type="submit" value="メニューへ戻る" class="button0">
 	</form>
 	<br><br>
-	<table border="1" class="design08">
+	<table class="design08">
 
 		<tr>
 			<th>ID</th>
