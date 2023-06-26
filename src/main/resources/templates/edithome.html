@@ -6,52 +6,122 @@
 	<title>物件情報登録ページ</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" th:href="@{/style.css}">
+	<link rel="stylesheet" th:href="@{/style-n.css}">
 	<script src="modal2.js"></script>
 </head>
 
 <body>
-	<h1>物件情報編集ページ</h1>
-	<div th:object="${entity}">
-		<form action="#" method="get" th:action="@{/edit/__*{id}__/exe}">
-			<p>
-				<span th:text="*{id}"></span> <input type="hidden" name="id" th:value="*{id}">
-			</p>
-			<p>
-				物件名: <input type="text" name="name" th:value="*{name}" required>
-			</p>
-			<label for="dropdown">間取り:</label>
-			<select name="space">
-				<option hidden>選択してください</option>
-				<option value="1R">1R</option>
-				<option value="1K">1K</option>
-				<option value="1DK">1DK</option>
-				<option value="1LDK">1LDK</option>
-			</select>
-			<p>
-				家賃: <input type="text" name="money" th:value="*{money}" required>
-			</p>
-			<p>
-				住所: <input type="text" name="address" th:value="*{address}" required>
-			</p>
-			<p>詳細</p>
-			<label><input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment1">無料Wi-Fiあり<br></label>
-			<label><input type="checkbox" name="comment" value="駐車場空きあり" id="comment2">駐車場空きあり<br></label>
-			<label><input type="checkbox" name="comment" value="ペット可" id="comment3">ペット可<br></label>
-			<label><input type="checkbox" name="comment" value="室内洗濯機置き場あり" id="comment4">室内洗濯機置き場あり<br></label>
-			<label><input type="checkbox" name="comment" value="オートロックあり" id="comment5">オートロックあり<br></label>
-			<label><input type="checkbox" name="comment" value="バス・トイレ別" id="comment6">バス・トイレ別</label><br>
-			<label><input type="checkbox" name="comment" value="南向き" id="comment7">南向き<br></label>
-			<label><input type="checkbox" name="comment" value="事故物件" id="comment8">事故物件<br></label>
-			<label><input type="checkbox" name="comment" value="危険地帯" id="comment9">危険地帯<br></label>
-			<label><input type="checkbox" name="comment" value="物干しあり" id="comment10">物干しあり<br></label>
-			<label><input type="checkbox" name="comment" value="コンビニあり" id="comment11">コンビニあり<br></label>
-			<label><input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment12">無料Wi-Fiあり<br></label>
-			<label><input type="checkbox" name="comment" value="ウォーターサーバーあり" id="comment13">ウォーターサーバーあり<br></label>
-			<label><input type="checkbox" name="comment" value="窓なし" id="comment14">窓なし<br></label>
-			<br><br>
-			<input type="submit" value="登録">			
-		</form>
+
+	<div class="footerFixed">
+		<header>
+			<h1>
+				<a href="/home">一人暮らしの家探し</a>
+			</h1>
+			<nav class="fnavi">
+				<ul>
+					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>
+					<li><a href="#">企業情報</a></li>
+					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
+					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<br>
+
+		<div class="ConfirmBox">
+			<h2 class="kyocho">物件情報編集</h2>
+			<div th:object="${entity}">
+				<form action="#" method="get" th:action="@{/edit/__*{id}__/exe}">
+					<div class="form-align">
+						<table class="TableSpace">
+							<p  class="kyocho2">
+								物件ID : <span th:text="*{id}" ></span>
+								<input type="hidden" name="id" th:value="*{id}" >
+							</p>
+							<tr>
+								<th><span class="hissu">必須</span>
+									<label class="Form-Item-Label">物件名</label>
+								</th>
+								<td><input type="text" name="name" th:value="*{name}" required class="Form-Item-Input">
+								</td>
+							</tr>
+							<tr>
+								<th><span class="hissu">必須</span>
+									<label for="dropdown" class="Form-Item-Label">間取り</label>
+								</th>
+								<td>
+									<label class="selectbox-001">
+										<select name="space">
+											<option hidden>選択してください</option>
+											<option value="1R">1R</option>
+											<option value="1K">1K</option>
+											<option value="1DK">1DK</option>
+											<option value="1LDK">1LDK</option>
+										</select>
+								</label>
+							</tr>
+							<tr>
+								<th><span class="hissu">必須</span>
+									<label class="Form-Item-Label">家　賃</label>
+								</th>
+								<td><input type="text" name="money" th:value="*{money}" required  class="Form-Item-Input">
+								</td>
+							</tr>
+				<tr>
+								<th><span class="hissu">必須</span>
+									<label class="Form-Item-Label">住　所</label>
+								</th>
+								<td><input type="text" name="address" th:value="*{address}" required class="Form-Item-Input">
+								</td>
+				</tr>
+						</table>
+					</div>
+					<br><br>
+					<p class="kyocho2">詳　細</p><br>
+										<div class="form-align">
+										<label><input type="checkbox" name="comment" value="無料Wi-Fiあり"
+												id="comment1">無料Wi-Fiあり<br></label>
+										<label><input type="checkbox" name="comment" value="駐車場空きあり"
+												id="comment2">駐車場空きあり<br></label>
+										<label><input type="checkbox" name="comment" value="ペット可"
+												id="comment3">ペット可<br></label>
+										<label><input type="checkbox" name="comment" value="室内洗濯機置き場あり"
+												id="comment4">室内洗濯機置き場あり<br></label>
+										<label><input type="checkbox" name="comment" value="オートロックあり"
+												id="comment5">オートロックあり<br></label>
+										<label><input type="checkbox" name="comment" value="バス・トイレ別"
+												id="comment6">バス・トイレ別</label><br>
+										<label><input type="checkbox" name="comment" value="南向き"
+												id="comment7">南向き<br></label>
+										<label><input type="checkbox" name="comment" value="事故物件"
+												id="comment8">事故物件<br></label>
+										<label><input type="checkbox" name="comment" value="危険地帯"
+												id="comment9">危険地帯<br></label>
+										<label><input type="checkbox" name="comment" value="物干しあり"
+												id="comment10">物干しあり<br></label>
+										<label><input type="checkbox" name="comment" value="コンビニあり"
+												id="comment11">コンビニあり<br></label>
+										<label><input type="checkbox" name="comment" value="無料Wi-Fiあり"
+												id="comment12">無料Wi-Fiあり<br></label>
+										<label><input type="checkbox" name="comment" value="ウォーターサーバーあり"
+												id="comment13">ウォーターサーバーあり<br></label>
+										<label><input type="checkbox" name="comment" value="窓なし"
+												id="comment14">窓なし<br></label>
+												<br>
+					</div>
+										<br><br>
+										<input type="submit" value="登　録" class="button0">
+				</form>
+			</div>
+
+		</div>
+		<div class="footer">
+			<p>copyright 一人暮らしの家探し 2023</p>
+		</div>
+
 	</div>
+
 </body>
 
 </html>
