@@ -139,6 +139,7 @@ public class Dao {
 		}
 		return dataList;
 	}
+	
 
 	public void updateSample(Long id, Entity entity) {
 		System.out.println("編集の実行");

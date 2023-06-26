@@ -207,7 +207,7 @@ public class FudoController {
 	public String intro(Model model) {
 		return "intro";
 	}
-
+	
 	//検索
 	@RequestMapping("/merchantsearch")
 	public String Search(@RequestParam("bkname") String name, @RequestParam("space") String space,
@@ -268,7 +268,7 @@ public class FudoController {
 
 	//編集画面の表示
 	@RequestMapping("/edithome/{id}")
-	public String editView(@PathVariable Long id, Model model) {
+	public String editView(@PathVariable Long id, Model model) {		
 		List<Entity> list = dao.getOne(id);
 		Entity entity = list.get(0);
 		model.addAttribute("entity", entity);
