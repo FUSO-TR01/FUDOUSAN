@@ -37,6 +37,7 @@
 				</tr>
 			</table>
 <!--			<label th:text="${sort}" class="kyocho3"></label>-->
+
 			<form method="get" action="#" th:action="@{/sort}">
 				<input type="hidden" name="bkname" th:value="*{bkname}">
 				<input type="hidden" name="space" th:value="*{space}">
@@ -95,6 +96,15 @@
 			</table>
 
 		</div>
+		
+		<br>
+		<form th:action="@{/viewhome}">
+			<input type="submit" value="一覧へ戻る" class="StickyButton1">
+		</form>
+		<br>
+		<form th:action="@{/merchant}">
+			<input type="submit" value="メニューへ戻る" class="StickyButton2">
+		</form>
 
 		<div class="footer">
 			<p>copyright 一人暮らしの家探し 2023</p>
