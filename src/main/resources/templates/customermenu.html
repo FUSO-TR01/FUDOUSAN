@@ -29,18 +29,18 @@
 		<form th:action="@{/viewhome2}">
 			<input type="submit" value="物件検索" class="button019">
 		</form>
-		<form th:action="@{/chat}">
-			<input type="submit" value="不動産業者とチャット" class="button019">
-			<input type="hidden" name="logId" th:value="*{logId}">
-			<input type="hidden" name="tp" value="customer">
-		</form>
+<form th:action="@{/chat}">
+		<input type="submit" value="不動産業者とチャット">
+		<input type="hidden" name="logId" th:value="*{logId}">
+		<input type="hidden" name="tp" value="customer">
+	</form>
 		<br><br>
 	</div>
 	<br><br>
-
+	
 	<footer>
 		<p>copyright 一人暮らしの家探し 2023</p>
-	</footer>
+  </footer>
 
 </body>
 

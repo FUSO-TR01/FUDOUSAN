@@ -51,7 +51,7 @@
 		<tr>
 			<th width="50%" colspan="2">チャット</th>
 		</tr>
-		<tr th:each=" res : ${chatList}">
+		<tr th:each=" res : ${chatList}" width="50%">
 			<td th:text="${res.chatC}" width="50%"></td>
 			<td th:text="${res.chat}" width="50%"></td>
 		</tr>
@@ -79,5 +79,8 @@
 			}
 		});
 	</script>
+
+
 </body>
+
 </html>

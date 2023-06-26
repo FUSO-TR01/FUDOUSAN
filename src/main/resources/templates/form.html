@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<link rel="icon" href="/1031.png">
@@ -23,14 +23,14 @@
 			</nav>
 		</div>
 	</header>
-	<div class="contact">
-		<h1 class="contact-ttl">お問い合わせフォーム</h1>
-		<form method="get" th:action="@{/checkform}" th:object="${forminput}">
+	<form method="get" th:action="@{/checkform}" th:object="${forminput}">
+		<div class="contact">
+			<h1 class="contact-ttl">お問い合わせフォーム</h1>
 			<table class="contact-table">
 				<tr>
 					<th class="contact-item">名前</th>
 					<td class="contact-body">
-<!--						<input type="text" name="名前" class="form-text" />-->
+						<!--						<input type="text" name="名前" class="form-text" />-->
 						<input type="text" id="name" name="Name" th:value="*{Name}" class="text-input"><br>
 						<span th:if="${#fields.hasErrors('Name')}" th:errors="*{Name}" class="error"></span>
 					</td>
@@ -79,8 +79,8 @@
 				</tr>
 			</table>
 			<input class="contact-submit" type="submit" value="送信" />
-		</form>
-	</div>
+		</div>
+	</form>
 </body>
 
 </html>
