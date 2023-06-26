@@ -29,7 +29,7 @@ public class FudoController {
 	private final Formdao formdao;
 
 	@Autowired
-	public FudoController(Dao dao,Formdao formdao) {
+	public FudoController(Dao dao, Formdao formdao) {
 		this.dao = dao;
 		this.formdao = formdao;
 	}
@@ -191,24 +191,24 @@ public class FudoController {
 	public String sample2(Model model) {
 		return "sample2";
 	}
-	
+
 	@RequestMapping("/form")
-	public String form(Model model , FormInput forminput) {
+	public String form(Model model, FormInput forminput) {
 		return "form";
 	}
-	
+
 	@RequestMapping("/news")
-	public String news(Input input,Model model) {
+	public String news(Input input, Model model) {
 		List<Entity> list = dao.getBKN();
 		model.addAttribute("dbList", list);
 		return "news";
 	}
-	
+
 	@RequestMapping("/intro")
 	public String intro(Model model) {
 		return "intro";
 	}
-	
+
 	//検索
 	@RequestMapping("/merchantsearch")
 	public String Search(@RequestParam("bkname") String name, @RequestParam("space") String space,
@@ -235,15 +235,15 @@ public class FudoController {
 			@RequestParam("space") String space, @RequestParam("start") Integer start,
 			@RequestParam("end") Integer end, @RequestParam("place") String place,
 
-			@RequestParam("comment") String comment,@RequestParam("type") String type, Model model) {
+			@RequestParam("comment") String comment, @RequestParam("type") String type, Model model) {
 		List<Entity> list = dao.getSort(sort, name, space, start, end, place, comment);
 		LocalDate nowDate = LocalDate.now();
 
-		if(sort.equals("ASC")) {
-			model.addAttribute("sort", "昇順並び替え");			
+		if (sort.equals("ASC")) {
+			model.addAttribute("sort", "昇順並び替え");
 		}
-		if(sort.equals("DESC")) {
-			model.addAttribute("sort", "降順並び替え");		
+		if (sort.equals("DESC")) {
+			model.addAttribute("sort", "降順並び替え");
 		}
 		model.addAttribute("nowDate", nowDate);
 		model.addAttribute("dbList", list);
@@ -253,8 +253,8 @@ public class FudoController {
 		model.addAttribute("end", end);
 		model.addAttribute("place", place);
 		model.addAttribute("comment", comment);
-	
-		if(type.equals("customer")) {
+
+		if (type.equals("customer")) {
 			return "customersearch";
 		}
 		return "merchantsearch";
@@ -269,7 +269,7 @@ public class FudoController {
 
 	//編集画面の表示
 	@RequestMapping("/edithome/{id}")
-	public String editView(@PathVariable Long id, Model model) {		
+	public String editView(@PathVariable Long id, Model model) {
 		List<Entity> list = dao.getOne(id);
 		Entity entity = list.get(0);
 		model.addAttribute("entity", entity);
@@ -334,62 +334,75 @@ public class FudoController {
 	//__________________________________________
 
 	@RequestMapping("/chat")
-	public String chat(ChatInput chatinput,@RequestParam("logId") String logId,
+	public String chat(ChatInput chatinput, @RequestParam("logId") String logId,
 			@RequestParam("tp") String tp, Model model) {
 		List<ChatEntity> list = dao.getChatmem(tp);
 		model.addAttribute("dbList", list);
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);
-		
-		return "merchantchat";
+		if (tp.equals("merchant")) {
+			return "merchantchat";
+		} else {
+			return "customerchat";
+		}
 	}
-	
+
 	@RequestMapping("/memsearch")
-	public String memsearch(ChatInput chatinput,@RequestParam("memname") String memname,
-			@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
-		List<ChatEntity> list = dao.getChatsearchmem(tp,memname);
+	public String memsearch(ChatInput chatinput, @RequestParam("memname") String memname,
+			@RequestParam("logId") String logId, @RequestParam("tp") String tp, Model model) {
+		List<ChatEntity> list = dao.getChatsearchmem(tp, memname);
 		model.addAttribute("dbList", list);
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);
 		model.addAttribute("memname", memname);
-		
-		return "merchantchat";
+		if (tp.equals("merchant")) {
+			return "merchantchat";
+		} else {
+			return "customerchat";
+		}
 	}
-	
+
 	@RequestMapping("/startchat")
-	public String startchat(ChatInput chatinput,@RequestParam("memname") String memname,@RequestParam("Id") Integer id,
-			@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
-		List<ChatEntity> list = dao.getChatsearchmem(tp,memname);
-		List<ChatEntity> chatlist = dao.getStartchat(tp,memname,logId,id);
+	public String startchat(ChatInput chatinput, @RequestParam("memname") String memname,
+			@RequestParam("Id") Integer id,
+			@RequestParam("logId") String logId, @RequestParam("tp") String tp, Model model) {
+		List<ChatEntity> list = dao.getChatsearchmem(tp, memname);
+		List<ChatEntity> chatlist = dao.getStartchat(tp, memname, logId, id);
 		model.addAttribute("chatList", chatlist);
 		model.addAttribute("dbList", list);
 		model.addAttribute("Id", id);
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);
 		model.addAttribute("memname", memname);
-		
-		return "merchantchat";
+		if (tp.equals("merchant")) {
+			return "merchantchat";
+		} else {
+			return "customerchat";
+		}
 	}
 
 	@RequestMapping("/addchat")
-	public String addchat(ChatInput chatinput,@RequestParam("Message") String message,@RequestParam("memname") String memname,
-			@RequestParam("Id") Integer id,@RequestParam("logId") String logId,@RequestParam("tp") String tp, Model model) {
-		List<ChatEntity> list = dao.getChatsearchmem(tp,memname);
-		List<ChatEntity> chatlist = dao.getStartchat(tp,memname,logId,id);
-		dao.insertDb_addchat(tp,message,logId,id);
+	public String addchat(ChatInput chatinput, @RequestParam("Message") String message,
+			@RequestParam("memname") String memname,
+			@RequestParam("Id") Integer id, @RequestParam("logId") String logId, @RequestParam("tp") String tp,
+			Model model) {
+		dao.insertDb_addchat(tp, message, logId, id);
+		List<ChatEntity> list = dao.getChatsearchmem(tp, memname);
+		List<ChatEntity> chatlist = dao.getStartchat(tp, memname, logId, id);
 		model.addAttribute("chatList", chatlist);
 		model.addAttribute("dbList", list);
 		model.addAttribute("Id", id);
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);
-		model.addAttribute("memname", memname);		
-		return "merchantchat";
+		model.addAttribute("memname", memname);
+		if (tp.equals("merchant")) {
+			return "merchantchat";
+		} else {
+			return "customerchat";
+		}
 	}
 
-	
-//	___________________________________
-
-
+	//	___________________________________
 
 	@RequestMapping("/checkform")
 	public String checkform(@Validated FormInput input, BindingResult result, Model model) {
@@ -403,45 +416,45 @@ public class FudoController {
 	@RequestMapping("/compform")
 	public String compform(Model model, FormInput input) {
 
-	    LocalDate nowDate = LocalDate.now();
-	    System.out.println(nowDate);
+		LocalDate nowDate = LocalDate.now();
+		System.out.println(nowDate);
 
-	    Forment entform = new Forment();
-	    entform.setName(input.getName());
-	    entform.setMail(input.getMail());
-	    entform.setMessage(input.getMessage());
-	    entform.setType(input.getType());
-	    entform.setNowDate(nowDate);
+		Forment entform = new Forment();
+		entform.setName(input.getName());
+		entform.setMail(input.getMail());
+		entform.setMessage(input.getMessage());
+		entform.setType(input.getType());
+		entform.setNowDate(nowDate);
 
-	    if (!isDuplicateEntry(entform, input)) {
-	        Formdao.insertDb(entform);
-	    }
+		if (!isDuplicateEntry(entform, input)) {
+			Formdao.insertDb(entform);
+		}
 
-	    List<Forment> list = formdao.getSelect(input.getName());
-	    model.addAttribute("dbList", list);
-	    System.out.println("データ取得");
+		List<Forment> list = formdao.getSelect(input.getName());
+		model.addAttribute("dbList", list);
+		System.out.println("データ取得");
 
-	    return "compform";
+		return "compform";
 	}
 
-	private boolean isDuplicateEntry(Forment entform,FormInput input) {
-	    List<Forment> list = formdao.getSelect(input.getName());
+	private boolean isDuplicateEntry(Forment entform, FormInput input) {
+		List<Forment> list = formdao.getSelect(input.getName());
 
-	    for (Forment existingForm : list) {
-	        if (existingForm.getName().equals(entform.getName()) && existingForm.getMail().equals(entform.getMail()) &&
-	        	existingForm.getMessage().equals(entform.getMessage()) && existingForm.getType().equals(entform.getType())) {
-	            // 既存のデータと入力データが重複する場合はtrueを返す
-	            return true;
-	        }
-	    }
+		for (Forment existingForm : list) {
+			if (existingForm.getName().equals(entform.getName()) && existingForm.getMail().equals(entform.getMail()) &&
+					existingForm.getMessage().equals(entform.getMessage())
+					&& existingForm.getType().equals(entform.getType())) {
+				// 既存のデータと入力データが重複する場合はtrueを返す
+				return true;
+			}
+		}
 
-	    // 重複しない場合はfalseを返す
-	    return false;
+		// 重複しない場合はfalseを返す
+		return false;
 	}
-	
-//	__________________________________
-	
-	
+
+	//	__________________________________
+
 	@RequestMapping("/sampleview")
 	public String sampleview(Input input, Model model) {
 		List<Entity> list = dao.getBKN();

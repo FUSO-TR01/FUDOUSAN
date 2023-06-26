@@ -5,6 +5,7 @@
 
 <head>
 	<link rel="icon" href="/1031.png">
+	<link rel="stylesheet" th:href="@{/style-o.css}">
 	<meta charset="UTF-8">
 	<title>HOME</title>
 	<style>
@@ -15,14 +16,25 @@
 			/* ユーザーによるリサイズを無効化 */
 		}
 	</style>
-
-<!--		<link rel="stylesheet" th:href="@{/chatmod.css}">-->
-
 </head>
 
-<body>
+<header>
+	<h1>
+		<a href="/home">一人暮らしの家探し</a>
+	</h1>
+	<nav class="fnavi">
+		<ul>
+			<li><a href="#">企業情報</a></li>
+			<li><a href="#">お知らせ</a></li>
+			<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+		</ul>
+	</nav>
+</header>
 
+<body>
+	<br><br><br><br><br>
 	<h1>一人暮らしの家探し</h1>
+
 	<form method="get" action="/memsearch">
 		<input type="hidden" name="logId" th:value="*{logId}">
 		<input type="text" name="memname">
@@ -52,8 +64,8 @@
 			<th width="50%" colspan="2">チャット</th>
 		</tr>
 		<tr th:each=" res : ${chatList}">
-			<td th:text="${res.chatC}" width="50%"></td>
 			<td th:text="${res.chat}" width="50%"></td>
+			<td th:text="${res.chatC}" width="50%"></td>
 		</tr>
 	</table>
 	<form method="get" action="/addchat">
@@ -79,5 +91,11 @@
 			}
 		});
 	</script>
+	
+	<br><br><br>
+	<footer>
+		<p>copyright 一人暮らしの家探し 2023</p>
+	</footer>
 </body>
+
 </html>
