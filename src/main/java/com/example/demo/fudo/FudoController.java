@@ -192,7 +192,7 @@ public class FudoController {
 	}
 	
 	@RequestMapping("/form")
-	public String form(Model model) {
+	public String form(Model model , FormInput forminput) {
 		return "form";
 	}
 	
