@@ -246,13 +246,13 @@ public class Dao {
 
 	public void insertDb_addchat(String tp,String message,String logId,Integer id) {
 		String toId = toId(id, tp);
+		String addsql = "INSERT INTO chat(logId,toId,chat,chatC,name,toname) VALUES(?,?,?,?,?,?)";
 		if (tp.equals("merchant")) {
-			db.update("INSERT INTO chat(chat,name) VALUES(?,?)");
+			db.update(addsql,logId,toId,message,"","","");
 		}
 		if (tp.equals("customer")) {
-			db.update("INSERT INTO chat(chat,name) VALUES(?,?)");
-		}
-		
+			db.update(addsql,logId,toId,"",message,"","");
+		}		
 	}
 
 	//sql生成
