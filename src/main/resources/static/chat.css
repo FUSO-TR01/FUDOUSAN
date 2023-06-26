@@ -1,12 +1,54 @@
 .textarea {
-			width: 30%;
-			box-sizing: border-box;
-			resize: none;
-			/* ユーザーによるリサイズを無効化 */
-		}
+	width: 60%;
+	height: 40px;
+	box-sizing: border-box;
+	resize: none;
+	/* ユーザーによるリサイズを無効化 */
+	font-size: 18px;
+	position: fixed;
+	bottom: 30px;
+	right: 120px;
+}
 
-		table {
-			border-spacing: 10px 4px;
-			border-collapse: separate;
-			empty-cells: hide;
-		}
+table {
+	border-spacing: 10px 4px;
+	border-collapse: separate;
+	empty-cells: hide;
+}
+
+/*-------------------------------------------------------------------------*/
+/*送信ボタン*/
+.SendButton {
+	position: fixed;
+	bottom: 30px;
+	right: 70px;
+}
+
+/*-------------------------------------------------------------------------*/
+/*見出し行の固定*/
+.fixed01 {
+	position: sticky;
+	top: 0;
+	color: #fff;
+	background: #333;
+}
+
+fixed01:before {
+	content: "";
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #ccc;
+}
+
+/*-------------------------------------------------------------------------*/
+/*チャットテーブル*/
+.ChatTable {
+	width: 75%;
+	height: 650px;
+	right: 70px;
+/*	overflow: scroll;*/
+	position: fixed;
+}
