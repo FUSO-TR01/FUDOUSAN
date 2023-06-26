@@ -4,6 +4,7 @@
 
 
 <head>
+	<link rel="icon" href="/1031.png">
 	<meta charset="UTF-8">
 	<title>HOME</title>
 	<style>
@@ -14,6 +15,9 @@
 			/* ユーザーによるリサイズを無効化 */
 		}
 	</style>
+
+<!--		<link rel="stylesheet" th:href="@{/chatmod.css}">-->
+
 </head>
 
 <body>
@@ -26,7 +30,7 @@
 		<input type="submit" value="検索" class="button">
 	</form>
 
-	<table border="1">
+	<table border="1" align="left" width="30%">
 		<tr>
 			<th>name</th>
 		</tr>
@@ -41,14 +45,15 @@
 				</form>
 			</td>
 		</tr>
+
 	</table><br>
-	<table border="1">
+	<table width="70%" border="1">
 		<tr>
-			<th>チャット</th>
+			<th width="50%" colspan="2">チャット</th>
 		</tr>
-		<tr th:each=" res : ${chatList}">
-			<td th:text="${res.chatC}"></td>
-			<td th:text="${res.chat}"></td>
+		<tr th:each=" res : ${chatList}" width="50%">
+			<td th:text="${res.chatC}" width="50%"></td>
+			<td th:text="${res.chat}" width="50%"></td>
 		</tr>
 	</table>
 	<form method="get" action="/addchat">

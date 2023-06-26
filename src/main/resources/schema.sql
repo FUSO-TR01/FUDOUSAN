@@ -45,8 +45,10 @@ CREATE TABLE inquiry
 (
    id INT NOT NULL AUTO_INCREMENT,
    name VARCHAR (100) NOT NULL,
+   danjo VARCHAR (100) NOT NULL,
    mail VARCHAR (100) NOT NULL,
-   type VARCHAR (100) NOT NULL,
+   tell VARCHAR (100) NOT NULL,
+   job VARCHAR (100) NOT NULL,
    message VARCHAR (500) NOT NULL,
    date DATE ,
    PRIMARY KEY (id)
