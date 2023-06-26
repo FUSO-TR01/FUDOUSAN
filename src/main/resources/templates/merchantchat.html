@@ -7,7 +7,17 @@
 	<link rel="icon" href="/1031.png">
 	<meta charset="UTF-8">
 	<title>HOME</title>
+	<style>
+		.textarea {
+			width: 30%;
+			box-sizing: border-box;
+			resize: none;
+			/* ユーザーによるリサイズを無効化 */
+		}
+	</style>
+
 <!--		<link rel="stylesheet" th:href="@{/chatmod.css}">-->
+
 </head>
 
 <body>
@@ -36,37 +46,39 @@
 			</td>
 		</tr>
 
-	</table>
+	</table><br>
 	<table width="70%" border="1">
 		<tr>
-			<!--			<th>ID</th>-->
-			<!--			<th>物件名</th>-->
-			<!--			<th>間取り</th>-->
-			<!--			<th>家賃</th>-->
-		<th width="50%" colspan="2">チャット</th>
+			<th width="50%" colspan="2">チャット</th>
 		</tr>
 		<tr th:each=" res : ${chatList}" width="50%">
-			<!--			<td th:text="${res.logId}">1</td>-->
-			<!--			<td th:text="${res.toId}">物件名</td>-->
-			<!--			<td th:text="${res.name}">間取り</td>-->
-			<!--			<td th:text="${res.toname}">家賃</td>-->
-			<td th:text="${res.chatC}" width="50%">住所</td>
-			<td th:text="${res.chat}" width="50%">住所</td>
+			<td th:text="${res.chatC}" width="50%"></td>
+			<td th:text="${res.chat}" width="50%"></td>
 		</tr>
 	</table>
 	<form method="get" action="/addchat">
-
 		<p>
-			<label for="message" class="label">お問い合わせ内容</label><br>
-			<textarea id="message" name="Message" rows="10" th:text="*{Message}"></textarea><br>
-<!--					<span th:if="${#fields.hasErrors('Message')}" th:errors="*{Message}" class="error"></span>-->
+			<textarea id="message" name="Message" rows="10" th:text="*{Message}" placeholder="メッセージを入力" class="textarea"></textarea><br>
 			<input type="hidden" name="Id" th:value="*{Id}">
 			<input type="hidden" name="logId" th:value="*{logId}">
 			<input type="hidden" name="memname" th:value="*{memname}">
 			<input type="hidden" name="tp" th:value="*{tp}">
 		</p>
-		<input type="submit" value="送信" class="button"><br>
+		<input type="submit" value="送信" class="button" id="submitButton" style="display: none;"><br>
 	</form>
+
+	<script>
+		const messageInput = document.getElementById('message');
+		const submitButton = document.getElementById('submitButton');
+
+		messageInput.addEventListener('input', function () {
+			if (messageInput.value !== '') {
+				submitButton.style.display = 'inline-block';
+			} else {
+				submitButton.style.display = 'none';
+			}
+		});
+	</script>
 
 
 </body>
