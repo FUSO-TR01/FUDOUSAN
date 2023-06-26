@@ -5,7 +5,7 @@
 	<title>物件情報登録ページ</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" th:href="@{/style.css}">
-	<script src="modal.js"></script>
+	<script src="modal2.js"></script>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
 			<label><input type="checkbox" name="comment" value="ペット可" id="comment3">ペット可<br></label>
 			<label><input type="checkbox" name="comment" value="室内洗濯機置き場あり" id="comment4">室内洗濯機置き場あり<br></label>
 			<label><input type="checkbox" name="comment" value="オートロックあり" id="comment5">オートロックあり<br></label>
-			<label><input type="checkbox" name="comment" value="バス・トイレ別" id="comment6">バス・トイレ別</label>
+			<label><input type="checkbox" name="comment" value="バス・トイレ別" id="comment6">バス・トイレ別</label><br>
 			<label><input type="checkbox" name="comment" value="南向き" id="comment7">南向き<br></label>
 			<label><input type="checkbox" name="comment" value="事故物件" id="comment8">事故物件<br></label>
 			<label><input type="checkbox" name="comment" value="危険地帯" id="comment9">危険地帯<br></label>
@@ -48,28 +48,7 @@
 			<label><input type="checkbox" name="comment" value="ウォーターサーバーあり" id="comment13">ウォーターサーバーあり<br></label>
 			<label><input type="checkbox" name="comment" value="窓なし" id="comment14">窓なし<br></label>
 			<br><br>
-
-
-			<input type="submit" value="登録">
-
-
-			<!-- 開くボタン -->
-<!--			<input type="button" value="確認" onclick="validateAndOpenModal()">-->
-
-			<!-- ウインドウのエリア -->
-<!--			<div id="modalArea" class="modalNoDisp">-->
-<!--				<div class="modalWindow">  ここがウインドウとなります -->
-<!--					<h2>入力データ</h2>-->
-<!--					<p id="popupName"></p>-->
-<!--					<p id="popupSpace"></p>-->
-<!--					<p id="popupMoney"></p>-->
-<!--					<p id="popupAddress"></p>-->
-<!--					<p id="popupComment"></p>-->
-<!--					<p>登録しますか？</p>-->
-<!--					<p><input type="submit" value="閉じる" onclick="modalClose()" th:action="@{/edithome/__*{id}__/exe}">-->
-<!--					</p>-->
-<!--				</div>-->
-<!--			</div>-->
+			<input type="submit" value="登録">			
 		</form>
 	</div>
 </body>
