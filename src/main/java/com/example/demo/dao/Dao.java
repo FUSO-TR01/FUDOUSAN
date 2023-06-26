@@ -216,8 +216,24 @@ public class Dao {
 		for (Map<String, Object> map : queryTo) {
 		    toId = ((String) map.get("logId"));
 		}
-		return toId;
-		
+		return toId;	
+	}
+	
+	public String toname(Integer id, String tp) {
+		List<Map<String, Object>> queryTo = null;
+		String toname=null;
+		String to = "SELECT name FROM";
+		if (tp.equals("merchant")) {
+			to = to + " LOGINC WHERE id = " + id;
+		}
+		if (tp.equals("customer")) {
+			to = to + " LOGIN WHERE id = " + id;
+		}
+		queryTo = db.queryForList(to);
+		for (Map<String, Object> map : queryTo) {
+		    toname = ((String) map.get("name"));
+		}
+		return toname;	
 	}
 	
 	public List<ChatEntity> getStartchat(String tp, String memname,String logId, Integer id) {
