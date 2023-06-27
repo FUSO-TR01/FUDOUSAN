@@ -1,12 +1,24 @@
+@charset "UTF-8";
+* {
+	box-sizing: border-box;/*要素が入る幅の設定*/
+}
+/*ボディの設定-----------------------------------------------------------------------*/
+body {
+	background-color: #f0f0f0;
+	margin: 0;/*要素の外側の余白の幅の設定*/
+	padding: 0;/*要素の内側の余白の幅の設定*/
+	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: center;
+}
 /* === ソートボタンを表示するエリア ============== */
 .tsImgArea{
-  line-height: 1;
+  line-height: 2;
 }
 /* === ソートボタン ============================== */
 .tsImg{
   display    : inline-block;
-  width      : 8px;
-  height     : 6px;
+  width      : 20px;
+  height     : 15px;
   background : #eee;
   border     : 1px solid #777;
   margin     : 1px 3px;
@@ -21,7 +33,6 @@
 .tsImg path{
   fill       : #777;
 }
- 
 
 .tfArea{
   display    : inline-block;
@@ -106,7 +117,70 @@
 #sampleTable tr[cmanFilterNone] + tr td{
   border-top : 3px double #777;
 }
- /* --- （参考）テーブル全体のスタイル指定 ------- */
+/*表デザイン------------------------------------------------------------------*/
+.design08 {
+	width: 85%;
+	text-align: center;
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin:auto
+
+}
+.design08 th {
+	padding: 10px;
+	background: #778ca3;
+	border: solid 1px #666666;
+	color: #ffffff;
+}
+.design08 td {
+	padding: 10px;
+	border: solid 1px #666666;
+}
+
+.design08 td:first-child {
+	background: #e9faf9;
+}
+/*ヘッター-----------------------------------------------------------------------*/
+header {
+	padding: 8px 4% 0px;
+	position: fixed;/*要素の場所の固定*/
+	top: 0;
+	width: 100%;/*幅の設定*/
+	background-color: cadetblue;
+	display: flex;
+	align-items: center;/*フレックスボックスレイアウト作成*/
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);/*影の追加*/
+	z-index:10000;/*最上面に表示*/
+}
+/*ヘッタータイトル*/
+h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 30px;
+}
+
+/*ヘッターaタグ*/
+a {
+	text-decoration: none;/*装飾の削除*/
+	color: white;
+}
+/*ヘッターnavタグ*/
+nav {
+	margin: 0 0 0 auto;/*要素の外側の余白の幅の設定*/
+}
+/*ヘッターulタグ*/
+ul {
+	list-style: none;/*どのように並べるのか*/
+	margin: 0;
+	display: flex;
+}
+/*ヘッターliタグ*/
+li {
+	margin: 0 0 0 15px;
+	font-size: 20px;
+	font-weight: bold;
+}
+/* --- （参考）テーブル全体のスタイル指定 ------- */
 #sampleTable {
   width          : 100%;
   border-collapse: collapse;         /* 境界線結合 */
@@ -117,7 +191,7 @@
 #sampleTable th {
   text-align    : center;            /* 文字位置   */
   font-weight   : bold;              /* 太文字     */
-  padding       : 3px 5px;          /* 余白       */
+  padding       : 6px 5px;          /* 余白       */
   border        : 1px #666666 solid; /* 罫線       */
   background    : #99ccff;           /* 背景色     */
   white-space   : nowrap;
@@ -128,4 +202,52 @@
   padding       : 3px 5px;           /* 余白       */
   border        : 1px #666666 solid; /* 罫線       */
   white-space   : nowrap;
+}
+/*ロゴの設定--------------------------------------------------------------------------------*/
+.logo {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.logo img {
+  width: 85px; /* ロゴの幅 */
+  height: auto; /* ロゴの高さを自動調整 */
+}
+/*フッター-----------------------------------------------------------------------*/
+footer {
+	background-color: #f5f5f5;
+	display: flex;
+	flex-direction: column;/*アイテムの並びの決定*/
+	margin-top: auto;/*余白の自動計算設定*/
+	text-align: center;
+	padding: 10px; /*内部余白の設定*/
+    bottom: 0;
+}
+/*文字線*/
+.fnavi li a {
+	position: relative;
+}
+.fnavi li a:hover {
+	color: #3c6566;
+}
+.fnavi li a::after {
+	content: '';
+	/*絶対配置で線の位置を決める*/
+	position: absolute;
+	bottom: 0;
+	left: 10%;
+	/*線の形状*/
+	width: 80%;
+	height: 2px;
+	background: #3c6566;
+	/*アニメーションの指定*/
+	transition: all .3s;
+	transform: scale(0, 1);
+	/*X方向0、Y方向1*/
+	transform-origin: left top;
+	/*左上基点*/
+}
+.fnavi li a:hover::after {
+	transform: scale(1, 1);
+	/*X方向にスケール拡大*/
 }
