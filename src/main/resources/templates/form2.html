@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>お問い合わせ画面</title>
+	<style>
+		body {
+			background-image: url('/image.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			margin: 0;
+			padding: 0;
+		}
+
+		.center {
+			text-align: left;
+			margin-top: 0;
+			margin-left: auto;
+			margin-right: auto;
+			width: 450px;
+			position: relative;
+			z-index: 1;
+			background-color: rgba(255, 255, 255, 0.7);
+			padding: 20px;
+			margin-top: 100px;
+			border-radius: 20px;
+		}
+
+		.input-group {
+			margin-bottom: 20px;
+		}
+
+		.textarea {
+			width: 100%;
+			box-sizing: border-box;
+			resize: none;
+			font-size: 25px;
+			/* ユーザーによるリサイズを無効化 */
+		}
+
+		.title {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding: 20px;
+			background-color: rgb(255, 255, 181);
+			font-size: 40px;
+			text-align: center;
+			margin: 0;
+		}
+
+		.label {
+			font-size: 25px;
+		}
+
+		.button {
+			font-size: 20px;
+			border-radius: 10px;
+			padding: 15px 25px;
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+			background-color: rgb(181, 255, 106);
+			color: rgb(0, 0, 0);
+			cursor: pointer;
+			font-weight: bold;
+			transition: background-color 0.3s ease-in-out;
+		}
+		.button:hover {
+			background-color: rgb(0, 0, 0);
+			color: rgb(255, 255, 255);
+		}
+
+		.text-input {
+			font-size: 20px;
+		}
+
+		.form-container {
+			margin-top: 10px;
+			/* タイトルの高さ + マージンを指定 */
+		}
+
+		.error {
+			color: red;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.copyright {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			background-color: #f2f2f2;
+			color: #999999;
+			text-align: center;
+			padding: 10px 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="center">
+		<h1 class="title">お問い合わせ内容の入力</h1>
+		<div class="form-container">
+			<form method="get" action="#" th:action="@{/checkform}" th:object="${form}">
+				<div class="input-group">
+					<p>
+						<label for="name" class="label">お名前</label><br>
+						<input type="text" id="name" name="Name" th:value="*{Name}" class="text-input"><br>
+						<span th:if="${#fields.hasErrors('Name')}" th:errors="*{Name}" class="error"></span>
+					</p>
+					<p>
+						<label for="mail" class="label">メールアドレス</label><br>
+						<input type="text" id="mail" name="Mail" th:value="*{Mail}" class="text-input"><br>
+						<span th:if="${#fields.hasErrors('Mail')}" th:errors="*{Mail}" class="error"></span>
+					</p>
+
+					<p>
+						<label for="type" class="label">お問い合わせの種別</label><br>
+						<select id="type" name="Type" class="text-input">
+							<option value="">▼種別を選択してください</option>
+							<option value="製品の故障・不具合">製品の故障・不具合</option>
+							<option value="ご使用方法">ご使用方法</option>
+							<option value="部品購入">部品購入</option>
+							<option value="その他">その他</option>
+						</select><br>
+						<span th:if="${#fields.hasErrors('Type')}" th:errors="*{Type}" class="error"></span>
+					</p>
+
+					<p>
+						<label for="message" class="label">お問い合わせ内容</label><br>
+						<textarea id="message" name="Message" rows="10" class="textarea"
+							th:text="*{Message}"></textarea><br>
+						<span th:if="${#fields.hasErrors('Message')}" th:errors="*{Message}" class="error"></span>
+					</p>
+
+					<input type="submit" value="確認画面へ進む" class="button"><br>
+				</div>
+			</form>
+		</div>
+		<div class="copyright">
+			&copy; 2023 chujo. All rights reserved.
+		</div>
+	</div>
+</body>
+
+</html>
