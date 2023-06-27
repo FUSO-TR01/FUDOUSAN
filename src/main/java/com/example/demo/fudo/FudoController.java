@@ -208,6 +208,11 @@ public class FudoController {
 	public String intro(Model model) {
 		return "intro";
 	}
+	
+	@RequestMapping("/viewchat")
+	public String viewcht(Model model) {
+		return "viewchat";
+	}
 
 	//検索
 	@RequestMapping("/merchantsearch")
