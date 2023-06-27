@@ -2,39 +2,41 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<link rel="icon" href="/1031.png">
 	<link rel="stylesheet" th:href="@{/sampleview.css}">
 	<title>物件情報一覧 - 一人暮らしの家探し</title>
 	<meta charset="utf-8" />
 	<script src="sampleview.js"></script>
-<!--	<link rel="stylesheet" href="style-n.css">-->
 </head>
 
-<header>
-	<h1>
-		<a href="/home">一人暮らしの家探し</a>
-	</h1>
-	<nav class="fnavi">
-		<ul>
-			<li><a href="#">企業情報</a></li>
-			<li><a href="#">お知らせ</a></li>
-			<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
-		</ul>
-	</nav>
-</header>
-
 <body>
+	<header>
+			<div class="logo">
+			<h1>
+				<a href="/home"><img src="/1031.png"></a>
+			</h1>
+			</div>
+			<nav class="fnavi">
+				<ul>
+					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>
+					<li><a th:href="@{/intro}">企業情報</a></li>
+					<li><a href="#">お知らせ</a></li>
+					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+				</ul>
+			</nav>
+	</header>
+	
+	<br><br><br><br><br><br>
+	<h1>物件検索</h1>
 	<br>
-	<h1 class="contact-ttl">物件検索</h1>
-	<table id="sampleTable">
-
+	<table id="sampleTable"> 
 		<tr>
 			<th cmanSortBtn>ID</th>
-			<th cmanFilterBtn>物件名</th>
-			<th cmanFilterBtn>間取り</th>
+			<th cmanFilterBtn>物件名<br></th>
+			<th cmanFilterBtn>間取り<br></th>
 			<th cmanSortBtn>家賃</th>
-			<th cmanFilterBtn>住所</th>
-			<th cmanFilterBtn>詳細</th>
-
+			<th cmanFilterBtn>住所<br></th>
+			<th cmanFilterBtn>詳細<br></th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td th:text="${res.id}">1</td>
