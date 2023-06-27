@@ -192,9 +192,9 @@ public class FudoController {
 		return "sample2";
 	}
 
-	@RequestMapping("/form")
-	public String form(Model model, FormInput forminput) {
-		return "form";
+	@RequestMapping("/form2")
+	public String form2(Model model, FormInput forminput) {
+		return "form2";
 	}
 
 	@RequestMapping("/news")
@@ -487,5 +487,12 @@ public class FudoController {
 		List<Entity> list = dao.getBKN();
 		model.addAttribute("dbList", list);
 		return "sampleview";
+	}
+	
+	@RequestMapping("/gomo")
+	public String gomo(Input input, Model model) {
+		List<Entity> list = dao.getBKN();
+		model.addAttribute("dbList", list);
+		return "gomo";
 	}
 }
