@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<link rel="icon" href="/1031.png">
+	<meta charset="UTF-8">
+	<title>HOME</title>
+	<link rel="stylesheet" th:href="@{/chat.css}">
+	<!--		<link rel="stylesheet" th:href="@{/chatmod.css}">-->
+	<!--	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+	<!--	<meta http-equiv="refresh" content="2">-->
+</head>
+
+<body>
+
+	<h1>一人暮らしの家探し</h1>
+	<form method="get" action="/memsearch">
+		<input type="hidden" name="logId" th:value="*{logId}">
+		<input type="text" name="memname">
+		<input type="hidden" name="tp" th:value="*{tp}">
+		<input type="submit" value="検索" class="button">
+	</form>
+
+
+	<table border="1" align="left" width="30%">
+		<tr>
+			<th>name</th>
+		</tr>
+		<tr th:each=" res : ${dbList}">
+			<td>
+				<form th:action="@{/startchat}">
+					<input type="submit" th:value="${res.name}" onclick="displayIframe()">
+					<input type="hidden" name="Id" th:value="${res.id}">
+					<input type="hidden" name="logId" th:value="*{logId}">
+					<input type="hidden" name="memname" th:value="*{memname}">
+					<input type="hidden" name="tp" th:value="*{tp}">
+				</form>
+			</td>
+		</tr>
+
+	</table><br>
+
+	<iframe id="frametarget" src="" width="100%" height="200"></iframe>
+
+	<form method="get" action="/addchat">
+		<p>
+			<textarea id="message" name="Message" rows="10" th:text="*{Message}" placeholder="メッセージを入力"
+				class="textarea"></textarea><br>
+			<input type="hidden" name="Id" th:value="*{Id}">
+			<input type="hidden" name="logId" th:value="*{logId}">
+			<input type="hidden" name="memname" th:value="*{memname}">
+			<input type="hidden" name="tp" th:value="*{tp}">
+		</p>
+		<input type="submit" value="送信" class="SendButton" id="submitButton" style="display: none;"><br>
+	</form>
+
+	<script>
+		const messageInput = document.getElementById('message');
+		const submitButton = document.getElementById('submitButton');
+
+		messageInput.addEventListener('input', function () {
+			if (messageInput.value !== '') {
+				submitButton.style.display = 'inline-block';
+			} else {
+				submitButton.style.display = 'none';
+			}
+		});
+
+		var iframe = document.getElementById("frametarget");
+		var url = window.location.href;
+
+		// URLからクエリパラメータを取得
+		var params = new URLSearchParams(url.split('?')[1]);
+
+		// 各パラメータの値を取得
+		var IdValue = params.get("Id");
+		var logIdValue = params.get("logId");
+		var memnameValue = params.get("memname");
+		var tpValue = params.get("tp");
+
+		// iframeのsrcURLを再構成
+		var srcUrl = "displaychat?Id=" + IdValue + "&logId=" + logIdValue + "&memname=" + memnameValue + "&tp=" + tpValue;
+
+		// エラーチェック（例：必要なパラメータが存在しない場合）
+		if (IdValue && logIdValue && tpValue) {
+			iframe.src = srcUrl;
+		} else {
+			iframe.src = ""; // 空白に設定して表示をクリア
+		}
+	</script>
+</body>
+
+</html>

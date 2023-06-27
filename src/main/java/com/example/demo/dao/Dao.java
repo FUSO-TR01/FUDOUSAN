@@ -241,8 +241,8 @@ public class Dao {
 		List<Map<String, Object>> queryChat = null;
 		List<ChatEntity> chatList = new ArrayList<ChatEntity>();
 		String toId = toId(id, tp);
-		System.out.println(logId);
-		System.out.println(toId);
+//		System.out.println(logId);
+//		System.out.println(toId);
 		String chatsql = chatresultsql(logId,toId);
 		queryChat = db.queryForList(chatsql);
 		for (Map<String, Object> mem : queryChat) {
