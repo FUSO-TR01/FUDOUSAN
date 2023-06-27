@@ -7,7 +7,7 @@
 	<link rel="icon" href="/1031.png">
 	<meta charset="UTF-8">
 	<title>HOME</title>
-<!--	<link rel="stylesheet" th:href="@{/chat.css}">-->
+	<link rel="stylesheet" th:href="@{/chat.css}">
 	<!--		<link rel="stylesheet" th:href="@{/chatmod.css}">-->
 <!--	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
 	<meta http-equiv="refresh" content="2">
@@ -54,17 +54,17 @@
 		</table>
 	</div>
 
-<!--	<form method="get" action="/addchat">-->
-<!--		<p>-->
-<!--			<textarea id="message" name="Message" rows="10" th:text="*{Message}" placeholder="メッセージを入力"-->
-<!--				class="textarea"></textarea><br>-->
-<!--			<input type="hidden" name="Id" th:value="*{Id}">-->
-<!--			<input type="hidden" name="logId" th:value="*{logId}">-->
-<!--			<input type="hidden" name="memname" th:value="*{memname}">-->
-<!--			<input type="hidden" name="tp" th:value="*{tp}">-->
-<!--		</p>-->
-<!--		<input type="submit" value="送信" class="SendButton" id="submitButton" style="display: none;"><br>-->
-<!--	</form>-->
+	<form method="get" action="/addchat">
+		<p>
+			<textarea id="message" name="Message" rows="10" th:text="*{Message}" placeholder="メッセージを入力"
+				class="textarea"></textarea><br>
+			<input type="hidden" name="Id" th:value="*{Id}">
+			<input type="hidden" name="logId" th:value="*{logId}">
+			<input type="hidden" name="memname" th:value="*{memname}">
+			<input type="hidden" name="tp" th:value="*{tp}">
+		</p>
+		<input type="submit" value="送信" class="SendButton" id="submitButton" style="display: none;"><br>
+	</form>
 
 	<script>
 		const messageInput = document.getElementById('message');
