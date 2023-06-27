@@ -39,7 +39,7 @@
 
 	<table border="1" class="NameTable">
 		<tr>
-			<th>name</th>
+			<th>お客様一覧</th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td>
@@ -54,14 +54,16 @@
 		</tr>
 
 	</table><br>
+	
 	<label th:text="${toname}" class="Receiver"></label>
+	
 	<div>
 	<table border="1"  class="ChatTable">
 		<tr>
 			<th colspan="2" class="fixed01">チャット</th>
 		</tr>
 		<tr th:each=" res : ${chatList}">
-			<td th:text="${res.chatC}" class="ChatItem"></td>
+			<td th:text="${res.chatC}" class="ChatItem2"></td>
 			<td th:text="${res.chat}" class="ChatItem"></td>
 		</tr>
 	</table>
