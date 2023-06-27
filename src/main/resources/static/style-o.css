@@ -61,16 +61,13 @@ footer {
 	padding: 10px; /*内部余白の設定*/
     bottom: 0;
 }
-
 /*文字線*/
 .fnavi li a {
 	position: relative;
 }
-
 .fnavi li a:hover {
 	color: #3c6566;
 }
-
 .fnavi li a::after {
 	content: '';
 	/*絶対配置で線の位置を決める*/
@@ -88,12 +85,10 @@ footer {
 	transform-origin: left top;
 	/*左上基点*/
 }
-
 .fnavi li a:hover::after {
 	transform: scale(1, 1);
 	/*X方向にスケール拡大*/
 }
-
 /*ボタン（aタグ用）-----------------------------------------------------------------------*/
 .button020 a{
 	background: #5c5c5c;
@@ -191,7 +186,6 @@ footer {
 	right: 1.4rem;
 }
 /*登録用背景ボックス------------------------------------------------------------------*/
-
 .ConfirmBox {
 	position: relative;
 	width: 500px;
@@ -202,7 +196,7 @@ footer {
 	padding: 25px 50px;
 	border-radius: 20px;
 }
-/*サブタイトル*/
+/*サブタイトル------------------------------------------------------------------*/
 .kyocho {
 	background-color: cadetblue;
 	font-weight: bold;
@@ -220,14 +214,12 @@ footer {
 	margin:auto
 
 }
-
 .design08 th {
 	padding: 10px;
 	background: #778ca3;
 	border: solid 1px #666666;
 	color: #ffffff;
 }
-
 .design08 td {
 	padding: 10px;
 	border: solid 1px #666666;
@@ -256,7 +248,7 @@ custom-button {
 		top: 20px;
 		right: 20px;
 	}
-/*項目名*/
+/*項目名--------------------------------------------------------------------------------*/
 .Form-Item-Label {
 	width: 100%;
 	max-width: 248px;
@@ -265,12 +257,10 @@ custom-button {
 	font-size: 18px;
 	white-space: nowrap;
 }
-
-
-
+/*テキストボックス--------------------------------------------------------------------------------*/
 .Form-Item-Input {
 	border: 1px solid #ddd;
-	border-radius: 6px;
+	border-radius: 6px;/*要素の角をまるくする設定*/
 	margin-left: 40px;
 	padding-left: 1em;
 	padding-right: 1em;
@@ -282,10 +272,9 @@ custom-button {
 	/*	font-size: 14px;*/
 	font-size: 1em;
 }
-/*チェックボックスをそろえる*/
-
+/*チェックボックスをそろえる--------------------------------------------------------------------------------*/
 .form-align {
-	display: inline-block;
+	display: inline-block;/*横並び可能にする設定*/
 	text-align: left;
 }
 /*ロゴの設定--------------------------------------------------------------------------------*/
