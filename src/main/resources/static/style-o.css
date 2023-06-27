@@ -287,3 +287,8 @@ custom-button {
   width: 85px; /* ロゴの幅 */
   height: auto; /* ロゴの高さを自動調整 */
 }
+/*チェックボックスをそろえる*/
+.label {
+	display: inline-block;
+	text-align: left;
+}
