@@ -46,20 +46,7 @@ table {
 		bottom: 35px;
 		right: 70px;
 }
-.button {
-	background-color: #f39700;
-		/* ボタンの背景色を赤に設定 */
-		color: #ffffff;
-		/* ボタンのテキスト色を白に設定 */
-		border: none;
-		/* ボタンのボーダーをなしに設定 */
-		padding: 3px 3px;
-		/* ボタンの余白を設定 */
-		border-radius: 5px;
-		/* ボタンの角を丸くするために設定 */
-		position: fixed;
-		right: 510px;
-}
+
 /*-------------------------------------------------------------------------*/
 /*チャットテーブル*/
 .ChatTable {
@@ -68,7 +55,6 @@ table {
 	padding: 10px;
 	background-color: lightblue;
 	margin: 10px 0px 10px 0px;
-	
 	/*	overflow: scroll;*/
 	/*	position: relative;*/
 	/*	position: fixed;*/
