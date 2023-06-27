@@ -16,14 +16,14 @@
 <body>
 
 	<h1>一人暮らしの家探し</h1>
-	<form method="get" action="/memsearch">
+	<form method="get" action="/memsearch" class="SearchBox">
 		<input type="hidden" name="logId" th:value="*{logId}">
 		<input type="text" name="memname">
 		<input type="hidden" name="tp" th:value="*{tp}">
 		<input type="submit" value="検索" class="button">
 	</form>
 
-	<table border="1" align="left" width="30%">
+	<table border="1" class="NameTable">
 		<tr>
 			<th>name</th>
 		</tr>
@@ -41,17 +41,18 @@
 
 	</table><br>
 
-	<label th:text="${toname}" class=""></label>
-	<div class="ChatTable">
-		<table width="70%" border="1">
-			<tr>
-				<th width="50%" colspan="2" class="fixed01">チャット</th>
-			</tr>
-			<tr th:each=" res : ${chatList}">
-				<td th:text="${res.chatC}" width="50%"></td>
-				<td th:text="${res.chat}" width="50%"></td>
-			</tr>
-		</table>
+	<label th:text="${toname}" class="Receiver"></label>
+	<div>
+	<table border="1"  class="ChatTable">
+		<tr>
+			<th colspan="2" class="fixed01">チャット</th>
+		</tr>
+		<tr th:each=" res : ${chatList}">
+			<td th:text="${res.chatC}" class="ChatItem"></td>
+			<td th:text="${res.chat}" class="ChatItem"></td>
+		</tr>
+	</table>
+
 	</div>
 
 	<form method="get" action="/addchat">
