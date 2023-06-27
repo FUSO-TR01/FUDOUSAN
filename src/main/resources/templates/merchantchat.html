@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org">
-
 
 <head>
 	<link rel="icon" href="/1031.png">
 	<meta charset="UTF-8">
 	<title>HOME</title>
 	<link rel="stylesheet" th:href="@{/chat.css}">
-	<!--		<link rel="stylesheet" th:href="@{/chatmod.css}">-->
+<!--	<link rel="stylesheet" th:href="@{/chatmod.css}">-->
 <!--	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
 	<meta http-equiv="refresh" content="2">
 </head>
 
-<body>
+<!--<header>
+	<div class="logo">
+			<h1>
+				<a href="/home"><img src="/1031.png"></a>
+			</h1>
+	</div>
+			<nav class="fnavi">
+				<ul>
+					<li><a href="#">企業情報</a></li>
+					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
+					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+				</ul>
+			</nav>
+</header>-->
 
-	<h1>一人暮らしの家探し</h1>
+<body>
+	<br>
+	<h1>お客様とチャット</h1>
+	<br>
 	<form method="get" action="/memsearch" class="SearchBox">
 		<input type="hidden" name="logId" th:value="*{logId}">
 		<input type="text" name="memname">
@@ -40,7 +54,6 @@
 		</tr>
 
 	</table><br>
-
 	<label th:text="${toname}" class="Receiver"></label>
 	<div>
 	<table border="1"  class="ChatTable">
@@ -79,6 +92,10 @@
 			}
 		});
 	</script>
+	
+	<!--<footer>
+		<p>copyright 一人暮らしの家探し 2023</p>
+	</footer>-->
 </body>
 
 </html>
