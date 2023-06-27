@@ -1,6 +1,9 @@
 package com.example.demo.fudo;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -346,7 +349,8 @@ public class FudoController {
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);
 		if (tp.equals("merchant")) {
-			return "merchantchat";
+//			return "merchantchat";
+			return "samplechat2";
 		} else {
 			return "customerchat";
 		}
@@ -368,7 +372,8 @@ public class FudoController {
 		model.addAttribute("toname", toname);
 
 		if (tp.equals("merchant")) {
-			return "merchantchat";
+//			return "merchantchat";
+			return "viewchat";
 		} else {
 			return "customerchat";
 		}
@@ -383,7 +388,8 @@ public class FudoController {
 		model.addAttribute("tp", tp);
 		model.addAttribute("memname", memname);
 		if (tp.equals("merchant")) {
-			return "merchantchat";
+//			return "merchantchat";
+			return "samplechat2";
 		} else {
 			return "customerchat";
 		}
@@ -404,7 +410,8 @@ public class FudoController {
 		String toname = dao.toname(id, tp);
 		model.addAttribute("toname", toname);
 		if (tp.equals("merchant")) {
-			return "merchantchat";
+//			return "merchantchat";
+			return "samplechat2";
 		} else {
 			return "customerchat";
 		}
@@ -414,20 +421,13 @@ public class FudoController {
 	public String addchat(ChatInput chatinput, @RequestParam("Message") String message,
 			@RequestParam("memname") String memname,
 			@RequestParam("Id") Integer id, @RequestParam("logId") String logId, @RequestParam("tp") String tp,
-			Model model) {
+			Model model) throws UnsupportedEncodingException {
+		System.out.println(memname);
 		dao.insertDb_addchat(tp, message, logId, id);
-//		List<ChatEntity> list = dao.getChatsearchmem(tp, memname);
-//		List<ChatEntity> chatlist = dao.getStartchat(tp, memname, logId, id);
-//		model.addAttribute("chatList", chatlist);
-//		model.addAttribute("dbList", list);
-//		model.addAttribute("Id", id);
-//		model.addAttribute("logId", logId);
-//		model.addAttribute("tp", tp);
-//		model.addAttribute("memname", memname);
-//		String toname = dao.toname(id, tp);
-//		model.addAttribute("toname", toname);
-		return "redirect:/displaychat?Id=" + id + "&logId=" + logId + "&memname=" + memname + "&tp=" + tp;
-	}
+		String encodedMemname = URLEncoder.encode(memname, StandardCharsets.UTF_8.toString());
+		String redirectUrl = "/startchat?Id=" + id + "&logId=" + logId + "&memname=" + encodedMemname + "&tp=" + tp;
+		return "redirect:" + redirectUrl;
+		}
 
 	//	___________________________________
 

@@ -1,0 +1,17 @@
+<!-- db_list.html -->
+<table border="1" align="left" width="30%">
+    <tr>
+        <th>name</th>
+    </tr>
+    <tr th:each="res : ${dbList}">
+        <td>
+            <form id="startChatForm" th:action="@{/startchat}" method="get">
+                <input type="submit" th:value="${res.name}" onclick="startChat(this)">
+                <input type="hidden" name="Id" th:value="${res.id}">
+                <input type="hidden" name="logId" th:value="*{logId}">
+                <input type="hidden" name="memname" th:value="*{memname}">
+                <input type="hidden" name="tp" th:value="*{tp}">
+            </form>
+        </td>
+    </tr>
+</table>
