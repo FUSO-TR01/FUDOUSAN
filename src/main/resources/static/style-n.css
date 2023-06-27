@@ -471,6 +471,10 @@ select {
 		top: 20px;
 		right: 20px;
 	}
+.kaisya {
+	text-align: center;
+    padding: 1px;
+}
 /*ロゴの設定--------------------------------------------------------------------------------*/
 .logo {
   float: left;

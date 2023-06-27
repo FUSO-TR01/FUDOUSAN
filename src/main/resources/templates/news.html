@@ -10,28 +10,32 @@
 </head>
 
 <body>
-	<header id="header">
-		<div class="wrapper">
-			<p class="logo"><a href="#">PROFILE</a></p>
-			<nav>
+	<div class="footerFixed">
+		<header>
+			<div class="logo">
+			<h1>
+				<a href="/home"><img src="/1031.png"></a>
+			</h1>
+			</div>
+			<nav class="fnavi">
 				<ul>
-					<li><a href="#">トップ</a></li>
+					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>
+					<li><a th:href="@{/intro}">企業情報</a></li>
 					<li><a href="#">お知らせ</a></li>
-					<li><a href="#">お問い合わせ</a></li>
+					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
 				</ul>
 			</nav>
-		</div>
 	</header>
 
 	<table>
 		<tr>
-			<th>物件お知らせ</th>
+			<th><font size="6">物件お知らせ</font></th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td th:text="|${res.address}の物件一覧に${res.name}が追加されました|"></td>
 		</tr>
 	</table>
-
+</div>
 </body>
 
 
