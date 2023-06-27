@@ -8,14 +8,7 @@
 	<link rel="stylesheet" th:href="@{/chat.css}">
 	<meta charset="UTF-8">
 	<title>HOME</title>
-	<style>
-		.textarea {
-			width: 30%;
-			box-sizing: border-box;
-			resize: none;
-			/* ユーザーによるリサイズを無効化 */
-		}
-	</style>
+	<meta http-equiv="refresh" content="2">
 </head>
 
 <!--<header>
@@ -66,7 +59,7 @@
 			<th colspan="2" class="fixed01">チャット</th>
 		</tr>
 		<tr th:each=" res : ${chatList}">
-			<td th:text="${res.chat}" class="ChatItem"></td>
+			<td th:text="${res.chat}" class="ChatItem2"></td>
 			<td th:text="${res.chatC}" class="ChatItem"></td>
 		</tr>
 	</table>
@@ -78,8 +71,8 @@
 			<input type="hidden" name="logId" th:value="*{logId}">
 			<input type="hidden" name="memname" th:value="*{memname}">
 			<input type="hidden" name="tp" th:value="*{tp}">
+			<input type="submit" value="送信" class="SendButton" id="submitButton" style="display: none;"><br>
 		</p>
-		<input type="submit" value="送信" class="SendButton" id="submitButton" style="display: none;"><br>
 	</form>
 
 	<script>
