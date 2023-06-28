@@ -4,6 +4,7 @@
 
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" href="/1031.png">
 	<title>検索結果</title>
 	<link rel="stylesheet" th:href="@{/style-n.css}">
 	<link rel="stylesheet" th:href="@{/search.css}">
@@ -13,15 +14,20 @@
 
 	<div class="footerFixed">
 		<header>
+			<div class="logo">
+
 			<h1>
-				<a href="/merchant">一人暮らしの家探し</a>
+				<a href="/home"><img src="/1031.png"></a>
 			</h1>
+			</div>
 			<nav class="fnavi">
 				<ul>
-					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>
+					<li><a th:href="@{/gomo}">ミニゲーム</a></li>
+<!--					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
 					<li><a href="#">企業情報</a></li>
 					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
 					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+					<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
 				</ul>
 			</nav>
 		</header>
