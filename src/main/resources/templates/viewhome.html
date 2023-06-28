@@ -5,6 +5,7 @@
 	<link rel="icon" href="/1031.png">
 	<link rel="stylesheet" th:href="@{/style-o.css}">
 	<link rel="stylesheet" th:href="@{/style-n.css}">
+		<link rel="stylesheet" th:href="@{/search.css}">
 	<title>物件情報一覧 - 一人暮らしの家探し</title>
 	<meta charset="utf-8" />
 </head>
@@ -24,8 +25,8 @@
 
 <body>
 	<br><br><br><br><br>
-	<div class="ConfirmBox">
-		<h2 class="kyocho">物件情報一覧</h2>
+	<div class="SearchBox">
+		<br><h1 class="kyocho">物件情報一覧</h1><br>
 		<form method="get" action="/merchantsearch">
 			<div class="form-align">
 				<table class="TableSpace">
@@ -183,11 +184,11 @@
 			</p>
 			<br>
 			<p>
-				<input type="submit" value="検索" class="button019">
+				<input type="submit" value="検索" class="button0">
 			</p>
 		</form>
 		<form th:action="@{/merchant}">
-			<input type="submit" value="メニューへ戻る" class="button019">
+			<input type="submit" value="メニューへ戻る" class="button0">
 		</form>
 <br><br>
 		<table border="1" class="design08">
@@ -212,18 +213,18 @@
 
 				<td>
 					<form th:action="@{/edithome/{id}(id=${res.id})}">
-						<input type="submit" value="編集" class="button019">
+						<input type="submit" value="編集" class="EditButton">
 
 					</form>
 				</td>
 				<td>
 					<form th:action="@{/del/{id}(id=${res.id})}">
 						<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');"
-							class="button019">
+							class="DeleteButton">
 					</form>
 				</td>
 			</tr>
-		</table>
+		</table><br>
 	</div>
 	<br><br>
 	<footer>
