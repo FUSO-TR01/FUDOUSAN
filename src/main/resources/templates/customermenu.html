@@ -4,18 +4,22 @@
 <head>
 	<link rel="icon" href="/1031.png">
 	<meta charset="UTF-8">
-	<title>メニュー（一般のお客様用） - 一人暮らしの家探し</title>
+	<title>メニュー</title>
 	<link rel="stylesheet" th:href="@{/style-o.css}">
 </head>
 <header>
-	<h1>
-		<a href="/home">一人暮らしの家探し</a>
-	</h1>
+	<div class="logo">
+			<h1>
+				<a href="/home"><img src="/1031.png"></a>
+			</h1>
+			</div>
 	<nav class="fnavi">
 		<ul>
-			<li><a href="#">企業情報</a></li>
-			<li><a href="#">お知らせ</a></li>
-			<li><a href="#">お問い合わせ</a></li>
+			<li><a th:href="@{/gomo}">ミニゲーム</a></li>
+			<li><a href="intro">企業情報</a></li>
+			<li><a href="news.html">お知らせ</a></li>
+			<li><a href="form.html">お問い合わせ</a></li>
+			<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
 		</ul>
 	</nav>
 </header>
@@ -24,7 +28,7 @@
 
 	<br><br><br><br><br>
 	<div class="ConfirmBox" style="width: 700px;">
-		<h1 class="kyocho">メニュー（一般のお客様用）</h1>
+		<h1 class="kyocho">メニュー</h1>
 		<br>
 		<form th:action="@{/viewhome2}">
 			<input type="submit" value="物件検索" class="button019">
