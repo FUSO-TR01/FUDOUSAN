@@ -52,9 +52,9 @@ table {
 .ChatTable {
 	width: 100%;
 	float: left;
-	padding: 10px;
+/*	padding: 10px;*/
 	background-color: lightblue;
-	margin: 10px 0px 10px 0px;
+/*	margin: 10px 0px 10px 0px;*/
 	/*	overflow: scroll;*/
 	/*	position: relative;*/
 	/*	position: fixed;*/
@@ -103,11 +103,14 @@ table {
 /*-------------------------------------------------------------------------*/
 /*送信先名前表示*/
 .Receiver {
-	width: 85%;
+	width: 50%;
+	font-size: 35px;
+	font-weight:bold;
+	color: white;
 	padding: 10px;
-	float: left;
-	text-align: center;
-	background-color: lightblue;
+/*	float: left;*/
+	text-align: left;
+/*	background-color: lightblue;*/
 	/*	position: absolute;*/
 	/*	position: fixed;*/
 	/*	right: 50px;*/
