@@ -75,7 +75,7 @@
 									<label class="Form-Item-Label">家　賃</label>
 								</th>
 								<td><input type="text" name="money" th:value="*{money}" required class="Form-Item-Input"
-										placeholder="例）50000（数字のみ）"></td>
+										placeholder="例）50000" oninput="value = value.replace(/[^0-9]+/i,'');"></td>
 							</tr>
 							<tr>
 								<th><span class="hissu">必須</span>

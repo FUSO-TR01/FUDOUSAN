@@ -4,7 +4,7 @@
 
 html, body {
   margin: 0;
-  background-color: #008000;
+  background-color: #FFFFFF;
 }
 
 .stage {
@@ -13,6 +13,7 @@ html, body {
   margin: 60px;
   width: 404px;
   height: 404px;
+  background-color: #008000;
 }
 
 .square {
