@@ -6,59 +6,52 @@
 	<title>HTML</title>
 	<link rel="stylesheet" th:href="@{/style-n.css}">
 	<link rel="stylesheet" th:href="@{/chat.css}">
-
+	<style>
+		body {
+			background-color: #ffdab9;
+			color: #000000;
+		}
+	</style>
 </head>
-
-<body>
-	<header>
+<header>
 		<h1>
 			<label th:text="${toname}" class="Receiver"></label>
 		</h1>
-		<!--		<div class="logo">-->
-		<!--			<h1>-->
-		<!--				<a href="/home"><img src="/1031.png"></a>-->
-		<!--			</h1>-->
-		<!--		</div>-->
-		<!--		<nav class="fnavi">-->
-		<!--			<ul>-->
-		<!--				<li><a href="#">企業情報</a></li>-->
-		<!--				<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>-->
-		<!--				<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>-->
-		<!--			</ul>-->
-		<!--		</nav>-->
 	</header>
+<body>
 	<form id="redirectForm" method="get" action="/displaychat">
-			<input type="hidden" name="Id" th:value="*{Id}">
-			<input type="hidden" name="logId" th:value="*{logId}">
-			<input type="hidden" name="memname" th:value="*{memname}">
-			<input type="hidden" name="tp" th:value="*{tp}">
+		<input type="hidden" name="Id" th:value="*{Id}">
+		<input type="hidden" name="logId" th:value="*{logId}">
+		<input type="hidden" name="memname" th:value="*{memname}">
+		<input type="hidden" name="tp" th:value="*{tp}">
 	</form>
-	<div class="ChatBack">
-	<div class="ChatTable">
-		<table id="chatTable" border="1" class="ChatTable">
-			<!--			<tr>-->
-			<!--				<th width="50%" colspan="2" class="fixed01">チャット</th>-->
-			<!--			</tr>-->
-			<tr th:each="res : ${chatList}">
-				<td th:text="${res.chatC}" class="ChatItem2"></td>
-				<td th:text="${res.chat}" class="ChatItem"></td>
-			</tr>
-		</table>
-	</div>
+<!--	<div class="ChatBack">-->
+		<div>
+			<table id="chatTable" border="1" class="ChatTable">
+				<!--			<tr>-->
+				<!--				<th width="50%" colspan="2" class="fixed01">チャット</th>-->
+				<!--			</tr>-->
+				<tr th:each="res : ${chatList}">
+					<td th:text="${res.chatC}" class="ChatItem2" width="50%"></td>
+					<td th:text="${res.chat}" class="ChatItem" width="50%"></td>
+					<td id="olr"></td>
+				</tr>
+			</table>
+		</div>
 
-	<script>
-		const redirectForm = document.getElementById('redirectForm');
-		const chatTable = document.getElementById('chatTable');
-		let previousChatData = '';
+		<script>
+			const redirectForm = document.getElementById('redirectForm');
+			const chatTable = document.getElementById('chatTable');
+			let previousChatData = '';
 
-		function submitRedirectForm() {
-			redirectForm.submit();
-		}
+			function submitRedirectForm() {
+				redirectForm.submit();
+			}
 //		setInterval(submitRedirectForm, 5000); // 2秒ごとにフォームをサブミット
 
 
-	</script>
-		</div>
+		</script>
+<!--	</div>-->
 </body>
 
 </html>
