@@ -54,6 +54,25 @@ table {
 	right: 70px;
 }
 
+.SendButton2 {
+/*	position: fixed;*/
+/*	top: 160px;*/
+/*	left: 140px;*/
+	background-color: #f39700;
+	/* ボタンの背景色を赤に設定 */
+	color: #ffffff;
+	/* ボタンのテキスト色を白に設定 */
+	border: none;
+	/* ボタンのボーダーをなしに設定 */
+	padding: 5px 5px;
+	/* ボタンの余白を設定 */
+	border-radius: 5px;
+	/* ボタンの角を丸くするために設定 */
+	margin-top: 10px;
+/*	margin-left: 65px;*/
+
+}
+
 /*-------------------------------------------------------------------------*/
 /*チャットテーブル*/
 .ChatTable {
@@ -156,7 +175,8 @@ table {
 	text-align: left;
 	background-color: lightblue;
 	border: 1px solid transparent;
-
+	border-radius:10px;
+	text-align: center;
 }
 
 
@@ -191,4 +211,9 @@ fixed01:before {
 
 .frametarget {
 	border: none;
+}
+
+.sen{
+	text-decoration:underline
+	wavy;
 }
