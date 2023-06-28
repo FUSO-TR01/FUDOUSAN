@@ -349,8 +349,7 @@ public class FudoController {
 		model.addAttribute("logId", logId);
 		model.addAttribute("tp", tp);
 		if (tp.equals("merchant")) {
-//			return "merchantchat";
-			return "samplechat2";
+			return "merchantchat";
 		} else {
 			return "customerchat";
 		}
@@ -381,10 +380,9 @@ public class FudoController {
 		model.addAttribute("toname", toname);
 
 		if (tp.equals("merchant")) {
-//			return "merchantchat";
 			return "viewchat";
 		} else {
-			return "customerchat";
+			return "viewchat2";
 		}
 	}
 
@@ -397,8 +395,7 @@ public class FudoController {
 		model.addAttribute("tp", tp);
 		model.addAttribute("memname", memname);
 		if (tp.equals("merchant")) {
-//			return "merchantchat";
-			return "samplechat2";
+			return "merchantchat";
 		} else {
 			return "customerchat";
 		}
@@ -419,8 +416,7 @@ public class FudoController {
 		String toname = dao.toname(id, tp);
 		model.addAttribute("toname", toname);
 		if (tp.equals("merchant")) {
-//			return "merchantchat";
-			return "samplechat2";
+			return "merchantchat";
 		} else {
 			return "customerchat";
 		}
