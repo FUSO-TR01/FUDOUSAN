@@ -13,9 +13,9 @@
 	<div class="footerFixed">
 		<header>
 			<div class="logo">
-			<h1>
-				<a href="/home"><img src="/1031.png"></a>
-			</h1>
+				<h1>
+					<a href="/home"><img src="/1031.png"></a>
+				</h1>
 			</div>
 			<nav class="fnavi">
 				<ul>
@@ -25,17 +25,35 @@
 					<li><a href="#">お知らせ</a></li>
 				</ul>
 			</nav>
-	</header>
+		</header>
 
-	<table>
-		<tr>
-			<th><font size="6">物件お知らせ</font></th>
-		</tr>
-		<tr th:each=" res : ${dbList}">
-			<td th:text="|${res.address}の物件一覧に${res.name}が追加されました|"></td>
-		</tr>
-	</table>
-</div>
+		<section class="news">
+			<div class="inner">
+				<h2 class="sub_ttl">NEWS</h2>
+
+				<!-- ここからニュース記事 -->
+
+				<ul th:each=" res : ${dbList}" class="news_list">
+					<li class="news_list_item">
+						<div class="news_list_date">
+<!--							<time>2020.05.12</time>-->
+							<p class="news_item">お知らせ</p>
+						</div>
+						<p th:text="|${res.address}の物件一覧に${res.name}が追加されました|"></p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!--	<table>-->
+		<!--		<tr>-->
+		<!--			<th><font size="6">物件お知らせ</font></th>-->
+		<!--		</tr>-->
+		<!--		<tr th:each=" res : ${dbList}">-->
+		<!--			<td th:text="|${res.address}の物件一覧に${res.name}が追加されました|"></td>-->
+		<!--		</tr>-->
+		<!--	</table>-->
+	</div>
 </body>
 
 
