@@ -71,7 +71,7 @@
 			<th width="70%" height="450">
 				<table width="100%" height="450">
 					<tr>
-						<td>
+						<td id="scroll-inner">
 							<iframe id="frametarget" src="" width="100%" height="450"></iframe>
 						</td>
 					</tr>
@@ -116,7 +116,7 @@
 		var tpValue = params.get("tp");
 
 		// iframeのsrcURLを再構成
-		var srcUrl = "displaychat?Id=" + IdValue + "&logId=" + logIdValue + "&memname=" + memnameValue + "&tp=" + tpValue;
+		var srcUrl = "displaychat?Id=" + IdValue + "&logId=" + logIdValue + "&memname=" + memnameValue + "&tp=" + tpValue+"#olr";
 
 		// エラーチェック（例：必要なパラメータが存在しない場合）
 		if (IdValue && logIdValue && tpValue) {
