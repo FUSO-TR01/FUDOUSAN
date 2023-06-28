@@ -359,7 +359,16 @@ public class FudoController {
 	@RequestMapping("/displaychat")
 	public String displayChat(@RequestParam("memname") String memname,
 			@RequestParam("Id") Integer id, @RequestParam("logId") String logId, @RequestParam("tp") String tp,
-			Model model) {
+			 Model model) {
+//		ObjectMapper objectMapper = new ObjectMapper();
+//	    List<ChatEntity> chatList = null;
+//	    try {
+//	    	chatList = objectMapper.readValue(chatListJson, new TypeReference<List<ChatEntity>>() {});
+//	    } catch (IOException e) {
+//	        // JSONのデシリアライズエラー処理
+////	        e.printStackTrace();
+//	    }
+		
 		List<ChatEntity> list = dao.getChatsearchmem(tp, memname);
 		List<ChatEntity> chatlist = dao.getStartchat(tp, memname, logId, id);
 		model.addAttribute("chatList", chatlist);

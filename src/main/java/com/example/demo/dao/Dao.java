@@ -248,7 +248,7 @@ public class Dao {
 		for (Map<String, Object> mem : queryChat) {
 			ChatEntity entdb = new ChatEntity();
 			entdb.setLogId((String) mem.get("logId"));
-			System.out.println((String) mem.get("logId"));
+//			System.out.println((String) mem.get("logId"));
 			entdb.setToId((String) mem.get("toId"));
 			entdb.setName((String) mem.get("name"));
 			entdb.setToname((String) mem.get("toname"));

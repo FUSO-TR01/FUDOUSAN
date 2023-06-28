@@ -4,23 +4,42 @@
 <head>
 	<meta charset="utf-8" />
 	<title>HTML</title>
-		<meta http-equiv="refresh" content="2">
+	<link rel="stylesheet" th:href="@{/chat.css}">
 </head>
 
 <body>
-
 	<label th:text="${toname}" class=""></label>
+	<form id="redirectForm" method="get" action="/displaychat">
+		<p>
+			<input type="hidden" name="Id" th:value="*{Id}">
+			<input type="hidden" name="logId" th:value="*{logId}">
+			<input type="hidden" name="memname" th:value="*{memname}">
+			<input type="hidden" name="tp" th:value="*{tp}">
+		</p>
+	</form>
 	<div class="ChatTable">
-		<table width="70%" border="1">
+		<table id="chatTable" width="70%" border="1">
 			<tr>
 				<th width="50%" colspan="2" class="fixed01">チャット</th>
 			</tr>
-			<tr th:each=" res : ${chatList}">
+			<tr th:each="res : ${chatList}">
 				<td th:text="${res.chatC}" width="50%"></td>
 				<td th:text="${res.chat}" width="50%"></td>
 			</tr>
 		</table>
 	</div>
+	<script>
+		const redirectForm = document.getElementById('redirectForm');
+		const chatTable = document.getElementById('chatTable');
+		let previousChatData = '';
+		
+		function submitRedirectForm() {
+			redirectForm.submit();
+		}
+		setInterval(submitRedirectForm, 5000); // 2秒ごとにフォームをサブミット
+		
+		
+	</script>
 </body>
 
 </html>
