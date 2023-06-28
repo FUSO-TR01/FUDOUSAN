@@ -20,7 +20,7 @@ INSERT INTO home (name,space,money,address,comment) VALUES
 ('トイレ','1R',150000,'秋田県','トイレあり'),
 ('でかいえ','1R',20000,'鹿児島県','屋根なし'),
 ('キレイナーイエ','1LDK',120000,'東京都','新築,無料Wi-Fi有り'),
-('スペースナイトル','1R',30000,'山口','家電付き');
+('スペースナイトル','1R',30000,'山口県','家電付き');
 
 
 INSERT INTO login(logId,pass,type,name) VALUES 
