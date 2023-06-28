@@ -10,10 +10,7 @@
 </head>
 
 <body>
-
 	<label th:text="${toname}" class="Receiver"></label>
-
-
 	<form id="redirectForm" method="get" action="/displaychat">
 		<p>
 			<input type="hidden" name="Id" th:value="*{Id}">
@@ -23,13 +20,13 @@
 		</p>
 	</form>
 	<div class="ChatTable">
-		<table id="chatTable" border="1" class="ChatTable">
+		<table id="chatTable" width="70%" border="1">
 			<tr>
 				<th width="50%" colspan="2" class="fixed01">チャット</th>
 			</tr>
 			<tr th:each="res : ${chatList}">
-				<td th:text="${res.chatC}" width="50%"></td>
 				<td th:text="${res.chat}" width="50%"></td>
+				<td th:text="${res.chatC}" width="50%"></td>
 			</tr>
 		</table>
 	</div>

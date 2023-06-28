@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
+
 
 <head>
 	<link rel="icon" href="/1031.png">
 	<meta charset="UTF-8">
 	<title>HOME</title>
 	<link rel="stylesheet" th:href="@{/chat.css}">
-<!--	<link rel="stylesheet" th:href="@{/chatmod.css}">-->
-<!--	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
-	<meta http-equiv="refresh" content="10">
+	<!--		<link rel="stylesheet" th:href="@{/chatmod.css}">-->
+	<!--	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+	<!--	<meta http-equiv="refresh" content="2">-->
 </head>
 
 <!--<header>
@@ -27,9 +29,8 @@
 </header>-->
 
 <body>
-	<br>
-	<h1>お客様とチャット</h1>
-	<br>
+
+	<h1>一人暮らしの家探し</h1>
 	<form method="get" action="/memsearch" class="SearchBox">
 		<input type="hidden" name="logId" th:value="*{logId}">
 		<input type="text" name="memname">
@@ -37,14 +38,15 @@
 		<input type="submit" value="検索" class="button">
 	</form>
 
+
 	<table border="1" class="NameTable">
 		<tr>
-			<th>お客様一覧</th>
+			<th>name</th>
 		</tr>
 		<tr th:each=" res : ${dbList}">
 			<td>
 				<form th:action="@{/startchat}">
-					<input type="submit" th:value="${res.name}">
+					<input type="submit" th:value="${res.name}" onclick="displayIframe()">
 					<input type="hidden" name="Id" th:value="${res.id}">
 					<input type="hidden" name="logId" th:value="*{logId}">
 					<input type="hidden" name="memname" th:value="*{memname}">
@@ -54,21 +56,8 @@
 		</tr>
 
 	</table><br>
-	
-	<label th:text="${toname}" class="Receiver"></label>
-	
-	<div>
-	<table border="1"  class="ChatTable">
-		<tr>
-			<th colspan="2" class="fixed01">チャット</th>
-		</tr>
-		<tr th:each=" res : ${chatList}">
-			<td th:text="${res.chatC}" class="ChatItem2"></td>
-			<td th:text="${res.chat}" class="ChatItem"></td>
-		</tr>
-	</table>
 
-	</div>
+	<iframe id="frametarget" src="" width="100%" height="400"></iframe>
 
 	<form method="get" action="/addchat">
 		<p>
@@ -93,11 +82,29 @@
 				submitButton.style.display = 'none';
 			}
 		});
+
+		var iframe = document.getElementById("frametarget");
+		var url = window.location.href;
+
+		// URLからクエリパラメータを取得
+		var params = new URLSearchParams(url.split('?')[1]);
+
+		// 各パラメータの値を取得
+		var IdValue = params.get("Id");
+		var logIdValue = params.get("logId");
+		var memnameValue = params.get("memname");
+		var tpValue = params.get("tp");
+
+		// iframeのsrcURLを再構成
+		var srcUrl = "displaychat?Id=" + IdValue + "&logId=" + logIdValue + "&memname=" + memnameValue + "&tp=" + tpValue;
+
+		// エラーチェック（例：必要なパラメータが存在しない場合）
+		if (IdValue && logIdValue && tpValue) {
+			iframe.src = srcUrl;
+		} else {
+			iframe.src = ""; // 空白に設定して表示をクリア
+		}
 	</script>
-	
-	<!--<footer>
-		<p>copyright 一人暮らしの家探し 2023</p>
-	</footer>-->
 </body>
 
 </html>
