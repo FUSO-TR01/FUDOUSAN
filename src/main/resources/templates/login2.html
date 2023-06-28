@@ -4,7 +4,7 @@
 <head>
 	<link rel="stylesheet" th:href="@{/style-o.css}">
 	<link rel="icon" href="/1031.png">
-	<title>ログインページ</title>
+	<title>お客様専用ログインページ</title>
 	<meta charset="utf-8" />
 </head>
 
@@ -18,7 +18,7 @@
 	<nav class="fnavi">
 		<ul>
 			<li><a th:href="@{/gomo}">ミニゲーム</a></li>
-			<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>
+<!--			<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
 			<li><a href="#">企業情報</a></li>
 			<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
 			<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
@@ -32,6 +32,7 @@
 	<br><br><br><br><br>
 	<div class="ConfirmBox">
 		<h1 class="kyocho">お客様用ログインページ</h1>
+		<p th:text="${result}" style="color: red; font-weight: bold;"></p>
 		<!--	 <form method="get" action="#" th:action="@{/merchant}" th:object="${input}">-->
 
 		<!--		<p>ログインID：<input type="text" name="login2" th:value="*{login2}"></p>-->
@@ -58,10 +59,10 @@
 			<p>パスワード：<input type="password" name="pass2" required></p>
 			<!--		<div th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}">エラーメッセージ</div>-->
 			<input type="submit" value="ログイン" class="button019">
-			<p th:text="${result}"></p>
+<!--			<p th:text="${result}"></p>-->
 
 		</form>
-
+		<br>
 		<div class="button020">
 			<a href="signup2.html" th:href="@{/signup2}">新規登録</a>
 		</div>
