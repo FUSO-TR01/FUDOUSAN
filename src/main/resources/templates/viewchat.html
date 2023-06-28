@@ -4,12 +4,26 @@
 <head>
 	<meta charset="utf-8" />
 	<title>HTML</title>
-
+		<link rel="stylesheet" th:href="@{/style-n.css}">
 	<link rel="stylesheet" th:href="@{/chat.css}">
 
 </head>
 
 <body>
+	<header>
+	<div class="logo">
+			<h1>
+				<a href="/home"><img src="/1031.png"></a>
+			</h1>
+	</div>
+			<nav class="fnavi">
+				<ul>
+					<li><a href="#">企業情報</a></li>
+					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
+					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+				</ul>
+			</nav>
+</header>
 
 	<label th:text="${toname}" class="Receiver"></label>
 
