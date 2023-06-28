@@ -29,43 +29,56 @@
 <!--</header>-->
 
 <body>
-<!--	<h1>一人暮らしの家探し</h1>-->
-<!--	<form method="get" action="/memsearch" class="SearchBox">-->
-<!--		<input type="hidden" name="logId" th:value="*{logId}">-->
-<!--		<input type="text" name="memname">-->
-<!--		<input type="hidden" name="tp" th:value="*{tp}">-->
-<!--		<input type="submit" value="検索" class="button">-->
-<!--	</form>-->
-	<table border="1" class="NameTable">
+	<!--	<h1>一人暮らしの家探し</h1>-->
+	<!--	<form method="get" action="/memsearch" class="SearchBox">-->
+	<!--		<input type="hidden" name="logId" th:value="*{logId}">-->
+	<!--		<input type="text" name="memname">-->
+	<!--		<input type="hidden" name="tp" th:value="*{tp}">-->
+	<!--		<input type="submit" value="検索" class="button">-->
+	<!--	</form>-->
+	<table>
 		<tr>
-			<th>
-				<form method="get" action="/memsearch" class="SearchBox">
-					<input type="hidden" name="logId" th:value="*{logId}">
-					<input type="text" name="memname">
-					<input type="hidden" name="tp" th:value="*{tp}">
-					<input type="submit" value="検索" class="button">
-				</form>
+			<th width="30%">
+				<table border="1" class="NameTable" width="30%">
+					<tr>
+						<th>
+							<form method="get" action="/memsearch" class="SearchBox">
+								<input type="hidden" name="logId" th:value="*{logId}">
+								<input type="text" name="memname">
+								<input type="hidden" name="tp" th:value="*{tp}">
+								<input type="submit" value="検索" class="button">
+							</form>
+						</th>
+					</tr>
+					<tr>
+						<th>name</th>
+					</tr>
+					<tr th:each=" res : ${dbList}">
+						<td>
+							<form th:action="@{/startchat}">
+								<input type="submit" th:value="${res.name}" onclick="displayIframe()">
+								<input type="hidden" name="Id" th:value="${res.id}">
+								<input type="hidden" name="logId" th:value="*{logId}">
+								<input type="hidden" name="memname" th:value="*{memname}">
+								<input type="hidden" name="tp" th:value="*{tp}">
+							</form>
+						</td>
+					</tr>
+
+				</table>
+			</th>
+
+			<th width="70%" height="450">
+				<table width="100%" height="450">
+					<tr>
+						<td>
+							<iframe id="frametarget" src="" width="100%" height="450"></iframe>
+						</td>
+					</tr>
+				</table>
 			</th>
 		</tr>
-		<tr>
-			<th>name</th>
-		</tr>
-		<tr th:each=" res : ${dbList}">
-			<td>
-				<form th:action="@{/startchat}">
-					<input type="submit" th:value="${res.name}" onclick="displayIframe()">
-					<input type="hidden" name="Id" th:value="${res.id}">
-					<input type="hidden" name="logId" th:value="*{logId}">
-					<input type="hidden" name="memname" th:value="*{memname}">
-					<input type="hidden" name="tp" th:value="*{tp}">
-				</form>
-			</td>
-		</tr>
-
-	</table><br>
-
-	<iframe id="frametarget" src="" width="70%" height="450"></iframe>
-
+	</table>
 	<form method="get" action="/addchat">
 		<p>
 			<textarea id="message" name="Message" rows="10" th:text="*{Message}" placeholder="メッセージを入力"
