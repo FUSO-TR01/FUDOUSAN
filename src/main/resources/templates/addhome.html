@@ -16,16 +16,17 @@
 		<header>
 			<div class="logo">
 			<h1>
-				<a href="/home"><img src="/1031.png"></a>
+				<a href="/merchant"><img src="/1031.png"></a>
 			</h1>
 			</div>
 			<nav class="fnavi">
 				<ul>
 					<li><a th:href="@{/gomo}">ミニゲーム</a></li>
-					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>
+<!--					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
 					<li><a href="#">企業情報</a></li>
 					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
 					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+					<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -74,7 +75,7 @@
 									<label class="Form-Item-Label">家　賃</label>
 								</th>
 								<td><input type="text" name="money" th:value="*{money}" required class="Form-Item-Input"
-										placeholder="例）50000"></td>
+										placeholder="例）50000" oninput="value = value.replace(/[^0-9]+/i,'');"></td>
 							</tr>
 							<tr>
 								<th><span class="hissu">必須</span>
@@ -119,18 +120,19 @@
 
 
 					<!-- ウインドウのエリア -->
-					<div id="modalArea" class="modalNoDisp">
+					<div id="modalArea" class="modalNoDisp" style="z-index: 9999;">
 						<div class="modalWindow">
 							<!-- ここがウインドウとなります -->
 							<h2>入力データ</h2>
+							
 							<p id="popupName"></p>
 							<p id="popupSpace"></p>
 							<p id="popupMoney"></p>
 							<p id="popupAddress"></p>
 							<p id="popupComment"></p>
-							<p>登録しますか？</p>
-							<p><input type="submit" value="登録" onclick="modalClose()" th:action="@{/addhome2}"></p>
-							<p><input type="submit" value="やめる" onclick="modalClose()"></p>
+<!--							<p>登録しますか？</p>-->
+							<p><input type="submit" value="登録" onclick="modalClose()" th:action="@{/addhome2}" class="button02"></p>
+							<p><input type="submit" value="やめる" onclick="modalClose()" class="button02"></p>
 						</div>
 					</div>
 				</form>

@@ -257,6 +257,59 @@ li {
 	right: 1.4rem;
 }
 
+/*ログイン以降のボタン2*/
+.button02 {
+	width: 100px;
+	background: #5c5c5c;
+	border-radius: 3px;
+	position: relative;
+	display: flex;
+	/*	justify-content: space-around;*/
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 280px;
+	padding: 10px 25px;
+	color: white;
+	transition: 0.3s ease-in-out;
+	font-weight: 500;
+	text-decoration: none;
+	border: 3px solid #5c5c5c;
+	font-weight: normal;
+	font-size: 15px;
+}
+
+/*矢印*/
+.button0:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	bottom: 0;
+	right: 2rem;
+	font-size: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: right 0.3s;
+	width: 6px;
+	height: 6px;
+	border-top: solid 2px currentColor;
+	border-right: solid 2px currentColor;
+	transform: translateY(-50%) rotate(45deg);
+
+}
+
+.button0:hover {
+	background: #fff;
+	color: #5c5c5c;
+	border: 3px solid #5c5c5c;
+}
+
+/*矢印の動き*/
+.button0:hover:after {
+	right: 1.4rem;
+}
+
 /*-------------------------------------------------------------------------*/
 
 /*チェックボックスをそろえる*/
@@ -317,7 +370,8 @@ input[type=text] {
 	width: 500px;
 	height: 45px;
 	/*font-size:0.6em;*/
-	margin: 0 auto;
+/*	margin: 0 auto;*/
+margin-left: 10px;
 }
 
 /*-------------------------------------------------------------------------*/
@@ -336,8 +390,16 @@ input[type=text] {
 
 /*-------------------------------------------------------------------------*/
 /*セレクトボックス*/
+
+.selectbox-001 select {
+	width: 410px;
+	font-size: 0.6em;
+	margin: 0 auto;
+}
+
 .selectbox-001 {
 	position: relative;
+	margin-left: 10px;
 }
 
 .selectbox-001::before,
@@ -384,14 +446,87 @@ input[type=text] {
 	outline: 2px solid #5c5c5c;
 }
 
-select {
-	width: 410px;
-	/*	height: 45px;*/
+
+
+.selectbox-001 option{
+	background-color: white;
+}
+
+/*-------------------------------------------------------------------------*/
+/*家賃セレクトボックス（並列）*/
+
+.RentStyle select {
+	width: 187px;
 	font-size: 0.6em;
 	margin: 0 auto;
 }
 
-.selectbox-001 option{
+
+.RentStyle {
+   display: flex;
+/*   flex-wrap: wrap;*/
+/*   justify-content: center;*/
+/*   margin-top: 17%;*/
+margin-left: 10px;
+
+}
+
+.RentStyle1 {
+/*   opacity: 0.5; */
+/*   color: #000;*/
+   margin-right: 10px;
+}
+.RentStyle2 {
+/*   opacity: 0.5; */
+/*   color: #000;*/
+   margin-left: 10px;
+}
+
+/*.RentStyle1,.RentStyle2::before,*/
+/*.RentStyle1,.RentStyle2::after {*/
+/*	position: absolute;*/
+/*	content: '';*/
+/*	pointer-events: none;*/
+/*}*/
+
+/*.RentStyle1,.RentStyle2::before {*/
+/*	display: inline-block;*/
+/*	right: 0;*/
+/*	width: 2.8em;*/
+/*	height: 2.8em;*/
+/*	border-radius: 0 3px 3px 0;*/
+/*	background-color: #5c5c5c;*/
+/*}*/
+
+/*.RentStyle1,.RentStyle2::after {*/
+/*	position: absolute;*/
+/*	top: 50%;*/
+/*	right: 1.4em;*/
+/*	transform: translate(50%, -50%) rotate(45deg);*/
+/*	width: 6px;*/
+/*	height: 6px;*/
+/*	border-bottom: 3px solid #fff;*/
+/*	border-right: 3px solid #fff;*/
+/*}*/
+
+.RentStyle1 select,.RentStyle2 select {
+	appearance: none;
+	min-width: 180px;
+	height: 2.8em;
+	padding: .4em 3.6em .4em .8em;
+	border: none;
+	border-radius: 3px;
+	background-color: #eaedf2;
+	color: #333;
+	font-size: 1em;
+	cursor: pointer;
+}
+
+/*.RentStyle1 select,.RentStyle2 select:focus {*/
+/*	outline: 2px solid #5c5c5c;*/
+/*}*/
+
+.RentStyle1 option,.RentStyle2 option{
 	background-color: white;
 }
 

@@ -4,7 +4,7 @@
 <head>
 	<link rel="stylesheet" th:href="@{/style-o.css}">
 	<link rel="icon" href="/1031.png">
-	<title>Hello</title>
+	<title>新規登録</title>
 	<meta charset="utf-8" />
 </head>
 
@@ -16,6 +16,7 @@
 	</div>
 			<nav class="fnavi">
 				<ul>
+					<li><a th:href="@{/gomo}">ミニゲーム</a></li>
 					<li><a href="#">企業情報</a></li>
 					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
 					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
@@ -36,15 +37,15 @@
 			<!--		<span th:if="${#fields.hasErrors('pass2')}" th:errors="*{pass2}" class="error"></span>-->
 			<!--		<span th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="error"></span>-->
 			<!--		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>-->
-			<p th:text="${mes1}"></p>
+			<p th:text="${mes1}" style="color: red; font-weight: bold;"></p>
 			
 			<div class="label">
 			<p>
-				ID：<input style="width:150px;" type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}"
+				ID　　　　　　　　　：<input style="width:150px;" type="text" name="logId" placeholder="IDを入力してください" th:value="${logId}"
 					required>
 			</p>
 			<p>
-				パスワード：<input style="width:200px;" type="password" name="pass1" placeholder="パスワードを入力してください"
+				パスワード　　　　　：<input style="width:200px;" type="password" name="pass1" placeholder="パスワードを入力してください"
 					th:value="${pass1}" required>
 			</p>
 			<p>
@@ -52,11 +53,11 @@
 					th:value="${pass2}" required>
 			</p>
 			<p>
-				不動産名：<input style="width:200px;" type="text" name="type" placeholder="不動産名を入力してください" th:value="${type}"
+				不動産名　　　　　　：<input style="width:200px;" type="text" name="type" placeholder="不動産名を入力してください" th:value="${type}"
 					required>
 			</p>
 			<p>
-				氏名：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}" required>
+				氏名　　　　　　　　：<input type="text" name="name" placeholder="名前を入力してください" th:value="${name}" required>
 			</p>
 			</div>
 			
