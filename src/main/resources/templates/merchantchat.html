@@ -29,17 +29,24 @@
 <!--</header>-->
 
 <body>
-
-	<h1>一人暮らしの家探し</h1>
-	<form method="get" action="/memsearch" class="SearchBox">
-		<input type="hidden" name="logId" th:value="*{logId}">
-		<input type="text" name="memname">
-		<input type="hidden" name="tp" th:value="*{tp}">
-		<input type="submit" value="検索" class="button">
-	</form>
-
-
+<!--	<h1>一人暮らしの家探し</h1>-->
+<!--	<form method="get" action="/memsearch" class="SearchBox">-->
+<!--		<input type="hidden" name="logId" th:value="*{logId}">-->
+<!--		<input type="text" name="memname">-->
+<!--		<input type="hidden" name="tp" th:value="*{tp}">-->
+<!--		<input type="submit" value="検索" class="button">-->
+<!--	</form>-->
 	<table border="1" class="NameTable">
+		<tr>
+			<th>
+				<form method="get" action="/memsearch" class="SearchBox">
+					<input type="hidden" name="logId" th:value="*{logId}">
+					<input type="text" name="memname">
+					<input type="hidden" name="tp" th:value="*{tp}">
+					<input type="submit" value="検索" class="button">
+				</form>
+			</th>
+		</tr>
 		<tr>
 			<th>name</th>
 		</tr>
@@ -57,7 +64,7 @@
 
 	</table><br>
 
-	<iframe id="frametarget" src="" width="70%" height="400"></iframe>
+	<iframe id="frametarget" src="" width="70%" height="450"></iframe>
 
 	<form method="get" action="/addchat">
 		<p>
