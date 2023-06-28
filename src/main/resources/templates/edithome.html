@@ -11,19 +11,19 @@
 </head>
 
 <body>
-	
+
 	<div class="footerFixed">
 		<header>
 			<div class="logo">
 
-			<h1>
-				<a href="/home"><img src="/1031.png"></a>
-			</h1>
+				<h1>
+					<a href="/home"><img src="/1031.png"></a>
+				</h1>
 			</div>
 			<nav class="fnavi">
 				<ul>
 					<li><a th:href="@{/gomo}">ミニゲーム</a></li>
-<!--					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
+					<!--					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
 					<li><a href="#">企業情報</a></li>
 					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
 					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
@@ -40,9 +40,9 @@
 				<form action="#" method="get" th:action="@{/edit/__*{id}__/exe}">
 					<div class="form-align">
 						<table class="TableSpace">
-							<p  class="kyocho2">
-								物件ID : <span th:text="*{id}" ></span>
-								<input type="hidden" name="id" th:value="*{id}" >
+							<p class="kyocho2">
+								物件ID : <span th:text="*{id}"></span>
+								<input type="hidden" name="id" th:value="*{id}">
 							</p>
 							<tr>
 								<th><span class="hissu">必須</span>
@@ -57,66 +57,80 @@
 								</th>
 								<td>
 									<label class="selectbox-001">
-										<select name="space">
+										<select name="space" class="selectbox-001">
 											<option hidden>選択してください</option>
-											<option value="1R">1R</option>
-											<option value="1K">1K</option>
-											<option value="1DK">1DK</option>
-											<option value="1LDK">1LDK</option>
+											<option value="1R" th:selected="${entity.space == '1R'}">1R</option>
+											<option value="1K" th:selected="${entity.space == '1K'}">1K</option>
+											<option value="1DK" th:selected="${entity.space == '1DK'}">1DK</option>
+											<option value="1LDK" th:selected="${entity.space == '1LDK'}">1LDK</option>
 										</select>
-								</label>
+									</label>
 							</tr>
 							<tr>
 								<th><span class="hissu">必須</span>
 									<label class="Form-Item-Label">家　賃</label>
 								</th>
-								<td><input type="text" name="money" th:value="*{money}" required  class="Form-Item-Input">
+								<td><input type="text" name="money" th:value="*{money}" required
+										class="Form-Item-Input">
 								</td>
 							</tr>
-				<tr>
+							<tr>
 								<th><span class="hissu">必須</span>
 									<label class="Form-Item-Label">住　所</label>
 								</th>
-								<td><input type="text" name="address" th:value="*{address}" required class="Form-Item-Input">
+								<td><input type="text" name="address" th:value="*{address}" required
+										class="Form-Item-Input">
 								</td>
-				</tr>
+							</tr>
 						</table>
 					</div>
 					<br><br>
 					<p class="kyocho2">詳　細</p><br>
-										<div class="form-align">
-										<label><input type="checkbox" name="comment" value="無料Wi-Fiあり"
-												id="comment1">無料Wi-Fiあり<br></label>
-										<label><input type="checkbox" name="comment" value="駐車場空きあり"
-												id="comment2">駐車場空きあり<br></label>
-										<label><input type="checkbox" name="comment" value="ペット可"
-												id="comment3">ペット可<br></label>
-										<label><input type="checkbox" name="comment" value="室内洗濯機置き場あり"
-												id="comment4">室内洗濯機置き場あり<br></label>
-										<label><input type="checkbox" name="comment" value="オートロックあり"
-												id="comment5">オートロックあり<br></label>
-										<label><input type="checkbox" name="comment" value="バス・トイレ別"
-												id="comment6">バス・トイレ別</label><br>
-										<label><input type="checkbox" name="comment" value="南向き"
-												id="comment7">南向き<br></label>
-										<label><input type="checkbox" name="comment" value="事故物件"
-												id="comment8">事故物件<br></label>
-										<label><input type="checkbox" name="comment" value="危険地帯"
-												id="comment9">危険地帯<br></label>
-										<label><input type="checkbox" name="comment" value="物干しあり"
-												id="comment10">物干しあり<br></label>
-										<label><input type="checkbox" name="comment" value="コンビニあり"
-												id="comment11">コンビニあり<br></label>
-										<label><input type="checkbox" name="comment" value="無料Wi-Fiあり"
-												id="comment12">無料Wi-Fiあり<br></label>
-										<label><input type="checkbox" name="comment" value="ウォーターサーバーあり"
-												id="comment13">ウォーターサーバーあり<br></label>
-										<label><input type="checkbox" name="comment" value="窓なし"
-												id="comment14">窓なし<br></label>
-												<br>
+					<div class="form-align">
+						<label><input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment1"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '無料Wi-Fiあり')}">無料Wi-Fiあり<br></label>
+						<label><input type="checkbox" name="comment" value="駐車場空きあり" id="comment2"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '駐車場空きあり')}">駐車場空きあり<br></label>
+						<label><input type="checkbox" name="comment" value="ペット可" id="comment3"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, 'ペット可')}">ペット可<br></label>
+
+						<label><input type="checkbox" name="comment" value="室内洗濯機置き場あり" id="comment4"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '室内洗濯機置き場あり')}">室内洗濯機置き場あり<br></label>
+
+						<label><input type="checkbox" name="comment" value="オートロックあり" id="comment5"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, 'オートロックあり')}">オートロックあり<br></label>
+
+						<label><input type="checkbox" name="comment" value="バス・トイレ別" id="comment6"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, 'バス・トイレ別')}">バス・トイレ別<br></label>
+
+						<label><input type="checkbox" name="comment" value="南向き" id="comment7"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '南向き')}">南向き<br></label>
+
+						<label><input type="checkbox" name="comment" value="事故物件" id="comment8"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '事故物件')}">事故物件<br></label>
+
+						<label><input type="checkbox" name="comment" value="危険地帯" id="comment9"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '危険地帯')}">危険地帯<br></label>
+
+						<label><input type="checkbox" name="comment" value="物干しあり" id="comment10"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '物干しあり')}">物干しあり<br></label>
+
+						<label><input type="checkbox" name="comment" value="コンビニあり" id="comment11"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, 'コンビニあり')}">コンビニあり<br></label>
+
+						<label><input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment12"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '無料Wi-Fiあり')}">無料Wi-Fiあり<br></label>
+
+						<label><input type="checkbox" name="comment" value="ウォーターサーバーあり" id="comment13"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, 'ウォーターサーバーあり')}">ウォーターサーバーあり<br></label>
+
+						<label><input type="checkbox" name="comment" value="窓なし" id="comment14"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '窓なし')}">窓なし<br></label>
+
+						<br>
 					</div>
-										<br><br>
-										<input type="submit" value="登　録" class="button0" onclick="return confirm('物件情報を更新してもよろしいですか？');">
+					<br><br>
+					<input type="submit" value="登　録" class="button0" onclick="return confirm('物件情報を更新してもよろしいですか？');">
 				</form>
 			</div>
 
