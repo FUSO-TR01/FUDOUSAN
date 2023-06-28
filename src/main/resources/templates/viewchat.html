@@ -10,7 +10,10 @@
 </head>
 
 <body>
+
 	<label th:text="${toname}" class="Receiver"></label>
+
+
 	<form id="redirectForm" method="get" action="/displaychat">
 		<p>
 			<input type="hidden" name="Id" th:value="*{Id}">
