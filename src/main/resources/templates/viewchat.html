@@ -28,12 +28,12 @@
 		<!--		</nav>-->
 	</header>
 	<form id="redirectForm" method="get" action="/displaychat">
-		
 			<input type="hidden" name="Id" th:value="*{Id}">
 			<input type="hidden" name="logId" th:value="*{logId}">
 			<input type="hidden" name="memname" th:value="*{memname}">
 			<input type="hidden" name="tp" th:value="*{tp}">
 	</form>
+	<div class="ChatBack">
 	<div class="ChatTable">
 		<table id="chatTable" border="1" class="ChatTable">
 			<!--			<tr>-->
@@ -45,6 +45,7 @@
 			</tr>
 		</table>
 	</div>
+
 	<script>
 		const redirectForm = document.getElementById('redirectForm');
 		const chatTable = document.getElementById('chatTable');
@@ -53,10 +54,11 @@
 		function submitRedirectForm() {
 			redirectForm.submit();
 		}
-		setInterval(submitRedirectForm, 5000); // 2秒ごとにフォームをサブミット
+//		setInterval(submitRedirectForm, 5000); // 2秒ごとにフォームをサブミット
 
 
 	</script>
+		</div>
 </body>
 
 </html>
