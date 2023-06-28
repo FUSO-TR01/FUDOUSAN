@@ -28,12 +28,11 @@
 		<!--		</nav>-->
 	</header>
 	<form id="redirectForm" method="get" action="/displaychat">
-		<p>
+		
 			<input type="hidden" name="Id" th:value="*{Id}">
 			<input type="hidden" name="logId" th:value="*{logId}">
 			<input type="hidden" name="memname" th:value="*{memname}">
 			<input type="hidden" name="tp" th:value="*{tp}">
-		</p>
 	</form>
 	<div class="ChatTable">
 		<table id="chatTable" border="1" class="ChatTable">
@@ -41,8 +40,8 @@
 			<!--				<th width="50%" colspan="2" class="fixed01">チャット</th>-->
 			<!--			</tr>-->
 			<tr th:each="res : ${chatList}">
-				<td th:text="${res.chatC}" width="50%"></td>
-				<td th:text="${res.chat}" width="50%"></td>
+				<td th:text="${res.chatC}" class="ChatItem2"></td>
+				<td th:text="${res.chat}" class="ChatItem"></td>
 			</tr>
 		</table>
 	</div>
