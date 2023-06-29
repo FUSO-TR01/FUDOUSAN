@@ -65,7 +65,7 @@
 		firebase.initializeApp(firebaseConfig);
 		var db = firebase.database();
 
-		db.ref("mess").on("child_added", function (snapshot) {
+		db.ref("message").on("child_added", function (snapshot) {
 			var data = snapshot.val();
 
 			console.log("受信データ:", data);
@@ -78,7 +78,7 @@
 			//	div.appendChild(timestamp)
 			//	div.appendChild(message)
 			//	messageArea.appendChild(div)
-			//submitRedirectForm()
+			submitRedirectForm()
 			if (data !== data ) {
 				submitRedirectForm()
 			}
