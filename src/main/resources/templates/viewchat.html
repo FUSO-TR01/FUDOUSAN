@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 	<meta charset="utf-8" />
 	<title>HTML</title>
 	<link rel="stylesheet" th:href="@{/style-n.css}">
@@ -14,10 +16,11 @@
 	</style>
 </head>
 <header>
-		<h1>
-			<label th:text="${toname}" class="Receiver"></label>
-		</h1>
-	</header>
+	<h1>
+		<label th:text="${toname}" class="Receiver"></label>
+	</h1>
+</header>
+
 <body>
 	<form id="redirectForm" method="get" action="/displaychat">
 		<input type="hidden" name="Id" th:value="*{Id}">
@@ -25,35 +28,72 @@
 		<input type="hidden" name="memname" th:value="*{memname}">
 		<input type="hidden" name="tp" th:value="*{tp}">
 	</form>
-<!--	<div class="ChatBack">-->
-		<div>
-			<table id="chatTable" border="1" class="ChatTable">
-				<!--			<tr>-->
-				<!--				<th width="50%" colspan="2" class="fixed01">チャット</th>-->
-				<!--			</tr>-->
-				<tr th:each="res : ${chatList}">
-					<td th:text="${res.chatC}" class="ChatItem2" width="50%"></td>
-					<td th:text="${res.chat}" class="ChatItem" width="50%"></td>
-				</tr>
-				<tr>
-					<td id="olr"></td>
-				</tr>
-			</table>
-		</div>
+	<!--	<div class="ChatBack">-->
+	<div>
+		<table id="chatTable" border="1" class="ChatTable">
+			<!--			<tr>-->
+			<!--				<th width="50%" colspan="2" class="fixed01">チャット</th>-->
+			<!--			</tr>-->
+			<tr th:each="res : ${chatList}">
+				<td th:text="${res.chatC}" class="ChatItem2" width="50%"></td>
+				<td th:text="${res.chat}" class="ChatItem" width="50%"></td>
+			</tr>
+			<tr>
+				<td id="olr"></td>
+			</tr>
+		</table>
+	</div>
 
-		<script>
-			const redirectForm = document.getElementById('redirectForm');
-			const chatTable = document.getElementById('chatTable');
-			let previousChatData = '';
+	<script>
+		const redirectForm = document.getElementById('redirectForm');
+		const chatTable = document.getElementById('chatTable');
+		let previousChatData = '';
+		//		setInterval(submitRedirectForm, 5000);  2秒ごとにフォームをサブミット
 
-			function submitRedirectForm() {
-				redirectForm.submit();
+
+		// Your web app's Firebase configuration
+		const firebaseConfig = {
+			apiKey: "AIzaSyB116kipWFq-zSpg1-MWEIfVZB499Fsrac",
+			authDomain: "team1-341ca.firebaseapp.com",
+			databaseURL: "https://team1-341ca-default-rtdb.asia-southeast1.firebasedatabase.app",
+			projectId: "team1-341ca",
+			storageBucket: "team1-341ca.appspot.com",
+			messagingSenderId: "918682117985",
+			appId: "1:918682117985:web:1daa991ee00cfb76a94720"
+		};
+
+		firebase.initializeApp(firebaseConfig);
+		var db = firebase.database();
+
+		db.ref("mess").on("child_added", function (snapshot) {
+			var data = snapshot.val();
+
+			console.log("受信データ:", data);
+			const messageArea = document.getElementById("messageArea")
+			const div = document.createElement("div")
+			const timestamp = document.createElement("h6")
+			const message = document.createElement("h3")
+			message.innerHTML = data
+			//	div.setAttribute("style", "padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px; background-color: #ffff99;")
+			//	div.appendChild(timestamp)
+			//	div.appendChild(message)
+			//	messageArea.appendChild(div)
+			//submitRedirectForm()
+			if (data !== data ) {
+				submitRedirectForm()
 			}
-//		setInterval(submitRedirectForm, 5000); // 2秒ごとにフォームをサブミット
+		});
 
+		//	function submitRedirectForm() {
+			//redirectForm.submit();
+		//}
+	</script>
+	<script>
+		function submitRedirectForm() {
+			redirectForm.submit();
+		}
+	</script>
 
-		</script>
-<!--	</div>-->
 </body>
 
 </html>
