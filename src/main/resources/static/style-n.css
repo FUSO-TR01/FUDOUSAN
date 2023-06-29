@@ -569,11 +569,7 @@ input[type=text] {
 	visibility: hidden;
 }
 
-/*このクラスが付与されると表示する*/
-.active {
-	opacity: 1;
-	visibility: visible;
-}
+
 
 .StickyButton1:hover {
 	background: #fff;
@@ -636,7 +632,7 @@ input[type=text] {
 	font-size: 15px;
 	right: 10px;
 	bottom: 120px;
-	/*デフォルトで非表示にする*/
+/*	デフォルトで非表示にする*/
 	opacity: 0;
 	visibility: hidden;
 }
@@ -645,6 +641,12 @@ input[type=text] {
 	background: #fff;
 	color: #5c5c5c;
 	border: 3px solid #5c5c5c;
+}
+
+/*このクラスが付与されると表示する*/
+.active {
+	opacity: 1;
+	visibility: visible;
 }
 
 /*写真の設定--------------------------------------------------------------------------------*/
