@@ -8,6 +8,10 @@
 	<title>検索結果</title>
 	<link rel="stylesheet" th:href="@{/style-n.css}">
 	<link rel="stylesheet" th:href="@{/search.css}">
+	<!-- jQuery本体↓ -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- jQueryが書いてあるファイル↓ -->
+	<script src="search.js"></script>
 </head>
 
 <body>
@@ -17,7 +21,9 @@
 			<div class="logo">
 
 				<h1>
+
 					<a th:href="@{/merchant(logId=${logId})}"><img src="/1031.png"></a>
+
 				</h1>
 			</div>
 			<nav class="fnavi">
@@ -108,6 +114,9 @@
 			<br>
 
 		</div>
+
+		<br>
+		<p class="top-button">トップへ戻る</p>
 
 		<br>
 		<form th:action="@{/viewhome}">
