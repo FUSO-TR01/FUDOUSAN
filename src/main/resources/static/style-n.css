@@ -608,11 +608,11 @@ input[type=text] {
 /*スクロール時にボタンを固定*/
 /*（上側のボタン）*/
 .StickyButton1 {
-	width: 300px;
+	width: 90px;
 	background: #5c5c5c;
-	border-radius: 3px;
+	border-radius: 60px;
 	position: fixed;
-	display: block;
+	display: flex;
 	/*	justify-content: space-around;*/
 	justify-content: center;
 	align-items: center;
@@ -624,10 +624,11 @@ input[type=text] {
 	font-weight: 500;
 	text-decoration: none;
 	border: 3px solid #5c5c5c;
-	font-weight: normal;
-	font-size: 15px;
+	font-weight: bold;
+	font-size: 13px;
 	right: 10px;
 	bottom: 65px;
+
 	/*デフォルトで非表示にする*/
 	opacity: 0;
 	visibility: hidden;
@@ -643,11 +644,11 @@ input[type=text] {
 
 /*（下側のボタン）*/
 .StickyButton2 {
-	width: 300px;
+	width: 90px;
 	background: #5c5c5c;
-	border-radius: 3px;
+	border-radius: 60px;
 	position: fixed;
-	display: block;
+	display: flex;
 	/*	justify-content: space-around;*/
 	justify-content: center;
 	align-items: center;
@@ -658,11 +659,13 @@ input[type=text] {
 	transition: 0.3s ease-in-out;
 	font-weight: 500;
 	text-decoration: none;
+
 	border: 3px solid #5c5c5c;
-	font-weight: normal;
-	font-size: 15px;
+	font-weight: bold;
+	font-size: 13px;
 	right: 10px;
 	bottom: 10px;
+	text-align: center;
 	/*デフォルトで非表示にする*/
 	opacity: 0;
 	visibility: hidden;
@@ -676,35 +679,92 @@ input[type=text] {
 
 /*トップへ戻るボタン*/
 .top-button {
-	width: 300px;
-	background: #5c5c5c;
-	border-radius: 3px;
+	width: 10px;
+	background: cadetblue;
+	border-radius: 40px;
 	position: fixed;
-	display: block;
+	display: flex;
 	/*	justify-content: space-around;*/
 	justify-content: center;
 	align-items: center;
-	margin: 0 auto;
+
 	max-width: 280px;
 	padding: 10px 25px;
 	color: white;
 	transition: 0.3s ease-in-out;
 	font-weight: 500;
 	text-decoration: none;
-	border: 3px solid #5c5c5c;
-	font-weight: normal;
-	font-size: 15px;
-	right: 10px;
+	border: 3px solid cadetblue;
+	font-weight: bold;
+	font-size: 13px;
+	right: 30px;
 	bottom: 120px;
-/*	デフォルトで非表示にする*/
+	text-align: center;
+	margin: 0 auto;
+	text-shadow:
+		0.3px 0.3px 0,
+		0.3px -0.3px 0px,
+		-0.3px 0.3px 0,
+		-0.3px -0.3px 0px,
+		0.3px 0px 0px,
+		0px 0.3px 0px,
+		-0.3px 0px 0px,
+		0px -0.3px 0px;
+	/*	デフォルトで非表示にする*/
 	opacity: 0;
 	visibility: hidden;
 }
 
 .top-button:hover {
 	background: #fff;
-	color: #5c5c5c;
-	border: 3px solid #5c5c5c;
+	color: cadetblue;
+	border: 3px solid cadetblue;
+	font-weight: bold;
+}
+
+/*トップへ戻るボタン（一覧ページ）*/
+.top-button2 {
+	width: 10px;
+	background: cadetblue;
+	border-radius: 40px;
+	position: fixed;
+	display: flex;
+	/*	justify-content: space-around;*/
+	justify-content: center;
+	align-items: center;
+
+	max-width: 280px;
+	padding: 10px 25px;
+	color: white;
+	transition: 0.3s ease-in-out;
+	font-weight: 500;
+	text-decoration: none;
+	border: 3px solid cadetblue;
+	font-weight: bold;
+	font-size: 13px;
+	right: 30px;
+	bottom: 20px;
+	text-align: center;
+	margin: 0 auto;
+	text-shadow:
+		0.3px 0.3px 0,
+		0.3px -0.3px 0px,
+		-0.3px 0.3px 0,
+		-0.3px -0.3px 0px,
+		0.3px 0px 0px,
+		0px 0.3px 0px,
+		-0.3px 0px 0px,
+		0px -0.3px 0px;
+	/*	デフォルトで非表示にする*/
+	opacity: 0;
+	visibility: hidden;
+}
+
+.top-button2:hover {
+	background: #fff;
+	color: cadetblue;
+	border: 3px solid cadetblue;
+	font-weight: bold;
 }
 
 /*このクラスが付与されると表示する*/
