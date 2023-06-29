@@ -303,6 +303,7 @@ public class Dao {
 			}
 		}
 		sql = sql.substring(0, sql.length() - 4);
+		System.out.println(sql);
 
 		return sql;
 	}

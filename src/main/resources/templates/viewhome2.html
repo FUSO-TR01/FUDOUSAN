@@ -13,14 +13,15 @@
 <header>
 	<div class="logo">
 			<h1>
-				<a href="/home"><img src="/1031.png"></a>
+        <a th:href="@{/customermenu(logId=${logId})}"><img src="/1031.png"></a>
+
 			</h1>
 			</div>
 	<nav class="fnavi">
 		<ul>
 			<li><a th:href="@{/gomo}">ミニゲーム</a></li>
 			<li><a href="intro">企業情報</a></li>
-			<li><a href="news.html">お知らせ</a></li>
+					<li><a href="http://localhost:8080/news#olr">お知らせ</a></li>
 			<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
 			<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
 		</ul>
@@ -28,8 +29,8 @@
 </header>
 
 <body>
-	<div class="ConfirmBox">
-		<h1 class="kyocho">物件情報検索</h1>
+	<div class="ConfirmBox"><br>
+		<h1 class="kyocho">物件情報検索</h1><br>
 		<form method="get" action="/customersearch">
 			<div class="form-align">
 				<table class="TableSpace">
@@ -142,10 +143,12 @@
 			<br><br>
 			<p>
 				<input type="submit" value="検索" class="button0">
+				<input type="hidden" name="logId" th:value="*{logId}">
 			</p>
 		</form>
 		<form th:action="@{/customermenu}">
 			<input type="submit" value="メニューへ戻る" class="button0">
+			<input type="hidden" name="logId" th:value="*{logId}">
 		</form><br>
 	</div>
 	<br><br>

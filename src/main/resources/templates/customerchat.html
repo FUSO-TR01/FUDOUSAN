@@ -8,6 +8,8 @@
 	<meta charset="UTF-8">
 	<title>HOME</title>
 	<link rel="stylesheet" th:href="@{/chat.css}">
+	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 	<!--		<link rel="stylesheet" th:href="@{/chatmod.css}">-->
 	<!--	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
 	<!--	<meta http-equiv="refresh" content="2">-->
@@ -21,7 +23,7 @@
 		<ul>
 			<li><a href="#">企業情報</a></li>
 			<li><a href="#">お知らせ</a></li>
-			<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+			<li><a href="http://localhost:8080/gomo#olr">お問い合わせ</a></li>
 		</ul>
 	</nav>
 </header>-->
@@ -55,16 +57,20 @@
 
 	</table><br>
 	<iframe id="frametarget" src="" width="100%" height="400"></iframe>
-	
+
+	<input type="text" id="mess">
+	<button type="button" onclick="sendData()">データを送信</button>
 	<form method="get" action="/addchat">
 		<p>
-			<textarea id="message" name="Message" rows="10" th:text="*{Message}" placeholder="メッセージを入力" class="textarea"></textarea><br>
+			<textarea id="message" name="Message" rows="10" th:text="*{Message}" placeholder="メッセージを入力"
+				class="textarea"></textarea><br>
 			<input type="hidden" name="Id" th:value="*{Id}">
 			<input type="hidden" name="logId" th:value="*{logId}">
 			<input type="hidden" name="memname" th:value="*{memname}">
 			<input type="hidden" name="tp" th:value="*{tp}">
 		</p>
-			<input type="submit" value="送信" class="SendButton" id="submitButton" style="display: none;">
+		<input type="submit" value="送信" class="SendButton" id="submitButton" style="display: none;"
+			onclick="sendData()">
 	</form>
 
 	<script>
@@ -100,8 +106,28 @@
 		} else {
 			iframe.src = ""; // 空白に設定して表示をクリア
 		}
+
+
+		// Your web app's Firebase configuration
+		const firebaseConfig = {
+			apiKey: "AIzaSyB116kipWFq-zSpg1-MWEIfVZB499Fsrac",
+			authDomain: "team1-341ca.firebaseapp.com",
+			databaseURL: "https://team1-341ca-default-rtdb.asia-southeast1.firebasedatabase.app",
+			projectId: "team1-341ca",
+			storageBucket: "team1-341ca.appspot.com",
+			messagingSenderId: "918682117985",
+			appId: "1:918682117985:web:1daa991ee00cfb76a94720"
+		};
+
+		firebase.initializeApp(firebaseConfig);
+		var db = firebase.database();
+
+		function sendData() {
+			const input = document.getElementById("message")
+			db.ref("message").push(input.value)
+		}
 	</script>
-	
+
 	<br><br><br>
 	<!--<footer>
 		<p>copyright 一人暮らしの家探し 2023</p>

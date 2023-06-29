@@ -6,18 +6,21 @@
 	<meta charset="UTF-8">
 	<title>メニュー</title>
 	<link rel="stylesheet" th:href="@{/style-o.css}">
+	<link rel="stylesheet" th:href="@{/style-n.css}">
 </head>
 <header>
 	<div class="logo">
+
 			<h1>
-				<a href="/home"><img src="/1031.png"></a>
+				<a th:href="@{/customermenu(logId=${logId})}"><img src="/1031.png"></a>
 			</h1>
 			</div>
+
 	<nav class="fnavi">
 		<ul>
 			<li><a th:href="@{/gomo}">ミニゲーム</a></li>
 			<li><a href="intro">企業情報</a></li>
-			<li><a href="news.html">お知らせ</a></li>
+					<li><a href="http://localhost:8080/news#olr">お知らせ</a></li>
 			<li><a href="form.html">お問い合わせ</a></li>
 			<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
 		</ul>
@@ -26,15 +29,18 @@
 
 <body>
 
-	<br><br><br><br><br>
-	<div class="ConfirmBox" style="width: 700px;">
+	<br><br>
+	<div class="ConfirmBox" style="width: 700px;"><br><br>
 		<h1 class="kyocho">メニュー</h1>
-		<br>
+		<br><br><br>
 		<form th:action="@{/viewhome2}">
+
 			<input type="submit" value="物件検索" class="button019">
+			<input type="hidden" name="logId" th:value="*{logId}">
 		</form><br>
+
 		<form th:action="@{/chat}">
-			<input type="submit" value="不動産業者とチャット" class="button019">
+			<input type="submit" value="不動産業者とチャット" class="button0">
 			<input type="hidden" name="logId" th:value="*{logId}">
 			<input type="hidden" name="tp" value="customer">
 		</form>
