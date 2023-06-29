@@ -66,6 +66,7 @@ ul {
 
 .news_list {
 	margin: 0 5%;
+	
 }
 
 .news_list_item {
@@ -74,6 +75,7 @@ ul {
 	position: relative;
 	display: flex;
 	padding-right: 30px;
+	
 }
 
 .news_list_item:first-child {
@@ -86,6 +88,7 @@ ul {
 	display: flex;
 	margin-right: 15px;
 	align-items: center;
+	
 }
 
 .news_item {
