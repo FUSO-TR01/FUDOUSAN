@@ -169,7 +169,7 @@ body {
 /*編集ボタン*/
 
 .EditButton {
-	width: 30px;
+	width: 50px;
 	background: #5c5c5c;
 	border-radius: 3px;
 	position: relative;
