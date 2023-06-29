@@ -63,7 +63,7 @@
 	<form method="get" action="/addchat">
 		<p>
 			<textarea id="message" name="Message" rows="10" th:text="*{Message}" placeholder="メッセージを入力"
-				class="mess"></textarea><br>
+				class="textarea"></textarea><br>
 			<input type="hidden" name="Id" th:value="*{Id}">
 			<input type="hidden" name="logId" th:value="*{logId}">
 			<input type="hidden" name="memname" th:value="*{memname}">
@@ -123,9 +123,8 @@
 		var db = firebase.database();
 
 		function sendData() {
-			const input = document.getElementById("mess")
-			const input = document.getElementById("mess")
-			db.ref("mess").push(input.value)
+			const input = document.getElementById("message")
+			db.ref("message").push(input.value)
 		}
 	</script>
 
