@@ -19,9 +19,11 @@
 	<div class="footerFixed">
 		<header>
 			<div class="logo">
-				<h1>
-					<a href="/home"><img src="/1031.png"></a>
-				</h1>
+
+			<h1>
+				<a th:href="@{/customermenu(logId=${logId})}"><img src="/1031.png"></a>
+			</h1>
+
 			</div>
 			<nav class="fnavi">
 				<ul>
@@ -44,29 +46,35 @@
 				<tr>
 					<td th:text="${sort}" class="kyocho3"><label></label></td>
 				</tr>
-			</table>
 
-			<!--				<label th:text="${sort}" class="kyocho3"></label>-->
-			<form method="get" action="#" th:action="@{/sort}">
-				<input type="hidden" name="bkname" th:value="*{bkname}">
-				<input type="hidden" name="space" th:value="*{space}">
-				<input type="hidden" name="start" th:value="*{start}">
-				<input type="hidden" name="end" th:value="*{end}">
-				<input type="hidden" name="place" th:value="*{place}">
-				<input type="hidden" name="comment" th:value="*{comment}">
-				<input type="hidden" name="type" value="customer">
+			</table>				
+				
+<!--				<label th:text="${sort}" class="kyocho3"></label>-->
+				<form method="get" action="#" th:action="@{/sort}">
+					<input type="hidden" name="bkname" th:value="*{bkname}">
+					<input type="hidden" name="space" th:value="*{space}">
+					<input type="hidden" name="start" th:value="*{start}">
+					<input type="hidden" name="end" th:value="*{end}">
+					<input type="hidden" name="place" th:value="*{place}">
+					<input type="hidden" name="comment" th:value="*{comment}">
+					<input type="hidden" name="type" value="customer">
+					<input type="hidden" name="logId" th:value="*{logId}">
+<br>
+					<label class="Form-Item-Label">家賃並び替え</label>
+					<button type="submit" name="sort" value="ASC" class="MiniButton1">昇順</button>
+					<button type="submit" name="sort" value="DESC" class="MiniButton2">降順</button>
+				</form>
 				<br>
-				<label class="Form-Item-Label">家賃並び替え</label>
-				<button type="submit" name="sort" value="ASC" class="MiniButton1">昇順</button>
-				<button type="submit" name="sort" value="DESC" class="MiniButton2">降順</button>
-			</form>
-			<br>
-			<form th:action="@{/viewhome2}">
-				<input type="submit" value="検索画面へ戻る" class="button0">
-			</form>
+				<form th:action="@{/viewhome2}">
+					<input type="submit" value="検索画面へ戻る" class="button0">
+					<input type="hidden" name="logId" th:value="*{logId}">
+				</form>
+
+
 			<br>
 			<form th:action="@{/customermenu}">
 				<input type="submit" value="メニューへ戻る" class="button0">
+				<input type="hidden" name="logId" th:value="*{logId}">
 			</form>
 
 			<br><br>
@@ -99,10 +107,12 @@
 		<br>
 		<form th:action="@{/viewhome2}">
 			<input type="submit" value="検索画面へ戻る" class="StickyButton1">
+			<input type="hidden" name="logId" th:value="*{logId}">
 		</form>
 		<br>
 		<form th:action="@{/customermenu}">
 			<input type="submit" value="メニューへ戻る" class="StickyButton2">
+			<input type="hidden" name="logId" th:value="*{logId}">
 		</form>
 
 

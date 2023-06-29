@@ -5,17 +5,17 @@
 	<link rel="icon" href="/1031.png">
 	<link rel="stylesheet" th:href="@{/style-o.css}">
 	<link rel="stylesheet" th:href="@{/style-n.css}">
-		<link rel="stylesheet" th:href="@{/search.css}">
+	<link rel="stylesheet" th:href="@{/search.css}">
 	<title>物件情報一覧・検索</title>
 	<meta charset="utf-8" />
 </head>
 
 <header>
 	<div class="logo">
-			<h1>
-				<a href="/merchant"><img src="/1031.png"></a>
-			</h1>
-			</div>
+		<h1>
+			<a th:href="@{/merchant(logId=${logId})}"><img src="/1031.png"></a>
+		</h1>
+	</div>
 	<nav class="fnavi">
 		<ul>
 			<li><a th:href="@{/gomo}">ミニゲーム</a></li>
@@ -28,9 +28,10 @@
 </header>
 
 <body>
-	
+
 	<div class="SearchBox">
-		<br><h1 class="kyocho">物件情報一覧・検索</h1><br>
+		<br>
+		<h1 class="kyocho">物件情報一覧・検索</h1><br>
 		<form method="get" action="/merchantsearch">
 			<div class="form-align">
 				<table class="TableSpace">
@@ -47,14 +48,14 @@
 						<td>
 							<label class="selectbox-001">
 								<select name="space">
-									<option value="" hidden>選択してください</option>
-									<option value="">全選択</option>
+									<option value="" selected>選択してください</option>
+<!--									<option value="">全選択</option>-->
 									<option value="1R">1R</option>
 									<option value="1K">1K</option>
 									<option value="1DK">1DK</option>
 									<option value="1LDK">1LDK</option>
-						</select>
-						</label>
+								</select>
+							</label>
 						</td>
 
 					</tr>
@@ -63,98 +64,98 @@
 							<label class="Form-Item-Label">家　賃</label>
 						</th>
 						<td>
-						
-						   <div class="RentStyle"> 
-            <div class="RentStyle1">
-                <select name="start">
-		<option value="0" hidden>選択してください</option>
-		<option value="0" selected>下限なし</option>
-		<option value="10000">10,000</option>
-		<option value="20000">20,000</option>
-		<option value="30000">30,000</option>
-		<option value="40000">40,000</option>
-		<option value="50000">50,000</option>
-		<option value="60000">60,000</option>
-		<option value="70000">70,000</option>
-		<option value="80000">80,000</option>
-		<option value="90000">90,000</option>
-		<option value="100000">100,000</option>
-		<option value="110000">110,000</option>
-		<option value="120000">120,000</option>
-		<option value="130000">130,000</option>
-		<option value="140000">140,000</option>
-		<option value="150000">150,000</option>
-                </select>
-            </div>
-            ～
-            <div class="RentStyle2" >
-                <select name="end">
-                <option value="0" hidden>選択してください</option>
-		<option value="10000">10,000</option>
-		<option value="20000">20,000</option>
-		<option value="30000">30,000</option>
-		<option value="40000">40,000</option>
-		<option value="50000">50,000</option>
-		<option value="60000">60,000</option>
-		<option value="70000">70,000</option>
-		<option value="80000">80,000</option>
-		<option value="90000">90,000</option>
-		<option value="100000">100,000</option>
-		<option value="110000">110,000</option>
-		<option value="120000">120,000</option>
-		<option value="130000">130,000</option>
-		<option value="140000">140,000</option>
-		<option value="150000">150,000</option>
-		<option value="0" selected>上限なし</option>
-                </select>
-            </div>
-        </div>
-						
-<!--							<label class="selectbox-001">-->
-<!--								<select name="start">-->
-<!--									<option value="0" hidden>選択してください</option>-->
-<!--									<option value="0" selected>下限なし</option>-->
-<!--									<option value="10000">10,000</option>-->
-<!--									<option value="20000">20,000</option>-->
-<!--									<option value="30000">30,000</option>-->
-<!--									<option value="40000">40,000</option>-->
-<!--									<option value="50000">50,000</option>-->
-<!--									<option value="60000">60,000</option>-->
-<!--									<option value="70000">70,000</option>-->
-<!--									<option value="80000">80,000</option>-->
-<!--									<option value="90000">90,000</option>-->
-<!--									<option value="100000">100,000</option>-->
-<!--									<option value="110000">110,000</option>-->
-<!--									<option value="120000">120,000</option>-->
-<!--									<option value="130000">130,000</option>-->
-<!--									<option value="140000">140,000</option>-->
-<!--									<option value="150000">150,000</option>-->
-<!--						</select>-->
-<!--						</label>-->
-<!--<br>-->
-<!--							　　　　　　　　　　　　≀-->
-<!--<br>-->
-<!--							<label class="selectbox-001">-->
-<!--								<select name="end">-->
-<!--									<option value="0" hidden>選択してください</option>-->
-<!--									<option value="10000">10,000</option>-->
-<!--									<option value="20000">20,000</option>-->
-<!--									<option value="30000">30,000</option>-->
-<!--									<option value="40000">40,000</option>-->
-<!--									<option value="50000">50,000</option>-->
-<!--									<option value="60000">60,000</option>-->
-<!--									<option value="70000">70,000</option>-->
-<!--									<option value="80000">80,000</option>-->
-<!--									<option value="90000">90,000</option>-->
-<!--									<option value="100000">100,000</option>-->
-<!--									<option value="110000">110,000</option>-->
-<!--									<option value="120000">120,000</option>-->
-<!--									<option value="130000">130,000</option>-->
-<!--									<option value="140000">140,000</option>-->
-<!--									<option value="150000">150,000</option>-->
-<!--									<option value="0" selected>上限なし</option>-->
-<!--						</select>-->
-<!--						</label>-->
+
+							<div class="RentStyle">
+								<div class="RentStyle1">
+									<select name="start">
+										<option value="0" disabled selected>選択してください</option>
+										<option value="0" selected>下限なし</option>
+										<option value="10000">10,000</option>
+										<option value="20000">20,000</option>
+										<option value="30000">30,000</option>
+										<option value="40000">40,000</option>
+										<option value="50000">50,000</option>
+										<option value="60000">60,000</option>
+										<option value="70000">70,000</option>
+										<option value="80000">80,000</option>
+										<option value="90000">90,000</option>
+										<option value="100000">100,000</option>
+										<option value="110000">110,000</option>
+										<option value="120000">120,000</option>
+										<option value="130000">130,000</option>
+										<option value="140000">140,000</option>
+										<option value="150000">150,000</option>
+									</select>
+								</div>
+								～
+								<div class="RentStyle2">
+									<select name="end">
+										<option value="0" disabled selected>選択してください</option>
+										<option value="10000">10,000</option>
+										<option value="20000">20,000</option>
+										<option value="30000">30,000</option>
+										<option value="40000">40,000</option>
+										<option value="50000">50,000</option>
+										<option value="60000">60,000</option>
+										<option value="70000">70,000</option>
+										<option value="80000">80,000</option>
+										<option value="90000">90,000</option>
+										<option value="100000">100,000</option>
+										<option value="110000">110,000</option>
+										<option value="120000">120,000</option>
+										<option value="130000">130,000</option>
+										<option value="140000">140,000</option>
+										<option value="150000">150,000</option>
+										<option value="0" selected>上限なし</option>
+									</select>
+								</div>
+							</div>
+
+							<!--							<label class="selectbox-001">-->
+							<!--								<select name="start">-->
+							<!--									<option value="0" hidden>選択してください</option>-->
+							<!--									<option value="0" selected>下限なし</option>-->
+							<!--									<option value="10000">10,000</option>-->
+							<!--									<option value="20000">20,000</option>-->
+							<!--									<option value="30000">30,000</option>-->
+							<!--									<option value="40000">40,000</option>-->
+							<!--									<option value="50000">50,000</option>-->
+							<!--									<option value="60000">60,000</option>-->
+							<!--									<option value="70000">70,000</option>-->
+							<!--									<option value="80000">80,000</option>-->
+							<!--									<option value="90000">90,000</option>-->
+							<!--									<option value="100000">100,000</option>-->
+							<!--									<option value="110000">110,000</option>-->
+							<!--									<option value="120000">120,000</option>-->
+							<!--									<option value="130000">130,000</option>-->
+							<!--									<option value="140000">140,000</option>-->
+							<!--									<option value="150000">150,000</option>-->
+							<!--						</select>-->
+							<!--						</label>-->
+							<!--<br>-->
+							<!--							　　　　　　　　　　　　≀-->
+							<!--<br>-->
+							<!--							<label class="selectbox-001">-->
+							<!--								<select name="end">-->
+							<!--									<option value="0" hidden>選択してください</option>-->
+							<!--									<option value="10000">10,000</option>-->
+							<!--									<option value="20000">20,000</option>-->
+							<!--									<option value="30000">30,000</option>-->
+							<!--									<option value="40000">40,000</option>-->
+							<!--									<option value="50000">50,000</option>-->
+							<!--									<option value="60000">60,000</option>-->
+							<!--									<option value="70000">70,000</option>-->
+							<!--									<option value="80000">80,000</option>-->
+							<!--									<option value="90000">90,000</option>-->
+							<!--									<option value="100000">100,000</option>-->
+							<!--									<option value="110000">110,000</option>-->
+							<!--									<option value="120000">120,000</option>-->
+							<!--									<option value="130000">130,000</option>-->
+							<!--									<option value="140000">140,000</option>-->
+							<!--									<option value="150000">150,000</option>-->
+							<!--									<option value="0" selected>上限なし</option>-->
+							<!--						</select>-->
+							<!--						</label>-->
 						</td>
 					</tr>
 					<tr>
@@ -189,12 +190,14 @@
 			<br>
 			<p>
 				<input type="submit" value="検索" class="button0">
+				<input type="hidden" name="logId" th:value="*{logId}">
 			</p>
 		</form>
 		<form th:action="@{/merchant}">
 			<input type="submit" value="メニューへ戻る" class="button0">
+			<input type="hidden" name="logId" th:value="*{logId}">
 		</form>
-<br><br>
+		<br><br>
 		<table border="1" class="design08">
 
 			<tr>
@@ -218,6 +221,7 @@
 				<td>
 					<form th:action="@{/edithome/{id}(id=${res.id})}">
 						<input type="submit" value="編集" class="EditButton">
+						<input type="hidden" name="logId" th:value="*{logId}">
 
 					</form>
 				</td>
@@ -225,6 +229,7 @@
 					<form th:action="@{/del/{id}(id=${res.id})}">
 						<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');"
 							class="DeleteButton">
+							<input type="hidden" name="logId" th:value="*{logId}">
 					</form>
 				</td>
 			</tr>

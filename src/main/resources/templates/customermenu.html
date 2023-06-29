@@ -10,10 +10,12 @@
 </head>
 <header>
 	<div class="logo">
-		<h1>
-			<a href="/customermenu"><img src="/1031.png"></a>
-		</h1>
-	</div>
+
+			<h1>
+				<a th:href="@{/customermenu(logId=${logId})}"><img src="/1031.png"></a>
+			</h1>
+			</div>
+
 	<nav class="fnavi">
 		<ul>
 			<li><a th:href="@{/gomo}">ミニゲーム</a></li>
@@ -32,8 +34,11 @@
 		<h1 class="kyocho">メニュー</h1>
 		<br><br><br>
 		<form th:action="@{/viewhome2}">
-			<input type="submit" value="物件検索" class="button0">
-		</form><br><br>
+
+			<input type="submit" value="物件検索" class="button019">
+			<input type="hidden" name="logId" th:value="*{logId}">
+		</form><br>
+
 		<form th:action="@{/chat}">
 			<input type="submit" value="不動産業者とチャット" class="button0">
 			<input type="hidden" name="logId" th:value="*{logId}">

@@ -21,7 +21,9 @@
 			<div class="logo">
 
 				<h1>
-					<a href="/merchant"><img src="/1031.png"></a>
+
+					<a th:href="@{/merchant(logId=${logId})}"><img src="/1031.png"></a>
+
 				</h1>
 			</div>
 			<nav class="fnavi">
@@ -56,6 +58,7 @@
 				<input type="hidden" name="place" th:value="*{place}">
 				<input type="hidden" name="comment" th:value="*{comment}">
 				<input type="hidden" name="type" value="merchant">
+				<input type="hidden" name="logId" th:value="*{logId}">
 				<br>
 				<label class="Form-Item-Label">家賃並び替え</label>
 				<button type="submit" name="sort" value="ASC" class="MiniButton1">昇順</button>
@@ -64,10 +67,12 @@
 			<br>
 			<form th:action="@{/viewhome}">
 				<input type="submit" value="一覧へ戻る" class="button0">
+				<input type="hidden" name="logId" th:value="*{logId}">
 			</form>
 			<br>
 			<form th:action="@{/merchant}">
 				<input type="submit" value="メニューへ戻る" class="button0">
+				<input type="hidden" name="logId" th:value="*{logId}">
 			</form>
 			<br><br>
 			<table class="design08">
@@ -93,13 +98,14 @@
 					<td>
 						<form th:action="@{/edithome/{id}(id=${res.id})}">
 							<input type="submit" value="編集" class="EditButton">
-
+							<input type="hidden" name="logId" th:value="*{logId}">
 						</form>
 					</td>
 					<td>
 						<form th:action="@{/del/{id}(id=${res.id})}">
 							<input type="submit" value="削除" onclick="return confirm('物件情報を削除してもよろしいですか？');"
 								class="DeleteButton">
+							<input type="hidden" name="logId" th:value="*{logId}">
 						</form>
 					</td>
 				</tr>
@@ -108,15 +114,20 @@
 			<br>
 
 		</div>
+
 		<br>
 		<p class="top-button">トップへ戻る</p>
+
 		<br>
 		<form th:action="@{/viewhome}">
 			<input type="submit" value="一覧へ戻る" class="StickyButton1">
+			<input type="hidden" name="logId" th:value="*{logId}">
 		</form>
+
 		<br>
 		<form th:action="@{/merchant}">
 			<input type="submit" value="メニューへ戻る" class="StickyButton2">
+			<input type="hidden" name="logId" th:value="*{logId}">
 		</form>
 
 		<div class="footer">
