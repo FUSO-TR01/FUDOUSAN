@@ -29,7 +29,6 @@ h1 {
 	padding: 0;
 	font-size: 30px;
 }
-
 /*ヘッターaタグ*/
 a {
 	text-decoration: none;/*装飾の削除*/
@@ -41,35 +40,25 @@ nav {
 }
 /*ヘッターulタグ*/
 ul {
-	list-style: none;/*どのように並べるのか*/
+	list-style: none;/*箇条書きマークの挿入*/
 	margin: 0;
-	display: flex;
+	display: flex;/*子要素を横並び*/
 }
 /*ヘッターliタグ*/
 li {
 	margin: 0 0 0 15px;
 	font-size: 20px;
-	font-weight: bold;
-}
-/*フッター-----------------------------------------------------------------------*/
-footer {
-	background-color: #f5f5f5;
-	display: flex;
-	flex-direction: column;/*アイテムの並びの決定*/
-	margin-top: auto;/*余白の自動計算設定*/
-	text-align: center;
-	padding: 10px; /*内部余白の設定*/
-    bottom: 0;
+	font-weight: bold;/*太文字*/
 }
 /*文字線*/
 .fnavi li a {
-	position: relative;
+	position: relative;/*現在の位置を基準として装飾を行う*/
 }
 .fnavi li a:hover {
 	color: #3c6566;
 }
 .fnavi li a::after {
-	content: '';
+	content: '';/*文字列や画像の挿入*/
 	/*絶対配置で線の位置を決める*/
 	position: absolute;
 	bottom: 0;
@@ -78,16 +67,22 @@ footer {
 	width: 80%;
 	height: 2px;
 	background: #3c6566;
-	/*アニメーションの指定*/
-	transition: all .3s;
-	transform: scale(0, 1);
-	/*X方向0、Y方向1*/
-	transform-origin: left top;
-	/*左上基点*/
+	transition: all .3s;/*アニメーションの指定*/
+	transform: scale(0, 1);/*X方向0、Y方向1*/
+	transform-origin: left top;/*左上基点*/
 }
 .fnavi li a:hover::after {
-	transform: scale(1, 1);
-	/*X方向にスケール拡大*/
+	transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+/*フッター-----------------------------------------------------------------------*/
+footer {
+	background-color: #f5f5f5;
+	display: flex;/*子要素を横並び*/
+	flex-direction: column;/*アイテムの並びの決定*/
+	margin-top: auto;/*余白の自動計算設定*/
+	text-align: center;
+	padding: 10px; /*内部余白の設定*/
+    bottom: 0;
 }
 /*ボタン（aタグ用）-----------------------------------------------------------------------*/
 .button020 a{
@@ -230,17 +225,11 @@ footer {
 }
 /*ボタン（aタグにもimputタグにも使用可能）------------------------------------------------------------------*/
 custom-button {
-		background-color: #f39700;
-		/* ボタンの背景色を赤に設定 */
-		color: #ffffff;
-		/* ボタンのテキスト色を白に設定 */
-		border: none;
-		/* ボタンのボーダーをなしに設定 */
-		padding: 20px 30px;
-		/* ボタンの余白を設定 */
-		border-radius: 5px;
-		/* ボタンの角を丸くするために設定 */
-		/* 他のスタイルプロパティを追加することもできます */
+		background-color: #f39700;/*ボタンの背景色を赤に設定*/
+		color: #ffffff;/*ボタンのテキスト色を白に設定*/
+		border: none;/*ボタンのボーダーをなしに設定*/
+		padding: 20px 30px;/*ボタンの余白を設定*/
+		border-radius: 5px;/*ボタンの角を丸くするために設定*/
 	}
 /*写真の設定--------------------------------------------------------------------------------*/
 #photo {
@@ -279,16 +268,16 @@ custom-button {
 }
 /*ロゴの設定--------------------------------------------------------------------------------*/
 .logo {
-  float: left;
+  float: left;/*左寄せ*/
   margin: 0;
   padding: 0;
 }
 .logo img {
-  width: 85px; /* ロゴの幅 */
-  height: auto; /* ロゴの高さを自動調整 */
+  width: 85px; /*ロゴの幅*/
+  height: auto; /*ロゴの高さを自動調整*/
 }
-/*チェックボックスをそろえる*/
+/*チェックボックスをそろえる--------------------------------------------------------------------------------*/
 .label {
-	display: inline-block;
+	display: inline-block;/*インライン要素に変換*/
 	text-align: left;
 }
