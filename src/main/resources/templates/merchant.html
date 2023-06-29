@@ -5,54 +5,55 @@
 	<meta charset="UTF-8">
 	<title>メニュー</title>
 	<link rel="stylesheet" th:href="@{/style-o.css}">
+	<link rel="stylesheet" th:href="@{/style-n.css}">
 	<link rel="icon" href="/1031.png">
 </head>
 
 <header>
 	<div class="logo">
 
-			<h1>
-				<a href="/merchant"><img src="/1031.png"></a>
-			</h1>
-			</div>
-			<nav class="fnavi">
-				<ul>
-					<li><a th:href="@{/gomo}">ミニゲーム</a></li>
-					<li><a th:href="@{/intro}">企業情報</a></li>
-					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
-					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
-          			<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
-				</ul>
-			</nav>
-		</header>
+		<h1>
+			<a href="/merchant"><img src="/1031.png"></a>
+		</h1>
+	</div>
+	<nav class="fnavi">
+		<ul>
+			<li><a th:href="@{/gomo}">ミニゲーム</a></li>
+			<li><a th:href="@{/intro}">企業情報</a></li>
+			<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
+			<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+			<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
+		</ul>
+	</nav>
+</header>
 
 
 <body>
-	<br><br><br><br><br>
+	<br><br>
 
-	<div class="ConfirmBox">
-		<h2 class="kyocho">メニュー</h2>
+	<div class="ConfirmBox"><br>
+		<h1 class="kyocho">メニュー</h1><br><br>
 
 		<form th:action="@{/addhome}">
-			<input type="submit" value="物件情報　新規登録" class="button019">
+			<input type="submit" value="物件情報　新規登録" class="button0">
 		</form>
 		<br><br>
 
 		<form th:action="@{/viewhome}">
-			<input type="submit" value="物件情報　一覧" class="button019">
+			<input type="submit" value="物件情報　一覧" class="button0">
 		</form>
 
 
 		<br><br>
 
 		<form th:action="@{/chat}">
-			<input type="submit" value="顧客とチャット" class="button019">
+			<input type="submit" value="顧客とチャット" class="button0">
 			<input type="hidden" name="logId" th:value="*{logId}">
 			<input type="hidden" name="tp" value="merchant">
 		</form>
 		<br>
 	</div>
-
+	<br><br>
 
 	<footer>
 		<p>copyright 一人暮らしの家探し 2023</p>
