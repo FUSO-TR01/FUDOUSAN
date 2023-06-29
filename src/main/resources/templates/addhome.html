@@ -15,14 +15,14 @@
 	<div class="footerFixed">
 		<header>
 			<div class="logo">
-			<h1>
-				<a href="/merchant"><img src="/1031.png"></a>
-			</h1>
+				<h1>
+					<a href="/merchant"><img src="/1031.png"></a>
+				</h1>
 			</div>
 			<nav class="fnavi">
 				<ul>
 					<li><a th:href="@{/gomo}">ミニゲーム</a></li>
-<!--					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
+					<!--					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
 					<li><a href="intro">企業情報</a></li>
 					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
 					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
@@ -38,6 +38,7 @@
 			<div class="Center">
 
 				<form action="/addhome2" method="get">
+					<input type="hidden" name="logId" th:value="*{logId}">
 					<div class="form-align">
 						<table class="TableSpace">
 
@@ -61,14 +62,15 @@
 								<td>
 									<label class="selectbox-001">
 										<select name="space">
-											<option hidden>選択してください</option>
+											<option value="" disabled selected>選択してください</option>
 											<option value="1R">1R</option>
 											<option value="1K">1K</option>
 											<option value="1DK">1DK</option>
 											<option value="1LDK">1LDK</option>
+
+										</select>
+									</label>
 								</td>
-								</select>
-								</label>
 							</tr>
 							<tr>
 								<th><span class="hissu">必須</span>
@@ -112,7 +114,7 @@
 						<input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment12">無料Wi-Fiあり<br>
 						<input type="checkbox" name="comment" value="ウォーターサーバーあり" id="comment13">ウォーターサーバーあり<br>
 						<input type="checkbox" name="comment" value="窓なし" id="comment14">窓なし<br><br>
-<br>
+						<br>
 					</div>
 					<!-- 開くボタン -->
 
@@ -124,14 +126,14 @@
 						<div class="modalWindow">
 							<!-- ここがウインドウとなります -->
 							<h2>入力データ</h2>
-							
+
 							<p id="popupName"></p>
 							<p id="popupSpace"></p>
 							<p id="popupMoney"></p>
 							<p id="popupAddress"></p>
 							<p id="popupComment"></p>
-<!--							<p>登録しますか？</p>-->
-							<p><input type="submit" value="登録" onclick="modalClose()"  class="button02"></p>
+							<!--							<p>登録しますか？</p>-->
+							<p><input type="submit" value="登録" onclick="modalClose()" class="button02"></p>
 							<p><input type="button" value="やめる" onclick="modalClose()" class="button02"></p>
 						</div>
 					</div>
