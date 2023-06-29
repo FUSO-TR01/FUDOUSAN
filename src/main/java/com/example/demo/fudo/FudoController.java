@@ -174,7 +174,7 @@ public class FudoController {
 		ent.setAddress(input.getAddress());
 		ent.setComment(input.getComment());
 		dao.insertDb_addhome(ent);
-		return "redirect:/addhome";
+		return "redirect:/viewhome";
 	}
 
 	//	⑤--------------------------------------------------------------------------------------------------------------

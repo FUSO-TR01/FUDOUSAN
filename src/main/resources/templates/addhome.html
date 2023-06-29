@@ -37,7 +37,7 @@
 			<h2 class="kyocho">物件情報新規登録</h2>
 			<div class="Center">
 
-				<form action="#" method="get">
+				<form action="/addhome2" method="get">
 					<div class="form-align">
 						<table class="TableSpace">
 
@@ -98,20 +98,20 @@
 					<br><br>
 					<p class="kyocho2">詳　細</p><br>
 					<div class="form-align">
-						<input type="checkbox" name="comment" value="1" id="comment1">無料Wi-Fiあり<br>
-						<input type="checkbox" name="comment" value="2" id="comment2">駐車場空きあり<br>
-						<input type="checkbox" name="comment" value="3" id="comment3">ペット可<br>
-						<input type="checkbox" name="comment" value="4" id="comment4">室内洗濯機置き場あり<br>
-						<input type="checkbox" name="comment" value="5" id="comment5">オートロックあり<br>
-						<input type="checkbox" name="comment" value="6" id="comment6">バス・トイレ別<br>
-						<input type="checkbox" name="comment" value="7" id="comment7">南向き<br>
-						<input type="checkbox" name="comment" value="8" id="comment8">事故物件<br>
-						<input type="checkbox" name="comment" value="9" id="comment9">危険地帯<br>
-						<input type="checkbox" name="comment" value="10" id="comment10">物干しあり<br>
-						<input type="checkbox" name="comment" value="11" id="comment11">コンビニあり<br>
-						<input type="checkbox" name="comment" value="12" id="comment12">無料Wi-Fiあり<br>
-						<input type="checkbox" name="comment" value="13" id="comment13">ウォーターサーバーあり<br>
-						<input type="checkbox" name="comment" value="14" id="comment14">窓なし<br><br>
+						<input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment1">無料Wi-Fiあり<br>
+						<input type="checkbox" name="comment" value="駐車場空きあり" id="comment2">駐車場空きあり<br>
+						<input type="checkbox" name="comment" value="ペット可" id="comment3">ペット可<br>
+						<input type="checkbox" name="comment" value="室内洗濯機置き場あり" id="comment4">室内洗濯機置き場あり<br>
+						<input type="checkbox" name="comment" value="オートロックあり" id="comment5">オートロックあり<br>
+						<input type="checkbox" name="comment" value="バス・トイレ別" id="comment6">バス・トイレ別<br>
+						<input type="checkbox" name="comment" value="南向き" id="comment7">南向き<br>
+						<input type="checkbox" name="comment" value="事故物件" id="comment8">事故物件<br>
+						<input type="checkbox" name="comment" value="危険地帯" id="comment9">危険地帯<br>
+						<input type="checkbox" name="comment" value="物干しあり" id="comment10">物干しあり<br>
+						<input type="checkbox" name="comment" value="コンビニあり" id="comment11">コンビニあり<br>
+						<input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment12">無料Wi-Fiあり<br>
+						<input type="checkbox" name="comment" value="ウォーターサーバーあり" id="comment13">ウォーターサーバーあり<br>
+						<input type="checkbox" name="comment" value="窓なし" id="comment14">窓なし<br><br>
 <br>
 					</div>
 					<!-- 開くボタン -->
@@ -131,8 +131,8 @@
 							<p id="popupAddress"></p>
 							<p id="popupComment"></p>
 <!--							<p>登録しますか？</p>-->
-							<p><input type="submit" value="登録" onclick="modalClose()" th:action="@{/viewhome}" class="button02"></p>
-							<p><input type="submit" value="やめる" onclick="modalClose()" class="button02"></p>
+							<p><input type="submit" value="登録" onclick="modalClose()"  class="button02"></p>
+							<p><input type="button" value="やめる" onclick="modalClose()" class="button02"></p>
 						</div>
 					</div>
 				</form>
