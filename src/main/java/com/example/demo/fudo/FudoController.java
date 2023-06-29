@@ -148,13 +148,15 @@ public class FudoController {
 	//	③--------------------------------------------------------------------------------------------------------------
 
 	@RequestMapping("/merchant")
-	public String merchant(Model model) {
+	public String merchant(@RequestParam("logId") String logId,Model model) {
+		model.addAttribute("logId", logId);
 		return "merchant";
 	}
 
 	//	④--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/addhome")
-	public String addhome(Model model, Input input) {
+	public String addhome(@RequestParam("logId") String logId,Model model, Input input) {
+		model.addAttribute("logId", logId);
 		//		Entity ent = new Entity();
 		//		ent.setName(input.getName());
 		//		ent.setSpace(input.getSpace());
@@ -166,7 +168,7 @@ public class FudoController {
 	}
 
 	@RequestMapping("/addhome2")
-	public String addhome2(@Validated Input input, Model model) {
+	public String addhome2(@RequestParam("logId") String logId,@Validated Input input, Model model) {
 		Entity ent = new Entity();
 		ent.setName(input.getName());
 		ent.setSpace(input.getSpace());
@@ -174,14 +176,16 @@ public class FudoController {
 		ent.setAddress(input.getAddress());
 		ent.setComment(input.getComment());
 		dao.insertDb_addhome(ent);
-		return "redirect:/viewhome";
+		model.addAttribute("logId", logId);
+		return "redirect:/viewhome?logId=" + logId;
 	}
 
 	//	⑤--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/viewhome")
-	public String viewhome(Input input, Model model) {
+	public String viewhome(@RequestParam("logId") String logId,Input input, Model model) {
 		List<Entity> list = dao.getBKN();
 		model.addAttribute("dbList", list);
+		model.addAttribute("logId", logId);
 		return "viewhome";
 	}
 
@@ -219,13 +223,13 @@ public class FudoController {
 
 	//検索
 	@RequestMapping("/merchantsearch")
-	public String Search(@RequestParam("bkname") String name, @RequestParam("space") String space,
+	public String Search(@RequestParam("logId") String logId,@RequestParam("bkname") String name, @RequestParam("space") String space,
 			@RequestParam("start") Integer start, @RequestParam("end") Integer end,
 			@RequestParam("place") String place, @RequestParam("comment") String comment, Model model) {
 		System.out.println(comment);
 		List<Entity> list = dao.getSearch(name, space, start, end, place, comment);
 		LocalDate nowDate = LocalDate.now();
-
+		System.out.println(logId);
 		model.addAttribute("nowDate", nowDate);
 		model.addAttribute("bkname", name);
 		model.addAttribute("space", space);
@@ -234,6 +238,7 @@ public class FudoController {
 		model.addAttribute("place", place);
 		model.addAttribute("comment", comment);
 		model.addAttribute("dbList", list);
+		model.addAttribute("logId", logId);
 		return "merchantsearch";
 	}
 
@@ -241,7 +246,7 @@ public class FudoController {
 	@RequestMapping("/sort")
 	public String sort(@RequestParam("sort") String sort, @RequestParam("bkname") String name,
 			@RequestParam("space") String space, @RequestParam("start") Integer start,
-			@RequestParam("end") Integer end, @RequestParam("place") String place,
+			@RequestParam("end") Integer end, @RequestParam("place") String place,@RequestParam("logId") String logId,
 
 			@RequestParam("comment") String comment, @RequestParam("type") String type, Model model) {
 		List<Entity> list = dao.getSort(sort, name, space, start, end, place, comment);
@@ -261,6 +266,7 @@ public class FudoController {
 		model.addAttribute("end", end);
 		model.addAttribute("place", place);
 		model.addAttribute("comment", comment);
+		model.addAttribute("logId", logId);
 
 		if (type.equals("customer")) {
 			return "customersearch";
@@ -270,16 +276,18 @@ public class FudoController {
 
 	//削除
 	@RequestMapping("/del/{id}")
-	public String destory(@PathVariable Long id) {
+	public String destory(@PathVariable Long id,@RequestParam("logId") String logId, Model model) {
 		dao.deleteBKN(id);
-		return "redirect:/viewhome";
+		model.addAttribute("logId", logId);
+		return "redirect:/viewhome?logId=" + logId;
 	}
 
 	//編集画面の表示
 	@RequestMapping("/edithome/{id}")
-	public String editView(@PathVariable Long id, Model model) {
+	public String editView(@PathVariable Long id,@RequestParam("logId") String logId, Model model) {
 		List<Entity> list = dao.getOne(id);
 		Entity entity = list.get(0);
+		model.addAttribute("logId", logId);
 		model.addAttribute("entity", entity);
 		model.addAttribute("title", "編集ページ");
 
@@ -288,7 +296,7 @@ public class FudoController {
 
 	//更新
 	@RequestMapping("/edit/{id}/exe")
-	public String editExe(@PathVariable Long id, Model model, Input input) {
+	public String editExe(@PathVariable Long id,@RequestParam("logId") String logId, Model model, Input input) {
 		Entity entform = new Entity();
 		System.out.println(input.getName());
 		System.out.println(input.getSpace());
@@ -303,25 +311,28 @@ public class FudoController {
 		entform.setComment(input.getComment());
 
 		dao.updateSample(id, entform);
+		model.addAttribute("logId", logId);
 
-		return "redirect:/viewhome";
+		return "redirect:/viewhome?logId=" + logId;
 	}
 
 	//	⑦--------------------------------------------------------------------------------------------------------------
 
 	@RequestMapping("/customermenu")
-	public String customermenu(Model model) {
+	public String customermenu(@RequestParam("logId") String logId,Model model) {
+		model.addAttribute("logId", logId);
 		return "customermenu";
 	}
 
 	//	⑧--------------------------------------------------------------------------------------------------------------
 	@RequestMapping("/viewhome2")
-	public String viewhome2(Input input, Model model) {
+	public String viewhome2(@RequestParam("logId") String logId,Input input, Model model) {
+		model.addAttribute("logId", logId);
 		return "viewhome2";
 	}
 
 	@RequestMapping("/customersearch")
-	public String Search2(@RequestParam("bkname") String name, @RequestParam("space") String space,
+	public String Search2(@RequestParam("logId") String logId,@RequestParam("bkname") String name, @RequestParam("space") String space,
 			@RequestParam("start") Integer start, @RequestParam("end") Integer end,
 			@RequestParam("place") String place, @RequestParam("comment") String comment, Model model) {
 		System.out.println(comment);
@@ -336,6 +347,7 @@ public class FudoController {
 		model.addAttribute("place", place);
 		model.addAttribute("comment", comment);
 		model.addAttribute("dbList", list);
+		model.addAttribute("logId", logId);
 		return "customersearch";
 	}
 

@@ -13,7 +13,8 @@
 <header>
 	<div class="logo">
 			<h1>
-				<a href="/customermenu"><img src="/1031.png"></a>
+        <a th:href="@{/customermenu(logId=${logId})}"><img src="/1031.png"></a>
+
 			</h1>
 			</div>
 	<nav class="fnavi">
@@ -140,10 +141,12 @@
 			<br><br>
 			<p>
 				<input type="submit" value="検索" class="button0">
+				<input type="hidden" name="logId" th:value="*{logId}">
 			</p>
 		</form>
 		<form th:action="@{/customermenu}">
 			<input type="submit" value="メニューへ戻る" class="button0">
+			<input type="hidden" name="logId" th:value="*{logId}">
 		</form><br>
 	</div>
 	<br><br>
