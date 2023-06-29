@@ -8,20 +8,24 @@
 	<link rel="stylesheet" th:href="@{/search.css}">
 	<title>物件情報検索</title>
 	<meta charset="utf-8" />
+	<!-- jQuery本体↓ -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- jQueryが書いてあるファイル↓ -->
+	<script src="search.js"></script>
 </head>
 
 <header>
 	<div class="logo">
-			<h1>
-        <a th:href="@{/customermenu(logId=${logId})}"><img src="/1031.png"></a>
+		<h1>
+			<a th:href="@{/customermenu(logId=${logId})}"><img src="/1031.png"></a>
 
-			</h1>
-			</div>
+		</h1>
+	</div>
 	<nav class="fnavi">
 		<ul>
 			<li><a th:href="@{/gomo}">ミニゲーム</a></li>
 			<li><a href="intro">企業情報</a></li>
-					<li><a href="http://localhost:8080/news#olr">お知らせ</a></li>
+			<li><a href="http://localhost:8080/news#olr">お知らせ</a></li>
 			<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
 			<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
 		</ul>
@@ -150,6 +154,7 @@
 		</form><br>
 	</div>
 	<br><br>
+	<p class="top-button2">↑</p>
 	<footer>
 		<p>copyright 一人暮らしの家探し 2023</p>
 	</footer>

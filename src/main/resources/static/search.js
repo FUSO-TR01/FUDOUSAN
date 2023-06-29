@@ -3,6 +3,7 @@ $(function() {
 	var btn = $('.StickyButton1');
 	var btn2 = $('.StickyButton2');
 	var topbtn = $('.top-button');
+	var topbtn2 = $('.top-button2');
 
 	//スクロールしてページトップから400に達したらボタンを表示
 	$(window).on('load scroll', function() {
@@ -29,6 +30,14 @@ $(function() {
 		}
 	});
 
+	$(window).on('load scroll', function() {
+		if ($(this).scrollTop() > 400) {
+			topbtn2.addClass('active');
+		} else {
+			topbtn2.removeClass('active');
+		}
+	});
+
 
 	//スクロールしてトップへ戻る
 	topbtn.on('click', function() {
@@ -37,6 +46,11 @@ $(function() {
 		});
 	});
 
+	topbtn2.on('click', function() {
+		$('body,html').animate({
+			scrollTop: 0
+		});
+	});
 
 });
 

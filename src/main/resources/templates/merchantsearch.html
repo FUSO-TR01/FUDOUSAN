@@ -116,17 +116,17 @@
 		</div>
 
 		<br>
-		<p class="top-button">トップへ戻る</p>
+		<p class="top-button">↑</p>
 
 		<br>
 		<form th:action="@{/viewhome}">
-			<input type="submit" value="一覧へ戻る" class="StickyButton1">
+			<input type="submit" value="一覧へ" class="StickyButton1">
 			<input type="hidden" name="logId" th:value="*{logId}">
 		</form>
 
 		<br>
 		<form th:action="@{/merchant}">
-			<input type="submit" value="メニューへ戻る" class="StickyButton2">
+			<input type="submit" value="メニュー" class="StickyButton2">
 			<input type="hidden" name="logId" th:value="*{logId}">
 		</form>
 
