@@ -9,12 +9,6 @@ body {
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
-html, body {
-  margin: 0;
-  background-color: #FFFFFF;
-}
-
 .stage {
   display: flex;
   flex-wrap: wrap;
@@ -22,7 +16,8 @@ html, body {
   width: 404px;
   height: 404px;
   background-color: #008000;
-  align-items: center
+/*  align-items: center;*/
+   justify-content: center;
 }
 
 .square {
@@ -31,7 +26,7 @@ html, body {
   height: 50px;
   border: solid black;
   border-width: 0 4px 4px 0;
-  cursor: pointer;;
+  cursor: pointer;
   display: flex;
   justify-content: center;
 }
@@ -77,6 +72,7 @@ html, body {
 
 #square-template {
   display: none;
+  
 } 
 /*ボタン（imputタグ用）-----------------------------------------------------------------------*/
 .button019{
@@ -114,7 +110,7 @@ header {
 	display: flex;
 	align-items: center;/*フレックスボックスレイアウト作成*/
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);/*影の追加*/
-	z-index:10000;/*最上面に表示*/
+	z-index:90000;/*最上面に表示*/
 }
 /*ヘッタータイトル*/
 h1 {
@@ -181,6 +177,7 @@ footer {
 	text-align: center;
 	padding: 10px; /*内部余白の設定*/
     bottom: 0;
+    z-index:10000;/*最上面に表示*/
 }
 /*ロゴの設定--------------------------------------------------------------------------------*/
 .logo {
@@ -196,4 +193,8 @@ footer {
 .label {
 	display: inline-block;
 	text-align: left;
+}
+table{
+	display: flex;
+	text-align: center;
 }
