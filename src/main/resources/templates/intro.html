@@ -6,61 +6,65 @@
 <head>
 	<link rel="icon" href="/1031.png">
 	<meta charset="UTF-8">
-	<title>HOME</title>
+	<title>企業情報</title>
 	<link rel="stylesheet" href="form.css" media="all" />
 	<link rel="stylesheet" th:href="@{/style-n.css}">
+	<link rel="stylesheet" th:href="@{/search.css}">
+	<link rel="stylesheet" th:href="@{/intro.css}">
 </head>
 
 <body>
 	<div class="footerFixed">
 		<header>
 			<div class="logo">
-			<h1>
-				<a href="/home"><img src="/1031.png"></a>
-			</h1>
+				<h1>
+					<a href="/home"><img src="/1031.png"></a>
+				</h1>
 			</div>
 			<nav class="fnavi">
 				<ul>
 					<li><a th:href="@{/gomo}">ミニゲーム</a></li>
-					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>
+<!--					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
 					<li><a href="#">企業情報</a></li>
 					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
 				</ul>
 			</nav>
 		</header>
 		<br>
-		<h1>グループ情報</h1>
-		<br>
-		<div class="kaisya">
-		<img id="photo" src="/kaisya.png" width="70%">
-		</div>
-		<div class="contact">
-			<table class="contact-table">
-				<tr>
-					<th class="contact-item">会社名</th>
-					<td class="contact-body">グループ１</td>
-				</tr>
-				<tr>
-					<th class="contact-item">創業</th>
-					<td class="contact-body">2023年（昭和5年）6月
-				</tr>
-				<tr>
-					<th class="contact-item">設立</th>
-					<td class="contact-body">2023年（昭和5年）6月</td>
-				</tr>
-				<tr>
-					<th class="contact-item">資本金</th>
-					<td class="contact-body">0円</td>
-				</tr>
-				<tr>
-					<th class="contact-item">連結売上高</th>
-					<td class="contact-body">2023年6月23日現在<br>0円</td>
-				</tr>
-				<tr>
-					<th class="contact-item">グループ従業員数</th>
-					<td class="contact-body">2023年6月23日現在<br>4人</td>
-				</tr>
-			</table>
+		<div class="SearchBox">
+			<h2 class="kyocho">グループ情報</h2>
+			<br>
+			<div class="kaisya">
+				<img id="photo" src="/kaisya.png" width="70%">
+			</div>
+			<div class="intro">
+				<table class="intro-table">
+					<tr>
+						<th class="intro-item">会社名</th>
+						<td class="intro-body">グループ１</td>
+					</tr>
+					<tr>
+						<th class="intro-item">創業</th>
+						<td class="intro-body">2023年（令和5年）6月
+					</tr>
+					<tr>
+						<th class="intro-item">設立</th>
+						<td class="intro-body">2023年（令和5年）6月</td>
+					</tr>
+					<tr>
+						<th class="intro-item">資本金</th>
+						<td class="intro-body">0円</td>
+					</tr>
+					<tr>
+						<th class="intro-item">連結売上高</th>
+						<td class="intro-body">2023年6月23日現在<br>0円</td>
+					</tr>
+					<tr>
+						<th class="intro-item">グループ従業員数</th>
+						<td class="intro-body">2023年6月23日現在<br>4人</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 	</div>
 </body>

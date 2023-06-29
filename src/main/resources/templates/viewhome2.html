@@ -6,25 +6,28 @@
 	<link rel="stylesheet" th:href="@{/style-o.css}">
 	<link rel="stylesheet" th:href="@{/style-n.css}">
 	<link rel="stylesheet" th:href="@{/search.css}">
-	<title>物件情報一覧 - 一人暮らしの家探し</title>
+	<title>物件情報検索</title>
 	<meta charset="utf-8" />
 </head>
 
 <header>
-	<h1>
-		<a href="/customermenu">一人暮らしの家探し</a>
-	</h1>
+	<div class="logo">
+			<h1>
+				<a href="/home"><img src="/1031.png"></a>
+			</h1>
+			</div>
 	<nav class="fnavi">
 		<ul>
-			<li><a href="#">企業情報</a></li>
-			<li><a href="#">お知らせ</a></li>
+			<li><a th:href="@{/gomo}">ミニゲーム</a></li>
+			<li><a href="intro">企業情報</a></li>
+			<li><a href="news.html">お知らせ</a></li>
 			<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+			<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
 		</ul>
 	</nav>
 </header>
 
 <body>
-	<br><br><br><br><br>
 	<div class="ConfirmBox">
 		<h1 class="kyocho">物件情報検索</h1>
 		<form method="get" action="/customersearch">

@@ -1,3 +1,11 @@
+/*ボディの設定-----------------------------------------------------------------------*/
+body {
+	background-color: #f0f0f0;
+	margin: 0;/*要素の外側の余白の幅の設定*/
+	padding: 0;/*要素の内側の余白の幅の設定*/
+	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+}
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -14,6 +22,7 @@ html, body {
   width: 404px;
   height: 404px;
   background-color: #008000;
+  align-items: center
 }
 
 .square {
@@ -23,6 +32,8 @@ html, body {
   border: solid black;
   border-width: 0 4px 4px 0;
   cursor: pointer;;
+  display: flex;
+  justify-content: center;
 }
 
 .square:nth-child(-n + 8) {
@@ -49,6 +60,7 @@ html, body {
   width: 42px;
   height: 42px;
   border-radius: 21px;
+  text-align: center;
 }
 
 .stone[data-state="0"] {
@@ -66,3 +78,112 @@ html, body {
 #square-template {
   display: none;
 } 
+/*ボタン（imputタグ用）-----------------------------------------------------------------------*/
+.button019{
+	background: #5c5c5c;
+	border-radius: 3px;
+	position: relative;
+	display: flex;
+	/*	justify-content: space-around;*/
+	justify-content: center;
+/*	align-items: center;*/
+	margin: 0 auto;
+	max-width: 280px;
+	padding: 10px 25px;
+	color: white;
+	transition: 0.3s ease-in-out;
+	font-weight: 500;
+	text-decoration: none;
+	border: 3px solid #5c5c5c;
+	font-weight: normal;
+}
+
+/*ボタンの動き*/
+.button019:hover {
+	background: #fff;
+	color: #5c5c5c;
+	border: 3px solid #5c5c5c;
+}
+/*ヘッター-----------------------------------------------------------------------*/
+header {
+	padding: 8px 4% 0px;
+	position: fixed;/*要素の場所の固定*/
+	top: 0;
+	width: 100%;/*幅の設定*/
+	background-color: cadetblue;
+	display: flex;
+	align-items: center;/*フレックスボックスレイアウト作成*/
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);/*影の追加*/
+	z-index:10000;/*最上面に表示*/
+}
+/*ヘッタータイトル*/
+h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 30px;
+}
+
+/*ヘッターaタグ*/
+a {
+	text-decoration: none;/*装飾の削除*/
+	color: white;
+}
+/*ヘッターnavタグ*/
+nav {
+	margin: 0 0 0 auto;/*要素の外側の余白の幅の設定*/
+}
+/*ヘッターulタグ*/
+ul {
+	list-style: none;/*どのように並べるのか*/
+	margin: 0;
+	display: flex;
+}
+/*ヘッターliタグ*/
+li {
+	margin: 0 0 0 15px;
+	font-size: 20px;
+	font-weight: bold;
+}
+/*文字線*/
+.fnavi li a {
+	position: relative;
+}
+.fnavi li a:hover {
+	color: #3c6566;
+}
+.fnavi li a::after {
+	content: '';
+	/*絶対配置で線の位置を決める*/
+	position: absolute;
+	bottom: 0;
+	left: 10%;
+	/*線の形状*/
+	width: 80%;
+	height: 2px;
+	background: #3c6566;
+	/*アニメーションの指定*/
+	transition: all .3s;
+	transform: scale(0, 1);
+	/*X方向0、Y方向1*/
+	transform-origin: left top;
+	/*左上基点*/
+}
+.fnavi li a:hover::after {
+	transform: scale(1, 1);
+	/*X方向にスケール拡大*/
+}
+/*ロゴの設定--------------------------------------------------------------------------------*/
+.logo {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.logo img {
+  width: 85px; /* ロゴの幅 */
+  height: auto; /* ロゴの高さを自動調整 */
+}
+/*チェックボックスをそろえる*/
+.label {
+	display: inline-block;
+	text-align: left;
+}
