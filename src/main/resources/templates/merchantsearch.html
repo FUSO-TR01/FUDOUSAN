@@ -8,6 +8,10 @@
 	<title>検索結果</title>
 	<link rel="stylesheet" th:href="@{/style-n.css}">
 	<link rel="stylesheet" th:href="@{/search.css}">
+	<!-- jQuery本体↓ -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- jQueryが書いてあるファイル↓ -->
+	<script src="search.js"></script>
 </head>
 
 <body>
@@ -16,14 +20,14 @@
 		<header>
 			<div class="logo">
 
-			<h1>
-				<a href="/merchant"><img src="/1031.png"></a>
-			</h1>
+				<h1>
+					<a href="/merchant"><img src="/1031.png"></a>
+				</h1>
 			</div>
 			<nav class="fnavi">
 				<ul>
 					<li><a th:href="@{/gomo}">ミニゲーム</a></li>
-<!--					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
+					<!--					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
 					<li><a href="intro">企業情報</a></li>
 					<li><a href="news.html" th:href="@{/news}">お知らせ</a></li>
 					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
@@ -42,7 +46,7 @@
 					<td th:text="${sort}" class="kyocho3"><label></label></td>
 				</tr>
 			</table>
-<!--			<label th:text="${sort}" class="kyocho3"></label>-->
+			<!--			<label th:text="${sort}" class="kyocho3"></label>-->
 
 			<form method="get" action="#" th:action="@{/sort}">
 				<input type="hidden" name="bkname" th:value="*{bkname}">
@@ -101,10 +105,11 @@
 				</tr>
 			</table>
 
-<br>
+			<br>
 
 		</div>
-		
+		<br>
+		<p class="top-button">トップへ戻る</p>
 		<br>
 		<form th:action="@{/viewhome}">
 			<input type="submit" value="一覧へ戻る" class="StickyButton1">

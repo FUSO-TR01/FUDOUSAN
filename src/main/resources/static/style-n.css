@@ -87,8 +87,8 @@ li {
 /*-------------------------------------------------------------------------*/
 /*詳細タイトル*/
 .kyocho2 {
-/*	background-color: cadetblue;*/
-/*	border-radius: 20px;*/
+	/*	background-color: cadetblue;*/
+	/*	border-radius: 20px;*/
 	font-weight: bold;
 	font-size: 18px;
 	color: #383838;
@@ -97,7 +97,7 @@ li {
 	word-wrap: break-word;
 	width: 400px;
 	margin: 0 auto;
-	 border-bottom: solid 3px #748ca5;
+	border-bottom: solid 3px #748ca5;
 }
 
 /*-------------------------------------------------------------------------*/
@@ -370,8 +370,8 @@ input[type=text] {
 	width: 500px;
 	height: 45px;
 	/*font-size:0.6em;*/
-/*	margin: 0 auto;*/
-margin-left: 10px;
+	/*	margin: 0 auto;*/
+	margin-left: 10px;
 }
 
 /*-------------------------------------------------------------------------*/
@@ -448,7 +448,7 @@ margin-left: 10px;
 
 
 
-.selectbox-001 option{
+.selectbox-001 option {
 	background-color: white;
 }
 
@@ -463,23 +463,24 @@ margin-left: 10px;
 
 
 .RentStyle {
-   display: flex;
-/*   flex-wrap: wrap;*/
-/*   justify-content: center;*/
-/*   margin-top: 17%;*/
-margin-left: 10px;
+	display: flex;
+	/*   flex-wrap: wrap;*/
+	/*   justify-content: center;*/
+	/*   margin-top: 17%;*/
+	margin-left: 10px;
 
 }
 
 .RentStyle1 {
-/*   opacity: 0.5; */
-/*   color: #000;*/
-   margin-right: 10px;
+	/*   opacity: 0.5; */
+	/*   color: #000;*/
+	margin-right: 10px;
 }
+
 .RentStyle2 {
-/*   opacity: 0.5; */
-/*   color: #000;*/
-   margin-left: 10px;
+	/*   opacity: 0.5; */
+	/*   color: #000;*/
+	margin-left: 10px;
 }
 
 /*.RentStyle1,.RentStyle2::before,*/
@@ -509,7 +510,8 @@ margin-left: 10px;
 /*	border-right: 3px solid #fff;*/
 /*}*/
 
-.RentStyle1 select,.RentStyle2 select {
+.RentStyle1 select,
+.RentStyle2 select {
 	appearance: none;
 	min-width: 180px;
 	height: 2.8em;
@@ -526,15 +528,16 @@ margin-left: 10px;
 /*	outline: 2px solid #5c5c5c;*/
 /*}*/
 
-.RentStyle1 option,.RentStyle2 option{
+.RentStyle1 option,
+.RentStyle2 option {
 	background-color: white;
 }
 
 /*-------------------------------------------------------------------------*/
 /*テキストボックスの行間をあける*/
-.TableSpace{
-/*	border-collapse: separate;*/
-    border-spacing: 0px 30px;
+.TableSpace {
+	/*	border-collapse: separate;*/
+	border-spacing: 0px 30px;
 }
 
 /*-------------------------------------------------------------------------*/
@@ -559,9 +562,17 @@ margin-left: 10px;
 	border: 3px solid #5c5c5c;
 	font-weight: normal;
 	font-size: 15px;
-	
-	 right: 10px;
-	   bottom: 65px; 
+	right: 10px;
+	bottom: 65px;
+	/*デフォルトで非表示にする*/
+	opacity: 0;
+	visibility: hidden;
+}
+
+/*このクラスが付与されると表示する*/
+.active {
+	opacity: 1;
+	visibility: visible;
 }
 
 .StickyButton1:hover {
@@ -590,9 +601,11 @@ margin-left: 10px;
 	border: 3px solid #5c5c5c;
 	font-weight: normal;
 	font-size: 15px;
-	
-	 right: 10px;
-	   bottom: 10px; 
+	right: 10px;
+	bottom: 10px;
+	/*デフォルトで非表示にする*/
+	opacity: 0;
+	visibility: hidden;
 }
 
 .StickyButton2:hover {
@@ -600,23 +613,62 @@ margin-left: 10px;
 	color: #5c5c5c;
 	border: 3px solid #5c5c5c;
 }
+
+/*トップへ戻るボタン*/
+.top-button {
+	width: 300px;
+	background: #5c5c5c;
+	border-radius: 3px;
+	position: fixed;
+	display: block;
+	/*	justify-content: space-around;*/
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 280px;
+	padding: 10px 25px;
+	color: white;
+	transition: 0.3s ease-in-out;
+	font-weight: 500;
+	text-decoration: none;
+	border: 3px solid #5c5c5c;
+	font-weight: normal;
+	font-size: 15px;
+	right: 10px;
+	bottom: 120px;
+	/*デフォルトで非表示にする*/
+	opacity: 0;
+	visibility: hidden;
+}
+
+.top-button:hover {
+	background: #fff;
+	color: #5c5c5c;
+	border: 3px solid #5c5c5c;
+}
+
 /*写真の設定--------------------------------------------------------------------------------*/
 #photo {
-		position: center;
-		top: 20px;
-		right: 20px;
-	}
+	position: center;
+	top: 20px;
+	right: 20px;
+}
+
 .kaisya {
 	text-align: center;
-    padding: 1px;
+	padding: 1px;
 }
+
 /*ロゴの設定--------------------------------------------------------------------------------*/
 .logo {
-  float: left;
-  margin: 0;
-  padding: 0;
+	float: left;
+	margin: 0;
+	padding: 0;
 }
+
 .logo img {
-  width: 85px; /* ロゴの幅 */
-  height: auto; /* ロゴの高さを自動調整 */
+	width: 85px;
+	/* ロゴの幅 */
+	height: auto;
+	/* ロゴの高さを自動調整 */
 }
