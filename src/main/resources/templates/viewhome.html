@@ -246,6 +246,14 @@
 	<br><br>
 	
 		<p class="top-button2">↑</p>
+
+
+
+		<br>
+		<form th:action="@{/merchant}">
+			<input type="submit" value="メニュー" class="StickyButton2">
+			<input type="hidden" name="logId" th:value="*{logId}">
+		</form>
 	<footer>
 		<p>copyright 一人暮らしの家探し 2023</p>
 	</footer>
