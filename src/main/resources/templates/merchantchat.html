@@ -133,6 +133,28 @@
 			iframe.src = ""; // 空白に設定して表示をクリア
 		}
 	</script>
+	
+		<script>
+		function submitRedirectForm() {
+			redirectForm.submit();
+		}
+		window.addEventListener('DOMContentLoaded', function () {
+
+			// フォーカス状態になったとき
+			window.addEventListener('focus', function () {
+				var datetime = new Date();
+				console.log("focus in " + datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds());
+				submitRedirectForm()
+			});
+
+			// フォーカスが解除されたとき
+			window.addEventListener('blur', function () {
+				var datetime = new Date();
+				console.log("focus out " + datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds());
+			});
+
+		});
+	</script>
 </body>
 
 </html>
