@@ -191,7 +191,27 @@
 			db.ref("message").push(input.value)
 		}
 	</script>
+	<script>
+		function submitRedirectForm() {
+			redirectForm.submit();
+		}
+		window.addEventListener('DOMContentLoaded', function () {
 
+			// フォーカス状態になったとき
+			window.addEventListener('focus', function () {
+				var datetime = new Date();
+				console.log("focus in " + datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds());
+				submitRedirectForm()
+			});
+
+			// フォーカスが解除されたとき
+			window.addEventListener('blur', function () {
+				var datetime = new Date();
+				console.log("focus out " + datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds());
+			});
+
+		});
+	</script>
 	<br><br><br>
 	<!--<footer>
 		<p>copyright 一人暮らしの家探し 2023</p>

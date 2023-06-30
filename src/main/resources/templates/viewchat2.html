@@ -18,6 +18,7 @@
 		<label th:text="${toname}" class="Receiver"></label>
 	</h1>
 </header>
+
 <body>
 	<!--	<label th:text="${toname}" class="Receiver"></label>-->
 	<form id="redirectForm" method="get" action="/displaychat">
@@ -30,9 +31,9 @@
 	</form>
 	<div class="ChatTable">
 		<table id="chatTable" width="70%" border="1" class="ChatTable">
-<!--			<tr>-->
-<!--				<th width="50%" colspan="2" class="fixed01">チャット</th>-->
-<!--			</tr>-->
+			<!--			<tr>-->
+			<!--				<th width="50%" colspan="2" class="fixed01">チャット</th>-->
+			<!--			</tr>-->
 			<tr th:each="res : ${chatList}">
 				<td th:text="${res.chat}" class="ChatItem2" width="50%"></td>
 				<td th:text="${res.chatC}" class="ChatItem" width="50%"></td>
@@ -47,12 +48,27 @@
 		const chatTable = document.getElementById('chatTable');
 		let previousChatData = '';
 
+	</script>
+	<script>
 		function submitRedirectForm() {
 			redirectForm.submit();
 		}
-		setInterval(submitRedirectForm, 5000); // 2秒ごとにフォームをサブミット
+		window.addEventListener('DOMContentLoaded', function () {
 
+			// フォーカス状態になったとき
+			window.addEventListener('focus', function () {
+				var datetime = new Date();
+				console.log("focus in " + datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds());
+				submitRedirectForm()
+			});
 
+			// フォーカスが解除されたとき
+			window.addEventListener('blur', function () {
+				var datetime = new Date();
+				console.log("focus out " + datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds());
+			});
+
+		});
 	</script>
 </body>
 
