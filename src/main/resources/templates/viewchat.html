@@ -48,7 +48,7 @@
 		const redirectForm = document.getElementById('redirectForm');
 		const chatTable = document.getElementById('chatTable');
 		let previousChatData = '';
-		//		setInterval(submitRedirectForm, 5000);  2秒ごとにフォームをサブミット
+		setInterval(submitRedirectForm, 5000);  //2秒ごとにフォームをサブミット
 
 
 		// Your web app's Firebase configuration
@@ -65,33 +65,28 @@
 		firebase.initializeApp(firebaseConfig);
 		var db = firebase.database();
 
-		db.ref("message").on("child_added", function (snapshot) {
-			var data = snapshot.val();
+		//db.ref("message").on("child_added", function (snapshot) {
+		//	var data = snapshot.val();
 
-			console.log("受信データ:", data);
-			const messageArea = document.getElementById("messageArea")
-			const div = document.createElement("div")
-			const timestamp = document.createElement("h6")
-			const message = document.createElement("h3")
-			message.innerHTML = data
+		//	console.log("受信データ:", data);
+		//	const messageArea = document.getElementById("messageArea")
+		//	const div = document.createElement("div")
+		//	const timestamp = document.createElement("h6")
+		//	const message = document.createElement("h3")
+		//	message.innerHTML = data
 			//	div.setAttribute("style", "padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px; background-color: #ffff99;")
 			//	div.appendChild(timestamp)
 			//	div.appendChild(message)
 			//	messageArea.appendChild(div)
-			submitRedirectForm()
-			if (data !== data ) {
-				submitRedirectForm()
-			}
-		});
+			//submitRedirectForm()
+			//if (data !== data ) {
+			//	submitRedirectForm()
+			//}
+			//});
 
-		//	function submitRedirectForm() {
-			//redirectForm.submit();
-		//}
-	</script>
-	<script>
-		function submitRedirectForm() {
-			redirectForm.submit();
-		}
+			function submitRedirectForm() {
+				redirectForm.submit();
+			}
 	</script>
 
 </body>
