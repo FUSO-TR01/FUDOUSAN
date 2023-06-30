@@ -55,6 +55,7 @@ INSERT INTO chat(logId, toId, chatC, chat, name, toname) VALUES
 ('test1', 'test11', 'd', '', '中條', '高橋1'),
 ('test11', 'test1', '', 'dd', '高橋1', '中條'),
 ('test12', 'test2', '', 'bb', '高橋2', '大渡');
+
 INSERT INTO nquiry (name,danjo,mail,tell,job,message,date) VALUES 
 ('山田太郎','男','0000@gmail.com','01011001010','ニート','電話がつながらない','2022-12-12'),
 ('田中一郎','男','1111@gmail.com','01011001010','ニート','扇風機の初期不良','2023-01-20'),
