@@ -118,15 +118,16 @@
 						<label><input type="checkbox" name="comment" value="コンビニあり" id="comment11"
 								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, 'コンビニあり')}">コンビニあり<br></label>
 
-						<label><input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment12"
-								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '無料Wi-Fiあり')}">無料Wi-Fiあり<br></label>
+						<label><input type="checkbox" name="comment" value="無料Wi-Fiなし" id="comment12"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '無料Wi-Fiなし')}">無料Wi-Fiなし<br></label>
 
 						<label><input type="checkbox" name="comment" value="ウォーターサーバーあり" id="comment13"
 								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, 'ウォーターサーバーあり')}">ウォーターサーバーあり<br></label>
 
 						<label><input type="checkbox" name="comment" value="窓なし" id="comment14"
 								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '窓なし')}">窓なし<br></label>
-
+						<label><input type="checkbox" name="comment" value="屋根なし" id="comment15"
+								th:checked="${entity != null && entity.comment != null && #strings.contains(entity.comment, '屋根なし')}">屋根なし<br></label>
 						<br>
 					</div>
 					<br><br>
