@@ -16,7 +16,7 @@
 		<header>
 			<div class="logo">
 				<h1>
-					<a href="/merchant"><img src="/1031.png"></a>
+					<a th:href="@{/merchant(logId=${logId})}"><img src="/1031.png"></a>
 				</h1>
 			</div>
 			<nav class="fnavi">
@@ -110,9 +110,10 @@
 						<input type="checkbox" name="comment" value="危険地帯" id="comment9">危険地帯<br>
 						<input type="checkbox" name="comment" value="物干しあり" id="comment10">物干しあり<br>
 						<input type="checkbox" name="comment" value="コンビニあり" id="comment11">コンビニあり<br>
-						<input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment12">無料Wi-Fiあり<br>
+						<input type="checkbox" name="comment" value="無料Wi-Fiあり" id="comment12">無料Wi-Fiなし<br>
 						<input type="checkbox" name="comment" value="ウォーターサーバーあり" id="comment13">ウォーターサーバーあり<br>
 						<input type="checkbox" name="comment" value="窓なし" id="comment14">窓なし<br><br>
+						<input type="checkbox" name="comment" value="屋根なし" id="comment15">屋根なし<br><br>
 						<br>
 					</div>
 					<!-- 開くボタン -->
