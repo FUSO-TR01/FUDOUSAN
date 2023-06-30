@@ -22,7 +22,6 @@
 </header>
 
 <body>
-
 	<form id="redirectForm" method="get" action="/displaychat">
 		<input type="hidden" name="Id" th:value="*{Id}">
 		<input type="hidden" name="logId" th:value="*{logId}">
@@ -31,7 +30,7 @@
 	</form>
 	<!--	<div class="ChatBack">-->
 	<div>
-		<table id="chatTable" border="1" class="ChatTable">
+		<table id="chatTable" border="1" class="ChatTable" onmousedown="on()">
 			<!--	 onmousemove="testNum()"		<tr>-->
 			<!--				<th width="50%" colspan="2" class="fixed01">チャット</th>-->
 			<!--			</tr>-->
@@ -53,6 +52,9 @@
 	<script>
 		function submitRedirectForm() {
 			redirectForm.submit();
+		}
+		function on() {
+			submitRedirectForm();
 		}
 		window.addEventListener('DOMContentLoaded', function () {
 
