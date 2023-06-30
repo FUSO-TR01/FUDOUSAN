@@ -21,7 +21,7 @@
 			<li><a th:href="@{/gomo}">ミニゲーム</a></li>
 			<li><a href="intro">企業情報</a></li>
 					<li><a href="http://localhost:8080/news#olr">お知らせ</a></li>
-			<li><a href="form.html">お問い合わせ</a></li>
+<!--			<li><a href="form.html">お問い合わせ</a></li>-->
 			<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
 		</ul>
 	</nav>
@@ -35,7 +35,7 @@
 		<br><br><br>
 		<form th:action="@{/viewhome2}">
 
-			<input type="submit" value="物件検索" class="button019">
+			<input type="submit" value="物件検索" class="button0">
 			<input type="hidden" name="logId" th:value="*{logId}">
 		</form><br>
 

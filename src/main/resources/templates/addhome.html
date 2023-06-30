@@ -23,9 +23,9 @@
 				<ul>
 					<li><a th:href="@{/gomo}">ミニゲーム</a></li>
 					<!--					<li><a href="sampleview.html" th:href="@{/sampleview}">物件探し</a></li>-->
-					<li><a href="intro">企業情報</a></li>				
+					<li><a href="intro">企業情報</a></li>
 					<li><a href="http://localhost:8080/news#olr">お知らせ</a></li>
-					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>
+					<!--					<li><a href="form.html" th:href="@{/form}">お問い合わせ</a></li>-->
 					<li><a href="home.html" th:href="@{/home}">ログアウト</a></li>
 				</ul>
 			</nav>
@@ -137,6 +137,10 @@
 							<p><input type="button" value="やめる" onclick="modalClose()" class="button02"></p>
 						</div>
 					</div>
+				</form><br>
+				<form th:action="@{/merchant}">
+					<input type="submit" value="メニューへ戻る" class="button0">
+					<input type="hidden" name="logId" th:value="*{logId}">
 				</form>
 			</div>
 			<br>
