@@ -67,6 +67,7 @@
 			window.addEventListener('blur', function () {
 				var datetime = new Date();
 				console.log("focus out " + datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds());
+				submitRedirectForm()
 			});
 
 		});
