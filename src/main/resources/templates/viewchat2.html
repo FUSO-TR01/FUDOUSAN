@@ -4,13 +4,22 @@
 <head>
 	<meta charset="utf-8" />
 	<title>HTML</title>
-
+	<link rel="stylesheet" th:href="@{/style-n.css}">
 	<link rel="stylesheet" th:href="@{/chat.css}">
-
+	<style>
+		body {
+			background-color: #ffdab9;
+			color: #000000;
+		}
+	</style>
 </head>
-
+<header>
+	<h1>
+		<label th:text="${toname}" class="Receiver"></label>
+	</h1>
+</header>
 <body>
-	<label th:text="${toname}" class="Receiver"></label>
+	<!--	<label th:text="${toname}" class="Receiver"></label>-->
 	<form id="redirectForm" method="get" action="/displaychat">
 		<p>
 			<input type="hidden" name="Id" th:value="*{Id}">
@@ -20,13 +29,16 @@
 		</p>
 	</form>
 	<div class="ChatTable">
-		<table id="chatTable" width="70%" border="1">
-			<tr>
-				<th width="50%" colspan="2" class="fixed01">チャット</th>
-			</tr>
+		<table id="chatTable" width="70%" border="1" class="ChatTable">
+<!--			<tr>-->
+<!--				<th width="50%" colspan="2" class="fixed01">チャット</th>-->
+<!--			</tr>-->
 			<tr th:each="res : ${chatList}">
-				<td th:text="${res.chat}" width="50%"></td>
-				<td th:text="${res.chatC}" width="50%"></td>
+				<td th:text="${res.chat}" class="ChatItem2" width="50%"></td>
+				<td th:text="${res.chatC}" class="ChatItem" width="50%"></td>
+			</tr>
+			<tr>
+				<td id="olr"></td>
 			</tr>
 		</table>
 	</div>
@@ -34,13 +46,13 @@
 		const redirectForm = document.getElementById('redirectForm');
 		const chatTable = document.getElementById('chatTable');
 		let previousChatData = '';
-		
+
 		function submitRedirectForm() {
 			redirectForm.submit();
 		}
 		setInterval(submitRedirectForm, 5000); // 2秒ごとにフォームをサブミット
-		
-		
+
+
 	</script>
 </body>
 
