@@ -29,11 +29,19 @@
 </header>-->
 
 <body>
-	
+
 	<table>
 		<tr>
-			<th width="30%">
+			<th width="23%">
 				<table border="1" class="NameTable" width="30%">
+					<tr>
+						<th>
+							<form th:action="@{/customermenu}">
+								<input type="submit" value="メニューへ戻る" class="button0">
+								<input type="hidden" name="logId" th:value="*{logId}">
+							</form>
+						</th>
+					</tr>
 					<tr>
 						<th>
 							<form method="get" action="/memsearch" class="SearchBox">
@@ -50,7 +58,7 @@
 					<tr th:each=" res : ${dbList}">
 						<td>
 							<form th:action="@{/startchat}">
-								<input type="submit" th:value="${res.name}" onclick="displayIframe()">
+								<input type="submit" th:value="${res.name}" onclick="displayIframe()"  class="name-button">
 								<input type="hidden" name="Id" th:value="${res.id}">
 								<input type="hidden" name="logId" th:value="*{logId}">
 								<input type="hidden" name="memname" th:value="*{memname}">
@@ -85,49 +93,49 @@
 		<input type="submit" value="送信" class="SendButton" id="submitButton" style="display: none;"><br>
 	</form>
 
-<!--	<br>-->
-<!--	<h1>ご担当者様とチャット</h1>-->
-<!--	<br>-->
-<!--	<form method="get" action="/memsearch" class="SearchBox">-->
-<!--		<input type="hidden" name="logId" th:value="*{logId}">-->
-<!--		<input type="text" name="memname">-->
-<!--		<input type="hidden" name="tp" th:value="*{tp}">-->
-<!--		<input type="submit" value="検索" class="button">-->
-<!--	</form>-->
+	<!--	<br>-->
+	<!--	<h1>ご担当者様とチャット</h1>-->
+	<!--	<br>-->
+	<!--	<form method="get" action="/memsearch" class="SearchBox">-->
+	<!--		<input type="hidden" name="logId" th:value="*{logId}">-->
+	<!--		<input type="text" name="memname">-->
+	<!--		<input type="hidden" name="tp" th:value="*{tp}">-->
+	<!--		<input type="submit" value="検索" class="button">-->
+	<!--	</form>-->
 
-<!--	<table border="1" class="NameTable">-->
-<!--		<tr>-->
-<!--			<th>name</th>-->
-<!--		</tr>-->
-<!--		<tr th:each=" res : ${dbList}">-->
-<!--			<td>-->
-<!--				<form th:action="@{/startchat}">-->
-<!--					<input type="submit" th:value="${res.name}">-->
-<!--					<input type="hidden" name="Id" th:value="${res.id}">-->
-<!--					<input type="hidden" name="logId" th:value="*{logId}">-->
-<!--					<input type="hidden" name="memname" th:value="*{memname}">-->
-<!--					<input type="hidden" name="tp" th:value="*{tp}">-->
-<!--				</form>-->
-<!--			</td>-->
-<!--		</tr>-->
+	<!--	<table border="1" class="NameTable">-->
+	<!--		<tr>-->
+	<!--			<th>name</th>-->
+	<!--		</tr>-->
+	<!--		<tr th:each=" res : ${dbList}">-->
+	<!--			<td>-->
+	<!--				<form th:action="@{/startchat}">-->
+	<!--					<input type="submit" th:value="${res.name}">-->
+	<!--					<input type="hidden" name="Id" th:value="${res.id}">-->
+	<!--					<input type="hidden" name="logId" th:value="*{logId}">-->
+	<!--					<input type="hidden" name="memname" th:value="*{memname}">-->
+	<!--					<input type="hidden" name="tp" th:value="*{tp}">-->
+	<!--				</form>-->
+	<!--			</td>-->
+	<!--		</tr>-->
 
-<!--	</table><br>-->
-<!--	<iframe id="frametarget" src="" width="100%" height="400"></iframe>-->
+	<!--	</table><br>-->
+	<!--	<iframe id="frametarget" src="" width="100%" height="400"></iframe>-->
 
-<!--	<input type="text" id="mess">-->
-<!--	<button type="button" onclick="sendData()">データを送信</button>-->
-<!--	<form method="get" action="/addchat">-->
-<!--		<p>-->
-<!--			<textarea id="message" name="Message" rows="10" th:text="*{Message}" placeholder="メッセージを入力"-->
-<!--				class="textarea"></textarea><br>-->
-<!--			<input type="hidden" name="Id" th:value="*{Id}">-->
-<!--			<input type="hidden" name="logId" th:value="*{logId}">-->
-<!--			<input type="hidden" name="memname" th:value="*{memname}">-->
-<!--			<input type="hidden" name="tp" th:value="*{tp}">-->
-<!--		</p>-->
-<!--		<input type="submit" value="送信" class="SendButton" id="submitButton" style="display: none;"-->
-<!--			onclick="sendData()">-->
-<!--	</form>-->
+	<!--	<input type="text" id="mess">-->
+	<!--	<button type="button" onclick="sendData()">データを送信</button>-->
+	<!--	<form method="get" action="/addchat">-->
+	<!--		<p>-->
+	<!--			<textarea id="message" name="Message" rows="10" th:text="*{Message}" placeholder="メッセージを入力"-->
+	<!--				class="textarea"></textarea><br>-->
+	<!--			<input type="hidden" name="Id" th:value="*{Id}">-->
+	<!--			<input type="hidden" name="logId" th:value="*{logId}">-->
+	<!--			<input type="hidden" name="memname" th:value="*{memname}">-->
+	<!--			<input type="hidden" name="tp" th:value="*{tp}">-->
+	<!--		</p>-->
+	<!--		<input type="submit" value="送信" class="SendButton" id="submitButton" style="display: none;"-->
+	<!--			onclick="sendData()">-->
+	<!--	</form>-->
 
 	<script>
 		const messageInput = document.getElementById('message');
@@ -177,7 +185,7 @@
 
 		firebase.initializeApp(firebaseConfig);
 		var db = firebase.database();
-		var a=0;
+		var a = 0;
 		function sendData() {
 			const input = document.getElementById("message")
 			db.ref("message").push(input.value)

@@ -38,8 +38,16 @@
 	<!--	</form>-->
 	<table>
 		<tr>
-			<th width="30%">
+			<th width="23%">
 				<table border="1" class="NameTable" width="30%">
+					<tr>
+						<th>
+							<form th:action="@{/merchant}">
+								<input type="submit" value="メニューへ戻る" class="button0">
+								<input type="hidden" name="logId" th:value="*{logId}">
+							</form>
+						</th>
+					</tr>
 					<tr>
 						<th>
 							<form method="get" action="/memsearch" class="SearchBox">
@@ -116,7 +124,7 @@
 		var tpValue = params.get("tp");
 
 		// iframeのsrcURLを再構成
-		var srcUrl = "displaychat?Id=" + IdValue + "&logId=" + logIdValue + "&memname=" + memnameValue + "&tp=" + tpValue+"#olr";
+		var srcUrl = "displaychat?Id=" + IdValue + "&logId=" + logIdValue + "&memname=" + memnameValue + "&tp=" + tpValue + "#olr";
 
 		// エラーチェック（例：必要なパラメータが存在しない場合）
 		if (IdValue && logIdValue && tpValue) {
