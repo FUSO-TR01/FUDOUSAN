@@ -268,9 +268,9 @@ fixed01:before {
 
 /*名前ボタン-------------------------------------------------------------------------*/
 .name-button {
-	width: 150px;
-	background: #5c5c5c;
-	border-radius: 60px;
+	width: 70px;
+	background: cadetblue;
+	border-radius: 10px;
 	position: relative;
 	display: flex;
 	/*	justify-content: space-around;*/
@@ -283,8 +283,8 @@ fixed01:before {
 	transition: 0.3s ease-in-out;
 	font-weight: 500;
 	text-decoration: none;
-	border: 3px solid #5c5c5c;
-	font-weight: normal;
+	border: 3px solid cadetblue;
+	font-weight: bold;
 	font-size: 15px;
 }
 
@@ -310,6 +310,6 @@ fixed01:before {
 
 .name-button:hover {
 	background: #fff;
-	color: #5c5c5c;
-	border: 3px solid #5c5c5c;
+	color: cadetblue;
+	border: 3px solid cadetblue;
 }
