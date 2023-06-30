@@ -268,7 +268,7 @@ fixed01:before {
 
 /*名前ボタン-------------------------------------------------------------------------*/
 .name-button {
-	width: 70px;
+	width: 100px;
 	background: cadetblue;
 	border-radius: 10px;
 	position: relative;
