@@ -28,17 +28,13 @@ INSERT INTO home (name,space,money,address,comment) VALUES
 
 
 INSERT INTO login(logId,pass,type,name) VALUES 
-('ID','Password','業者名','名前'),
-('test11','test11','高橋不動産','高橋1'),
-('a','a','a','a'),
-('test12','test12','高橋商事','高橋2');
+('test11','test11','高橋不動産','高橋　吏音1'),
+('test12','test12','高橋商事','高橋　吏音2');
 
 INSERT INTO loginC(logId,pass,name) VALUES 
-('ID','Password','名前'),
-('test1','test1','中條'),
-('test2','test2','大渡'),
-('i','i','i'),
-('test3','test3','中島');
+('test1','test1','中條　太喜'),
+('test2','test2','大渡　郁佳'),
+('test3','test3','中島　実保');
 
 INSERT INTO chat(logId, toId, chatC, chat, name, toname) VALUES
 ('test1', 'test11', 'a', '', '中條', '高橋1'),
